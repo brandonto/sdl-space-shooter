@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "Application.h"
+#include "ApplicationStateManager.h"
+
 
 /*******************************************************************//*
  * Implementation of the Application class.
@@ -11,15 +13,15 @@
  * @modified    2014-08-05
  *********************************************************************/
 
-//
 // Constructor
-//
 Application::Application()
 {
     gameWindow = NULL;
     gameScreen = NULL;
+    applicationStateManager = NULL;
 }
 
+// Destructor
 Application::~Application()
 {
     SDL_DestroyWindow(gameWindow);
@@ -27,10 +29,24 @@ Application::~Application()
 
 int Application::start()
 {
+    if (!initialize())
+    {
+        return -1;
+    }
+
+    //SDL_FillRect(gameScreen, NULL, SDL_MapRGB(gameScreen->format, 0xFF, 0xFF, 0xFF));
+    //SDL_UpdateWindowSurface(gameWindow);
+    //SDL_Delay(5000);
+
+    return 0;
+}
+
+bool Application::initialize()
+{
     // Initializes all SDL modules
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
-        return -1;
+        return false;
     }
 
     gameWindow = SDL_CreateWindow(
@@ -45,19 +61,12 @@ int Application::start()
     if (gameWindow == NULL)
     {
         printf("Could not create SDL_Window: %s\n", SDL_GetError());
-        return -1;
+        return false;
     }
 
     gameScreen = SDL_GetWindowSurface(gameWindow);
 
-    SDL_FillRect(gameScreen, NULL, SDL_MapRGB(gameScreen->format, 0xFF, 0xFF, 0xFF));
+    applicationStateManager = new ApplicationStateManager();
 
-    SDL_UpdateWindowSurface(gameWindow);
-
-    SDL_Delay(5000);
-
-    // Start main menu
-    //Menu menu = Menu();
-
-    return 0;
+    return true;
 }

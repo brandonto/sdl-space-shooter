@@ -2,8 +2,8 @@
     #define _APPLICATION_H_
 
 /*******************************************************************//*
- * Core Application class. Initializes and closes SDL, manages 
- * application states, and contains the main game loop.
+ * Core Application class. Initializes and closes SDL and contains the
+ * main game loop.
  *
  * @author      Brandon To
  * @version     1.0
@@ -17,6 +17,7 @@ class Application
         //Fields
         SDL_Window* gameWindow;
         SDL_Surface* gameScreen;
+        ApplicationStateManager* applicationStateManager;
 
     public:
         //Constructor
@@ -27,6 +28,7 @@ class Application
 
         //Methods
         int start();
+        bool initialize();
 };
 
 #endif

@@ -8,7 +8,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-05
+ * @modified    2014-08-06
  *********************************************************************/
 
 class ApplicationState
@@ -37,6 +37,7 @@ enum ApplicationStates
     STATE_MENU,
     STATE_GAME,
     STATE_PAUSE,
+    STATE_GAMEOVER,
     STATE_OPTIONS,
     STATE_INSTRUCTIONS,
     STATE_HIGHSCORES,
