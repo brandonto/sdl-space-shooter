@@ -8,16 +8,16 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-05
+ * @modified    2014-08-06
  *********************************************************************/
 
 class Application
 {
     private:
         //Fields
-        SDL_Window* gameWindow;
-        SDL_Surface* gameScreen;
+        WindowElements windowElements;
         ApplicationStateManager* applicationStateManager;
+        bool quit;
 
     public:
         //Constructor
@@ -29,6 +29,7 @@ class Application
         //Methods
         int start();
         bool initialize();
+        bool terminate();
 };
 
 #endif

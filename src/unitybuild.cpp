@@ -9,6 +9,7 @@
 
 #include "main.cpp"
 #include "Application.cpp"
-#include "app-states/ApplicationState.cpp"
-#include "app-states/IntroState.cpp"
-#include "app-states/MenuState.cpp"
+#include "states/ApplicationStateManager.cpp"
+#include "states/ApplicationState.cpp"
+#include "states/IntroState.cpp"
+#include "states/MenuState.cpp"

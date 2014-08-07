@@ -12,7 +12,7 @@ extract everything to a new directory
 on linux, execute bash command:
 "~/PATHTODIR/src/g++ unitybuild.cpp -w -lSDL2 ~/PATHTODIR/SpaceShooter"
 then
-"~PATHTODIR/SpaceShooter"
+"~/PATHTODIR/SpaceShooter"
 
 on windows:
 TBD

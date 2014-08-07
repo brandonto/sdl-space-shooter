@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "Application.h"
-#include "ApplicationStateManager.h"
-
+#include "WindowElements.h"
+#include "states/ApplicationStateManager.h"
 
 /*******************************************************************//*
  * Implementation of the Application class.
@@ -10,21 +10,22 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-05
+ * @modified    2014-08-06
  *********************************************************************/
 
 // Constructor
 Application::Application()
 {
-    gameWindow = NULL;
-    gameScreen = NULL;
+    windowElements.window = NULL;
+    windowElements.surface = NULL;
     applicationStateManager = NULL;
+    quit = false
 }
 
 // Destructor
 Application::~Application()
 {
-    SDL_DestroyWindow(gameWindow);
+    SDL_DestroyWindow(windowElements.window);
 }
 
 int Application::start()
@@ -34,9 +35,17 @@ int Application::start()
         return -1;
     }
 
-    //SDL_FillRect(gameScreen, NULL, SDL_MapRGB(gameScreen->format, 0xFF, 0xFF, 0xFF));
-    //SDL_UpdateWindowSurface(gameWindow);
-    //SDL_Delay(5000);
+    while (!applicationStateManager.isExit())
+    {
+        applicationStateManager->onEvent();
+        applicationStateManager->onUpdate();
+        applicationStateManager->onRender();
+    }
+
+    if (!terminate())
+    {
+        return -1;
+    }
 
     return 0;
 }
@@ -49,7 +58,7 @@ bool Application::initialize()
         return false;
     }
 
-    gameWindow = SDL_CreateWindow(
+    windowElements.window = SDL_CreateWindow(
         "Space Shooter",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
@@ -58,15 +67,28 @@ bool Application::initialize()
         SDL_WINDOW_SHOWN
     );
 
-    if (gameWindow == NULL)
+    if (windowElements.window == NULL)
     {
         printf("Could not create SDL_Window: %s\n", SDL_GetError());
         return false;
     }
 
-    gameScreen = SDL_GetWindowSurface(gameWindow);
+    windowElements.surface = SDL_Getsurface(windowElements.window);
 
-    applicationStateManager = new ApplicationStateManager();
+    applicationStateManager = new ApplicationStateManager(&windowElements);
+
+    return true;
+}
+
+bool Application::terminate()
+{
+    delete applicationStateManager;
+
+    SDL_FreeSurface(windowElements.surface);
+    windowElements.surface = NULL;
+
+    SDL_DestroyWindow(windowElements.window);
+    windowElements.window = NULL;
 
     return true;
 }
