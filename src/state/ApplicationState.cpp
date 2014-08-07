@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-06
+ * @modified    2014-08-07
  *********************************************************************/
 
 ApplicationState::~ApplicationState()

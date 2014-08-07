@@ -13,10 +13,10 @@
  *********************************************************************/
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
-                    WindowElements* windowElements)
+                     WindowElements* windowElements)
 {
-    this.applicationStateManager = applicationStateManager;
-    this.windowElements = windowElements;
+    this->applicationStateManager = applicationStateManager;
+    this->windowElements = windowElements;
 }
 
 MenuState::~MenuState()
@@ -43,7 +43,7 @@ void MenuState::onUpdate()
 void MenuState::onRender()
 {
     SDL_FillRect(windowElements->surface, NULL,
-                SDL_MapRGB(windowElements->surface->format, 0xFF, 0xFF, 0xFF));
+                 SDL_MapRGB(windowElements->surface->format, 0xFF, 0xFF, 0xFF));
     SDL_UpdateWindowSurface(windowElements->window);
     SDL_Delay(2000);
 }

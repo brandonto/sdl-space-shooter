@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "Application.h"
-#include "WindowElements.h"
-#include "states/ApplicationStateManager.h"
 
 /*******************************************************************//*
  * Implementation of the Application class.
@@ -10,7 +8,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-06
+ * @modified    2014-08-07
  *********************************************************************/
 
 // Constructor
@@ -19,7 +17,7 @@ Application::Application()
     windowElements.window = NULL;
     windowElements.surface = NULL;
     applicationStateManager = NULL;
-    quit = false
+    quit = false;
 }
 
 // Destructor
@@ -35,7 +33,7 @@ int Application::start()
         return -1;
     }
 
-    while (!applicationStateManager.isExit())
+    while (!applicationStateManager->isExit())
     {
         applicationStateManager->onEvent();
         applicationStateManager->onUpdate();
@@ -73,7 +71,7 @@ bool Application::initialize()
         return false;
     }
 
-    windowElements.surface = SDL_Getsurface(windowElements.window);
+    windowElements.surface = SDL_GetWindowSurface(windowElements.window);
 
     applicationStateManager = new ApplicationStateManager(&windowElements);
 

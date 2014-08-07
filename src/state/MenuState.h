@@ -9,16 +9,18 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-06
+ * @modified    2014-08-07
  *********************************************************************/
 
 class MenuState : public ApplicationState
 {
     private:
+        SDL_Event event;
 
     public:
         //Constructor
-        MenuState(WindowElements* windowElements);
+        MenuState(ApplicationStateManager* applicationStateManager,
+                  WindowElements* windowElements);
 
         //Destructor
         ~MenuState();

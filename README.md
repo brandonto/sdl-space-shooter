@@ -10,7 +10,7 @@ Building
 extract everything to a new directory
 
 on linux, execute bash command:
-"~/PATHTODIR/src/g++ unitybuild.cpp -w -lSDL2 ~/PATHTODIR/SpaceShooter"
+"~/PATHTODIR/src/g++ unitybuild.cpp -w -lSDL2 -o ~/PATHTODIR/SpaceShooter"
 then
 "~/PATHTODIR/SpaceShooter"
 

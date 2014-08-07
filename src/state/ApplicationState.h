@@ -1,6 +1,9 @@
 #ifndef _APPLICATIONSTATE_H_
     #define _APPLICATIONSTATE_H_
 
+#include "ApplicationStateManager.h"
+#include "../WindowElements.h"
+
 /*******************************************************************//*
  * Abstract application state class. ApplicationState subclasses must
  * override the pure virtual methods to satisfy the main game loop
@@ -8,7 +11,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-06
+ * @modified    2014-08-07
  *********************************************************************/
 
 class ApplicationState
