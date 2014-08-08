@@ -1,6 +1,8 @@
 #ifndef _MENUSTATE_H_
     #define _MENUSTATE_H_
 
+#include "ApplicationState.h"
+
 /*******************************************************************//*
  * This is the ApplicationState class for the main menu screen. This
  * state is entered after the intro state at the beginning and can be

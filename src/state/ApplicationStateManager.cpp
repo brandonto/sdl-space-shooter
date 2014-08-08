@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
+#include "MenuState.h"
 
 /*******************************************************************//*
  * Implementation of the ApplicationStateManager class.
@@ -11,13 +12,13 @@
  *********************************************************************/
 
 //Constructors
-ApplicationStateManager::ApplicationStateManager(windowElements* windowElements)
+ApplicationStateManager::ApplicationStateManager(WindowElements* windowElements)
 {
     //currentState = new IntroState();
     //currentState = new PreMenuTransitionState();
     currentState = new MenuState(this, windowElements);
     nextStateEnum = STATE_NULL;
-    this.windowElements = windowElements;
+    this->windowElements = windowElements;
 }
 
 //Destructors

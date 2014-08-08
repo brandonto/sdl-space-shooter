@@ -1,6 +1,7 @@
 #ifndef _APPLICATIONSTATE_H_
     #define _APPLICATIONSTATE_H_
 
+class ApplicationStateManager;
 #include "ApplicationStateManager.h"
 #include "../WindowElements.h"
 

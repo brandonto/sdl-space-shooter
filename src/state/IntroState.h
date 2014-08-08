@@ -1,6 +1,8 @@
 #ifndef _INTROSTATE_H
     #define _INTROSTATE_H
 
+#include "ApplicationState.h"
+
 /*******************************************************************//*
  * This is the GameState class for the introduction screen. This state
  * occurs once at the beginning of program execution.
