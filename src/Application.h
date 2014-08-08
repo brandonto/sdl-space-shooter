@@ -20,7 +20,6 @@ class Application
         //Fields
         WindowElements windowElements;
         ApplicationStateManager* applicationStateManager;
-        bool quit;
 
     public:
         //Constructor

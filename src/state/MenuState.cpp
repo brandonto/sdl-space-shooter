@@ -4,7 +4,7 @@
 #include "../WindowElements.h"
 
 /*******************************************************************//*
- * Implementation of methods in MenuState class.
+ * Implementation of the MenuState class.
  *
  * @author      Brandon To
  * @version     1.0
@@ -22,6 +22,11 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
 MenuState::~MenuState()
 {
     // To be implemented
+}
+
+void MenuState::onEnter()
+{
+    //
 }
 
 void MenuState::onEvent()
@@ -46,4 +51,9 @@ void MenuState::onRender()
                  SDL_MapRGB(windowElements->surface->format, 0xFF, 0xFF, 0xFF));
     SDL_UpdateWindowSurface(windowElements->window);
     SDL_Delay(2000);
+}
+
+void MenuState::onExit()
+{
+
 }

@@ -17,7 +17,6 @@ Application::Application()
     windowElements.window = NULL;
     windowElements.surface = NULL;
     applicationStateManager = NULL;
-    quit = false;
 }
 
 // Destructor
@@ -33,7 +32,7 @@ int Application::start()
         return -1;
     }
 
-    while (!applicationStateManager->isExit())
+    while (!applicationStateManager->isExitState())
     {
         applicationStateManager->onEvent();
         applicationStateManager->onUpdate();

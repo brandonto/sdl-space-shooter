@@ -3,7 +3,7 @@
 #include "../WindowElements.h"
 
 /*******************************************************************//*
- * Implementation of methods in IntroState class.
+ * Implementation of the IntroState class.
  *
  * @author      Brandon To
  * @version     1.0

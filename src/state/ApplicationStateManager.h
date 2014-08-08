@@ -36,7 +36,7 @@ class ApplicationStateManager
         void onUpdate();
         void onRender();
         ApplicationState* getCurrentState();
-        bool isExit();
+        bool isExitState();
         void setNextState(int nextState);
         void changeState();
 };

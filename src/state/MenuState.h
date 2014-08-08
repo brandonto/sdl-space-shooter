@@ -28,11 +28,11 @@ class MenuState : public ApplicationState
         ~MenuState();
 
         //GameState methods
-        //void onEnter();
+        void onEnter();
         void onEvent();
         void onUpdate();
         void onRender();
-        //void onExit();
+        void onExit();
 };
 
 #endif

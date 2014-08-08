@@ -52,7 +52,7 @@ ApplicationState* ApplicationStateManager::getCurrentState()
     return currentState;
 }
 
-bool ApplicationStateManager::isExit()
+bool ApplicationStateManager::isExitState()
 {
     return nextStateEnum == STATE_EXIT;
 }
@@ -74,8 +74,12 @@ void ApplicationStateManager::changeState()
 
         switch (nextStateEnum)
         {
-            //case: STATE_MENU:
-            //    break;
+            case STATE_MENU:
+                currentState = new MenuState(this, windowElements);
+                break;
+
+            case STATE_GAME:
+                break;
         }
     }
 }
