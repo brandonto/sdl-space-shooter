@@ -1,15 +1,15 @@
-#include <stdio.h>
-#include <SDL2/SDL.h>
-#include "Application.h"
-
 /*******************************************************************//*
  * Implementation of the Application class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-07
+ * @modified    2014-08-10
  *********************************************************************/
+#include <stdio.h>
+#include <SDL2/SDL.h>
+#include "Application.h"
+#include "state/ApplicationStateManager.h"
 
 // Constructor
 Application::Application()
@@ -22,7 +22,7 @@ Application::Application()
 // Destructor
 Application::~Application()
 {
-    SDL_DestroyWindow(windowElements.window);
+
 }
 
 int Application::start()

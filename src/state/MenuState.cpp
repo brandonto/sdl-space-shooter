@@ -1,16 +1,15 @@
-#include <SDL2/SDL.h>
-#include "MenuState.h"
-#include "ApplicationStateManager.h"
-#include "../WindowElements.h"
-
 /*******************************************************************//*
  * Implementation of the MenuState class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-07
+ * @modified    2014-08-10
  *********************************************************************/
+#include <SDL2/SDL.h>
+#include "MenuState.h"
+#include "ApplicationStateManager.h"
+#include "../WindowElements.h"
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
@@ -37,6 +36,7 @@ void MenuState::onEvent()
         {
             applicationStateManager->setNextState(STATE_EXIT);
         }
+        gameEntityManager.onEvent(event);
     }
 }
 

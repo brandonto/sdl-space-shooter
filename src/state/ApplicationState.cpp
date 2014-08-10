@@ -1,13 +1,14 @@
-#include "ApplicationState.h"
-
 /*******************************************************************//*
  * Default implementation of virtual methods in ApplicationState class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-07
+ * @modified    2014-08-10
  *********************************************************************/
+#include "ApplicationState.h"
+#include "ApplicationStateManager.h"
+#include "../WindowElements.h"
 
 ApplicationState::~ApplicationState()
 {

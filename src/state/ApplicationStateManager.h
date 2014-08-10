@@ -1,9 +1,3 @@
-#ifndef _APPLICATIONSTATEMANAGER_H_
-    #define _APPLICATIONSTATEMANAGER_H_
-
-#include "ApplicationState.h"
-#include "../WindowElements.h"
-
 /*******************************************************************//*
  * This class encapsulates all state code. Responsibilities include
  * keeping a pointer to current and previous states, switching states,
@@ -13,8 +7,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-07
+ * @modified    2014-08-10
  *********************************************************************/
+#ifndef _APPLICATIONSTATEMANAGER_H_
+    #define _APPLICATIONSTATEMANAGER_H_
+
+class ApplicationState;
+class WindowElements;
 
 class ApplicationStateManager
 {

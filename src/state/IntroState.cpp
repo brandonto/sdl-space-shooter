@@ -1,15 +1,14 @@
-#include "IntroState.h"
-#include "ApplicationStateManager.h"
-#include "../WindowElements.h"
-
 /*******************************************************************//*
  * Implementation of the IntroState class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-07
+ * @modified    2014-08-10
  *********************************************************************/
+#include "IntroState.h"
+#include "ApplicationStateManager.h"
+#include "../WindowElements.h"
 
 IntroState::IntroState()
 {
