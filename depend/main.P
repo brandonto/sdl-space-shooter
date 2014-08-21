@@ -1,0 +1,4 @@
+obj/main.o: src/main.cpp /usr/include/stdc-predef.h include/Application.h \
+ include/WindowElements.h
+src/main.cpp /usr/include/stdc-predef.h include/Application.h :
+ include/WindowElements.h :

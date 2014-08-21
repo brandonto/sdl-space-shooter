@@ -4,18 +4,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-10
+ * @modified    2014-08-20
  *********************************************************************/
+#include "Application.h"
+
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "Application.h"
-#include "state/ApplicationStateManager.h"
+#include "ApplicationStateManager.h"
+#include "SDL_util.h"
 
 // Constructor
 Application::Application()
 {
     windowElements.window = NULL;
     windowElements.surface = NULL;
+    windowElements.renderer = NULL;
     applicationStateManager = NULL;
 }
 
@@ -50,8 +53,9 @@ int Application::start()
 bool Application::initialize()
 {
     // Initializes all SDL modules
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+    if (!SDL_util::initialize())
     {
+        printf("Could not initialize SDL: %s\n", SDL_GetError());
         return false;
     }
 
@@ -71,6 +75,19 @@ bool Application::initialize()
     }
 
     windowElements.surface = SDL_GetWindowSurface(windowElements.window);
+    if (windowElements.surface == NULL)
+    {
+        printf("Could not get SDL_Surface: %s\n", SDL_GetError());
+        return false;
+    }
+
+    windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED);
+    if (windowElements.renderer == NULL)
+    {
+        printf("Could not create SDL_Renderer: %s\n", SDL_GetError());
+        return false;
+    }
+    SDL_SetRenderDrawColor(windowElements.renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
     applicationStateManager = new ApplicationStateManager(&windowElements);
 

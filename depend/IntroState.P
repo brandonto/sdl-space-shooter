@@ -1,0 +1,6 @@
+obj/IntroState.o: src/IntroState.cpp /usr/include/stdc-predef.h \
+ include/IntroState.h include/ApplicationState.h \
+ include/ApplicationStateManager.h include/WindowElements.h
+src/IntroState.cpp /usr/include/stdc-predef.h :
+ include/IntroState.h include/ApplicationState.h :
+ include/ApplicationStateManager.h include/WindowElements.h :

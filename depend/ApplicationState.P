@@ -1,0 +1,6 @@
+obj/ApplicationState.o: src/ApplicationState.cpp \
+ /usr/include/stdc-predef.h include/ApplicationState.h \
+ include/ApplicationStateManager.h include/WindowElements.h
+src/ApplicationState.cpp :
+ /usr/include/stdc-predef.h include/ApplicationState.h :
+ include/ApplicationStateManager.h include/WindowElements.h :
