@@ -15,7 +15,7 @@ BackgroundRenderComponent::BackgroundRenderComponent(SDL_Renderer* renderer)
 :   sprite(NULL),
     renderer(renderer)
 {
-    sprite=SDL_util::load_image(renderer, "../bin/graphics/background/purple.png");
+    sprite=SDL_util::load_image(renderer, "bin/graphics/background/purple.png");
 }
 
 void BackgroundRenderComponent::update(GameEntity* gameEntity)

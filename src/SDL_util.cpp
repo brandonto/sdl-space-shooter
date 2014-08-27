@@ -4,10 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-20
+ * @modified    2014-08-26
  *********************************************************************/
 #include "SDL_util.h"
 
+#include <cstdio>
+#include <cstddef>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 

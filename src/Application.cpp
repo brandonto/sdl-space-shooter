@@ -4,11 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-20
+ * @modified    2014-08-26
  *********************************************************************/
 #include "Application.h"
 
-#include <stdio.h>
+#include <cstdio>
+#include <cstddef>
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
 #include "SDL_util.h"
@@ -17,7 +18,6 @@
 Application::Application()
 {
     windowElements.window = NULL;
-    windowElements.surface = NULL;
     windowElements.renderer = NULL;
     applicationStateManager = NULL;
 }
@@ -74,13 +74,6 @@ bool Application::initialize()
         return false;
     }
 
-    windowElements.surface = SDL_GetWindowSurface(windowElements.window);
-    if (windowElements.surface == NULL)
-    {
-        printf("Could not get SDL_Surface: %s\n", SDL_GetError());
-        return false;
-    }
-
     windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED);
     if (windowElements.renderer == NULL)
     {
@@ -98,8 +91,8 @@ bool Application::terminate()
 {
     delete applicationStateManager;
 
-    SDL_FreeSurface(windowElements.surface);
-    windowElements.surface = NULL;
+    SDL_DestroyRenderer(windowElements.renderer);
+    windowElements.renderer = NULL;
 
     SDL_DestroyWindow(windowElements.window);
     windowElements.window = NULL;

@@ -2,6 +2,7 @@ ODIR = obj
 SDIR = src
 IDIR = include
 PDIR = depend
+BDIR = bin
 
 _OBJS =	main.o \
 		Application.o \
@@ -23,14 +24,14 @@ OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 CC = g++
 
-CFLAGS = -w
+CFLAGS = -w -g
 
 LFLAGS = -lSDL2 -lSDL2_image
 
 PROG = SpaceShooter
 
 all: $(OBJS)
-	$(CC) $(CFLAGS) -I$(IDIR) -o $(PROG) $^ $(LFLAGS)
+	$(CC) $(CFLAGS) -I$(IDIR) -I$(BDIR) -o $(PROG) $^ $(LFLAGS)
 
 $(ODIR)/%.o : $(SDIR)/%.cpp
 	$(CC) $(CFLAGS) -I$(IDIR) -MD -c -o $@ $<

@@ -4,10 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-20
+ * @modified    2014-08-26
  *********************************************************************/
 #include "ApplicationStateManager.h"
 
+#include <cstddef>
 #include <SDL2/SDL.h>
 #include "ApplicationState.h"
 #include "MenuState.h"
@@ -20,6 +21,7 @@ ApplicationStateManager::ApplicationStateManager(WindowElements* windowElements)
     //currentState = new IntroState();
     //currentState = new PreMenuTransitionState();
     currentState = new MenuState(this, windowElements);
+    currentState->onEnter();
     nextStateEnum = STATE_NULL;
 }
 
@@ -70,6 +72,7 @@ void ApplicationStateManager::changeState()
     {
         if (nextStateEnum != STATE_EXIT)
         {
+            currentState->onExit();
             delete currentState;
             currentState = NULL;
         }
@@ -78,6 +81,7 @@ void ApplicationStateManager::changeState()
         {
             case STATE_MENU:
                 currentState = new MenuState(this, windowElements);
+                currentState->onEnter();
                 break;
 
             case STATE_GAME:
