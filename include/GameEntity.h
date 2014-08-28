@@ -6,14 +6,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-20
+ * @modified    2014-08-27
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
 
 //class InputComponent;
 class RenderComponent;
-//#include "RenderComponent.h"
 
 class GameEntity
 {

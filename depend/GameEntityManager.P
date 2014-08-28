@@ -84,7 +84,7 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  include/BackgroundRenderComponent.h include/RenderComponent.h \
- include/GameEntity.h
+ include/GameEntity.h include/WindowElements.h
 src/GameEntityManager.cpp :
  /usr/include/stdc-predef.h include/GameEntityManager.h :
  include/GameEntityCollection.h /usr/include/c++/4.8/list :
@@ -171,4 +171,4 @@ src/GameEntityManager.cpp :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
  include/BackgroundRenderComponent.h include/RenderComponent.h :
- include/GameEntity.h :
+ include/GameEntity.h include/WindowElements.h :

@@ -1,18 +1,21 @@
 obj/BackgroundRenderComponent.o: src/BackgroundRenderComponent.cpp \
  /usr/include/stdc-predef.h include/BackgroundRenderComponent.h \
- include/RenderComponent.h /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
- /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
- /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ include/RenderComponent.h /usr/include/c++/4.8/cstddef \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
+ /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h \
- /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
  /usr/include/x86_64-linux-gnu/sys/select.h \
@@ -61,9 +64,6 @@ obj/BackgroundRenderComponent.o: src/BackgroundRenderComponent.cpp \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  include/SDL_util.h /usr/include/c++/4.8/string \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
  /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
@@ -103,22 +103,25 @@ obj/BackgroundRenderComponent.o: src/BackgroundRenderComponent.cpp \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc
+ /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h
 src/BackgroundRenderComponent.cpp :
  /usr/include/stdc-predef.h include/BackgroundRenderComponent.h :
- include/RenderComponent.h /usr/include/SDL2/SDL.h :
- /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h :
- /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h :
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h :
- /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h :
- /usr/include/x86_64-linux-gnu/sys/cdefs.h :
+ include/RenderComponent.h /usr/include/c++/4.8/cstddef :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h :
  /usr/include/x86_64-linux-gnu/bits/wordsize.h :
  /usr/include/x86_64-linux-gnu/gnu/stubs.h :
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h :
+ /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h :
+ /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h :
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h :
+ /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h :
  /usr/include/x86_64-linux-gnu/bits/types.h :
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h :
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h :
- /usr/include/x86_64-linux-gnu/bits/endian.h :
+ /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h :
  /usr/include/x86_64-linux-gnu/bits/byteswap.h :
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h :
  /usr/include/x86_64-linux-gnu/sys/select.h :
@@ -167,9 +170,6 @@ src/BackgroundRenderComponent.cpp :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
  include/SDL_util.h /usr/include/c++/4.8/string :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
  /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/memoryfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
@@ -209,4 +209,4 @@ src/BackgroundRenderComponent.cpp :
  /usr/include/x86_64-linux-gnu/bits/timex.h :
  /usr/include/x86_64-linux-gnu/bits/setjmp.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc :
+ /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h :
