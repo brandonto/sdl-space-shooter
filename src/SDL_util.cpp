@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-27
+ * @modified    2014-08-28
  *********************************************************************/
 #include "SDL_util.h"
 
@@ -26,7 +26,7 @@ namespace SDL_util
         int imgFlags = IMG_INIT_PNG;
         if( !( IMG_Init( imgFlags ) & imgFlags ) )
         {
-            printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+            printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
             return false;
         }
 
@@ -46,7 +46,7 @@ namespace SDL_util
             texture = SDL_CreateTextureFromSurface(windowElements->renderer, surface);
             if(texture==NULL)
             {
-                printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+                printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
             }
 
             SDL_FreeSurface(surface);
@@ -61,12 +61,9 @@ namespace SDL_util
         SDL_Surface* surface = NULL;
         SDL_Texture* texture = NULL;
         int fitWidth, fitHeight;
-        SDL_Rect windowSize;
         SDL_Rect temp;
 
-        SDL_GetWindowSize(windowElements->window, &(windowSize.w), &(windowSize.h));
-
-        backgroundSurface = SDL_CreateRGBSurface(0, windowSize.w, windowSize.h, 32, 0, 0, 0, 0);
+        backgroundSurface = SDL_CreateRGBSurface(0, windowElements->WINDOW_WIDTH, windowElements->WINDOW_HEIGHT, 32, 0, 0, 0, 0);
         if (backgroundSurface==NULL)
         {
             printf("Unable to create SDL_Surface! SDL Error: %s\n", SDL_GetError());
@@ -80,16 +77,8 @@ namespace SDL_util
             return texture;
         }
 
-        //printf("window width: %d\n", windowSize.w);
-        //printf("surface width: %d\n", surface->w);
-        fitWidth = windowSize.w / surface->w;
-        //printf("modulusWidth: %d\n", modulusWidth);
-        //printf("1024 mod 256: %d\n", 1024%256);
-        //printf("window height: %d\n", windowSize.h);
-        //printf("surface height: %d\n", surface->h);
-        fitHeight = windowSize.h / surface->h;
-        //printf("modulusHeight: %d\n", modulusHeight);
-        //printf("768 mod 256: %d\n", 768%256);
+        fitWidth = windowElements->WINDOW_HEIGHT / surface->w;
+        fitHeight = windowElements->WINDOW_HEIGHT / surface->h;
         temp.w = surface->w;
         temp.h = surface->h;
         for (int i=0; i<=fitWidth; i++)

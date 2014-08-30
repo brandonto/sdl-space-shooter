@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-20
+ * @modified    2014-08-30
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -12,12 +12,19 @@
 #include "RenderComponent.h"
 
 //Constructor
-GameEntity::GameEntity( RenderComponent* render
-                      )
-:   xPos(0), yPos(0), velocity(0),
-    //input(input),
-    render(render)
+GameEntity::GameEntity()
+:   xPos(0), yPos(0), velocity(0)
 {}
+
+GameEntity::~GameEntity()
+{
+    if (render!=NULL) { delete render; }
+}
+
+void GameEntity::addRenderComponent(RenderComponent* render)
+{
+    this->render = render;
+}
 
 void GameEntity::onEvent()
 {

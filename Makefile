@@ -14,13 +14,9 @@ _OBJS =	main.o \
 		GameEntityManager.o \
 		IntroState.o \
 		MenuState.o \
-		SDL_util.o
+		SDL_util.o \
+		UITitleRenderComponent.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
-
-#_SRCS = Application.cpp ApplicationState.cpp ApplicationStateManager.cpp \
-#	   BackgroundRenderComponent.cpp GameEntity.cpp GameEntityCollection.cpp \
-#	   GameEntityManager.cpp IntroState.cpp main.cpp MenuState.cpp SDL_util.cpp
-#SRCS = $(patshubst %,$(SRCSDIR)/$,$(_SRCS))
 
 CC = g++
 

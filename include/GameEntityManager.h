@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-27
+ * @modified    2014-08-30
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
@@ -29,6 +29,7 @@ class GameEntityManager
         void onUpdate();
         void onRender();
 
+        void createMainMenu(WindowElements* windowElements);
         void createBackground(WindowElements* windowElements);
         void createGameEntityPhysical();
         void createUIElement();

@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-27
+ * @modified    2014-08-30
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
@@ -27,10 +27,13 @@ class GameEntity
         int velocity;
 
         //Constructor
-        GameEntity( RenderComponent* render
-                  );
+        GameEntity();
+
+        //Destructor
+        ~GameEntity();
 
         //Methods
+        void addRenderComponent(RenderComponent* render);
         void onEvent();
         void onUpdate();
         void onRender();

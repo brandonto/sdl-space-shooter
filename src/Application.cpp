@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-26
+ * @modified    2014-08-30
  *********************************************************************/
 #include "Application.h"
 
@@ -63,8 +63,8 @@ bool Application::initialize()
         "Space Shooter",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        1024,
-        768,
+        windowElements.WINDOW_WIDTH,
+        windowElements.WINDOW_HEIGHT,
         SDL_WINDOW_SHOWN
     );
 
@@ -73,6 +73,7 @@ bool Application::initialize()
         printf("Could not create SDL_Window: %s\n", SDL_GetError());
         return false;
     }
+
 
     windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED);
     if (windowElements.renderer == NULL)

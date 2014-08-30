@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-20
+ * @modified    2014-08-30
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYCOLLECTION_H_
     #define SPACESHOOTER_GAMEENTITYCOLLECTION_H_
@@ -21,6 +21,13 @@ class GameEntityCollection
         std::list<GameEntity*> collection;
 
     public:
+        //Constructor
+        GameEntityCollection();
+
+        //Destructor
+        ~GameEntityCollection();
+
+        //Methods
         void add(GameEntity* gameEntity);
         void remove(GameEntity* gameEntity);
         void onRender();
