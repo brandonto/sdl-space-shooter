@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-08-30
+ * @modified    2014-08-31
  *********************************************************************/
 #include "UITitleRenderComponent.h"
 
@@ -20,6 +20,7 @@ UITitleRenderComponent::UITitleRenderComponent(GameEntity* gameEntity,
     windowElements(windowElements)
 {
     sprite=SDL_util::load_image(windowElements, "bin/graphics/ui/glassPanel.png");
+    SDL_SetTextureBlendMode(sprite, SDL_BLENDMODE_BLEND);
     gameEntity->xPos = windowElements->WINDOW_WIDTH/5;
     gameEntity->yPos = windowElements->WINDOW_HEIGHT/12;
     renderRect.x = gameEntity->xPos;
@@ -31,6 +32,11 @@ UITitleRenderComponent::UITitleRenderComponent(GameEntity* gameEntity,
 void UITitleRenderComponent::update(GameEntity* gameEntity)
 {
     SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
+}
+
+void UITitleRenderComponent::setAlphaBlend(Uint8 alpha)
+{
+    SDL_SetTextureAlphaMod(sprite, alpha);
 }
 
 UITitleRenderComponent::~UITitleRenderComponent()

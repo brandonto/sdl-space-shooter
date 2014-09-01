@@ -5,12 +5,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-30
+ * @modified    2014-09-01
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
 
 #include "GameEntityCollection.h"
+#include <vector>
 #include <SDL2/SDL.h>
 
 struct WindowElements;
@@ -29,9 +30,10 @@ class GameEntityManager
         void onUpdate();
         void onRender();
 
-        void createMainMenu(WindowElements* windowElements);
-        void createBackground(WindowElements* windowElements);
+        std::vector<GameEntity*> createMainMenu(WindowElements* windowElements);
+        GameEntity* createBackground(WindowElements* windowElements);
         void createGameEntityPhysical();
+
         void createUIElement();
 };
 

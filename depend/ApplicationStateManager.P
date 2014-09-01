@@ -64,9 +64,7 @@ obj/ApplicationStateManager.o: src/ApplicationStateManager.cpp \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  include/ApplicationState.h include/MenuState.h \
- include/ApplicationState.h include/GameEntityManager.h \
- include/GameEntityCollection.h /usr/include/c++/4.8/list \
- /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/c++/4.8/bits/functexcept.h \
  /usr/include/c++/4.8/bits/exception_defines.h \
  /usr/include/c++/4.8/bits/cpp_type_traits.h \
@@ -84,9 +82,16 @@ obj/ApplicationStateManager.o: src/ApplicationStateManager.cpp \
  /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- include/WindowElements.h
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h \
+ include/GameEntityManager.h include/GameEntityCollection.h \
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
+ /usr/include/c++/4.8/bits/list.tcc include/WindowElements.h
 src/ApplicationStateManager.cpp :
  /usr/include/stdc-predef.h include/ApplicationStateManager.h :
  /usr/include/c++/4.8/cstddef :
@@ -153,9 +158,7 @@ src/ApplicationStateManager.cpp :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
  include/ApplicationState.h include/MenuState.h :
- include/ApplicationState.h include/GameEntityManager.h :
- include/GameEntityCollection.h /usr/include/c++/4.8/list :
- /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/c++/4.8/bits/functexcept.h :
  /usr/include/c++/4.8/bits/exception_defines.h :
  /usr/include/c++/4.8/bits/cpp_type_traits.h :
@@ -173,6 +176,13 @@ src/ApplicationStateManager.cpp :
  /usr/include/c++/4.8/exception :
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
  /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- include/WindowElements.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h :
+ include/GameEntityManager.h include/GameEntityCollection.h :
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
+ /usr/include/c++/4.8/bits/list.tcc include/WindowElements.h :

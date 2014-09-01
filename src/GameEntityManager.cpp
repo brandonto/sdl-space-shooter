@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-30
+ * @modified    2014-09-01
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -30,17 +30,26 @@ void GameEntityManager::onRender()
     uiLayer.onRender();
 }
 
-void GameEntityManager::createMainMenu(WindowElements* windowElements)
+std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windowElements)
 {
+    GameEntity* mainMenu[1];
+
     GameEntity* uiTitle = new GameEntity();
     uiTitle->addRenderComponent(new UITitleRenderComponent(uiTitle, windowElements));
     uiLayer.add(uiTitle);
+    mainMenu[0] = uiTitle;
+
+    std::vector<GameEntity*> mainMenuVector(mainMenu, mainMenu + sizeof(mainMenu)/sizeof(GameEntity*));
+
+    return mainMenuVector;
 }
 
-void GameEntityManager::createBackground(WindowElements* windowElements)
+GameEntity* GameEntityManager::createBackground(WindowElements* windowElements)
 {
     GameEntity* background = new GameEntity();
     background->addRenderComponent(new BackgroundRenderComponent(windowElements));
     backgroundLayer.add(background);
+
+    return background;
 }
 

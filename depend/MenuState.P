@@ -1,7 +1,6 @@
 obj/MenuState.o: src/MenuState.cpp /usr/include/stdc-predef.h \
- include/MenuState.h include/ApplicationState.h \
- include/GameEntityManager.h include/GameEntityCollection.h \
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_algobase.h \
+ include/MenuState.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -26,12 +25,20 @@ obj/MenuState.o: src/MenuState.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
- /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h \
+ include/GameEntityManager.h include/GameEntityCollection.h \
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
+ /usr/include/c++/4.8/bits/list.tcc /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h \
@@ -83,11 +90,12 @@ obj/MenuState.o: src/MenuState.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/ApplicationStateManager.h include/WindowElements.h
+ include/ApplicationStateManager.h include/GameEntity.h \
+ include/RenderComponent.h include/UITitleRenderComponent.h \
+ include/RenderComponent.h include/WindowElements.h
 src/MenuState.cpp /usr/include/stdc-predef.h :
- include/MenuState.h include/ApplicationState.h :
- include/GameEntityManager.h include/GameEntityCollection.h :
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_algobase.h :
+ include/MenuState.h /usr/include/c++/4.8/vector :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h :
@@ -112,12 +120,20 @@ src/MenuState.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/4.8/exception :
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
  /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h :
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h :
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h :
- /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h :
+ include/GameEntityManager.h include/GameEntityCollection.h :
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
+ /usr/include/c++/4.8/bits/list.tcc /usr/include/SDL2/SDL.h :
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h :
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h :
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h :
+ /usr/include/x86_64-linux-gnu/sys/types.h :
  /usr/include/x86_64-linux-gnu/bits/types.h :
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h :
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h :
@@ -169,4 +185,6 @@ src/MenuState.cpp /usr/include/stdc-predef.h :
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/ApplicationStateManager.h include/WindowElements.h :
+ include/ApplicationStateManager.h include/GameEntity.h :
+ include/RenderComponent.h include/UITitleRenderComponent.h :
+ include/RenderComponent.h include/WindowElements.h :

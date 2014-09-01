@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-08-30
+ * @modified    2014-08-31
  *********************************************************************/
 #ifndef SPACESHOOTER_UITITLERENDERCOMPONENT_
     #define SPACESHOOTER_UITITLERENDERCOMPONENT_
@@ -34,6 +34,7 @@ class UITitleRenderComponent : public RenderComponent
 
         //Methods
         void update(GameEntity* gameEntity);
+        void setAlphaBlend(Uint8 alpha);
 };
 
 #endif

@@ -4,16 +4,20 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-30
+ * @modified    2014-09-01
  *********************************************************************/
 #include "MenuState.h"
 
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
+#include "GameEntity.h"
+#include "RenderComponent.h"
+#include "UITitleRenderComponent.h"
 #include "WindowElements.h"
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
+:   fadeIn(true), fadeOut(false), menuAlpha(0)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -26,8 +30,8 @@ MenuState::~MenuState()
 
 void MenuState::onEnter()
 {
-    gameEntityManager.createBackground(windowElements);
-    gameEntityManager.createMainMenu(windowElements);
+    background = gameEntityManager.createBackground(windowElements);
+    mainMenu = gameEntityManager.createMainMenu(windowElements);
 }
 
 void MenuState::onEvent()
@@ -44,7 +48,17 @@ void MenuState::onEvent()
 
 void MenuState::onUpdate()
 {
-    // To be implemented
+    if (fadeIn)
+    {
+        if (menuAlpha<255) { menuAlpha+=5; }
+        dynamic_cast<UITitleRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
+    }
+    else if (fadeOut)
+    {
+        if (menuAlpha>0) { menuAlpha-=5; }
+        dynamic_cast<UITitleRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        //mainMenu[0]->getRenderComponent()->setAlphaBlend(menuAlpha);
+    }
 }
 
 void MenuState::onRender()

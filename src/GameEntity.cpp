@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-30
+ * @modified    2014-09-01
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -38,4 +38,9 @@ void GameEntity::onUpdate()
 void GameEntity::onRender()
 {
     if (render!=NULL) { render->update(this); }
+}
+
+RenderComponent* GameEntity::getRenderComponent()
+{
+    return render;
 }
