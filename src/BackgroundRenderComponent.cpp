@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-08-27
+ * @modified    2014-09-01
  *********************************************************************/
 #include "BackgroundRenderComponent.h"
 
@@ -18,7 +18,7 @@ BackgroundRenderComponent::BackgroundRenderComponent(WindowElements* windowEleme
     windowElements(windowElements),
     offset(0)
 {
-    sprite=SDL_util::load_background(windowElements, "bin/graphics/background/purple.png");
+    sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/purple.png");
 }
 
 void BackgroundRenderComponent::update(GameEntity* gameEntity)

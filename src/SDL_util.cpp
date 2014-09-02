@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-28
+ * @modified    2014-09-01
  *********************************************************************/
 #include "SDL_util.h"
 
@@ -12,6 +12,7 @@
 #include <cstddef>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "WindowElements.h"
 
 namespace SDL_util
@@ -20,23 +21,45 @@ namespace SDL_util
     {
         if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
+            printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
             return false;
         }
 
         int imgFlags = IMG_INIT_PNG;
-        if( !( IMG_Init( imgFlags ) & imgFlags ) )
+        if(!(IMG_Init(imgFlags) & imgFlags))
         {
-            printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+            printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+            return false;
+        }
+
+        if(TTF_Init() == -1)
+        {
+            printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
             return false;
         }
 
         return true;
     }
 
-    SDL_Texture* load_image(WindowElements* windowElements, std::string path)
+    SDL_Texture* create_texture_from_surface(WindowElements* windowElements, SDL_Surface* surface)
     {
         SDL_Texture* texture = NULL;
-        SDL_Surface* surface = IMG_Load(path.c_str());
+
+        texture = SDL_CreateTextureFromSurface(windowElements->renderer, surface);
+        if(texture==NULL)
+        {
+            printf("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
+        }
+
+        return texture;
+    }
+
+    SDL_Texture* create_texture_from_image(WindowElements* windowElements, std::string path)
+    {
+        SDL_Surface* surface = NULL;
+        SDL_Texture* texture = NULL;
+
+        surface = IMG_Load(path.c_str());
         if (surface==NULL)
         {
             printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
@@ -46,7 +69,7 @@ namespace SDL_util
             texture = SDL_CreateTextureFromSurface(windowElements->renderer, surface);
             if(texture==NULL)
             {
-                printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+                printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
             }
 
             SDL_FreeSurface(surface);
@@ -55,7 +78,20 @@ namespace SDL_util
         return texture;
     }
 
-    SDL_Texture* load_background(WindowElements* windowElements, std::string path)
+    SDL_Surface* create_surface_from_image(std::string path)
+    {
+        SDL_Surface* surface = NULL;
+
+        surface = IMG_Load(path.c_str());
+        if (surface==NULL)
+        {
+            printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+        }
+
+        return surface;
+    }
+
+    SDL_Texture* create_background_texture(WindowElements* windowElements, std::string path)
     {
         SDL_Surface* backgroundSurface = NULL;
         SDL_Surface* surface = NULL;
@@ -94,8 +130,7 @@ namespace SDL_util
         texture = SDL_CreateTextureFromSurface(windowElements->renderer, backgroundSurface);
         if(texture==NULL)
         {
-            printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
-            return texture;
+            printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
         }
 
         SDL_FreeSurface(backgroundSurface);
@@ -104,5 +139,87 @@ namespace SDL_util
         return texture;
     }
 
+    SDL_Texture* create_texture_from_text(WindowElements* windowElements, std::string path,
+                                        std::string text, int fontSize, SDL_Color* color)
+    {
+        TTF_Font* font = NULL;
+        SDL_Surface* textSurface = NULL;
+        SDL_Texture* texture = NULL;
+
+        font = TTF_OpenFont(path.c_str(), fontSize);
+        if (font==NULL)
+        {
+            printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
+            return texture;
+        }
+
+        textSurface = TTF_RenderText_Solid(font, text.c_str(), *color);
+        if (textSurface==NULL)
+        {
+            printf("Unable to create surface from text! SDL_ttf Error: %s\n", TTF_GetError());
+            TTF_CloseFont(font);
+            return texture;
+        }
+
+        texture = SDL_CreateTextureFromSurface(windowElements->renderer, textSurface);
+        if (texture==NULL)
+        {
+            printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
+        }
+
+        SDL_FreeSurface(textSurface);
+        TTF_CloseFont(font);
+
+        return texture;
+    }
+
+    SDL_Surface* create_surface_from_text(std::string path, std::string text, int fontSize,
+                                        SDL_Color* color)
+    {
+        TTF_Font* font = NULL;
+        SDL_Surface* textSurface = NULL;
+
+        font = TTF_OpenFont(path.c_str(), fontSize);
+        if (font==NULL)
+        {
+            printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
+            return textSurface;
+        }
+
+        textSurface = TTF_RenderText_Solid(font, text.c_str(), *color);
+        if (textSurface==NULL)
+        {
+            printf("Unable to create surface from text! SDL_ttf Error: %s\n", TTF_GetError());
+        }
+
+        TTF_CloseFont(font);
+
+        return textSurface;
+    }
+
+    SDL_Texture* create_texture_from_surfaces(WindowElements* windowElements,
+                                                SDL_Surface* src, SDL_Rect* srcRect,
+                                                SDL_Surface* dest, SDL_Rect* destRect)
+    {
+        SDL_Texture* texture = NULL;
+
+        SDL_BlitSurface(src, srcRect, dest, destRect);
+
+        texture = SDL_CreateTextureFromSurface(windowElements->renderer, dest);
+        if(texture==NULL)
+        {
+            printf("Unable to create texture from surfaces! SDL Error: %s\n", SDL_GetError());
+        }
+
+        return texture;
+    }
+
     //SDL_Renderer* create
+
+    void terminate()
+    {
+        TTF_Quit();
+        IMG_Quit();
+        SDL_Quit();
+    }
 }

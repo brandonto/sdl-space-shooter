@@ -8,10 +8,11 @@
  *********************************************************************/
 #include "GameEntityManager.h"
 
+#include <string>
 #include <SDL2/SDL.h>
 #include "BackgroundRenderComponent.h"
 #include "GameEntity.h"
-#include "UITitleRenderComponent.h"
+#include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
 
 GameEntityManager::GameEntityManager()
@@ -32,10 +33,18 @@ void GameEntityManager::onRender()
 
 std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windowElements)
 {
+    SDL_Rect temp;
     GameEntity* mainMenu[1];
 
     GameEntity* uiTitle = new GameEntity();
-    uiTitle->addRenderComponent(new UITitleRenderComponent(uiTitle, windowElements));
+    UIPanelRenderComponent* uiTitleRender = new UIPanelRenderComponent(uiTitle, windowElements);
+    temp.x = windowElements->WINDOW_WIDTH/5;
+    temp.y = windowElements->WINDOW_HEIGHT/12;
+    temp.w = windowElements->WINDOW_WIDTH - 2*temp.x;
+    temp.h = windowElements->WINDOW_HEIGHT - 9*temp.y;
+    uiTitleRender->setRenderRect(&temp);
+    uiTitleRender->addText("Space Shooter", 72, &temp);
+    uiTitle->addRenderComponent(uiTitleRender);
     uiLayer.add(uiTitle);
     mainMenu[0] = uiTitle;
 

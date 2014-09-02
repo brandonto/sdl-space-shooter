@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-20
+ * @modified    2014-09-01
  *********************************************************************/
 #ifndef SPACESHOOTER_APPLICATION_H_
     #define SPACESHOOTER_APPLICATION_H_
@@ -31,7 +31,7 @@ class Application
         //Methods
         int start();
         bool initialize();
-        bool terminate();
+        void terminate();
 };
 
 #endif

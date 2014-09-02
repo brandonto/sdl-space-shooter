@@ -1,40 +1,47 @@
 /*******************************************************************//*
- * Render component for UI title
+ * Render component for UI panel
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-08-31
+ * @modified    2014-09-01
  *********************************************************************/
-#ifndef SPACESHOOTER_UITITLERENDERCOMPONENT_
-    #define SPACESHOOTER_UITITLERENDERCOMPONENT_
+#ifndef SPACESHOOTER_UIPANELRENDERCOMPONENT_
+    #define SPACESHOOTER_UIPANELRENDERCOMPONENT_
 
 #include "RenderComponent.h"
+#include <string>
 #include <SDL2/SDL.h>
 
 class GameEntity;
 
+struct SDL_Rect;
 struct SDL_Texture;
 struct WindowElements;
 
-class UITitleRenderComponent : public RenderComponent
+class UIPanelRenderComponent : public RenderComponent
 {
     private:
         SDL_Rect renderRect;
+        SDL_Surface* spriteSurface;
         SDL_Texture* sprite;
+        GameEntity* gameEntity;
         WindowElements* windowElements;
 
     public:
         //Constructor
-        UITitleRenderComponent(GameEntity* gameEntity,
+        UIPanelRenderComponent(GameEntity* gameEntity,
                                WindowElements* windowElements);
 
         //Destructor
-        ~UITitleRenderComponent();
+        ~UIPanelRenderComponent();
 
         //Methods
         void update(GameEntity* gameEntity);
+        void enableBlending();
         void setAlphaBlend(Uint8 alpha);
+        void setRenderRect(SDL_Rect* rect);
+        void addText(std::string text, int fontSize, SDL_Rect* destRect);
 };
 
 #endif

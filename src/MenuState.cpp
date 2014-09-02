@@ -12,7 +12,7 @@
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
-#include "UITitleRenderComponent.h"
+#include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
@@ -50,14 +50,21 @@ void MenuState::onUpdate()
 {
     if (fadeIn)
     {
-        if (menuAlpha<255) { menuAlpha+=5; }
-        dynamic_cast<UITitleRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        if (menuAlpha<255)
+        {
+            menuAlpha+=5;
+            if (menuAlpha==255) { fadeIn = false; }
+        }
+        dynamic_cast<UIPanelRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
     }
     else if (fadeOut)
     {
-        if (menuAlpha>0) { menuAlpha-=5; }
-        dynamic_cast<UITitleRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
-        //mainMenu[0]->getRenderComponent()->setAlphaBlend(menuAlpha);
+        if (menuAlpha>0)
+        {
+            menuAlpha-=5;
+            if (menuAlpha==0) { fadeOut = false; }
+        }
+        dynamic_cast<UIPanelRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
     }
 }
 

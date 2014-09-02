@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-30
+ * @modified    2014-09-01
  *********************************************************************/
 #include "Application.h"
 
@@ -42,10 +42,7 @@ int Application::start()
         applicationStateManager->onRender();
     }
 
-    if (!terminate())
-    {
-        return -1;
-    }
+    terminate();
 
     return 0;
 }
@@ -88,7 +85,7 @@ bool Application::initialize()
     return true;
 }
 
-bool Application::terminate()
+void Application::terminate()
 {
     delete applicationStateManager;
 
@@ -98,5 +95,5 @@ bool Application::terminate()
     SDL_DestroyWindow(windowElements.window);
     windowElements.window = NULL;
 
-    return true;
+    SDL_util::terminate();
 }

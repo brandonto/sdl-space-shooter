@@ -15,14 +15,14 @@ _OBJS =	main.o \
 		IntroState.o \
 		MenuState.o \
 		SDL_util.o \
-		UITitleRenderComponent.o
+		UIPanelRenderComponent.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 CC = g++
 
 CFLAGS = -w -g
 
-LFLAGS = -lSDL2 -lSDL2_image
+LFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
 
 PROG = SpaceShooter
 

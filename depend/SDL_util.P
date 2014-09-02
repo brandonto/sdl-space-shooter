@@ -106,7 +106,7 @@ obj/SDL_util.o: src/SDL_util.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
- include/WindowElements.h
+ /usr/include/SDL2/SDL_ttf.h include/WindowElements.h
 src/SDL_util.cpp /usr/include/stdc-predef.h :
  include/SDL_util.h /usr/include/c++/4.8/string :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
@@ -215,4 +215,4 @@ src/SDL_util.cpp /usr/include/stdc-predef.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h :
- include/WindowElements.h :
+ /usr/include/SDL2/SDL_ttf.h include/WindowElements.h :
