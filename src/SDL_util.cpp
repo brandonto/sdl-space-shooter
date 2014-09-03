@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-01
+ * @modified    2014-09-03
  *********************************************************************/
 #include "SDL_util.h"
 
@@ -174,7 +174,7 @@ namespace SDL_util
     }
 
     SDL_Surface* create_surface_from_text(std::string path, std::string text, int fontSize,
-                                        SDL_Color* color)
+                                            SDL_Color* color)
     {
         TTF_Font* font = NULL;
         SDL_Surface* textSurface = NULL;
@@ -199,17 +199,39 @@ namespace SDL_util
 
     SDL_Texture* create_texture_from_surfaces(WindowElements* windowElements,
                                                 SDL_Surface* src, SDL_Rect* srcRect,
-                                                SDL_Surface* dest, SDL_Rect* destRect)
+                                                SDL_Surface* dest, SDL_Rect* destRect,
+                                                bool scaled)
     {
         SDL_Texture* texture = NULL;
 
-        SDL_BlitSurface(src, srcRect, dest, destRect);
+        //Due to a bug in SDL2, SDL_Surface* src must be converted to same pixel format as 
+        //SDL_Surface* dest in order to do scaled blitting
+        //
+        //More info: http://forums.libsdl.org/viewtopic.php?t=9975&highlight=sdlblitscaled
+        SDL_Surface* convertedsrc = NULL;
+        convertedsrc = SDL_ConvertSurface(src, dest->format, 0);
+        if (convertedsrc==NULL)
+        {
+            printf("Unable to convert src pixel format to match dest! SDL_Error: %s\n", SDL_GetError());
+            return texture;
+        }
+
+        if (scaled)
+        {
+            SDL_BlitScaled(convertedsrc, srcRect, dest, destRect);
+        }
+        else
+        {
+            SDL_BlitSurface(convertedsrc, srcRect, dest, destRect);
+        }
 
         texture = SDL_CreateTextureFromSurface(windowElements->renderer, dest);
         if(texture==NULL)
         {
             printf("Unable to create texture from surfaces! SDL Error: %s\n", SDL_GetError());
         }
+
+        SDL_FreeSurface(convertedsrc);
 
         return texture;
     }

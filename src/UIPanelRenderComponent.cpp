@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-09-01
+ * @modified    2014-09-03
  *********************************************************************/
 #include "UIPanelRenderComponent.h"
 
@@ -43,7 +43,8 @@ void UIPanelRenderComponent::setRenderRect(SDL_Rect* rect)
     renderRect = *rect;
 }
 
-void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* destRect)
+void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* destRect,
+                                        bool scaled)
 {
     SDL_Surface* surface = NULL;
 
@@ -52,10 +53,12 @@ void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* d
     color.g = 255;
     color.b = 255;
     color.a = 255;
-    surface = SDL_util::create_surface_from_text("bin/font/kenvector_future.ttf", text,
+    surface = SDL_util::create_surface_from_text("bin/font/kenvector_future_thin.ttf", text,
                                                 fontSize, &color);
-    sprite = SDL_util::create_texture_from_surfaces(windowElements, surface, NULL, spriteSurface,
-                                                    destRect);
+    SDL_DestroyTexture(sprite);
+    sprite = SDL_util::create_texture_from_surfaces(windowElements, surface, NULL,
+                                                    spriteSurface, destRect, scaled);
+    SDL_FreeSurface(surface);
 }
 
 UIPanelRenderComponent::~UIPanelRenderComponent()

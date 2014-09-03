@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-01
+ * @modified    2014-09-03
  *********************************************************************/
 #include "MenuState.h"
 
@@ -55,7 +55,10 @@ void MenuState::onUpdate()
             menuAlpha+=5;
             if (menuAlpha==255) { fadeIn = false; }
         }
-        dynamic_cast<UIPanelRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        for (int i=0; i<mainMenu.size(); i++)
+        {
+            dynamic_cast<UIPanelRenderComponent*>(mainMenu[i]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        }
     }
     else if (fadeOut)
     {
@@ -64,7 +67,10 @@ void MenuState::onUpdate()
             menuAlpha-=5;
             if (menuAlpha==0) { fadeOut = false; }
         }
-        dynamic_cast<UIPanelRenderComponent*>(mainMenu[0]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        for (int i=0; i<mainMenu.size(); i++)
+        {
+            dynamic_cast<UIPanelRenderComponent*>(mainMenu[i]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        }
     }
 }
 

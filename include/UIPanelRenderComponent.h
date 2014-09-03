@@ -41,7 +41,7 @@ class UIPanelRenderComponent : public RenderComponent
         void enableBlending();
         void setAlphaBlend(Uint8 alpha);
         void setRenderRect(SDL_Rect* rect);
-        void addText(std::string text, int fontSize, SDL_Rect* destRect);
+        void addText(std::string text, int fontSize, SDL_Rect* destRect, bool scaled);
 };
 
 #endif

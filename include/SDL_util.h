@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-01
+ * @modified    2014-09-03
  *********************************************************************/
 #ifndef SPACESHOOTER_SDL_UTIL_H_
     #define SPACESHOOTER_SDL_UTIL_H_
@@ -32,7 +32,8 @@ namespace SDL_util
                                             SDL_Color* color);
     SDL_Texture* create_texture_from_surfaces(WindowElements* windowElements,
                                                 SDL_Surface* src, SDL_Rect* srcRect,
-                                                SDL_Surface* dest, SDL_Rect* destRect);
+                                                SDL_Surface* dest, SDL_Rect* destRect,
+                                                bool scaled);
     void terminate();
 }
 
