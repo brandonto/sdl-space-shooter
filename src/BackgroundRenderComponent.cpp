@@ -18,7 +18,7 @@ BackgroundRenderComponent::BackgroundRenderComponent(WindowElements* windowEleme
     windowElements(windowElements),
     offset(0)
 {
-    sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/purple.png");
+    sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/darkPurple.png");
 }
 
 void BackgroundRenderComponent::update(GameEntity* gameEntity)
