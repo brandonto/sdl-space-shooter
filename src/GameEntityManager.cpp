@@ -12,6 +12,7 @@
 #include <SDL2/SDL.h>
 #include "BackgroundRenderComponent.h"
 #include "GameEntity.h"
+#include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
 
@@ -20,9 +21,9 @@ GameEntityManager::GameEntityManager()
 
 }
 
-void GameEntityManager::onEvent(SDL_Event event)
+void GameEntityManager::onEvent(SDL_Event* event)
 {
-
+    uiLayer.onEvent(event);
 }
 
 void GameEntityManager::onRender()
@@ -77,6 +78,8 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiPlayRender->addText("Play", 96, &temp, true);
     uiPlayRender->enableBlending();
     uiPlay->addRenderComponent(uiPlayRender);
+    UIPanelInputComponent* uiPlayInput = new UIPanelInputComponent(uiPlay);
+    uiPlay->addInputComponent(uiPlayInput);
     uiLayer.add(uiPlay);
     mainMenu[1] = uiPlay;
 
@@ -94,6 +97,8 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiInstructionsRender->addText("Instructions", 96, &temp, true);
     uiInstructionsRender->enableBlending();
     uiInstructions->addRenderComponent(uiInstructionsRender);
+    UIPanelInputComponent* uiInstructionsInput = new UIPanelInputComponent(uiInstructions);
+    uiInstructions->addInputComponent(uiInstructionsInput);
     uiLayer.add(uiInstructions);
     mainMenu[2] = uiInstructions;
 
@@ -111,6 +116,8 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiOptionsRender->addText("Options", 96, &temp, true);
     uiOptionsRender->enableBlending();
     uiOptions->addRenderComponent(uiOptionsRender);
+    UIPanelInputComponent* uiOptionsInput = new UIPanelInputComponent(uiOptions);
+    uiOptions->addInputComponent(uiOptionsInput);
     uiLayer.add(uiOptions);
     mainMenu[3] = uiOptions;
 
@@ -128,6 +135,8 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiCreditsRender->addText("Credits", 96, &temp, true);
     uiCreditsRender->enableBlending();
     uiCredits->addRenderComponent(uiCreditsRender);
+    UIPanelInputComponent* uiCreditsInput = new UIPanelInputComponent(uiCredits);
+    uiCredits->addInputComponent(uiCreditsInput);
     uiLayer.add(uiCredits);
     mainMenu[4] = uiCredits;
 
@@ -145,6 +154,8 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiQuitRender->addText("Quit", 96, &temp, true);
     uiQuitRender->enableBlending();
     uiQuit->addRenderComponent(uiQuitRender);
+    UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
+    uiQuit->addInputComponent(uiQuitInput);
     uiLayer.add(uiQuit);
     mainMenu[5] = uiQuit;
 

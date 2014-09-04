@@ -6,19 +6,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-01
+ * @modified    2014-09-03
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
 
-//class InputComponent;
+class InputComponent;
 class RenderComponent;
+
+union SDL_Event;
 
 class GameEntity
 {
     private:
         //Fields
-        //InputComponent* input;
+        InputComponent* input;
         RenderComponent* render;
 
     public:
@@ -33,12 +35,14 @@ class GameEntity
         ~GameEntity();
 
         //Methods
+        void addInputComponent(InputComponent* input);
         void addRenderComponent(RenderComponent* render);
-        void onEvent();
+        void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
 
         RenderComponent* getRenderComponent();
+        InputComponent* getInputComponent();
 };
 
 #endif

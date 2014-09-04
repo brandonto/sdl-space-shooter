@@ -26,7 +26,7 @@ class GameEntityManager
     public:
         GameEntityManager();
 
-        void onEvent(SDL_Event event);
+        void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
 

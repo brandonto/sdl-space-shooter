@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-08-30
+ * @modified    2014-09-03
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYCOLLECTION_H_
     #define SPACESHOOTER_GAMEENTITYCOLLECTION_H_
@@ -14,6 +14,8 @@
 #include <list>
 
 class GameEntity;
+
+union SDL_Event;
 
 class GameEntityCollection
 {
@@ -30,6 +32,7 @@ class GameEntityCollection
         //Methods
         void add(GameEntity* gameEntity);
         void remove(GameEntity* gameEntity);
+        void onEvent(SDL_Event* event);
         void onRender();
 };
 

@@ -42,7 +42,7 @@ void MenuState::onEvent()
         {
             applicationStateManager->setNextState(STATE_EXIT);
         }
-        gameEntityManager.onEvent(event);
+        gameEntityManager.onEvent(&event);
     }
 }
 
@@ -50,10 +50,10 @@ void MenuState::onUpdate()
 {
     if (fadeIn)
     {
-        if (menuAlpha<255)
+        if (menuAlpha<200)
         {
             menuAlpha+=5;
-            if (menuAlpha==255) { fadeIn = false; }
+            if (menuAlpha==200) { fadeIn = false; }
         }
         for (int i=0; i<mainMenu.size(); i++)
         {

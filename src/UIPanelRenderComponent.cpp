@@ -17,7 +17,10 @@ UIPanelRenderComponent::UIPanelRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
 :   sprite(NULL),
     gameEntity(gameEntity),
-    windowElements(windowElements)
+    windowElements(windowElements),
+    alpha(0),
+    cachedAlpha(0),
+    selected(false)
 {
     spriteSurface = SDL_util::create_surface_from_image("bin/graphics/ui/glassPanel.png");
     sprite = SDL_util::create_texture_from_surface(windowElements, spriteSurface);
@@ -35,12 +38,43 @@ void UIPanelRenderComponent::enableBlending()
 
 void UIPanelRenderComponent::setAlphaBlend(Uint8 alpha)
 {
+    this->alpha = alpha;
     SDL_SetTextureAlphaMod(sprite, alpha);
+}
+
+Uint8 UIPanelRenderComponent::getAlphaBlend()
+{
+    return alpha;
+}
+
+bool UIPanelRenderComponent::isSelected()
+{
+    return selected;
+}
+
+void UIPanelRenderComponent::toggleSelected()
+{
+    if (!selected)
+    {
+        cachedAlpha = alpha;
+        setAlphaBlend(SELECTED_ALPHA);
+        selected = true;
+    }
+    else
+    {
+        setAlphaBlend(cachedAlpha);
+        selected = false;
+    }
 }
 
 void UIPanelRenderComponent::setRenderRect(SDL_Rect* rect)
 {
     renderRect = *rect;
+}
+
+SDL_Rect* UIPanelRenderComponent::getRenderRect()
+{
+    return &renderRect;
 }
 
 void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* destRect,
@@ -59,6 +93,11 @@ void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* d
     sprite = SDL_util::create_texture_from_surfaces(windowElements, surface, NULL,
                                                     spriteSurface, destRect, scaled);
     SDL_FreeSurface(surface);
+}
+
+bool UIPanelRenderComponent::buttonReady()
+{
+    return alpha>=200;
 }
 
 UIPanelRenderComponent::~UIPanelRenderComponent()

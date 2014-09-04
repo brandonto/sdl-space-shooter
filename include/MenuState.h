@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-01
+ * @modified    2014-09-03
  *********************************************************************/
 #ifndef SPACESHOOTER_MENUSTATE_H_
     #define SPACESHOOTER_MENUSTATE_H_

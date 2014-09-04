@@ -111,7 +111,8 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
  /usr/include/c++/4.8/bits/basic_string.tcc \
  include/BackgroundRenderComponent.h include/RenderComponent.h \
- include/GameEntity.h include/UIPanelRenderComponent.h \
+ include/GameEntity.h include/UIPanelInputComponent.h \
+ include/InputComponent.h include/UIPanelRenderComponent.h \
  include/WindowElements.h
 src/GameEntityManager.cpp :
  /usr/include/stdc-predef.h include/GameEntityManager.h :
@@ -226,5 +227,6 @@ src/GameEntityManager.cpp :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
  /usr/include/c++/4.8/bits/basic_string.tcc :
  include/BackgroundRenderComponent.h include/RenderComponent.h :
- include/GameEntity.h include/UIPanelRenderComponent.h :
+ include/GameEntity.h include/UIPanelInputComponent.h :
+ include/InputComponent.h include/UIPanelRenderComponent.h :
  include/WindowElements.h :
