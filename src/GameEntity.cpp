@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-03
+ * @modified    2014-09-04
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -15,7 +15,9 @@
 
 //Constructor
 GameEntity::GameEntity()
-:   xPos(0), yPos(0), velocity(0)
+:   xPos(0), yPos(0), velocity(0),
+    input(NULL),
+    render(NULL)
 {}
 
 GameEntity::~GameEntity()
@@ -50,10 +52,10 @@ void GameEntity::onRender()
 
 InputComponent* GameEntity::getInputComponent()
 {
-    if (input!=NULL) { return input; }
+    return input;
 }
 
 RenderComponent* GameEntity::getRenderComponent()
 {
-    if (render!=NULL) { return render; }
+    return render;
 }
