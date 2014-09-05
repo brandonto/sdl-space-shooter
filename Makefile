@@ -15,6 +15,7 @@ _OBJS =	main.o \
 		IntroState.o \
 		MenuState.o \
 		SDL_util.o \
+		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-26
+ * @modified    2014-09-04
  *********************************************************************/
 #include "ApplicationStateManager.h"
 
@@ -19,7 +19,6 @@ ApplicationStateManager::ApplicationStateManager(WindowElements* windowElements)
     : windowElements(windowElements)
 {
     //currentState = new IntroState();
-    //currentState = new PreMenuTransitionState();
     currentState = new MenuState(this, windowElements);
     currentState->onEnter();
     nextStateEnum = STATE_NULL;
@@ -64,6 +63,11 @@ bool ApplicationStateManager::isExitState()
 void ApplicationStateManager::setNextState(int nextState)
 {
     nextStateEnum = nextState;
+}
+
+void ApplicationStateManager::pushStateOnStack(int pushedState)
+{
+    pushedStateEnum = pushedState;
 }
 
 void ApplicationStateManager::changeState()

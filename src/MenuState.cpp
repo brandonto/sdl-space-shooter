@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-03
+ * @modified    2014-09-05
  *********************************************************************/
 #include "MenuState.h"
 
@@ -31,7 +31,8 @@ MenuState::~MenuState()
 void MenuState::onEnter()
 {
     background = gameEntityManager.createBackground(windowElements);
-    mainMenu = gameEntityManager.createMainMenu(windowElements);
+    mainMenu = gameEntityManager.createMainMenu(windowElements,
+                                                applicationStateManager);
 }
 
 void MenuState::onEvent()

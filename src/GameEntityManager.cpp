@@ -4,14 +4,16 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-03
+ * @modified    2014-09-05
  *********************************************************************/
 #include "GameEntityManager.h"
 
 #include <string>
 #include <SDL2/SDL.h>
+#include "ApplicationStateManager.h"
 #include "BackgroundRenderComponent.h"
 #include "GameEntity.h"
+#include "UIClickFunctionQuit.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -32,7 +34,8 @@ void GameEntityManager::onRender()
     uiLayer.onRender();
 }
 
-std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windowElements)
+std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windowElements,
+                                        ApplicationStateManager* stateManager)
 {
     SDL_Rect temp;
     GameEntity* mainMenu[6];
@@ -155,6 +158,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiQuitRender->enableBlending();
     uiQuit->addRenderComponent(uiQuitRender);
     UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
+    uiQuitInput->addClickFunction(new UIClickFunctionQuit(stateManager));
     uiQuit->addInputComponent(uiQuitInput);
     uiLayer.add(uiQuit);
     mainMenu[5] = uiQuit;
