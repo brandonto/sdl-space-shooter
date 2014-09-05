@@ -14,7 +14,7 @@
 #include <vector>
 #include <SDL2/SDL.h>
 
-class ApplicationStateManager;
+class ApplicationState;
 
 struct WindowElements;
 
@@ -33,7 +33,7 @@ class GameEntityManager
         void onRender();
 
         std::vector<GameEntity*> createMainMenu(WindowElements* windowElements,
-                                            ApplicationStateManager* stateManager);
+                                                ApplicationState* state);
         GameEntity* createBackground(WindowElements* windowElements);
         void createGameEntityPhysical();
 

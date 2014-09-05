@@ -7,7 +7,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-04
+ * @modified    2014-09-05
  *********************************************************************/
 #ifndef SPACESHOOTER_APPLICATIONSTATEMANAGER_H_
     #define SPACESHOOTER_APPLICATIONSTATEMANAGER_H_

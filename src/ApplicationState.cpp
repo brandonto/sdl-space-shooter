@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-20
+ * @modified    2014-09-05
  *********************************************************************/
 #include "ApplicationState.h"
 
@@ -30,4 +30,9 @@ void ApplicationState::onEnter()
 void ApplicationState::onExit()
 {
     return;
+}
+
+void ApplicationState::stateTransition(int nextState)
+{
+    applicationStateManager->setNextState(nextState);
 }

@@ -11,16 +11,16 @@
 
 #include "UIClickFunction.h"
 
-class ApplicationStateManager;
+class ApplicationState;
 
 class UIClickFunctionQuit : public UIClickFunction
 {
     private:
-        ApplicationStateManager* stateManager;
+        ApplicationState* state;
 
     public:
         //Constructor
-        UIClickFunctionQuit(ApplicationStateManager* stateManager);
+        UIClickFunctionQuit(ApplicationState* state);
 
         //Methods
         void onClick();

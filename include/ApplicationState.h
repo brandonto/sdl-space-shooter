@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-08-20
+ * @modified    2014-09-05
  *********************************************************************/
 #ifndef SPACESHOOTER_APPLICATIONSTATE_H_
     #define SPACESHOOTER_APPLICATIONSTATE_H_
@@ -27,6 +27,7 @@ class ApplicationState
         virtual void onUpdate() = 0;
         virtual void onRender() = 0;
         virtual void onExit();
+        virtual void stateTransition(int nextState);
 
     protected:
         //Fields

@@ -9,15 +9,14 @@
 #include "UIClickFunctionQuit.h"
 
 #include "ApplicationState.h"
-#include "ApplicationStateManager.h"
 
-UIClickFunctionQuit::UIClickFunctionQuit(ApplicationStateManager* stateManager)
-:   stateManager(stateManager)
+UIClickFunctionQuit::UIClickFunctionQuit(ApplicationState* state)
+:   state(state)
 {
 
 }
 
 void UIClickFunctionQuit::onClick()
 {
-    stateManager->setNextState(STATE_EXIT);
+    state->stateTransition(STATE_EXIT);
 }

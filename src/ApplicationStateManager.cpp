@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-04
+ * @modified    2014-09-05
  *********************************************************************/
 #include "ApplicationStateManager.h"
 

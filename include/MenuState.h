@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-03
+ * @modified    2014-09-05
  *********************************************************************/
 #ifndef SPACESHOOTER_MENUSTATE_H_
     #define SPACESHOOTER_MENUSTATE_H_
@@ -24,10 +24,16 @@ class MenuState : public ApplicationState
         GameEntityManager gameEntityManager;
         GameEntity* background;
         std::vector<GameEntity*> mainMenu;
+        SDL_Texture* blackScreen;
 
         bool fadeIn;
         bool fadeOut;
         Uint8 menuAlpha;
+        bool blackIn;
+        bool blackOut;
+        Uint8 blackScreenAlpha;
+
+        int nextState;
 
     public:
         //Constructor
@@ -43,6 +49,7 @@ class MenuState : public ApplicationState
         void onUpdate();
         void onRender();
         void onExit();
+        void stateTransition(int nextState);
 };
 
 #endif

@@ -10,7 +10,7 @@
 
 #include <string>
 #include <SDL2/SDL.h>
-#include "ApplicationStateManager.h"
+#include "ApplicationState.h"
 #include "BackgroundRenderComponent.h"
 #include "GameEntity.h"
 #include "UIClickFunctionQuit.h"
@@ -35,7 +35,7 @@ void GameEntityManager::onRender()
 }
 
 std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windowElements,
-                                        ApplicationStateManager* stateManager)
+                                            ApplicationState* state)
 {
     SDL_Rect temp;
     GameEntity* mainMenu[6];
@@ -158,7 +158,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiQuitRender->enableBlending();
     uiQuit->addRenderComponent(uiQuitRender);
     UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
-    uiQuitInput->addClickFunction(new UIClickFunctionQuit(stateManager));
+    uiQuitInput->addClickFunction(new UIClickFunctionQuit(state));
     uiQuit->addInputComponent(uiQuitInput);
     uiLayer.add(uiQuit);
     mainMenu[5] = uiQuit;

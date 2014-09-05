@@ -1,8 +1,6 @@
 obj/UIClickFunctionQuit.o: src/UIClickFunctionQuit.cpp \
  /usr/include/stdc-predef.h include/UIClickFunctionQuit.h \
- include/UIClickFunction.h include/ApplicationState.h \
- include/ApplicationStateManager.h
+ include/UIClickFunction.h include/ApplicationState.h
 src/UIClickFunctionQuit.cpp :
  /usr/include/stdc-predef.h include/UIClickFunctionQuit.h :
  include/UIClickFunction.h include/ApplicationState.h :
- include/ApplicationStateManager.h :
