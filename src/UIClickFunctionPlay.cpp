@@ -1,22 +1,22 @@
 /*******************************************************************//*
- * Implementation of the UIClickFunctionQuit class.
+ * Implementation of the UIClickFunctionPlay class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
  * @modified    2014-09-05
  *********************************************************************/
-#include "UIClickFunctionQuit.h"
+#include "UIClickFunctionPlay.h"
 
 #include "ApplicationState.h"
 
-UIClickFunctionQuit::UIClickFunctionQuit(ApplicationState* state)
+UIClickFunctionPlay::UIClickFunctionPlay(ApplicationState* state)
 :   state(state)
 {
 
 }
 
-void UIClickFunctionQuit::onClick()
+void UIClickFunctionPlay::onClick()
 {
-    state->stateTransition(STATE_EXIT);
+    state->stateTransition(STATE_GAME);
 }

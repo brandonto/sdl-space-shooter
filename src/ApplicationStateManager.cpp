@@ -11,16 +11,18 @@
 #include <cstddef>
 #include <SDL2/SDL.h>
 #include "ApplicationState.h"
+#include "GameState.h"
 #include "MenuState.h"
 #include "WindowElements.h"
 
 //Constructors
 ApplicationStateManager::ApplicationStateManager(WindowElements* windowElements)
-    : windowElements(windowElements)
+:   windowElements(windowElements)
 {
     //currentState = new IntroState();
     currentState = new MenuState(this, windowElements);
     currentState->onEnter();
+    currentStateEnum = STATE_MENU;
     nextStateEnum = STATE_NULL;
 }
 
@@ -57,7 +59,7 @@ ApplicationState* ApplicationStateManager::getCurrentState()
 
 bool ApplicationStateManager::isExitState()
 {
-    return nextStateEnum == STATE_EXIT;
+    return currentStateEnum == STATE_EXIT;
 }
 
 void ApplicationStateManager::setNextState(int nextState)
@@ -83,14 +85,19 @@ void ApplicationStateManager::changeState()
 
         switch (nextStateEnum)
         {
+            case STATE_GAME:
+                currentState = new GameState(this, windowElements);
+                currentState->onEnter();
+                break;
+
             case STATE_MENU:
                 currentState = new MenuState(this, windowElements);
                 currentState->onEnter();
                 break;
-
-            case STATE_GAME:
-                break;
         }
+
+        currentStateEnum = nextStateEnum;
+        nextStateEnum = STATE_NULL;
     }
 }
 

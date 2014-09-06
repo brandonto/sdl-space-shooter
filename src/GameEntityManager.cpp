@@ -14,6 +14,7 @@
 #include "BackgroundRenderComponent.h"
 #include "GameEntity.h"
 #include "UIClickFunctionQuit.h"
+#include "UIClickFunctionPlay.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -82,6 +83,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     uiPlayRender->enableBlending();
     uiPlay->addRenderComponent(uiPlayRender);
     UIPanelInputComponent* uiPlayInput = new UIPanelInputComponent(uiPlay);
+    uiPlayInput->addClickFunction(new UIClickFunctionPlay(state));
     uiPlay->addInputComponent(uiPlayInput);
     uiLayer.add(uiPlay);
     mainMenu[1] = uiPlay;

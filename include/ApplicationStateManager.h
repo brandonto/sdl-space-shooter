@@ -21,6 +21,7 @@ class ApplicationStateManager
         //Fields
         WindowElements* windowElements;
         ApplicationState* currentState;
+        int currentStateEnum;
         int nextStateEnum;
         int pushedStateEnum;
 

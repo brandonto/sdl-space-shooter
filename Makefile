@@ -9,12 +9,15 @@ _OBJS =	main.o \
 		ApplicationState.o \
 		ApplicationStateManager.o \
 		BackgroundRenderComponent.o \
+		BlackScreen.o \
 		GameEntity.o \
 		GameEntityCollection.o \
 		GameEntityManager.o \
+		GameState.o \
 		IntroState.o \
 		MenuState.o \
 		SDL_util.o \
+		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o

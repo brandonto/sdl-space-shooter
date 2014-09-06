@@ -1,15 +1,14 @@
 /*******************************************************************//*
- * This is the ApplicationState class for the main menu screen. This
- * state is entered after the intro state at the beginning and can be
- * navigated to from the pause state.
+ * This is the ApplicationState class for the game. This state is
+ * entered after clicking the "Play" button from the menu state
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-08-05
+ * @since       2014-09-05
  * @modified    2014-09-05
  *********************************************************************/
-#ifndef SPACESHOOTER_MENUSTATE_H_
-    #define SPACESHOOTER_MENUSTATE_H_
+#ifndef SPACESHOOTER_GAMESTATE_H_
+    #define SPACESHOOTER_GAMESTATE_H_
 
 #include <vector>
 #include "ApplicationState.h"
@@ -18,28 +17,25 @@
 
 class GameEntity;
 
-class MenuState : public ApplicationState
+class GameState : public ApplicationState
 {
     private:
         SDL_Event event;
         GameEntityManager gameEntityManager;
-        GameEntity* background;
-        std::vector<GameEntity*> mainMenu;
         BlackScreen blackScreen;
-
-        bool fadeIn;
-        bool fadeOut;
-        Uint8 menuAlpha;
+        GameEntity* background;
+        GameEntity* player;
+        std::vector<GameEntity*> enemies;
 
         int nextState;
 
     public:
         //Constructor
-        MenuState(ApplicationStateManager* applicationStateManager,
+        GameState(ApplicationStateManager* applicationStateManager,
                   WindowElements* windowElements);
 
         //Destructor
-        ~MenuState();
+        ~GameState();
 
         //GameState methods
         void onEnter();
