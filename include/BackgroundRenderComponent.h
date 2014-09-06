@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-08-27
+ * @modified    2014-09-06
  *********************************************************************/
 #ifndef SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
@@ -20,6 +20,8 @@ class BackgroundRenderComponent : public RenderComponent
         SDL_Texture* sprite;
         WindowElements* windowElements;
         int offset;
+        int offsetIncrementCounter;
+        int offsetIncrementModulus;
 
     public:
         //Constructor

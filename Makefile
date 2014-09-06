@@ -10,6 +10,7 @@ _OBJS =	main.o \
 		ApplicationStateManager.o \
 		BackgroundRenderComponent.o \
 		BlackScreen.o \
+		FrameRateManager.o \
 		GameEntity.o \
 		GameEntityCollection.o \
 		GameEntityManager.o \
@@ -17,6 +18,7 @@ _OBJS =	main.o \
 		IntroState.o \
 		MenuState.o \
 		SDL_util.o \
+		Timer.o \
 		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \

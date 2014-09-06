@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-05
+ * @modified    2014-09-06
  *********************************************************************/
 #include "BlackScreen.h"
 
@@ -76,8 +76,8 @@ void BlackScreen::onUpdate()
     {
         if (alpha>0)
         {
-            if ( alpha == 15 ) { alpha = 0; }
-            else { alpha-=80; }
+            if ( alpha == 5 ) { alpha = 0; }
+            else { alpha-=50; }
             if ( alpha == 0 ) { blackIn = false; }
             SDL_SetTextureAlphaMod(blackScreen, alpha);
         }
@@ -86,8 +86,8 @@ void BlackScreen::onUpdate()
     {
         if (alpha<255)
         {
-            if ( alpha == 240 ) { alpha = 255; }
-            else { alpha+=80; }
+            if ( alpha == 250 ) { alpha = 255; }
+            else { alpha+=50; }
             if ( alpha == 255 ) { blackOut = false; }
             SDL_SetTextureAlphaMod(blackScreen, alpha);
         }

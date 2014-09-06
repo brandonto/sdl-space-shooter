@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-05
+ * @modified    2014-09-06
  *********************************************************************/
 #include "GameState.h"
 
@@ -76,7 +76,7 @@ void GameState::onRender()
     SDL_RenderClear(windowElements->renderer);
     gameEntityManager.onRender();
     SDL_RenderPresent(windowElements->renderer);
-    SDL_Delay(50);
+    //SDL_Delay(50);
 }
 
 void GameState::onExit()

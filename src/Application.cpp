@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-05
+ * @modified    2014-09-06
  *********************************************************************/
 #include "Application.h"
 
@@ -16,16 +16,16 @@
 
 // Constructor
 Application::Application()
+:   applicationStateManager(NULL)
 {
     windowElements.window = NULL;
     windowElements.renderer = NULL;
-    applicationStateManager = NULL;
 }
 
 // Destructor
 Application::~Application()
 {
-
+    if (applicationStateManager!=NULL) { delete applicationStateManager; }
 }
 
 int Application::start()
@@ -37,10 +37,12 @@ int Application::start()
 
     while (!applicationStateManager->isExitState())
     {
+        fpsManager.beginFrame();
         applicationStateManager->onEvent();
         applicationStateManager->onUpdate();
         applicationStateManager->changeState();
         applicationStateManager->onRender();
+        fpsManager.endFrame();
     }
 
     terminate();
@@ -88,7 +90,6 @@ bool Application::initialize()
 
 void Application::terminate()
 {
-    delete applicationStateManager;
 
     SDL_DestroyRenderer(windowElements.renderer);
     windowElements.renderer = NULL;
