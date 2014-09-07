@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-05
+ * @modified    2014-09-06
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
@@ -24,20 +24,18 @@ class GameEntityManager
         GameEntityCollection backgroundLayer;
         GameEntityCollection physicalLayer;
         GameEntityCollection uiLayer;
+        WindowElements* windowElements;
 
     public:
-        GameEntityManager();
+        GameEntityManager(WindowElements* windowElements);
 
         void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
 
-        std::vector<GameEntity*> createMainMenu(WindowElements* windowElements,
-                                                ApplicationState* state);
-        GameEntity* createBackground(WindowElements* windowElements);
-        void createGameEntityPhysical();
-
-        void createUIElement();
+        std::vector<GameEntity*> createMainMenu(ApplicationState* state);
+        GameEntity* createBackground();
+        GameEntity* createPlayer();
 };
 
 #endif

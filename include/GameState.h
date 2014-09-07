@@ -21,8 +21,8 @@ class GameState : public ApplicationState
 {
     private:
         SDL_Event event;
-        GameEntityManager gameEntityManager;
         BlackScreen blackScreen;
+        GameEntityManager gameEntityManager;
         GameEntity* background;
         GameEntity* player;
         std::vector<GameEntity*> enemies;

@@ -15,7 +15,7 @@
 
 GameState::GameState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   nextState(0), blackScreen(windowElements)
+:   nextState(0), blackScreen(windowElements), gameEntityManager(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -29,7 +29,8 @@ GameState::~GameState()
 void GameState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.createBackground(windowElements);
+    background = gameEntityManager.createBackground();
+    player = gameEntityManager.createPlayer();
 }
 
 void GameState::onEvent()
@@ -69,6 +70,7 @@ void GameState::onUpdate()
             applicationStateManager->setNextState(nextState);
         }
     }
+    gameEntityManager.onUpdate();
 }
 
 void GameState::onRender()
@@ -76,7 +78,6 @@ void GameState::onRender()
     SDL_RenderClear(windowElements->renderer);
     gameEntityManager.onRender();
     SDL_RenderPresent(windowElements->renderer);
-    //SDL_Delay(50);
 }
 
 void GameState::onExit()

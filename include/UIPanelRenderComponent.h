@@ -1,10 +1,10 @@
 /*******************************************************************//*
- * Render component for UI panel
+ * Render component for UI panel.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-09-03
+ * @modified    2014-09-06
  *********************************************************************/
 #ifndef SPACESHOOTER_UIPANELRENDERCOMPONENT_
     #define SPACESHOOTER_UIPANELRENDERCOMPONENT_
@@ -39,7 +39,7 @@ class UIPanelRenderComponent : public RenderComponent
         ~UIPanelRenderComponent();
 
         //Methods
-        void update(GameEntity* gameEntity);
+        void update();
         void enableBlending();
         void setAlphaBlend(Uint8 alpha);
         Uint8 getAlphaBlend();

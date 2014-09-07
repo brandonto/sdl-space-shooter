@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-03
+ * @modified    2014-09-06
  *********************************************************************/
 #include "GameEntityCollection.h"
 
@@ -45,6 +45,17 @@ void GameEntityCollection::onEvent(SDL_Event* event)
             collectionIterator++)
     {
         (*collectionIterator)->onEvent(event);
+    }
+}
+
+void GameEntityCollection::onUpdate()
+{
+    std::list<GameEntity*>::iterator collectionIterator;
+    for (   collectionIterator=collection.begin();
+            collectionIterator!=collection.end();
+            collectionIterator++)
+    {
+        (*collectionIterator)->onUpdate();
     }
 }
 

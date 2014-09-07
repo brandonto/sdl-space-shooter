@@ -1,5 +1,5 @@
 /*******************************************************************//*
- * Render component for background
+ * Implementation of the BackgroundRenderComponent class.
  *
  * @author      Brandon To
  * @version     1.0
@@ -23,7 +23,7 @@ BackgroundRenderComponent::BackgroundRenderComponent(WindowElements* windowEleme
     sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/darkPurple.png");
 }
 
-void BackgroundRenderComponent::update(GameEntity* gameEntity)
+void BackgroundRenderComponent::update()
 {
     offsetIncrementCounter++;
     if (offsetIncrementCounter % offsetIncrementModulus == 0)

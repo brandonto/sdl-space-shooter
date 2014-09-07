@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-05
+ * @modified    2014-09-06
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -13,30 +13,40 @@
 #include "ApplicationState.h"
 #include "BackgroundRenderComponent.h"
 #include "GameEntity.h"
+#include "PlayerInputComponent.h"
+#include "PlayerRenderComponent.h"
+#include "PlayerPhysicsComponent.h"
 #include "UIClickFunctionQuit.h"
 #include "UIClickFunctionPlay.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
 
-GameEntityManager::GameEntityManager()
+GameEntityManager::GameEntityManager(WindowElements* windowElements)
+:   windowElements(windowElements)
 {
 
 }
 
 void GameEntityManager::onEvent(SDL_Event* event)
 {
+    physicalLayer.onEvent(event);
     uiLayer.onEvent(event);
+}
+
+void GameEntityManager::onUpdate()
+{
+    physicalLayer.onUpdate();
 }
 
 void GameEntityManager::onRender()
 {
     backgroundLayer.onRender();
+    physicalLayer.onRender();
     uiLayer.onRender();
 }
 
-std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windowElements,
-                                            ApplicationState* state)
+std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* state)
 {
     SDL_Rect temp;
     GameEntity* mainMenu[6];
@@ -170,12 +180,23 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(WindowElements* windo
     return mainMenuVector;
 }
 
-GameEntity* GameEntityManager::createBackground(WindowElements* windowElements)
+GameEntity* GameEntityManager::createBackground()
 {
     GameEntity* background = new GameEntity();
     background->addRenderComponent(new BackgroundRenderComponent(windowElements));
     backgroundLayer.add(background);
 
     return background;
+}
+
+GameEntity* GameEntityManager::createPlayer()
+{
+    GameEntity* player = new GameEntity();
+    player->addRenderComponent(new PlayerRenderComponent(player, windowElements));
+    player->addPhysicsComponent(new PlayerPhysicsComponent(player, windowElements));
+    player->addInputComponent(new PlayerInputComponent(player, windowElements));
+    physicalLayer.add(player);
+
+    return player;
 }
 

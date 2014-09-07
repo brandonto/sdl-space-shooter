@@ -31,7 +31,7 @@ class BackgroundRenderComponent : public RenderComponent
         ~BackgroundRenderComponent();
 
         //Methods
-        void update(GameEntity* gameEntity);
+        void update();
 };
 
 #endif

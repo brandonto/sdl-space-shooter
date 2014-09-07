@@ -1,10 +1,10 @@
 /*******************************************************************//*
- * Input component for UI panel
+ * Implementation of the UIPanelInputComponent class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-03
- * @modified    2014-09-05
+ * @modified    2014-09-06
  *********************************************************************/
 #include "UIPanelInputComponent.h"
 

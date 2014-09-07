@@ -1,20 +1,18 @@
-obj/GameEntity.o: src/GameEntity.cpp /usr/include/stdc-predef.h \
- include/GameEntity.h /usr/include/c++/4.8/cstddef \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+obj/PlayerInputComponent.o: src/PlayerInputComponent.cpp \
+ /usr/include/stdc-predef.h include/PlayerInputComponent.h \
+ include/InputComponent.h /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
- /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h \
- /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
  /usr/include/x86_64-linux-gnu/sys/select.h \
@@ -62,25 +60,23 @@ obj/GameEntity.o: src/GameEntity.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/InputComponent.h include/RenderComponent.h \
- include/PhysicsComponent.h
-src/GameEntity.cpp /usr/include/stdc-predef.h :
- include/GameEntity.h /usr/include/c++/4.8/cstddef :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
- /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h :
+ include/GameEntity.h include/PlayerPhysicsComponent.h \
+ include/PhysicsComponent.h include/WindowElements.h
+src/PlayerInputComponent.cpp :
+ /usr/include/stdc-predef.h include/PlayerInputComponent.h :
+ include/InputComponent.h /usr/include/SDL2/SDL.h :
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h :
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h :
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h :
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h :
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h :
  /usr/include/x86_64-linux-gnu/bits/wordsize.h :
  /usr/include/x86_64-linux-gnu/gnu/stubs.h :
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h :
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h :
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h :
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h :
- /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h :
  /usr/include/x86_64-linux-gnu/bits/types.h :
  /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h :
- /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h :
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h :
+ /usr/include/x86_64-linux-gnu/bits/endian.h :
  /usr/include/x86_64-linux-gnu/bits/byteswap.h :
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h :
  /usr/include/x86_64-linux-gnu/sys/select.h :
@@ -128,5 +124,5 @@ src/GameEntity.cpp /usr/include/stdc-predef.h :
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/InputComponent.h include/RenderComponent.h :
- include/PhysicsComponent.h :
+ include/GameEntity.h include/PlayerPhysicsComponent.h :
+ include/PhysicsComponent.h include/WindowElements.h :

@@ -6,13 +6,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-03
+ * @modified    2014-09-06
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
 
 class InputComponent;
 class RenderComponent;
+class PhysicsComponent;
 
 union SDL_Event;
 
@@ -22,11 +23,11 @@ class GameEntity
         //Fields
         InputComponent* input;
         RenderComponent* render;
+        PhysicsComponent* physics;
 
     public:
         //Fields
         int xPos, yPos;
-        int velocity;
 
         //Constructor
         GameEntity();
@@ -37,12 +38,14 @@ class GameEntity
         //Methods
         void addInputComponent(InputComponent* input);
         void addRenderComponent(RenderComponent* render);
+        void addPhysicsComponent(PhysicsComponent* physics);
         void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
 
         RenderComponent* getRenderComponent();
         InputComponent* getInputComponent();
+        PhysicsComponent* getPhysicsComponent();
 };
 
 #endif

@@ -17,6 +17,9 @@ _OBJS =	main.o \
 		GameState.o \
 		IntroState.o \
 		MenuState.o \
+		PlayerInputComponent.o \
+		PlayerRenderComponent.o \
+		PlayerPhysicsComponent.o \
 		SDL_util.o \
 		Timer.o \
 		UIClickFunctionPlay.o \

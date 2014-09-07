@@ -1,20 +1,20 @@
 /*******************************************************************//*
- * Interface containing one method that all render components must
+ * Interface containing one method that all physics components must
  * implement
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-08-17
+ * @since       2014-09-06
  * @modified    2014-09-06
  *********************************************************************/
-#ifndef SPACESHOOTER_RENDERCOMPONENT_
-    #define SPACESHOOTER_RENDERCOMPONENT_
+#ifndef SPACESHOOTER_PHYSICSCOMPONENT_
+    #define SPACESHOOTER_PHYSICSCOMPONENT_
 
-class RenderComponent
+class PhysicsComponent
 {
     public:
         //Destructor
-        virtual ~RenderComponent(){};
+        virtual ~PhysicsComponent(){};
 
         //Methods
         virtual void update() = 0;

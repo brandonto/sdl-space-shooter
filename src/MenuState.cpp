@@ -18,7 +18,7 @@
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
 :   fadeIn(false), fadeOut(false), menuAlpha(0),
-    nextState(0), blackScreen(windowElements)
+    nextState(0), blackScreen(windowElements), gameEntityManager(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -31,8 +31,8 @@ MenuState::~MenuState()
 void MenuState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.createBackground(windowElements);
-    mainMenu = gameEntityManager.createMainMenu(windowElements, this);
+    background = gameEntityManager.createBackground();
+    mainMenu = gameEntityManager.createMainMenu(this);
 
     for (int i=0; i<mainMenu.size(); i++)
     {
@@ -47,6 +47,13 @@ void MenuState::onEvent()
         if (event.type == SDL_QUIT)
         {
             applicationStateManager->setNextState(STATE_EXIT);
+        }
+        else if (event.type == SDL_KEYDOWN)
+        {
+            if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+            {
+                stateTransition(STATE_EXIT);
+            }
         }
         gameEntityManager.onEvent(&event);
     }
@@ -102,7 +109,6 @@ void MenuState::onRender()
     gameEntityManager.onRender();
     blackScreen.onRender();
     SDL_RenderPresent(windowElements->renderer);
-    //SDL_Delay(50);
 }
 
 void MenuState::onExit()

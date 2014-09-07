@@ -1,10 +1,10 @@
 /*******************************************************************//*
- * Render component for UI panel
+ * Implementation of the UIPanelRenderComponent class.
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-09-03
+ * @modified    2014-09-06
  *********************************************************************/
 #include "UIPanelRenderComponent.h"
 
@@ -26,7 +26,7 @@ UIPanelRenderComponent::UIPanelRenderComponent(GameEntity* gameEntity,
     sprite = SDL_util::create_texture_from_surface(windowElements, spriteSurface);
 }
 
-void UIPanelRenderComponent::update(GameEntity* gameEntity)
+void UIPanelRenderComponent::update()
 {
     SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
 }
