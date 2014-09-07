@@ -50,9 +50,15 @@ void MenuState::onEvent()
         }
         else if (event.type == SDL_KEYDOWN)
         {
-            if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+            switch(event.key.keysym.scancode)
             {
-                stateTransition(STATE_EXIT);
+                case SDL_SCANCODE_ESCAPE:
+                    stateTransition(STATE_EXIT);
+                    break;
+
+                case SDL_SCANCODE_RETURN:
+                    stateTransition(STATE_GAME);
+                    break;
             }
         }
         gameEntityManager.onEvent(&event);

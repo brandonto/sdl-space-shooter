@@ -23,20 +23,15 @@ PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     gameEntity->xPos = windowElements->WINDOW_WIDTH/2;
     gameEntity->yPos = 0.8*windowElements->WINDOW_HEIGHT;
+    renderRect.w = spriteWidth;
+    renderRect.h = spriteHeight;
 }
 
 void PlayerRenderComponent::update()
 {
     renderRect.x = gameEntity->xPos - spriteWidth/2;
     renderRect.y = gameEntity->yPos - spriteHeight/2;
-    renderRect.w = spriteWidth;
-    renderRect.h = spriteHeight;
     SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
-}
-
-SDL_Rect* PlayerRenderComponent::getRenderRect()
-{
-    return &renderRect;
 }
 
 PlayerRenderComponent::~PlayerRenderComponent()

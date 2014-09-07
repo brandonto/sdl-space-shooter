@@ -19,14 +19,15 @@ struct WindowElements;
 class PlayerRenderComponent : public RenderComponent
 {
     private:
-        SDL_Rect renderRect;
-        SDL_Texture* sprite;
-        int spriteWidth;
-        int spriteHeight;
         GameEntity* gameEntity;
         WindowElements* windowElements;
 
     public:
+        SDL_Rect renderRect;
+        SDL_Texture* sprite;
+        int spriteWidth;
+        int spriteHeight;
+
         //Constructor
         PlayerRenderComponent(GameEntity* gameEntity,
                                WindowElements* windowElements);

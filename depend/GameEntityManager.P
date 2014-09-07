@@ -114,7 +114,7 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  include/GameEntity.h include/PlayerInputComponent.h \
  include/InputComponent.h include/PlayerRenderComponent.h \
  include/PlayerPhysicsComponent.h include/PhysicsComponent.h \
- include/UIClickFunctionQuit.h include/UIClickFunction.h \
+ include/Timer.h include/UIClickFunctionQuit.h include/UIClickFunction.h \
  include/UIClickFunctionPlay.h include/UIPanelInputComponent.h \
  include/UIPanelRenderComponent.h include/WindowElements.h
 src/GameEntityManager.cpp :
@@ -233,6 +233,6 @@ src/GameEntityManager.cpp :
  include/GameEntity.h include/PlayerInputComponent.h :
  include/InputComponent.h include/PlayerRenderComponent.h :
  include/PlayerPhysicsComponent.h include/PhysicsComponent.h :
- include/UIClickFunctionQuit.h include/UIClickFunction.h :
+ include/Timer.h include/UIClickFunctionQuit.h include/UIClickFunction.h :
  include/UIClickFunctionPlay.h include/UIPanelInputComponent.h :
  include/UIPanelRenderComponent.h include/WindowElements.h :

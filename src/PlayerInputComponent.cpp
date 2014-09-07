@@ -31,19 +31,19 @@ void PlayerInputComponent::update(SDL_Event* event)
         switch(event->key.keysym.scancode)
         {
             case SDL_SCANCODE_UP:
-                physics->yVel -= physics->velocity;
+                physics->yVel -= physics->velocityPerSecond;
                 break;
 
             case SDL_SCANCODE_DOWN:
-                physics->yVel += physics->velocity;
+                physics->yVel += physics->velocityPerSecond;
                 break;
 
             case SDL_SCANCODE_LEFT:
-                physics->xVel -= physics->velocity;
+                physics->xVel -= physics->velocityPerSecond;
                 break;
 
             case SDL_SCANCODE_RIGHT:
-                physics->xVel += physics->velocity;
+                physics->xVel += physics->velocityPerSecond;
                 break;
         }
     }
@@ -52,19 +52,19 @@ void PlayerInputComponent::update(SDL_Event* event)
         switch(event->key.keysym.scancode)
         {
             case SDL_SCANCODE_UP:
-                physics->yVel += physics->velocity;
+                physics->yVel += physics->velocityPerSecond;
                 break;
 
             case SDL_SCANCODE_DOWN:
-                physics->yVel -= physics->velocity;
+                physics->yVel -= physics->velocityPerSecond;
                 break;
 
             case SDL_SCANCODE_LEFT:
-                physics->xVel += physics->velocity;
+                physics->xVel += physics->velocityPerSecond;
                 break;
 
             case SDL_SCANCODE_RIGHT:
-                physics->xVel -= physics->velocity;
+                physics->xVel -= physics->velocityPerSecond;
                 break;
         }
     }

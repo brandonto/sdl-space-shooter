@@ -61,7 +61,7 @@ obj/PlayerInputComponent.o: src/PlayerInputComponent.cpp \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  include/GameEntity.h include/PlayerPhysicsComponent.h \
- include/PhysicsComponent.h include/WindowElements.h
+ include/PhysicsComponent.h include/Timer.h include/WindowElements.h
 src/PlayerInputComponent.cpp :
  /usr/include/stdc-predef.h include/PlayerInputComponent.h :
  include/InputComponent.h /usr/include/SDL2/SDL.h :
@@ -125,4 +125,4 @@ src/PlayerInputComponent.cpp :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
  include/GameEntity.h include/PlayerPhysicsComponent.h :
- include/PhysicsComponent.h include/WindowElements.h :
+ include/PhysicsComponent.h include/Timer.h include/WindowElements.h :

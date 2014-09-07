@@ -61,8 +61,8 @@ bool Application::initialize()
 
     windowElements.window = SDL_CreateWindow(
         "Space Shooter",
-        SDL_WINDOWPOS_UNDEFINED,
-        SDL_WINDOWPOS_UNDEFINED,
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
         windowElements.WINDOW_WIDTH,
         windowElements.WINDOW_HEIGHT,
         SDL_WINDOW_SHOWN

@@ -11,8 +11,10 @@
 
 #include "PhysicsComponent.h"
 #include <SDL2/SDL.h>
+#include "Timer.h"
 
 class GameEntity;
+class PlayerRenderComponent;
 class WindowElements;
 
 class PlayerPhysicsComponent : public PhysicsComponent
@@ -21,9 +23,12 @@ class PlayerPhysicsComponent : public PhysicsComponent
         GameEntity* gameEntity;
         WindowElements* windowElements;
 
+        PlayerRenderComponent* render;
+        Timer timeBasedMovementTimer;
+
     public:
-        int xVel, yVel;
-        int velocity;
+        float xVel, yVel;
+        int velocityPerSecond;
 
         //Constructor
         PlayerPhysicsComponent(GameEntity* gameEntity, WindowElements* windowElements);

@@ -27,7 +27,7 @@ class GameEntity
 
     public:
         //Fields
-        int xPos, yPos;
+        float xPos, yPos;
 
         //Constructor
         GameEntity();
