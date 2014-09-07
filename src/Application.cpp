@@ -65,7 +65,7 @@ bool Application::initialize()
         SDL_WINDOWPOS_CENTERED,
         windowElements.WINDOW_WIDTH,
         windowElements.WINDOW_HEIGHT,
-        SDL_WINDOW_SHOWN
+        SDL_WINDOW_FULLSCREEN_DESKTOP
     );
 
     if (windowElements.window == NULL)
@@ -74,7 +74,6 @@ bool Application::initialize()
         return false;
     }
 
-
     windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED);
     if (windowElements.renderer == NULL)
     {
@@ -82,6 +81,7 @@ bool Application::initialize()
         return false;
     }
     SDL_SetRenderDrawColor(windowElements.renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_RenderSetLogicalSize(windowElements.renderer, windowElements.WINDOW_WIDTH, windowElements.WINDOW_HEIGHT);
 
     applicationStateManager = new ApplicationStateManager(&windowElements);
 

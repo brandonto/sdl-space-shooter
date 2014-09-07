@@ -37,7 +37,6 @@ class PlayerRenderComponent : public RenderComponent
 
         //Methods
         void update();
-        SDL_Rect* getRenderRect();
 };
 
 #endif
