@@ -66,6 +66,7 @@ bool Application::initialize()
         windowElements.WINDOW_WIDTH,
         windowElements.WINDOW_HEIGHT,
         SDL_WINDOW_FULLSCREEN_DESKTOP
+        //SDL_WINDOW_SHOWN
     );
 
     if (windowElements.window == NULL)
@@ -74,7 +75,7 @@ bool Application::initialize()
         return false;
     }
 
-    windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED);
+    windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
     if (windowElements.renderer == NULL)
     {
         printf("Could not create SDL_Renderer: %s\n", SDL_GetError());

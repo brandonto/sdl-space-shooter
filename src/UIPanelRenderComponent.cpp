@@ -95,6 +95,36 @@ void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* d
     SDL_FreeSurface(surface);
 }
 
+//void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* destRect,
+//                                        bool scaled)
+//{
+//    Uint32 format;
+//    int w, h;
+//    SDL_QueryTexture(sprite, &format, NULL, &w, &h);
+//    SDL_Texture* newTexture = SDL_CreateTexture(windowElements->renderer,
+//                                                format,
+//                                                //SDL_PIXELFORMAT_RGBA8888,
+//                                                SDL_TEXTUREACCESS_TARGET,
+//                                                w, h);
+//    SDL_Texture* texture = NULL;
+//
+//    SDL_Color color;
+//    color.r = 255;
+//    color.g = 255;
+//    color.b = 255;
+//    color.a = 255;
+//    texture = SDL_util::create_texture_from_text(windowElements,
+//                                                "bin/font/kenvector_future_thin.ttf", text,
+//                                                fontSize, &color);
+//    SDL_SetRenderTarget(windowElements->renderer, newTexture);
+//    SDL_RenderCopy(windowElements->renderer, sprite, NULL, NULL);
+//    SDL_RenderCopy(windowElements->renderer, texture, NULL, destRect);
+//    SDL_SetRenderTarget(windowElements->renderer, NULL);
+//    SDL_DestroyTexture(sprite);
+//    SDL_DestroyTexture(texture);
+//    sprite = newTexture;
+//}
+
 bool UIPanelRenderComponent::buttonReady()
 {
     return alpha>=200;
