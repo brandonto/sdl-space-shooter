@@ -70,6 +70,19 @@ void UIPanelRenderComponent::toggleSelected()
 void UIPanelRenderComponent::setRenderRect(SDL_Rect* rect)
 {
     renderRect = *rect;
+    //Uint32 format;
+    //SDL_QueryTexture(sprite, &format, NULL, NULL, NULL);
+    //SDL_Texture* newTexture = SDL_CreateTexture(windowElements->renderer,
+    //                                            //format,
+    //                                            SDL_PIXELFORMAT_RGBA8888,
+    //                                            SDL_TEXTUREACCESS_TARGET,
+    //                                            rect->w, rect->h);
+    //SDL_SetRenderTarget(windowElements->renderer, newTexture);
+    //SDL_RenderCopy(windowElements->renderer, sprite, NULL, NULL);
+    //SDL_SetRenderTarget(windowElements->renderer, NULL);
+    //SDL_DestroyTexture(sprite);
+    //SDL_DestroyTexture(newTexture);
+    //sprite = newTexture;
 }
 
 SDL_Rect* UIPanelRenderComponent::getRenderRect()
@@ -115,6 +128,7 @@ void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* d
 //    color.a = 255;
 //    texture = SDL_util::create_texture_from_text(windowElements,
 //                                                "bin/font/kenvector_future_thin.ttf", text,
+//                                                //"bin/font/kenvector_future.ttf", text,
 //                                                fontSize, &color);
 //    SDL_SetRenderTarget(windowElements->renderer, newTexture);
 //    SDL_RenderCopy(windowElements->renderer, sprite, NULL, NULL);
@@ -122,6 +136,7 @@ void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* d
 //    SDL_SetRenderTarget(windowElements->renderer, NULL);
 //    SDL_DestroyTexture(sprite);
 //    SDL_DestroyTexture(texture);
+//    //SDL_DestroyTexture(newTexture);
 //    sprite = newTexture;
 //}
 

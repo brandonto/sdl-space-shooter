@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-06
+ * @modified    2014-09-08
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERINPUTCOMPONENT_
     #define SPACESHOOTER_PLAYERINPUTCOMPONENT_
@@ -13,6 +13,7 @@
 #include <SDL2/SDL.h>
 
 class GameEntity;
+class GameEntityManager;
 class PlayerPhysicsComponent;
 class WindowElements;
 
@@ -21,12 +22,14 @@ class PlayerInputComponent : public InputComponent
     private:
         GameEntity* gameEntity;
         WindowElements* windowElements;
+        GameEntityManager* gameEntityManager;
 
         PlayerPhysicsComponent* physics;
 
     public:
         //Constructor
-        PlayerInputComponent(GameEntity* gameEntity, WindowElements* windowElements);
+        PlayerInputComponent(GameEntity* gameEntity, WindowElements* windowElements,
+                            GameEntityManager* gameEntityManager);
 
         //Destructor
         ~PlayerInputComponent();

@@ -16,6 +16,8 @@
 #include "PlayerInputComponent.h"
 #include "PlayerRenderComponent.h"
 #include "PlayerPhysicsComponent.h"
+#include "PlayerProjectileRenderComponent.h"
+#include "PlayerProjectilePhysicsComponent.h"
 #include "UIClickFunctionQuit.h"
 #include "UIClickFunctionPlay.h"
 #include "UIPanelInputComponent.h"
@@ -194,9 +196,18 @@ GameEntity* GameEntityManager::createPlayer()
     GameEntity* player = new GameEntity();
     player->addRenderComponent(new PlayerRenderComponent(player, windowElements));
     player->addPhysicsComponent(new PlayerPhysicsComponent(player, windowElements));
-    player->addInputComponent(new PlayerInputComponent(player, windowElements));
+    player->addInputComponent(new PlayerInputComponent(player, windowElements, this));
     physicalLayer.add(player);
 
     return player;
 }
 
+GameEntity* GameEntityManager::createPlayerProjectile(GameEntity* playerEntity)
+{
+    GameEntity* projectile = new GameEntity();
+    projectile->addRenderComponent(new PlayerProjectileRenderComponent(projectile, windowElements, playerEntity));
+    projectile->addPhysicsComponent(new PlayerProjectilePhysicsComponent(projectile, windowElements));
+    physicalLayer.add(projectile);
+
+    return projectile;
+}

@@ -20,6 +20,8 @@ _OBJS =	main.o \
 		PlayerInputComponent.o \
 		PlayerRenderComponent.o \
 		PlayerPhysicsComponent.o \
+		PlayerProjectileRenderComponent.o \
+		PlayerProjectilePhysicsComponent.o \
 		SDL_util.o \
 		Timer.o \
 		UIClickFunctionPlay.o \

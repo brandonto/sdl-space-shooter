@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-06
+ * @modified    2014-09-08
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
@@ -15,6 +15,7 @@
 #include <SDL2/SDL.h>
 
 class ApplicationState;
+class GameEntity;
 
 struct WindowElements;
 
@@ -36,6 +37,7 @@ class GameEntityManager
         std::vector<GameEntity*> createMainMenu(ApplicationState* state);
         GameEntity* createBackground();
         GameEntity* createPlayer();
+        GameEntity* createPlayerProjectile(GameEntity* playerEntity);
 };
 
 #endif
