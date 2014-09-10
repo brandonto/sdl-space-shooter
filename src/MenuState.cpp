@@ -111,10 +111,10 @@ void MenuState::onUpdate()
 
 void MenuState::onRender()
 {
-    SDL_RenderClear(windowElements->renderer);
+    //SDL_RenderClear(windowElements->renderer);
     gameEntityManager.onRender();
     blackScreen.onRender();
-    SDL_RenderPresent(windowElements->renderer);
+    //SDL_RenderPresent(windowElements->renderer);
 }
 
 void MenuState::onExit()

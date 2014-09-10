@@ -17,6 +17,7 @@ _OBJS =	main.o \
 		GameState.o \
 		IntroState.o \
 		MenuState.o \
+		PauseState.o \
 		PlayerInputComponent.o \
 		PlayerRenderComponent.o \
 		PlayerPhysicsComponent.o \

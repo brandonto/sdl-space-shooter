@@ -1,8 +1,6 @@
-obj/PlayerProjectilePhysicsComponent.o: \
- src/PlayerProjectilePhysicsComponent.cpp /usr/include/stdc-predef.h \
- include/PlayerProjectilePhysicsComponent.h include/PhysicsComponent.h \
- /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
- /usr/local/include/SDL2/SDL_stdinc.h \
+obj/PauseState.o: src/PauseState.cpp /usr/include/stdc-predef.h \
+ include/PauseState.h /usr/local/include/SDL2/SDL.h \
+ /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
  /usr/local/include/SDL2/SDL_platform.h \
  /usr/local/include/SDL2/begin_code.h \
@@ -70,13 +68,60 @@ obj/PlayerProjectilePhysicsComponent.o: \
  /usr/local/include/SDL2/SDL_messagebox.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
- /usr/local/include/SDL2/SDL_version.h include/Timer.h \
- include/GameEntity.h include/PlayerProjectileRenderComponent.h \
- include/RenderComponent.h include/WindowElements.h
- src/PlayerProjectilePhysicsComponent.cpp /usr/include/stdc-predef.h :
- include/PlayerProjectilePhysicsComponent.h include/PhysicsComponent.h :
- /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h :
- /usr/local/include/SDL2/SDL_stdinc.h :
+ /usr/local/include/SDL2/SDL_version.h include/ApplicationState.h \
+ include/ApplicationStateManager.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/4.8/bits/functexcept.h \
+ /usr/include/c++/4.8/bits/exception_defines.h \
+ /usr/include/c++/4.8/bits/cpp_type_traits.h \
+ /usr/include/c++/4.8/ext/type_traits.h \
+ /usr/include/c++/4.8/ext/numeric_traits.h \
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
+ /usr/include/c++/4.8/bits/concept_check.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/4.8/debug/debug.h \
+ /usr/include/c++/4.8/bits/stl_iterator.h \
+ /usr/include/c++/4.8/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
+ /usr/include/c++/4.8/exception \
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
+ /usr/include/c++/4.8/bits/range_access.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/SDL_util.h \
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
+ /usr/include/c++/4.8/bits/char_traits.h \
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
+ /usr/include/c++/4.8/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
+ /usr/include/c++/4.8/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd \
+ /usr/include/c++/4.8/cctype /usr/include/c++/4.8/bits/ostream_insert.h \
+ /usr/include/c++/4.8/bits/cxxabi_forced.h \
+ /usr/include/c++/4.8/bits/stl_function.h \
+ /usr/include/c++/4.8/backward/binders.h \
+ /usr/include/c++/4.8/bits/basic_string.h \
+ /usr/include/c++/4.8/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
+ /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h
+src/PauseState.cpp /usr/include/stdc-predef.h :
+ include/PauseState.h /usr/local/include/SDL2/SDL.h :
+ /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h :
  /usr/local/include/SDL2/SDL_config.h :
  /usr/local/include/SDL2/SDL_platform.h :
  /usr/local/include/SDL2/begin_code.h :
@@ -144,6 +189,54 @@ obj/PlayerProjectilePhysicsComponent.o: \
  /usr/local/include/SDL2/SDL_messagebox.h :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
- /usr/local/include/SDL2/SDL_version.h include/Timer.h :
- include/GameEntity.h include/PlayerProjectileRenderComponent.h :
- include/RenderComponent.h include/WindowElements.h :
+ /usr/local/include/SDL2/SDL_version.h include/ApplicationState.h :
+ include/ApplicationStateManager.h /usr/include/c++/4.8/vector :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
+ /usr/include/c++/4.8/bits/functexcept.h :
+ /usr/include/c++/4.8/bits/exception_defines.h :
+ /usr/include/c++/4.8/bits/cpp_type_traits.h :
+ /usr/include/c++/4.8/ext/type_traits.h :
+ /usr/include/c++/4.8/ext/numeric_traits.h :
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h :
+ /usr/include/c++/4.8/bits/concept_check.h :
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h :
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h :
+ /usr/include/c++/4.8/debug/debug.h :
+ /usr/include/c++/4.8/bits/stl_iterator.h :
+ /usr/include/c++/4.8/bits/allocator.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h :
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new :
+ /usr/include/c++/4.8/exception :
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
+ /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
+ /usr/include/c++/4.8/bits/range_access.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/SDL_util.h :
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
+ /usr/include/c++/4.8/bits/char_traits.h :
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
+ /usr/include/c++/4.8/bits/localefwd.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h :
+ /usr/include/c++/4.8/clocale /usr/include/locale.h :
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd :
+ /usr/include/c++/4.8/cctype /usr/include/c++/4.8/bits/ostream_insert.h :
+ /usr/include/c++/4.8/bits/cxxabi_forced.h :
+ /usr/include/c++/4.8/bits/stl_function.h :
+ /usr/include/c++/4.8/backward/binders.h :
+ /usr/include/c++/4.8/bits/basic_string.h :
+ /usr/include/c++/4.8/ext/atomicity.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h :
+ /usr/include/pthread.h /usr/include/sched.h :
+ /usr/include/x86_64-linux-gnu/bits/sched.h :
+ /usr/include/x86_64-linux-gnu/bits/timex.h :
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
+ /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h :

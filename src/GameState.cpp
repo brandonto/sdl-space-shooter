@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-06
+ * @modified    2014-09-10
  *********************************************************************/
 #include "GameState.h"
 
@@ -43,9 +43,15 @@ void GameState::onEvent()
         }
         else if (event.type == SDL_KEYDOWN)
         {
-            if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+            switch(event.key.keysym.scancode)
             {
-                stateTransition(STATE_MENU);
+                case SDL_SCANCODE_ESCAPE:
+                    stateTransition(STATE_MENU);
+                    break;
+
+                case SDL_SCANCODE_P:
+                    applicationStateManager->pushStateOnStack(STATE_PAUSE);
+                    break;
             }
         }
         gameEntityManager.onEvent(&event);
@@ -75,9 +81,7 @@ void GameState::onUpdate()
 
 void GameState::onRender()
 {
-    SDL_RenderClear(windowElements->renderer);
     gameEntityManager.onRender();
-    SDL_RenderPresent(windowElements->renderer);
 }
 
 void GameState::onExit()

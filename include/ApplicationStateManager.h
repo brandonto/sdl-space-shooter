@@ -7,10 +7,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-05
+ * @modified    2014-09-10
  *********************************************************************/
 #ifndef SPACESHOOTER_APPLICATIONSTATEMANAGER_H_
     #define SPACESHOOTER_APPLICATIONSTATEMANAGER_H_
+
+#include <vector>
 
 class ApplicationState;
 class WindowElements;
@@ -21,9 +23,12 @@ class ApplicationStateManager
         //Fields
         WindowElements* windowElements;
         ApplicationState* currentState;
+        std::vector<ApplicationState*> stateStack;
+        std::vector<int> stateStackEnum;
         int currentStateEnum;
         int nextStateEnum;
         int pushedStateEnum;
+        bool popState;
 
     public:
         //Constructor
@@ -40,6 +45,7 @@ class ApplicationStateManager
         bool isExitState();
         void setNextState(int nextState);
         void pushStateOnStack(int pushedState);
+        void popStateOnStack();
         void changeState();
 };
 
