@@ -195,8 +195,8 @@ GameEntity* GameEntityManager::createPlayer()
 {
     GameEntity* player = new GameEntity();
     player->addRenderComponent(new PlayerRenderComponent(player, windowElements));
-    player->addPhysicsComponent(new PlayerPhysicsComponent(player, windowElements));
-    player->addInputComponent(new PlayerInputComponent(player, windowElements, this));
+    player->addPhysicsComponent(new PlayerPhysicsComponent(player, windowElements, this));
+    player->addInputComponent(new PlayerInputComponent(player, windowElements));
     physicalLayer.add(player);
 
     return player;

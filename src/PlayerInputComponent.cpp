@@ -4,22 +4,20 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-08
+ * @modified    2014-09-09
  *********************************************************************/
 #include "PlayerInputComponent.h"
 
 #include "GameEntity.h"
-#include "GameEntityManager.h"
 #include "PlayerPhysicsComponent.h"
 #include "WindowElements.h"
 
 PlayerInputComponent::PlayerInputComponent(GameEntity* gameEntity,
-                                            WindowElements* windowElements,
-                                            GameEntityManager* gameEntityManager)
-:   gameEntity(gameEntity), windowElements(windowElements), gameEntityManager(gameEntityManager),
-    physics(NULL)
+                                            WindowElements* windowElements)
+:   gameEntity(gameEntity), windowElements(windowElements), physics(NULL)
 {
     physics = dynamic_cast<PlayerPhysicsComponent*>(gameEntity->getPhysicsComponent());
+    keyStates = SDL_GetKeyboardState(0);
 }
 
 PlayerInputComponent::~PlayerInputComponent()
@@ -29,61 +27,41 @@ PlayerInputComponent::~PlayerInputComponent()
 
 void PlayerInputComponent::update(SDL_Event* event)
 {
-    if (event->type == SDL_KEYDOWN && event->key.repeat == 0)
+    physics->shooting = false;
+    physics->xVel = 0;
+    physics->yVel = 0;
+
+    if (event->type == SDL_KEYDOWN || event->type == SDL_KEYUP)
     {
-        switch(event->key.keysym.scancode)
-        {
-            case SDL_SCANCODE_UP:
-                physics->yVel -= physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_DOWN:
-                physics->yVel += physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_LEFT:
-                physics->xVel -= physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_RIGHT:
-                physics->xVel += physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_SPACE:
-                gameEntityManager->createPlayerProjectile(gameEntity);
-                break;
-        }
+        keyStates = SDL_GetKeyboardState(0);
     }
-    else if (event->type == SDL_KEYUP && event->key.repeat == 0)
+
+    if (keyStates != 0)
     {
-        switch(event->key.keysym.scancode)
+        if (keyStates[SDL_SCANCODE_SPACE] == 1)
         {
-            case SDL_SCANCODE_UP:
-                physics->yVel += physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_DOWN:
-                physics->yVel -= physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_LEFT:
-                physics->xVel += physics->velocityPerSecond;
-                break;
-
-            case SDL_SCANCODE_RIGHT:
-                physics->xVel -= physics->velocityPerSecond;
-                break;
+            physics->shooting = true;
         }
-    }
-    else if (event->type == SDL_KEYDOWN)
-    {
-        switch(event->key.keysym.scancode)
+
+        if (keyStates[SDL_SCANCODE_UP] == 1)
         {
-            case SDL_SCANCODE_SPACE:
-                gameEntityManager->createPlayerProjectile(gameEntity);
-                break;
+            physics->yVel = -physics->velocityPerSecond;
+        }
+
+        if (keyStates[SDL_SCANCODE_DOWN] == 1)
+        {
+            physics->yVel = physics->velocityPerSecond;
+        }
+
+        if (keyStates[SDL_SCANCODE_LEFT] == 1)
+        {
+            physics->xVel = -physics->velocityPerSecond;
+        }
+
+        if (keyStates[SDL_SCANCODE_RIGHT] == 1)
+        {
+            physics->xVel = physics->velocityPerSecond;
         }
     }
 }
-
 

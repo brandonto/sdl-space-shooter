@@ -4,16 +4,16 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-08
+ * @modified    2014-09-09
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERINPUTCOMPONENT_
     #define SPACESHOOTER_PLAYERINPUTCOMPONENT_
 
 #include "InputComponent.h"
 #include <SDL2/SDL.h>
+#include "Timer.h"
 
 class GameEntity;
-class GameEntityManager;
 class PlayerPhysicsComponent;
 class WindowElements;
 
@@ -22,14 +22,13 @@ class PlayerInputComponent : public InputComponent
     private:
         GameEntity* gameEntity;
         WindowElements* windowElements;
-        GameEntityManager* gameEntityManager;
 
         PlayerPhysicsComponent* physics;
+        const Uint8* keyStates;
 
     public:
         //Constructor
-        PlayerInputComponent(GameEntity* gameEntity, WindowElements* windowElements,
-                            GameEntityManager* gameEntityManager);
+        PlayerInputComponent(GameEntity* gameEntity, WindowElements* windowElements);
 
         //Destructor
         ~PlayerInputComponent();

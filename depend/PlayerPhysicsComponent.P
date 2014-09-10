@@ -60,7 +60,37 @@ obj/PlayerPhysicsComponent.o: src/PlayerPhysicsComponent.cpp \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/Timer.h include/GameEntity.h include/PlayerRenderComponent.h \
+ include/Timer.h include/GameEntity.h include/GameEntityManager.h \
+ include/GameEntityCollection.h /usr/include/c++/4.8/list \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/4.8/bits/functexcept.h \
+ /usr/include/c++/4.8/bits/exception_defines.h \
+ /usr/include/c++/4.8/bits/cpp_type_traits.h \
+ /usr/include/c++/4.8/ext/type_traits.h \
+ /usr/include/c++/4.8/ext/numeric_traits.h \
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
+ /usr/include/c++/4.8/bits/concept_check.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/4.8/debug/debug.h \
+ /usr/include/c++/4.8/bits/stl_iterator.h \
+ /usr/include/c++/4.8/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
+ /usr/include/c++/4.8/exception \
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/range_access.h \
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/PlayerRenderComponent.h \
  include/RenderComponent.h include/WindowElements.h
 src/PlayerPhysicsComponent.cpp :
  /usr/include/stdc-predef.h include/PlayerPhysicsComponent.h :
@@ -124,5 +154,35 @@ src/PlayerPhysicsComponent.cpp :
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/Timer.h include/GameEntity.h include/PlayerRenderComponent.h :
+ include/Timer.h include/GameEntity.h include/GameEntityManager.h :
+ include/GameEntityCollection.h /usr/include/c++/4.8/list :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
+ /usr/include/c++/4.8/bits/functexcept.h :
+ /usr/include/c++/4.8/bits/exception_defines.h :
+ /usr/include/c++/4.8/bits/cpp_type_traits.h :
+ /usr/include/c++/4.8/ext/type_traits.h :
+ /usr/include/c++/4.8/ext/numeric_traits.h :
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h :
+ /usr/include/c++/4.8/bits/concept_check.h :
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h :
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h :
+ /usr/include/c++/4.8/debug/debug.h :
+ /usr/include/c++/4.8/bits/stl_iterator.h :
+ /usr/include/c++/4.8/bits/allocator.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h :
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new :
+ /usr/include/c++/4.8/exception :
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
+ /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/range_access.h :
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/PlayerRenderComponent.h :
  include/RenderComponent.h include/WindowElements.h :

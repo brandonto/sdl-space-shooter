@@ -112,9 +112,9 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  /usr/include/c++/4.8/bits/basic_string.tcc include/ApplicationState.h \
  include/BackgroundRenderComponent.h include/RenderComponent.h \
  include/GameEntity.h include/PlayerInputComponent.h \
- include/InputComponent.h include/PlayerRenderComponent.h \
+ include/InputComponent.h include/Timer.h include/PlayerRenderComponent.h \
  include/PlayerPhysicsComponent.h include/PhysicsComponent.h \
- include/Timer.h include/PlayerProjectileRenderComponent.h \
+ include/PlayerProjectileRenderComponent.h \
  include/PlayerProjectilePhysicsComponent.h include/UIClickFunctionQuit.h \
  include/UIClickFunction.h include/UIClickFunctionPlay.h \
  include/UIPanelInputComponent.h include/UIPanelRenderComponent.h \
@@ -233,9 +233,9 @@ src/GameEntityManager.cpp :
  /usr/include/c++/4.8/bits/basic_string.tcc include/ApplicationState.h :
  include/BackgroundRenderComponent.h include/RenderComponent.h :
  include/GameEntity.h include/PlayerInputComponent.h :
- include/InputComponent.h include/PlayerRenderComponent.h :
+ include/InputComponent.h include/Timer.h include/PlayerRenderComponent.h :
  include/PlayerPhysicsComponent.h include/PhysicsComponent.h :
- include/Timer.h include/PlayerProjectileRenderComponent.h :
+ include/PlayerProjectileRenderComponent.h :
  include/PlayerProjectilePhysicsComponent.h include/UIClickFunctionQuit.h :
  include/UIClickFunction.h include/UIClickFunctionPlay.h :
  include/UIPanelInputComponent.h include/UIPanelRenderComponent.h :

@@ -4,18 +4,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-06
+ * @modified    2014-09-09
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
 #include "GameEntity.h"
+#include "GameEntityManager.h"
 #include "PlayerRenderComponent.h"
 #include "WindowElements.h"
 
 PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
-                                            WindowElements* windowElements)
-:   gameEntity(gameEntity), windowElements(windowElements), render(NULL),
-    xVel(0), yVel(0), velocityPerSecond(500)
+                                            WindowElements* windowElements,
+                                            GameEntityManager* gameEntityManager)
+:   gameEntity(gameEntity), windowElements(windowElements),
+    gameEntityManager(gameEntityManager), render(NULL),
+    xVel(0), yVel(0), velocityPerSecond(500), shooting(false)
 {
     render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
 }
@@ -51,6 +54,23 @@ void PlayerPhysicsComponent::update()
     }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();
+
+    if (shooting)
+    {
+        if (projectileCapTimer.isStarted())
+        {
+            if (projectileCapTimer.getTimeOnTimer()>150)
+            {
+                gameEntityManager->createPlayerProjectile(gameEntity);
+                projectileCapTimer.stop();
+            }
+        }
+        else
+        {
+            gameEntityManager->createPlayerProjectile(gameEntity);
+        }
+        projectileCapTimer.start();
+    }
 }
 
 
