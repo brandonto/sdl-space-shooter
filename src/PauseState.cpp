@@ -29,8 +29,8 @@ PauseState::~PauseState()
 void PauseState::onEnter()
 {
     SDL_Color color;
-    color.r = 200;
-    color.g = 200;
+    color.r = 150;
+    color.g = 150;
     color.b = 255;
     color.a = 255;
     pausedText = SDL_util::create_texture_from_text(windowElements,

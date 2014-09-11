@@ -59,10 +59,17 @@ void ApplicationStateManager::onUpdate()
 void ApplicationStateManager::onRender()
 {
     SDL_RenderClear(windowElements->renderer);
-    std::vector<ApplicationState*>::iterator it;
-    for (it = stateStack.begin(); it != stateStack.end(); it++)
+    if (stateStack.size() == 1)
     {
-        (*it)->onRender();
+        currentState->onRender();
+    }
+    else
+    {
+        std::vector<ApplicationState*>::iterator it;
+        for (it = stateStack.begin(); it != stateStack.end(); it++)
+        {
+            (*it)->onRender();
+        }
     }
     SDL_RenderPresent(windowElements->renderer);
 }

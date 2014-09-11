@@ -43,22 +43,22 @@ void PlayerInputComponent::update(SDL_Event* event)
             physics->shooting = true;
         }
 
-        if (keyStates[SDL_SCANCODE_UP] == 1)
+        if (keyStates[SDL_SCANCODE_UP] == 1 || keyStates[SDL_SCANCODE_W] == 1)
         {
             physics->yVel = -physics->velocityPerSecond;
         }
 
-        if (keyStates[SDL_SCANCODE_DOWN] == 1)
+        if (keyStates[SDL_SCANCODE_DOWN] == 1 || keyStates[SDL_SCANCODE_S] == 1)
         {
             physics->yVel = physics->velocityPerSecond;
         }
 
-        if (keyStates[SDL_SCANCODE_LEFT] == 1)
+        if (keyStates[SDL_SCANCODE_LEFT] == 1 || keyStates[SDL_SCANCODE_A] == 1)
         {
             physics->xVel = -physics->velocityPerSecond;
         }
 
-        if (keyStates[SDL_SCANCODE_RIGHT] == 1)
+        if (keyStates[SDL_SCANCODE_RIGHT] == 1 || keyStates[SDL_SCANCODE_D] == 1)
         {
             physics->xVel = physics->velocityPerSecond;
         }
