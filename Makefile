@@ -28,7 +28,8 @@ _OBJS =	main.o \
 		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \
-		UIPanelRenderComponent.o
+		UIPanelRenderComponent.o \
+		Vector2D.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 CC = g++

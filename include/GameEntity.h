@@ -6,10 +6,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-06
+ * @modified    2014-09-12
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
+
+#include "Vector2D.h"
 
 class InputComponent;
 class RenderComponent;
@@ -27,7 +29,7 @@ class GameEntity
 
     public:
         //Fields
-        float xPos, yPos;
+        Vector2D position;
 
         //Constructor
         GameEntity();

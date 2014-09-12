@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-09
+ * @modified    2014-09-12
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
     #define SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
@@ -12,6 +12,7 @@
 #include "PhysicsComponent.h"
 #include <SDL2/SDL.h>
 #include "Timer.h"
+#include "Vector2D.h"
 
 class GameEntity;
 class GameEntityManager;
@@ -30,7 +31,7 @@ class PlayerPhysicsComponent : public PhysicsComponent
         Timer projectileCapTimer;
 
     public:
-        float xVel, yVel;
+        Vector2D velocity;
         int velocityPerSecond;
         bool shooting;
 

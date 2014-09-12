@@ -10,6 +10,7 @@
 
 #include "GameEntity.h"
 #include "PlayerPhysicsComponent.h"
+#include "Vector2D.h"
 #include "WindowElements.h"
 
 PlayerInputComponent::PlayerInputComponent(GameEntity* gameEntity,
@@ -28,8 +29,7 @@ PlayerInputComponent::~PlayerInputComponent()
 void PlayerInputComponent::update(SDL_Event* event)
 {
     physics->shooting = false;
-    physics->xVel = 0;
-    physics->yVel = 0;
+    physics->velocity.set(0, 0);
 
     if (event->type == SDL_KEYDOWN || event->type == SDL_KEYUP)
     {
@@ -45,22 +45,22 @@ void PlayerInputComponent::update(SDL_Event* event)
 
         if (keyStates[SDL_SCANCODE_DOWN] == 1 || keyStates[SDL_SCANCODE_S] == 1)
         {
-            physics->yVel = physics->velocityPerSecond;
+            physics->velocity.y = physics->velocityPerSecond;
         }
 
         if (keyStates[SDL_SCANCODE_UP] == 1 || keyStates[SDL_SCANCODE_W] == 1)
         {
-            physics->yVel = -physics->velocityPerSecond;
+            physics->velocity.y = -physics->velocityPerSecond;
         }
 
         if (keyStates[SDL_SCANCODE_RIGHT] == 1 || keyStates[SDL_SCANCODE_D] == 1)
         {
-            physics->xVel = physics->velocityPerSecond;
+            physics->velocity.x = physics->velocityPerSecond;
         }
 
         if (keyStates[SDL_SCANCODE_LEFT] == 1 || keyStates[SDL_SCANCODE_A] == 1)
         {
-            physics->xVel = -physics->velocityPerSecond;
+            physics->velocity.x = -physics->velocityPerSecond;
         }
     }
 }

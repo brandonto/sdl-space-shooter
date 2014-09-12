@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-08
+ * @modified    2014-09-12
  *********************************************************************/
 #include "PlayerProjectilePhysicsComponent.h"
 
@@ -15,7 +15,7 @@
 PlayerProjectilePhysicsComponent::PlayerProjectilePhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements)
 :   gameEntity(gameEntity), windowElements(windowElements), render(NULL),
-    xVel(0), yVel(1500), velocityPerSecond(1500)
+    velocity(0, 1500), velocityPerSecond(1500)
 {
     render = dynamic_cast<PlayerProjectileRenderComponent*>(gameEntity->getRenderComponent());
 }
@@ -30,11 +30,7 @@ void PlayerProjectilePhysicsComponent::update()
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
 
     //y = y + speedPerSeconds*secondsSinceLastFrame
-    gameEntity->yPos -= (yVel * timeSinceLastFrame);
-    //if (gameEntity->yPos < 0 + render->spriteHeight/2)
-    //{
-    //    gameEntity->yPos = 0 + render->spriteHeight/2;
-    //}
+    gameEntity->position -= velocity*timeSinceLastFrame;
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();
 }

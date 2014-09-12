@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-06
+ * @modified    2014-09-12
  *********************************************************************/
 #include "PlayerRenderComponent.h"
 
@@ -21,16 +21,16 @@ PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
 {
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/playerShip1_blue.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
-    gameEntity->xPos = windowElements->WINDOW_WIDTH/2;
-    gameEntity->yPos = 0.8*windowElements->WINDOW_HEIGHT;
+    gameEntity->position.x = windowElements->WINDOW_WIDTH/2;
+    gameEntity->position.y = 0.8*windowElements->WINDOW_HEIGHT;
     renderRect.w = spriteWidth;
     renderRect.h = spriteHeight;
 }
 
 void PlayerRenderComponent::update()
 {
-    renderRect.x = gameEntity->xPos - spriteWidth/2;
-    renderRect.y = gameEntity->yPos - spriteHeight/2;
+    renderRect.x = gameEntity->position.x - spriteWidth/2;
+    renderRect.y = gameEntity->position.y - spriteHeight/2;
     SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
 }
 

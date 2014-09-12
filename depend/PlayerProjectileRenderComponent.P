@@ -64,8 +64,9 @@ obj/PlayerProjectileRenderComponent.o: \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- include/GameEntity.h include/PlayerRenderComponent.h include/SDL_util.h \
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
+ include/GameEntity.h include/Vector2D.h include/PlayerRenderComponent.h \
+ include/SDL_util.h /usr/include/c++/4.8/string \
+ /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/stl_algobase.h \
@@ -170,8 +171,9 @@ obj/PlayerProjectileRenderComponent.o: \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
- include/GameEntity.h include/PlayerRenderComponent.h include/SDL_util.h :
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
+ include/GameEntity.h include/Vector2D.h include/PlayerRenderComponent.h :
+ include/SDL_util.h /usr/include/c++/4.8/string :
+ /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/memoryfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
  /usr/include/c++/4.8/bits/stl_algobase.h :

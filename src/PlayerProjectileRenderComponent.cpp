@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-08
+ * @modified    2014-09-12
  *********************************************************************/
 #include "PlayerProjectileRenderComponent.h"
 
@@ -25,14 +25,14 @@ PlayerProjectileRenderComponent::PlayerProjectileRenderComponent(GameEntity* gam
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     renderRect.w = spriteWidth;
     renderRect.h = spriteHeight;
-    gameEntity->xPos = playerEntity->xPos;
-    gameEntity->yPos = playerEntity->yPos - dynamic_cast<PlayerRenderComponent*>(playerEntity->getRenderComponent())->spriteHeight/2 - spriteHeight/2;
+    gameEntity->position.x = playerEntity->position.x;
+    gameEntity->position.y = playerEntity->position.y - dynamic_cast<PlayerRenderComponent*>(playerEntity->getRenderComponent())->spriteHeight/2 - spriteHeight/2;
 }
 
 void PlayerProjectileRenderComponent::update()
 {
-    renderRect.x = gameEntity->xPos - spriteWidth/2;
-    renderRect.y = gameEntity->yPos - spriteHeight/2;
+    renderRect.x = gameEntity->position.x - spriteWidth/2;
+    renderRect.y = gameEntity->position.y - spriteHeight/2;
     SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
 }
 

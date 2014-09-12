@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-06
+ * @modified    2014-09-12
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERRENDERCOMPONENT_
     #define SPACESHOOTER_PLAYERRENDERCOMPONENT_

@@ -18,7 +18,7 @@ PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
                                             GameEntityManager* gameEntityManager)
 :   gameEntity(gameEntity), windowElements(windowElements),
     gameEntityManager(gameEntityManager), render(NULL),
-    xVel(0), yVel(0), velocityPerSecond(500), shooting(false)
+    velocity(0, 0), velocityPerSecond(500), shooting(false)
 {
     render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
 }
@@ -32,25 +32,27 @@ void PlayerPhysicsComponent::update()
 {
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
     //x = x + speedPerSeconds*secondsSinceLastFrame
-    gameEntity->xPos += (xVel * timeSinceLastFrame);
-    if (gameEntity->xPos > windowElements->WINDOW_WIDTH)
+    //gameEntity->xPos += (xVel * timeSinceLastFrame);
+    gameEntity->position += velocity*timeSinceLastFrame;
+
+    if (gameEntity->position.x > windowElements->WINDOW_WIDTH)
     {
-        gameEntity->xPos = windowElements->WINDOW_WIDTH;
+        gameEntity->position.x = windowElements->WINDOW_WIDTH;
     }
-    else if (gameEntity->xPos < 0)
+    else if (gameEntity->position.x < 0)
     {
-        gameEntity->xPos = 0;
+        gameEntity->position.x = 0;
     }
 
     //y = y + speedPerSeconds*secondsSinceLastFrame
-    gameEntity->yPos += (yVel * timeSinceLastFrame);
-    if (gameEntity->yPos > windowElements->WINDOW_HEIGHT - render->spriteHeight/2)
+    //gameEntity->yPos += (yVel * timeSinceLastFrame);
+    if (gameEntity->position.y > windowElements->WINDOW_HEIGHT - render->spriteHeight/2)
     {
-        gameEntity->yPos = windowElements->WINDOW_HEIGHT - render->spriteHeight/2;
+        gameEntity->position.y = windowElements->WINDOW_HEIGHT - render->spriteHeight/2;
     }
-    else if (gameEntity->yPos < 0 + render->spriteHeight/2)
+    else if (gameEntity->position.y < 0 + render->spriteHeight/2)
     {
-        gameEntity->yPos = 0 + render->spriteHeight/2;
+        gameEntity->position.y = 0 + render->spriteHeight/2;
     }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();

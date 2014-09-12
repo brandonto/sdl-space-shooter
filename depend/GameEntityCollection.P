@@ -82,7 +82,7 @@ obj/GameEntityCollection.o: src/GameEntityCollection.cpp \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/GameEntity.h
+ include/GameEntity.h include/Vector2D.h
 src/GameEntityCollection.cpp :
  /usr/include/stdc-predef.h include/GameEntityCollection.h :
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_algobase.h :
@@ -167,4 +167,4 @@ src/GameEntityCollection.cpp :
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/GameEntity.h :
+ include/GameEntity.h include/Vector2D.h :

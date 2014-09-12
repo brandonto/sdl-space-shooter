@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-06
+ * @modified    2014-09-12
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -16,7 +16,7 @@
 
 //Constructor
 GameEntity::GameEntity()
-:   xPos(0), yPos(0),
+:   position(0, 0),
     input(NULL),
     render(NULL),
     physics(NULL)
