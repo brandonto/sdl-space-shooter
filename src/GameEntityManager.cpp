@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-06
+ * @modified    2014-09-13
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -12,6 +12,7 @@
 #include <SDL2/SDL.h>
 #include "ApplicationState.h"
 #include "BackgroundRenderComponent.h"
+#include "BackgroundPhysicsComponent.h"
 #include "GameEntity.h"
 #include "PlayerInputComponent.h"
 #include "PlayerRenderComponent.h"
@@ -38,6 +39,7 @@ void GameEntityManager::onEvent(SDL_Event* event)
 
 void GameEntityManager::onUpdate()
 {
+    backgroundLayer.onUpdate();
     physicalLayer.onUpdate();
 }
 
@@ -185,7 +187,8 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 GameEntity* GameEntityManager::createBackground()
 {
     GameEntity* background = new GameEntity();
-    background->addRenderComponent(new BackgroundRenderComponent(windowElements));
+    background->addRenderComponent(new BackgroundRenderComponent(background, windowElements));
+    background->addPhysicsComponent(new BackgroundPhysicsComponent(background, windowElements));
     backgroundLayer.add(background);
 
     return background;

@@ -4,28 +4,30 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-09-06
+ * @modified    2014-09-13
  *********************************************************************/
 #ifndef SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
 
+#include <SDL2/SDL.h>
 #include "RenderComponent.h"
 
-struct SDL_Texture;
+class GameEntity;
+
 struct WindowElements;
 
 class BackgroundRenderComponent : public RenderComponent
 {
     private:
-        SDL_Texture* sprite;
+        GameEntity* gameEntity;
         WindowElements* windowElements;
-        int offset;
-        int offsetIncrementCounter;
-        int offsetIncrementModulus;
 
     public:
+        SDL_Rect renderRect;
+        SDL_Texture* sprite;
+
         //Constructor
-        BackgroundRenderComponent(WindowElements* windowElements);
+        BackgroundRenderComponent(GameEntity* gameEntity, WindowElements* windowElements);
 
         //Destructor
         ~BackgroundRenderComponent();

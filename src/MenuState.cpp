@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-06
+ * @modified    2014-09-13
  *********************************************************************/
 #include "MenuState.h"
 
@@ -107,6 +107,7 @@ void MenuState::onUpdate()
             applicationStateManager->setNextState(nextState);
         }
     }
+    gameEntityManager.onUpdate();
 }
 
 void MenuState::onRender()

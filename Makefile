@@ -9,6 +9,7 @@ _OBJS =	main.o \
 		ApplicationState.o \
 		ApplicationStateManager.o \
 		BackgroundRenderComponent.o \
+		BackgroundPhysicsComponent.o \
 		BlackScreen.o \
 		FrameRateManager.o \
 		GameEntity.o \
