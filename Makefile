@@ -18,6 +18,8 @@ _OBJS =	main.o \
 		GameState.o \
 		IntroState.o \
 		MenuState.o \
+		MeteorRenderComponent.o \
+		MeteorPhysicsComponent.o \
 		PauseState.o \
 		PlayerInputComponent.o \
 		PlayerRenderComponent.o \

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-10
+ * @modified    2014-09-14
  *********************************************************************/
 #include "GameState.h"
 
@@ -31,6 +31,7 @@ void GameState::onEnter()
     blackScreen.startBlackIn();
     background = gameEntityManager.createBackground();
     player = gameEntityManager.createPlayer();
+    meteor = gameEntityManager.createMeteor();
 }
 
 void GameState::onEvent()

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-13
+ * @modified    2014-09-14
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -14,6 +14,8 @@
 #include "BackgroundRenderComponent.h"
 #include "BackgroundPhysicsComponent.h"
 #include "GameEntity.h"
+#include "MeteorRenderComponent.h"
+#include "MeteorPhysicsComponent.h"
 #include "PlayerInputComponent.h"
 #include "PlayerRenderComponent.h"
 #include "PlayerPhysicsComponent.h"
@@ -213,4 +215,14 @@ GameEntity* GameEntityManager::createPlayerProjectile(GameEntity* playerEntity)
     physicalLayer.add(projectile);
 
     return projectile;
+}
+
+GameEntity* GameEntityManager::createMeteor()
+{
+    GameEntity* meteor = new GameEntity();
+    meteor->addRenderComponent(new MeteorRenderComponent(meteor, windowElements));
+    meteor->addPhysicsComponent(new MeteorPhysicsComponent(meteor, windowElements));
+    physicalLayer.add(meteor);
+
+    return meteor;
 }

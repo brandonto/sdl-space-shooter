@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-11
- * @modified    2014-09-12
+ * @modified    2014-09-14
  *********************************************************************/
 #include "Vector2D.h"
 
@@ -30,6 +30,15 @@ float Vector2D::magnitude()
     return sqrt(x*x + y*y);
 }
 
+void Vector2D::normalize()
+{
+    *this /= magnitude();
+}
+
+Vector2D Vector2D::getUnitVector()
+{
+    return Vector2D(x, y) / magnitude();
+}
 
 Vector2D Vector2D::operator+(const Vector2D &vector)
 {

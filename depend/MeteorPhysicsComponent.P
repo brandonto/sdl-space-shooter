@@ -1,6 +1,6 @@
-obj/PlayerInputComponent.o: src/PlayerInputComponent.cpp \
- /usr/include/stdc-predef.h include/PlayerInputComponent.h \
- include/InputComponent.h /usr/include/SDL2/SDL.h \
+obj/MeteorPhysicsComponent.o: src/MeteorPhysicsComponent.cpp \
+ /usr/include/stdc-predef.h include/MeteorPhysicsComponent.h \
+ include/PhysicsComponent.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
@@ -60,12 +60,41 @@ obj/PlayerInputComponent.o: src/PlayerInputComponent.cpp \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/Timer.h include/GameEntity.h include/Vector2D.h \
- include/PlayerPhysicsComponent.h include/PhysicsComponent.h \
- include/Vector2D.h include/WindowElements.h
-src/PlayerInputComponent.cpp :
- /usr/include/stdc-predef.h include/PlayerInputComponent.h :
- include/InputComponent.h /usr/include/SDL2/SDL.h :
+ include/Timer.h include/Vector2D.h include/GameEntity.h \
+ include/GameEntityManager.h include/GameEntityCollection.h \
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/4.8/bits/functexcept.h \
+ /usr/include/c++/4.8/bits/exception_defines.h \
+ /usr/include/c++/4.8/bits/cpp_type_traits.h \
+ /usr/include/c++/4.8/ext/type_traits.h \
+ /usr/include/c++/4.8/ext/numeric_traits.h \
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
+ /usr/include/c++/4.8/bits/concept_check.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/4.8/debug/debug.h \
+ /usr/include/c++/4.8/bits/stl_iterator.h \
+ /usr/include/c++/4.8/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
+ /usr/include/c++/4.8/exception \
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/range_access.h \
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/MeteorRenderComponent.h \
+ include/RenderComponent.h include/WindowElements.h
+src/MeteorPhysicsComponent.cpp :
+ /usr/include/stdc-predef.h include/MeteorPhysicsComponent.h :
+ include/PhysicsComponent.h /usr/include/SDL2/SDL.h :
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h :
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h :
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h :
@@ -125,6 +154,35 @@ src/PlayerInputComponent.cpp :
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/Timer.h include/GameEntity.h include/Vector2D.h :
- include/PlayerPhysicsComponent.h include/PhysicsComponent.h :
- include/Vector2D.h include/WindowElements.h :
+ include/Timer.h include/Vector2D.h include/GameEntity.h :
+ include/GameEntityManager.h include/GameEntityCollection.h :
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
+ /usr/include/c++/4.8/bits/functexcept.h :
+ /usr/include/c++/4.8/bits/exception_defines.h :
+ /usr/include/c++/4.8/bits/cpp_type_traits.h :
+ /usr/include/c++/4.8/ext/type_traits.h :
+ /usr/include/c++/4.8/ext/numeric_traits.h :
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h :
+ /usr/include/c++/4.8/bits/concept_check.h :
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h :
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h :
+ /usr/include/c++/4.8/debug/debug.h :
+ /usr/include/c++/4.8/bits/stl_iterator.h :
+ /usr/include/c++/4.8/bits/allocator.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h :
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new :
+ /usr/include/c++/4.8/exception :
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
+ /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/range_access.h :
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/MeteorRenderComponent.h :
+ include/RenderComponent.h include/WindowElements.h :

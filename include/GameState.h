@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-09
+ * @modified    2014-09-14
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -25,6 +25,7 @@ class GameState : public ApplicationState
         GameEntityManager gameEntityManager;
         GameEntity* background;
         GameEntity* player;
+        GameEntity* meteor;
 
         std::vector<GameEntity*> enemies;
 
