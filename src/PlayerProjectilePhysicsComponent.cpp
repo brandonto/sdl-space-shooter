@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-12
+ * @modified    2014-09-13
  *********************************************************************/
 #include "PlayerProjectilePhysicsComponent.h"
 
@@ -31,6 +31,10 @@ void PlayerProjectilePhysicsComponent::update()
 
     //y = y + speedPerSeconds*secondsSinceLastFrame
     gameEntity->position -= velocity*timeSinceLastFrame;
+    if (gameEntity->position.y + render->renderRect.h/2 < 0)
+    {
+        gameEntity->remove = true;
+    }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();
 }

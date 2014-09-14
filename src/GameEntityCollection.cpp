@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-06
+ * @modified    2014-09-13
  *********************************************************************/
 #include "GameEntityCollection.h"
 
@@ -34,7 +34,7 @@ void GameEntityCollection::add(GameEntity* gameEntity)
 
 void GameEntityCollection::remove(GameEntity* gameEntity)
 {
-    //TBD
+    //collection
 }
 
 void GameEntityCollection::onEvent(SDL_Event* event)
@@ -55,7 +55,16 @@ void GameEntityCollection::onUpdate()
             collectionIterator!=collection.end();
             collectionIterator++)
     {
-        (*collectionIterator)->onUpdate();
+        if ((*collectionIterator)->remove)
+        {
+            delete *collectionIterator;
+            collectionIterator = collection.erase(collectionIterator);
+            collectionIterator--;
+        }
+        else
+        {
+            (*collectionIterator)->onUpdate();
+        }
     }
 }
 
