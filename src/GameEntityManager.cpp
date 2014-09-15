@@ -67,7 +67,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 9*xGrid;
     temp.h = 6*yGrid;
     uiTitleRender->setRenderRect(&temp);
-    temp.x = 12;
+    temp.x = 11;
     temp.y = 0;
     temp.w = 80;
     temp.h = 60;
@@ -76,7 +76,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     uiTitleRender->addText("Space", 96, &temp, true);
     temp.x = 5;
     temp.y = 45;
-    temp.w = 94;
+    temp.w = 92;
     temp.h = 70;
     uiTitleRender->addText("Shooter", 96, &temp, true);
     uiTitleRender->enableBlending();
@@ -91,7 +91,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 5*xGrid;
     temp.h = 1*yGrid;
     uiPlayRender->setRenderRect(&temp);
-    temp.x = 12;
+    temp.x = 11;
     temp.y = 5;
     temp.w = 80;
     temp.h = 100;
@@ -111,7 +111,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 5*xGrid;
     temp.h = 1*yGrid;
     uiInstructionsRender->setRenderRect(&temp);
-    temp.x = 12;
+    temp.x = 11;
     temp.y = 5;
     temp.w = 80;
     temp.h = 100;
@@ -130,7 +130,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 5*xGrid;
     temp.h = 1*yGrid;
     uiOptionsRender->setRenderRect(&temp);
-    temp.x = 12;
+    temp.x = 11;
     temp.y = 5;
     temp.w = 80;
     temp.h = 100;
@@ -149,7 +149,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 5*xGrid;
     temp.h = 1*yGrid;
     uiCreditsRender->setRenderRect(&temp);
-    temp.x = 12;
+    temp.x = 11;
     temp.y = 5;
     temp.w = 80;
     temp.h = 100;
@@ -168,7 +168,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 5*xGrid;
     temp.h = 1*yGrid;
     uiQuitRender->setRenderRect(&temp);
-    temp.x = 12;
+    temp.x = 11;
     temp.y = 5;
     temp.w = 80;
     temp.h = 100;

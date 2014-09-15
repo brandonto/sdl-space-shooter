@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-09-06
+ * @modified    2014-09-14
  *********************************************************************/
 #include "UIPanelRenderComponent.h"
 
@@ -100,7 +100,7 @@ void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* d
     color.g = 255;
     color.b = 255;
     color.a = 255;
-    surface = SDL_util::create_surface_from_text("bin/font/kenvector_future_thin.ttf", text,
+    surface = SDL_util::create_surface_from_text("bin/font/kenpixel_square.ttf", text,
                                                 fontSize, &color);
     SDL_DestroyTexture(sprite);
     sprite = SDL_util::create_texture_from_surfaces(windowElements, surface, NULL,
