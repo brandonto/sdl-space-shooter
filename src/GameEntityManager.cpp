@@ -52,6 +52,16 @@ void GameEntityManager::onRender()
     uiLayer.onRender();
 }
 
+void GameEntityManager::pauseAllTimers()
+{
+    physicalLayer.onPauseTimers();
+}
+
+void GameEntityManager::resumeAllTimers()
+{
+    physicalLayer.onResumeTimers();
+}
+
 std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* state)
 {
     SDL_Rect temp;

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-10
+ * @modified    2014-09-15
  *********************************************************************/
 #include "ApplicationStateManager.h"
 
@@ -77,6 +77,11 @@ void ApplicationStateManager::onRender()
 ApplicationState* ApplicationStateManager::getCurrentState()
 {
     return currentState;
+}
+
+ApplicationState* ApplicationStateManager::getMainState()
+{
+    return *(stateStack.begin());
 }
 
 bool ApplicationStateManager::isExitState()

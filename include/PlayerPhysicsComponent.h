@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-12
+ * @modified    2014-09-15
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
     #define SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
@@ -44,6 +44,8 @@ class PlayerPhysicsComponent : public PhysicsComponent
 
         //Methods
         void update();
+        void pauseTimers();
+        void resumeTimers();
 };
 
 #endif

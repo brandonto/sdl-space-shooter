@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-09
+ * @modified    2014-09-15
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
@@ -75,4 +75,14 @@ void PlayerPhysicsComponent::update()
     }
 }
 
+void PlayerPhysicsComponent::pauseTimers()
+{
+    timeBasedMovementTimer.pause();
+    projectileCapTimer.pause();
+}
 
+void PlayerPhysicsComponent::resumeTimers()
+{
+    timeBasedMovementTimer.resume();
+    projectileCapTimer.resume();
+}

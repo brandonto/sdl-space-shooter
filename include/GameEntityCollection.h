@@ -35,6 +35,8 @@ class GameEntityCollection
         void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
+        void onPauseTimers();
+        void onResumeTimers();
 };
 
 #endif

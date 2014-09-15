@@ -4,12 +4,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-10
- * @modified    2014-09-12
+ * @modified    2014-09-15
  *********************************************************************/
 #include "PauseState.h"
 
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
+#include "GameEntity.h"
+#include "GameState.h"
 #include "SDL_util.h"
 #include "WindowElements.h"
 
@@ -60,10 +62,12 @@ void PauseState::onEvent()
             {
                 case SDL_SCANCODE_ESCAPE:
                     applicationStateManager->popStateOnStack();
+                    dynamic_cast<GameState*>(applicationStateManager->getMainState())->setPauseStatus(UNPAUSED_THIS_FRAME);
                     break;
 
                 case SDL_SCANCODE_P:
                     applicationStateManager->popStateOnStack();
+                    dynamic_cast<GameState*>(applicationStateManager->getMainState())->setPauseStatus(UNPAUSED_THIS_FRAME);
                     break;
             }
         }

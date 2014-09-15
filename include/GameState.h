@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-14
+ * @modified    2014-09-15
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -22,14 +22,15 @@ class GameState : public ApplicationState
     private:
         SDL_Event event;
         BlackScreen blackScreen;
+
         GameEntityManager gameEntityManager;
         GameEntity* background;
         GameEntity* player;
         GameEntity* meteor;
-
         std::vector<GameEntity*> enemies;
 
         int nextState;
+        int pauseStatus;
 
     public:
         //Constructor
@@ -46,6 +47,7 @@ class GameState : public ApplicationState
         void onRender();
         void onExit();
         void stateTransition(int nextState);
+        void setPauseStatus(int pauseStatus);
 };
 
 #endif

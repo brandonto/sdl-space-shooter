@@ -4,12 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-13
+ * @modified    2014-09-15
  *********************************************************************/
 #include "GameEntityCollection.h"
 
 #include <SDL2/SDL.h>
 #include <GameEntity.h>
+#include <PhysicsComponent.h>
 
 GameEntityCollection::GameEntityCollection()
 {
@@ -76,5 +77,27 @@ void GameEntityCollection::onRender()
             collectionIterator++)
     {
         (*collectionIterator)->onRender();
+    }
+}
+
+void GameEntityCollection::onPauseTimers()
+{
+    std::list<GameEntity*>::iterator collectionIterator;
+    for (   collectionIterator=collection.begin();
+            collectionIterator!=collection.end();
+            collectionIterator++)
+    {
+        (*collectionIterator)->getPhysicsComponent()->pauseTimers();
+    }
+}
+
+void GameEntityCollection::onResumeTimers()
+{
+    std::list<GameEntity*>::iterator collectionIterator;
+    for (   collectionIterator=collection.begin();
+            collectionIterator!=collection.end();
+            collectionIterator++)
+    {
+        (*collectionIterator)->getPhysicsComponent()->resumeTimers();
     }
 }

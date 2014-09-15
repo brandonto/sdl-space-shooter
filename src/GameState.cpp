@@ -4,18 +4,20 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-14
+ * @modified    2014-09-15
  *********************************************************************/
 #include "GameState.h"
 
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
+#include "PauseState.h" //For the enumeration
 #include "WindowElements.h"
 
 GameState::GameState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   nextState(0), blackScreen(windowElements), gameEntityManager(windowElements)
+:   blackScreen(windowElements), gameEntityManager(windowElements),
+    nextState(0), pauseStatus(PAUSED_NONE)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -52,6 +54,7 @@ void GameState::onEvent()
 
                 case SDL_SCANCODE_P:
                     applicationStateManager->pushStateOnStack(STATE_PAUSE);
+                    setPauseStatus(PAUSED_THIS_FRAME);
                     break;
             }
         }
@@ -78,6 +81,16 @@ void GameState::onUpdate()
         }
     }
     gameEntityManager.onUpdate();
+    if (pauseStatus == PAUSED_THIS_FRAME)
+    {
+        gameEntityManager.pauseAllTimers();
+        setPauseStatus(PAUSED_NONE);
+    }
+    else if (pauseStatus == UNPAUSED_THIS_FRAME)
+    {
+        gameEntityManager.resumeAllTimers();
+        setPauseStatus(PAUSED_NONE);
+    }
 }
 
 void GameState::onRender()
@@ -94,4 +107,9 @@ void GameState::stateTransition(int nextState)
 {
     blackScreen.startBlackOut();
     this->nextState = nextState;
+}
+
+void GameState::setPauseStatus(int pauseStatus)
+{
+    this->pauseStatus = pauseStatus;
 }

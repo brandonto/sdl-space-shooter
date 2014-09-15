@@ -7,7 +7,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-10
+ * @modified    2014-09-15
  *********************************************************************/
 #ifndef SPACESHOOTER_APPLICATIONSTATEMANAGER_H_
     #define SPACESHOOTER_APPLICATIONSTATEMANAGER_H_
@@ -42,6 +42,7 @@ class ApplicationStateManager
         void onUpdate();
         void onRender();
         ApplicationState* getCurrentState();
+        ApplicationState* getMainState();
         bool isExitState();
         void setNextState(int nextState);
         void pushStateOnStack(int pushedState);

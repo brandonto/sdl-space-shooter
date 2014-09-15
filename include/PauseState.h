@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-10
- * @modified    2014-09-10
+ * @modified    2014-09-15
  *********************************************************************/
 #ifndef SPACESHOOTER_PAUSESTATE_H_
     #define SPACESHOOTER_PAUSESTATE_H_
@@ -14,7 +14,6 @@
 #include "ApplicationState.h"
 
 class GameEntity;
-
 
 class PauseState : public ApplicationState
 {
@@ -37,6 +36,13 @@ class PauseState : public ApplicationState
         void onUpdate();
         void onRender();
         void onExit();
+};
+
+enum PauseStatuses
+{
+    PAUSED_NONE,
+    PAUSED_THIS_FRAME,
+    UNPAUSED_THIS_FRAME,
 };
 
 #endif

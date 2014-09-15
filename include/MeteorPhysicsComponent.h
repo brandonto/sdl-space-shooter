@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-14
+ * @modified    2014-09-15
  *********************************************************************/
 #ifndef SPACESHOOTER_METEORPHYSICSCOMPONENT_
     #define SPACESHOOTER_METEORPHYSICSCOMPONENT_
@@ -46,6 +46,8 @@ class MeteorPhysicsComponent : public PhysicsComponent
 
         //Methods
         void update();
+        void pauseTimers();
+        void resumeTimers();
 };
 
 #endif
