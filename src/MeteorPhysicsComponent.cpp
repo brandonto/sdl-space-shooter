@@ -48,18 +48,18 @@ void MeteorPhysicsComponent::update()
     {
         if (gameEntity->position.x + render->spriteWidth/2 > 0 &&
             gameEntity->position.y + render->spriteHeight/2 > 0 &&
-            gameEntity->position.x - render->spriteWidth/2 < windowElements->WINDOW_WIDTH/2 &&
-            gameEntity->position.y - render->spriteHeight/2 < windowElements->WINDOW_HEIGHT/2)
+            gameEntity->position.x - render->spriteWidth/2 < windowElements->WINDOW_WIDTH &&
+            gameEntity->position.y - render->spriteHeight/2 < windowElements->WINDOW_HEIGHT)
         {
             gameEntity->active = true;
         }
     }
     else
     {
-        if (gameEntity->position.x + render->spriteWidth/2 < 0 ||
-            gameEntity->position.y + render->spriteHeight/2 < 0 ||
-            gameEntity->position.x - render->spriteWidth/2 > windowElements->WINDOW_WIDTH/2 ||
-            gameEntity->position.y - render->spriteHeight/2 > windowElements->WINDOW_HEIGHT/2)
+        if (gameEntity->position.x + render->spriteWidth/2 + offScreenBuffer < 0 ||
+            gameEntity->position.y + render->spriteHeight/2 + offScreenBuffer < 0 ||
+            gameEntity->position.x - render->spriteWidth/2 - offScreenBuffer > windowElements->WINDOW_WIDTH ||
+            gameEntity->position.y - render->spriteHeight/2 - offScreenBuffer > windowElements->WINDOW_HEIGHT)
         {
             gameEntity->remove = true;
         }

@@ -32,6 +32,7 @@ class MeteorPhysicsComponent : public PhysicsComponent
 
         int angleIncrementCounter;
         int angleIncrementModulus;
+        const int offScreenBuffer = 25;
 
     public:
         Vector2D velocity;
