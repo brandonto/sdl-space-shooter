@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-09-13
+ * @modified    2014-09-14
  *********************************************************************/
 #include "BackgroundRenderComponent.h"
 

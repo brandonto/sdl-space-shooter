@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-13
+ * @modified    2014-09-14
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
@@ -31,6 +31,7 @@ class GameEntity
         //Fields
         Vector2D position;
         bool remove;
+        bool active;
 
         //Constructor
         GameEntity();

@@ -22,8 +22,8 @@ MeteorRenderComponent::MeteorRenderComponent(GameEntity* gameEntity,
 {
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/meteorBrown_big1.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
-    gameEntity->position.x = windowElements->WINDOW_WIDTH/2;
-    gameEntity->position.y = 0.2*windowElements->WINDOW_HEIGHT;
+    gameEntity->position.x = -1000;
+    gameEntity->position.y = -1000;
     renderRect.w = spriteWidth;
     renderRect.h = spriteHeight;
 }

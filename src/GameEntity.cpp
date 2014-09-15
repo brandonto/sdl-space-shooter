@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-13
+ * @modified    2014-09-14
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -18,6 +18,7 @@
 GameEntity::GameEntity()
 :   position(0, 0),
     remove(false),
+    active(false),
     input(NULL),
     render(NULL),
     physics(NULL)

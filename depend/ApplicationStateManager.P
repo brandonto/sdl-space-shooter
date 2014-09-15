@@ -92,7 +92,7 @@ obj/ApplicationStateManager.o: src/ApplicationStateManager.cpp \
  include/ApplicationState.h include/BlackScreen.h \
  include/GameEntityManager.h include/GameEntityCollection.h \
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
- /usr/include/c++/4.8/bits/list.tcc include/MenuState.h \
+ /usr/include/c++/4.8/bits/list.tcc include/MenuState.h include/Timer.h \
  include/PauseState.h include/WindowElements.h
 src/ApplicationStateManager.cpp :
  /usr/include/stdc-predef.h include/ApplicationStateManager.h :
@@ -188,5 +188,5 @@ src/ApplicationStateManager.cpp :
  include/ApplicationState.h include/BlackScreen.h :
  include/GameEntityManager.h include/GameEntityCollection.h :
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
- /usr/include/c++/4.8/bits/list.tcc include/MenuState.h :
+ /usr/include/c++/4.8/bits/list.tcc include/MenuState.h include/Timer.h :
  include/PauseState.h include/WindowElements.h :

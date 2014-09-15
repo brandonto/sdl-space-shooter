@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-05
+ * @modified    2014-09-14
  *********************************************************************/
 #ifndef SPACESHOOTER_MENUSTATE_H_
     #define SPACESHOOTER_MENUSTATE_H_
@@ -15,6 +15,7 @@
 #include "ApplicationState.h"
 #include "BlackScreen.h"
 #include "GameEntityManager.h"
+#include "Timer.h"
 
 class GameEntity;
 
@@ -24,12 +25,16 @@ class MenuState : public ApplicationState
         SDL_Event event;
         GameEntityManager gameEntityManager;
         GameEntity* background;
+        std::vector<GameEntity*> meteors;
         std::vector<GameEntity*> mainMenu;
         BlackScreen blackScreen;
 
         bool fadeIn;
         bool fadeOut;
         Uint8 menuAlpha;
+
+        Timer meteorTimer;
+        int randomMeteorTime;
 
         int nextState;
 

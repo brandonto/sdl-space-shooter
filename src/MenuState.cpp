@@ -4,10 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-13
+ * @modified    2014-09-14
  *********************************************************************/
 #include "MenuState.h"
 
+#include <time.h>
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
@@ -17,11 +18,12 @@
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   fadeIn(false), fadeOut(false), menuAlpha(0),
+:   fadeIn(false), fadeOut(false), menuAlpha(0), randomMeteorTime(0),
     nextState(0), blackScreen(windowElements), gameEntityManager(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    srand(time(NULL));
 }
 
 MenuState::~MenuState()
@@ -38,6 +40,8 @@ void MenuState::onEnter()
     {
         dynamic_cast<UIPanelRenderComponent*>(mainMenu[i]->getRenderComponent())->setAlphaBlend(menuAlpha);
     }
+
+    meteorTimer.start();
 }
 
 void MenuState::onEvent()
@@ -107,6 +111,23 @@ void MenuState::onUpdate()
             applicationStateManager->setNextState(nextState);
         }
     }
+
+    if (meteorTimer.getTimeOnTimer() > randomMeteorTime)
+    {
+        GameEntity *meteor = gameEntityManager.createMeteor();
+        meteor->position.x = 1.1*windowElements->WINDOW_WIDTH;
+        meteor->position.y = rand()%(int)(0.8*windowElements->WINDOW_HEIGHT);
+        meteors.push_back(meteor);
+        randomMeteorTime = 0;
+        meteorTimer.stop();
+    }
+
+    if (randomMeteorTime == 0)
+    {
+        randomMeteorTime = rand()%5000+(rand()%10000+5000);
+        meteorTimer.start();
+    }
+
     gameEntityManager.onUpdate();
 }
 
