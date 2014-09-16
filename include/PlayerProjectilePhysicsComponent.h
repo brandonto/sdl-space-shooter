@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-12
+ * @modified    2014-09-15
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
     #define SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
@@ -39,6 +39,8 @@ class PlayerProjectilePhysicsComponent : public PhysicsComponent
 
         //Methods
         void update();
+        void pauseTimers();
+        void resumeTimers();
 };
 
 #endif
