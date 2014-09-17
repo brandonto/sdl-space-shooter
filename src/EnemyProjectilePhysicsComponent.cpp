@@ -1,37 +1,37 @@
 /*******************************************************************//*
- * Implementation of the PlayerProjectilePhysicsComponent class.
+ * Implementation of the EnemyProjectilePhysicsComponent class.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-08
+ * @since       2014-09-17
  * @modified    2014-09-17
  *********************************************************************/
-#include "PlayerProjectilePhysicsComponent.h"
+#include "EnemyProjectilePhysicsComponent.h"
 
 #include "GameEntity.h"
-#include "PlayerProjectileRenderComponent.h"
+#include "EnemyProjectileRenderComponent.h"
 #include "WindowElements.h"
 
-PlayerProjectilePhysicsComponent::PlayerProjectilePhysicsComponent(GameEntity* gameEntity,
+EnemyProjectilePhysicsComponent::EnemyProjectilePhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements)
 :   gameEntity(gameEntity), windowElements(windowElements), render(NULL),
-    velocity(0, -1500), velocityPerSecond(1500)
+    velocity(0, 400), velocityPerSecond(1500)
 {
-    render = dynamic_cast<PlayerProjectileRenderComponent*>(gameEntity->getRenderComponent());
+    render = dynamic_cast<EnemyProjectileRenderComponent*>(gameEntity->getRenderComponent());
 }
 
-PlayerProjectilePhysicsComponent::~PlayerProjectilePhysicsComponent()
+EnemyProjectilePhysicsComponent::~EnemyProjectilePhysicsComponent()
 {
 
 }
 
-void PlayerProjectilePhysicsComponent::update()
+void EnemyProjectilePhysicsComponent::update()
 {
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
 
     //y = y + speedPerSeconds*secondsSinceLastFrame
     gameEntity->position += velocity*timeSinceLastFrame;
-    if (gameEntity->position.y + render->renderRect.h/2 < 0)
+    if (gameEntity->position.y - render->renderRect.h/2 > windowElements->WINDOW_HEIGHT)
     {
         gameEntity->remove = true;
     }
@@ -39,12 +39,12 @@ void PlayerProjectilePhysicsComponent::update()
     timeBasedMovementTimer.start();
 }
 
-void PlayerProjectilePhysicsComponent::pauseTimers()
+void EnemyProjectilePhysicsComponent::pauseTimers()
 {
     timeBasedMovementTimer.pause();
 }
 
-void PlayerProjectilePhysicsComponent::resumeTimers()
+void EnemyProjectilePhysicsComponent::resumeTimers()
 {
     timeBasedMovementTimer.resume();
 }

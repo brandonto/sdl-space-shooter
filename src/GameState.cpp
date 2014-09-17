@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-15
+ * @modified    2014-09-17
  *********************************************************************/
 #include "GameState.h"
 
@@ -34,6 +34,8 @@ void GameState::onEnter()
     background = gameEntityManager.createBackground();
     player = gameEntityManager.createPlayer();
     meteor = gameEntityManager.createMeteor();
+    std::vector<GameEntity*> enemyWave = gameEntityManager.createEnemyWaveStraight();
+    enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
 }
 
 void GameState::onEvent()

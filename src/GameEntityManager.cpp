@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-14
+ * @modified    2014-09-17
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -13,6 +13,10 @@
 #include "ApplicationState.h"
 #include "BackgroundRenderComponent.h"
 #include "BackgroundPhysicsComponent.h"
+#include "EnemyRenderComponent.h"
+#include "EnemyPhysicsComponent.h"
+#include "EnemyProjectileRenderComponent.h"
+#include "EnemyProjectilePhysicsComponent.h"
 #include "GameEntity.h"
 #include "MeteorRenderComponent.h"
 #include "MeteorPhysicsComponent.h"
@@ -204,6 +208,41 @@ GameEntity* GameEntityManager::createBackground()
     backgroundLayer.add(background);
 
     return background;
+}
+
+GameEntity* GameEntityManager::createEnemy()
+{
+    GameEntity* enemy = new GameEntity();
+    enemy->addRenderComponent(new EnemyRenderComponent(enemy, windowElements));
+    enemy->addPhysicsComponent(new EnemyPhysicsComponent(enemy, windowElements, this));
+    physicalLayer.add(enemy);
+
+    return enemy;
+}
+
+GameEntity* GameEntityManager::createEnemyProjectile(GameEntity* enemyEntity)
+{
+    GameEntity* projectile = new GameEntity();
+    projectile->addRenderComponent(new EnemyProjectileRenderComponent(projectile, windowElements, enemyEntity));
+    projectile->addPhysicsComponent(new EnemyProjectilePhysicsComponent(projectile, windowElements));
+    physicalLayer.add(projectile);
+
+    return projectile;
+}
+
+std::vector<GameEntity*> GameEntityManager::createEnemyWaveStraight()
+{
+    GameEntity* enemyWave[2];
+
+    enemyWave[0] = createEnemy();
+    enemyWave[0]->position.x = windowElements->WINDOW_WIDTH/3;
+
+    enemyWave[1] = createEnemy();
+    enemyWave[1]->position.x = windowElements->WINDOW_WIDTH*2/3;
+
+    std::vector<GameEntity*> enemyWaveVector(enemyWave, enemyWave + sizeof(enemyWave)/sizeof(GameEntity*));
+
+    return enemyWaveVector;
 }
 
 GameEntity* GameEntityManager::createPlayer()

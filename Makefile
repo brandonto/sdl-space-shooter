@@ -11,6 +11,10 @@ _OBJS =	main.o \
 		BackgroundRenderComponent.o \
 		BackgroundPhysicsComponent.o \
 		BlackScreen.o \
+		EnemyRenderComponent.o \
+		EnemyPhysicsComponent.o \
+		EnemyProjectileRenderComponent.o \
+		EnemyProjectilePhysicsComponent.o \
 		FrameRateManager.o \
 		GameEntity.o \
 		GameEntityCollection.o \
