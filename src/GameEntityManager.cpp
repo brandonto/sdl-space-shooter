@@ -230,7 +230,7 @@ GameEntity* GameEntityManager::createEnemyProjectile(GameEntity* enemyEntity)
     return projectile;
 }
 
-std::vector<GameEntity*> GameEntityManager::createEnemyWaveStraight()
+std::vector<GameEntity*> GameEntityManager::createEnemyWaveStraight2()
 {
     GameEntity* enemyWave[2];
 
@@ -239,6 +239,24 @@ std::vector<GameEntity*> GameEntityManager::createEnemyWaveStraight()
 
     enemyWave[1] = createEnemy();
     enemyWave[1]->position.x = windowElements->WINDOW_WIDTH*2/3;
+
+    std::vector<GameEntity*> enemyWaveVector(enemyWave, enemyWave + sizeof(enemyWave)/sizeof(GameEntity*));
+
+    return enemyWaveVector;
+}
+
+std::vector<GameEntity*> GameEntityManager::createEnemyWaveStraight3()
+{
+    GameEntity* enemyWave[3];
+
+    enemyWave[0] = createEnemy();
+    enemyWave[0]->position.x = windowElements->WINDOW_WIDTH*1/6;
+
+    enemyWave[1] = createEnemy();
+    enemyWave[1]->position.x = windowElements->WINDOW_WIDTH*3/6;
+
+    enemyWave[2] = createEnemy();
+    enemyWave[2]->position.x = windowElements->WINDOW_WIDTH*5/6;
 
     std::vector<GameEntity*> enemyWaveVector(enemyWave, enemyWave + sizeof(enemyWave)/sizeof(GameEntity*));
 

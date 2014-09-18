@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-14
+ * @modified    2014-09-17
  *********************************************************************/
 #include "MenuState.h"
 
@@ -118,13 +118,8 @@ void MenuState::onUpdate()
         meteor->position.x = 1.1*windowElements->WINDOW_WIDTH;
         meteor->position.y = rand()%(int)(0.8*windowElements->WINDOW_HEIGHT);
         meteors.push_back(meteor);
-        randomMeteorTime = 0;
-        meteorTimer.stop();
-    }
-
-    if (randomMeteorTime == 0)
-    {
         randomMeteorTime = rand()%5000+(rand()%10000+5000);
+        meteorTimer.stop();
         meteorTimer.start();
     }
 

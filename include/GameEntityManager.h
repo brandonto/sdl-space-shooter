@@ -41,7 +41,8 @@ class GameEntityManager
         GameEntity* createBackground();
         GameEntity* createEnemy();
         GameEntity* createEnemyProjectile(GameEntity* enemyEntity);
-        std::vector<GameEntity*> createEnemyWaveStraight();
+        std::vector<GameEntity*> createEnemyWaveStraight2();
+        std::vector<GameEntity*> createEnemyWaveStraight3();
         GameEntity* createPlayer();
         GameEntity* createPlayerProjectile(GameEntity* playerEntity);
         GameEntity* createMeteor();

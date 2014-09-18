@@ -34,7 +34,9 @@ void GameState::onEnter()
     background = gameEntityManager.createBackground();
     player = gameEntityManager.createPlayer();
     meteor = gameEntityManager.createMeteor();
-    std::vector<GameEntity*> enemyWave = gameEntityManager.createEnemyWaveStraight();
+    std::vector<GameEntity*> enemyWave = gameEntityManager.createEnemyWaveStraight2();
+    enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
+    enemyWave = gameEntityManager.createEnemyWaveStraight3();
     enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
 }
 
