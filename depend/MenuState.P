@@ -98,13 +98,14 @@ obj/MenuState.o: src/MenuState.cpp /usr/include/stdc-predef.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/GameEntityManager.h \
+ include/CollisionManager.h include/Vector2D.h \
  include/GameEntityCollection.h /usr/include/c++/4.8/list \
  /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
  include/Timer.h /usr/include/x86_64-linux-gnu/bits/timex.h \
  include/ApplicationStateManager.h include/GameEntity.h \
- include/Vector2D.h include/RenderComponent.h \
- include/UIPanelRenderComponent.h include/RenderComponent.h \
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
+ include/RenderComponent.h include/UIPanelRenderComponent.h \
+ include/RenderComponent.h /usr/include/c++/4.8/string \
+ /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
  /usr/include/c++/4.8/bits/localefwd.h \
@@ -224,13 +225,14 @@ src/MenuState.cpp /usr/include/stdc-predef.h :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/GameEntityManager.h :
+ include/CollisionManager.h include/Vector2D.h :
  include/GameEntityCollection.h /usr/include/c++/4.8/list :
  /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
  include/Timer.h /usr/include/x86_64-linux-gnu/bits/timex.h :
  include/ApplicationStateManager.h include/GameEntity.h :
- include/Vector2D.h include/RenderComponent.h :
- include/UIPanelRenderComponent.h include/RenderComponent.h :
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
+ include/RenderComponent.h include/UIPanelRenderComponent.h :
+ include/RenderComponent.h /usr/include/c++/4.8/string :
+ /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
  /usr/include/c++/4.8/bits/localefwd.h :

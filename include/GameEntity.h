@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-14
+ * @modified    2014-09-18
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
@@ -16,6 +16,7 @@
 class InputComponent;
 class RenderComponent;
 class PhysicsComponent;
+class CollisionComponent;
 
 union SDL_Event;
 
@@ -26,6 +27,7 @@ class GameEntity
         InputComponent* input;
         RenderComponent* render;
         PhysicsComponent* physics;
+        CollisionComponent* collision;
 
     public:
         //Fields
@@ -43,6 +45,7 @@ class GameEntity
         void addInputComponent(InputComponent* input);
         void addRenderComponent(RenderComponent* render);
         void addPhysicsComponent(PhysicsComponent* physics);
+        void addCollisionComponent(CollisionComponent* collision);
         void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
@@ -50,6 +53,7 @@ class GameEntity
         RenderComponent* getRenderComponent();
         InputComponent* getInputComponent();
         PhysicsComponent* getPhysicsComponent();
+        CollisionComponent* getCollisionComponent();
 };
 
 #endif

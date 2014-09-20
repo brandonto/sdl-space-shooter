@@ -5,14 +5,15 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
 
-#include "GameEntityCollection.h"
 #include <vector>
 #include <SDL2/SDL.h>
+#include "CollisionManager.h"
+#include "GameEntityCollection.h"
 
 class ApplicationState;
 class GameEntity;
@@ -22,8 +23,11 @@ struct WindowElements;
 class GameEntityManager
 {
     private:
+        CollisionManager collisionManager;
+
         GameEntityCollection backgroundLayer;
         GameEntityCollection physicalLayer;
+        GameEntityCollection effectLayer;
         GameEntityCollection uiLayer;
         WindowElements* windowElements;
 

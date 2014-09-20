@@ -8,13 +8,15 @@ _OBJS =	main.o \
 		Application.o \
 		ApplicationState.o \
 		ApplicationStateManager.o \
-		BackgroundRenderComponent.o \
 		BackgroundPhysicsComponent.o \
+		BackgroundRenderComponent.o \
 		BlackScreen.o \
+		CollisionBodyRectangle.o \
+		CollisionManager.o \
 		EnemyRenderComponent.o \
 		EnemyPhysicsComponent.o \
-		EnemyProjectileRenderComponent.o \
 		EnemyProjectilePhysicsComponent.o \
+		EnemyProjectileRenderComponent.o \
 		FrameRateManager.o \
 		GameEntity.o \
 		GameEntityCollection.o \
@@ -22,14 +24,15 @@ _OBJS =	main.o \
 		GameState.o \
 		IntroState.o \
 		MenuState.o \
-		MeteorRenderComponent.o \
 		MeteorPhysicsComponent.o \
+		MeteorRenderComponent.o \
 		PauseState.o \
+		PlayerCollisionComponent.o \
 		PlayerInputComponent.o \
-		PlayerRenderComponent.o \
 		PlayerPhysicsComponent.o \
-		PlayerProjectileRenderComponent.o \
+		PlayerRenderComponent.o \
 		PlayerProjectilePhysicsComponent.o \
+		PlayerProjectileRenderComponent.o \
 		SDL_util.o \
 		Timer.o \
 		UIClickFunctionPlay.o \

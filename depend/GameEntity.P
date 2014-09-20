@@ -73,7 +73,8 @@ obj/GameEntity.o: src/GameEntity.cpp /usr/include/stdc-predef.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/InputComponent.h \
- include/RenderComponent.h include/PhysicsComponent.h
+ include/RenderComponent.h include/PhysicsComponent.h \
+ include/CollisionComponent.h
 src/GameEntity.cpp /usr/include/stdc-predef.h :
  include/GameEntity.h include/Vector2D.h /usr/include/c++/4.8/cstddef :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
@@ -150,3 +151,4 @@ src/GameEntity.cpp /usr/include/stdc-predef.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/InputComponent.h :
  include/RenderComponent.h include/PhysicsComponent.h :
+ include/CollisionComponent.h :

@@ -71,8 +71,7 @@ obj/PlayerPhysicsComponent.o: src/PlayerPhysicsComponent.cpp \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h \
  include/GameEntity.h include/GameEntityManager.h \
- include/GameEntityCollection.h /usr/include/c++/4.8/list \
- /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
@@ -93,15 +92,17 @@ obj/PlayerPhysicsComponent.o: src/PlayerPhysicsComponent.cpp \
  /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/bits/stl_construct.h \
  /usr/include/c++/4.8/ext/alloc_traits.h \
  /usr/include/c++/4.8/bits/stl_uninitialized.h \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/vector.tcc include/PlayerRenderComponent.h \
- include/RenderComponent.h include/WindowElements.h
+ /usr/include/c++/4.8/bits/range_access.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
+ include/GameEntityCollection.h /usr/include/c++/4.8/list \
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
+ include/PlayerRenderComponent.h include/RenderComponent.h \
+ include/WindowElements.h
 src/PlayerPhysicsComponent.cpp :
  /usr/include/stdc-predef.h include/PlayerPhysicsComponent.h :
  include/PhysicsComponent.h /usr/local/include/SDL2/SDL.h :
@@ -175,8 +176,7 @@ src/PlayerPhysicsComponent.cpp :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h :
  include/GameEntity.h include/GameEntityManager.h :
- include/GameEntityCollection.h /usr/include/c++/4.8/list :
- /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
@@ -197,12 +197,14 @@ src/PlayerPhysicsComponent.cpp :
  /usr/include/c++/4.8/exception :
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
  /usr/include/c++/4.8/bits/memoryfwd.h :
- /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/bits/stl_construct.h :
  /usr/include/c++/4.8/ext/alloc_traits.h :
  /usr/include/c++/4.8/bits/stl_uninitialized.h :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
- /usr/include/c++/4.8/bits/vector.tcc include/PlayerRenderComponent.h :
- include/RenderComponent.h include/WindowElements.h :
+ /usr/include/c++/4.8/bits/range_access.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
+ include/GameEntityCollection.h /usr/include/c++/4.8/list :
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
+ include/PlayerRenderComponent.h include/RenderComponent.h :
+ include/WindowElements.h :

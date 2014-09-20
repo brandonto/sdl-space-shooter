@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-14
+ * @modified    2014-09-18
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -13,6 +13,7 @@
 #include "InputComponent.h"
 #include "RenderComponent.h"
 #include "PhysicsComponent.h"
+#include "CollisionComponent.h"
 
 //Constructor
 GameEntity::GameEntity()
@@ -21,7 +22,8 @@ GameEntity::GameEntity()
     active(false),
     input(NULL),
     render(NULL),
-    physics(NULL)
+    physics(NULL),
+    collision(NULL)
 {}
 
 GameEntity::~GameEntity()
@@ -29,6 +31,7 @@ GameEntity::~GameEntity()
     if (input!=NULL) { delete input; }
     if (render!=NULL) { delete render; }
     if (physics!=NULL) { delete physics; }
+    if (collision!=NULL) { delete collision; }
 }
 
 void GameEntity::addInputComponent(InputComponent* input)
@@ -46,6 +49,11 @@ void GameEntity::addPhysicsComponent(PhysicsComponent* physics)
     this->physics = physics;
 }
 
+void GameEntity::addCollisionComponent(CollisionComponent* collision)
+{
+    this->collision = collision;
+}
+
 void GameEntity::onEvent(SDL_Event *event)
 {
     if (input!=NULL) { input->update(event); }
@@ -54,6 +62,7 @@ void GameEntity::onEvent(SDL_Event *event)
 void GameEntity::onUpdate()
 {
     if (physics!=NULL) { physics->update(); }
+    if (collision!=NULL) { collision->update(); }
 }
 
 void GameEntity::onRender()
@@ -74,4 +83,9 @@ RenderComponent* GameEntity::getRenderComponent()
 PhysicsComponent* GameEntity::getPhysicsComponent()
 {
     return physics;
+}
+
+CollisionComponent* GameEntity::getCollisionComponent()
+{
+    return collision;
 }

@@ -1,6 +1,6 @@
-obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
- /usr/include/stdc-predef.h include/EnemyPhysicsComponent.h \
- include/PhysicsComponent.h /usr/local/include/SDL2/SDL.h \
+obj/CollisionBodyRectangle.o: src/CollisionBodyRectangle.cpp \
+ /usr/include/stdc-predef.h include/CollisionBodyRectangle.h \
+ include/CollisionBody.h /usr/local/include/SDL2/SDL.h \
  /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
  /usr/local/include/SDL2/SDL_platform.h \
@@ -69,9 +69,9 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/local/include/SDL2/SDL_messagebox.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
- /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h \
- include/GameEntity.h include/GameEntityManager.h \
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/local/include/SDL2/SDL_version.h include/GameEntity.h \
+ include/Vector2D.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
@@ -98,14 +98,10 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
- include/GameEntityCollection.h /usr/include/c++/4.8/list \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- include/EnemyRenderComponent.h include/RenderComponent.h \
- include/WindowElements.h
-src/EnemyPhysicsComponent.cpp :
- /usr/include/stdc-predef.h include/EnemyPhysicsComponent.h :
- include/PhysicsComponent.h /usr/local/include/SDL2/SDL.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/GameEntity.h
+src/CollisionBodyRectangle.cpp :
+ /usr/include/stdc-predef.h include/CollisionBodyRectangle.h :
+ include/CollisionBody.h /usr/local/include/SDL2/SDL.h :
  /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h :
  /usr/local/include/SDL2/SDL_config.h :
  /usr/local/include/SDL2/SDL_platform.h :
@@ -174,9 +170,9 @@ src/EnemyPhysicsComponent.cpp :
  /usr/local/include/SDL2/SDL_messagebox.h :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
- /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h :
- include/GameEntity.h include/GameEntityManager.h :
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/local/include/SDL2/SDL_version.h include/GameEntity.h :
+ include/Vector2D.h /usr/include/c++/4.8/vector :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
@@ -203,8 +199,4 @@ src/EnemyPhysicsComponent.cpp :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
- include/GameEntityCollection.h /usr/include/c++/4.8/list :
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- include/EnemyRenderComponent.h include/RenderComponent.h :
- include/WindowElements.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/GameEntity.h :

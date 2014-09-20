@@ -4,27 +4,28 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #include "GameEntityManager.h"
 
 #include <string>
 #include <SDL2/SDL.h>
 #include "ApplicationState.h"
-#include "BackgroundRenderComponent.h"
 #include "BackgroundPhysicsComponent.h"
-#include "EnemyRenderComponent.h"
+#include "BackgroundRenderComponent.h"
 #include "EnemyPhysicsComponent.h"
-#include "EnemyProjectileRenderComponent.h"
+#include "EnemyRenderComponent.h"
 #include "EnemyProjectilePhysicsComponent.h"
+#include "EnemyProjectileRenderComponent.h"
 #include "GameEntity.h"
-#include "MeteorRenderComponent.h"
 #include "MeteorPhysicsComponent.h"
+#include "MeteorRenderComponent.h"
+#include "PlayerCollisionComponent.h"
 #include "PlayerInputComponent.h"
-#include "PlayerRenderComponent.h"
 #include "PlayerPhysicsComponent.h"
-#include "PlayerProjectileRenderComponent.h"
+#include "PlayerRenderComponent.h"
 #include "PlayerProjectilePhysicsComponent.h"
+#include "PlayerProjectileRenderComponent.h"
 #include "UIClickFunctionQuit.h"
 #include "UIClickFunctionPlay.h"
 #include "UIPanelInputComponent.h"
@@ -32,7 +33,7 @@
 #include "WindowElements.h"
 
 GameEntityManager::GameEntityManager(WindowElements* windowElements)
-:   windowElements(windowElements)
+:   windowElements(windowElements), collisionManager(windowElements)
 {
 
 }
@@ -47,23 +48,27 @@ void GameEntityManager::onUpdate()
 {
     backgroundLayer.onUpdate();
     physicalLayer.onUpdate();
+    effectLayer.onUpdate();
 }
 
 void GameEntityManager::onRender()
 {
     backgroundLayer.onRender();
     physicalLayer.onRender();
+    effectLayer.onUpdate();
     uiLayer.onRender();
 }
 
 void GameEntityManager::pauseAllTimers()
 {
     physicalLayer.onPauseTimers();
+    effectLayer.onPauseTimers();
 }
 
 void GameEntityManager::resumeAllTimers()
 {
     physicalLayer.onResumeTimers();
+    effectLayer.onPauseTimers();
 }
 
 std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* state)
@@ -268,6 +273,7 @@ GameEntity* GameEntityManager::createPlayer()
     GameEntity* player = new GameEntity();
     player->addRenderComponent(new PlayerRenderComponent(player, windowElements));
     player->addPhysicsComponent(new PlayerPhysicsComponent(player, windowElements, this));
+    player->addCollisionComponent(new PlayerCollisionComponent(player, windowElements, &collisionManager));
     player->addInputComponent(new PlayerInputComponent(player, windowElements));
     physicalLayer.add(player);
 
