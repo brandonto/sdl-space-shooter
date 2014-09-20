@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-09-13
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
@@ -18,14 +18,7 @@ struct WindowElements;
 
 class BackgroundRenderComponent : public RenderComponent
 {
-    private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
-
     public:
-        SDL_Rect renderRect;
-        SDL_Texture* sprite;
-
         //Constructor
         BackgroundRenderComponent(GameEntity* gameEntity, WindowElements* windowElements);
 

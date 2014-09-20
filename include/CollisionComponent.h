@@ -11,11 +11,16 @@
     #define SPACESHOOTER_COLLISIONCOMPONENT_
 
 class CollisionBody;
+class GameEntity;
+
+struct WindowElements;
 
 class CollisionComponent
 {
     public:
         //Fields
+        GameEntity* gameEntity;
+        WindowElements* windowElements;
         CollisionBody* body;
 
         //Destructor

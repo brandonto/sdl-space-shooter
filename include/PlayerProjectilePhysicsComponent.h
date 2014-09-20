@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-15
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
     #define SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
@@ -16,14 +16,12 @@
 
 class GameEntity;
 class PlayerProjectileRenderComponent;
-class WindowElements;
+
+struct WindowElements;
 
 class PlayerProjectilePhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
-
         PlayerProjectileRenderComponent* render;
         Timer timeBasedMovementTimer;
 

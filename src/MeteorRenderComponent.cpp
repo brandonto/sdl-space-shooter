@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-14
+ * @modified    2014-09-19
  *********************************************************************/
 #include "MeteorRenderComponent.h"
 
@@ -15,11 +15,10 @@
 
 MeteorRenderComponent::MeteorRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
-:   sprite(NULL),
-    gameEntity(gameEntity),
-    windowElements(windowElements),
-    angle(0)
+:   angle(0)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/meteorBrown_big1.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     gameEntity->position.x = -1000;

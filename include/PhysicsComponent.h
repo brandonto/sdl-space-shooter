@@ -5,14 +5,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-15
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_PHYSICSCOMPONENT_
     #define SPACESHOOTER_PHYSICSCOMPONENT_
 
+class GameEntity;
+
+struct WindowElements;
+
 class PhysicsComponent
 {
     public:
+        GameEntity* gameEntity;
+        WindowElements* windowElements;
+
         //Destructor
         virtual ~PhysicsComponent(){};
 

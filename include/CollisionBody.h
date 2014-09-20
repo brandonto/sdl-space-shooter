@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-18
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONBODY_
     #define SPACESHOOTER_COLLISIONBODY_
@@ -25,6 +25,7 @@ class CollisionBody
 
         //Methods
         virtual int getType() = 0;
+        //virtual CollisionBodyRectangle* getBoundingRectangle();
 
     protected:
         GameEntity* gameEntity;

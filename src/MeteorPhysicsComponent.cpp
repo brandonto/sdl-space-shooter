@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-15
+ * @modified    2014-09-19
  *********************************************************************/
 #include "MeteorPhysicsComponent.h"
 
@@ -15,11 +15,12 @@
 
 MeteorPhysicsComponent::MeteorPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements)
-:   gameEntity(gameEntity), windowElements(windowElements),
-    gameEntityManager(gameEntityManager), render(NULL),
+:   gameEntityManager(gameEntityManager), render(NULL),
     velocity(-15, 5), velocityPerSecond(0),
     angleIncrementCounter(0), angleIncrementModulus(1)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     render = dynamic_cast<MeteorRenderComponent*>(gameEntity->getRenderComponent());
 }
 

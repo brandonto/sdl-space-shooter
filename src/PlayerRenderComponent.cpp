@@ -15,10 +15,9 @@
 
 PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
-:   sprite(NULL),
-    gameEntity(gameEntity),
-    windowElements(windowElements)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/playerShip1_blue.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     gameEntity->position.x = windowElements->WINDOW_WIDTH/2;

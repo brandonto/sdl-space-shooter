@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-13
- * @modified    2014-09-13
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_BACKGROUNDPHYSICSCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDPHYSICSCOMPONENT_
@@ -20,9 +20,6 @@ struct WindowElements;
 class BackgroundPhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
-
         BackgroundRenderComponent* render;
         int offsetIncrementCounter;
         int offsetIncrementModulus;

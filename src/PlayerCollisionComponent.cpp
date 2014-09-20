@@ -8,6 +8,7 @@
  *********************************************************************/
 #include "PlayerCollisionComponent.h"
 
+#include "CollisionBodyRectangle.h"
 #include "CollisionManager.h"
 #include "GameEntity.h"
 #include "GameEntityManager.h"
@@ -20,12 +21,14 @@
 PlayerCollisionComponent::PlayerCollisionComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             CollisionManager* collisionManager)
-:   gameEntity(gameEntity), windowElements(windowElements),
-    collisionManager(collisionManager), physics(NULL), render(NULL)
+:   collisionManager(collisionManager), physics(NULL), render(NULL)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     physics = dynamic_cast<PlayerPhysicsComponent*>(gameEntity->getPhysicsComponent());
     render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
     collisionManager->addCollisionObject(gameEntity, ENTITY_FRIENDLY);
+    this->body = new CollisionBodyRectangle(gameEntity);
 }
 
 PlayerCollisionComponent::~PlayerCollisionComponent()

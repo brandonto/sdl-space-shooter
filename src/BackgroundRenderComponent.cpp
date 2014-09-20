@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-09-14
+ * @modified    2014-09-19
  *********************************************************************/
 #include "BackgroundRenderComponent.h"
 
@@ -16,8 +16,9 @@
 
 BackgroundRenderComponent::BackgroundRenderComponent(GameEntity* gameEntity,
                                                     WindowElements* windowElements)
-:   sprite(NULL), windowElements(windowElements), gameEntity(gameEntity)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/darkPurple.png");
     SDL_QueryTexture(sprite, NULL, NULL, &(renderRect.w), &(renderRect.h));
     renderRect.x = 0;

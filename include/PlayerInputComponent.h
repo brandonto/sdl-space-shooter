@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-09
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERINPUTCOMPONENT_
     #define SPACESHOOTER_PLAYERINPUTCOMPONENT_
@@ -20,9 +20,6 @@ class WindowElements;
 class PlayerInputComponent : public InputComponent
 {
     private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
-
         PlayerPhysicsComponent* physics;
         const Uint8* keyStates;
 

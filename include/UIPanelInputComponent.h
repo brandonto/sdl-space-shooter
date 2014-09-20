@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-03
- * @modified    2014-09-06
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_UIPANELINPUTCOMPONENT_
     #define SPACESHOOTER_UIPANELINPUTCOMPONENT_
@@ -19,7 +19,6 @@ class UIPanelRenderComponent;
 class UIPanelInputComponent : public InputComponent
 {
     private:
-        GameEntity* gameEntity;
         UIClickFunction* clickFunction;
         UIPanelRenderComponent* render;
         SDL_Rect* uiRect;

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
     #define SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
@@ -17,13 +17,12 @@
 class GameEntity;
 class GameEntityManager;
 class EnemyRenderComponent;
-class WindowElements;
+
+struct WindowElements;
 
 class EnemyPhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
         GameEntityManager* gameEntityManager;
 
         EnemyRenderComponent* render;

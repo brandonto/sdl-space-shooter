@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-13
- * @modified    2014-09-13
+ * @modified    2014-09-19
  *********************************************************************/
 #include "BackgroundPhysicsComponent.h"
 
@@ -17,9 +17,10 @@
 
 BackgroundPhysicsComponent::BackgroundPhysicsComponent(GameEntity* gameEntity,
                                                     WindowElements* windowElements)
-:   windowElements(windowElements), gameEntity(gameEntity), render(NULL),
-    offsetIncrementCounter(0), offsetIncrementModulus(3)
+:   render(NULL), offsetIncrementCounter(0), offsetIncrementModulus(3)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     render = dynamic_cast<BackgroundRenderComponent*>(gameEntity->getRenderComponent());
 }
 

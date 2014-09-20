@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-14
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_METEORRENDERCOMPONENT_
     #define SPACESHOOTER_METEORRENDERCOMPONENT_
@@ -18,15 +18,7 @@ struct WindowElements;
 
 class MeteorRenderComponent : public RenderComponent
 {
-    private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
-
     public:
-        SDL_Rect renderRect;
-        SDL_Texture* sprite;
-        int spriteWidth;
-        int spriteHeight;
         double angle;
 
         //Constructor

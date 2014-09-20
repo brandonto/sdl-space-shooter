@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-03
- * @modified    2014-09-06
+ * @modified    2014-09-19
  *********************************************************************/
 #include "UIPanelInputComponent.h"
 
@@ -13,13 +13,13 @@
 #include "UIPanelRenderComponent.h"
 
 UIPanelInputComponent::UIPanelInputComponent(GameEntity* gameEntity)
-:   gameEntity(gameEntity),
-    clickFunction(NULL),
+:   clickFunction(NULL),
     render(NULL),
     buttonPressedDown(false)
 {
+    this->gameEntity = gameEntity;
     render = dynamic_cast<UIPanelRenderComponent*>(gameEntity->getRenderComponent());
-    uiRect = render->getRenderRect();
+    uiRect = &(render->renderRect);
 }
 
 UIPanelInputComponent::~UIPanelInputComponent()

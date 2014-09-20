@@ -5,16 +5,23 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-03
- * @modified    2014-09-06
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_INPUTCOMPONENT_
     #define SPACESHOOTER_INPUTCOMPONENT_
+
+class GameEntity;
+
+struct WindowElements;
 
 union SDL_Event;
 
 class InputComponent
 {
     public:
+        GameEntity* gameEntity;
+        WindowElements* windowElements;
+
         //Destructor
         virtual ~InputComponent(){};
 

@@ -30,4 +30,5 @@ int CollisionBodyRectangle::getType()
 
 void CollisionBodyRectangle::checkCollision(GameEntity* gameEntity, int flags)
 {
+
 }

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #include "EnemyProjectileRenderComponent.h"
 
@@ -17,10 +17,9 @@
 EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements,
                                                GameEntity* enemyEntity)
-:   sprite(NULL),
-    gameEntity(gameEntity),
-    windowElements(windowElements)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/laserRed03.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     renderRect.w = spriteWidth;

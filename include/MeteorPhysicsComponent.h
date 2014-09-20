@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-15
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_METEORPHYSICSCOMPONENT_
     #define SPACESHOOTER_METEORPHYSICSCOMPONENT_
@@ -17,13 +17,12 @@
 class GameEntity;
 class GameEntityManager;
 class MeteorRenderComponent;
-class WindowElements;
+
+struct WindowElements;
 
 class MeteorPhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
         GameEntityManager* gameEntityManager;
 
         MeteorRenderComponent* render;

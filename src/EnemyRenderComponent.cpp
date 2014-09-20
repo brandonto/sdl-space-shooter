@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #include "EnemyRenderComponent.h"
 
@@ -15,10 +15,9 @@
 
 EnemyRenderComponent::EnemyRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
-:   sprite(NULL),
-    gameEntity(gameEntity),
-    windowElements(windowElements)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/enemyBlack1.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     gameEntity->position.x = windowElements->WINDOW_WIDTH/2;

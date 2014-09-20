@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-09-14
+ * @modified    2014-09-19
  *********************************************************************/
 #include "UIPanelRenderComponent.h"
 
@@ -15,13 +15,12 @@
 
 UIPanelRenderComponent::UIPanelRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
-:   sprite(NULL),
-    gameEntity(gameEntity),
-    windowElements(windowElements),
-    alpha(0),
+:   alpha(0),
     cachedAlpha(0),
     selected(false)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     spriteSurface = SDL_util::create_surface_from_image("bin/graphics/ui/glassPanel.png");
     sprite = SDL_util::create_texture_from_surface(windowElements, spriteSurface);
 }
@@ -83,11 +82,6 @@ void UIPanelRenderComponent::setRenderRect(SDL_Rect* rect)
     //SDL_DestroyTexture(sprite);
     //SDL_DestroyTexture(newTexture);
     //sprite = newTexture;
-}
-
-SDL_Rect* UIPanelRenderComponent::getRenderRect()
-{
-    return &renderRect;
 }
 
 void UIPanelRenderComponent::addText(std::string text, int fontSize, SDL_Rect* destRect,

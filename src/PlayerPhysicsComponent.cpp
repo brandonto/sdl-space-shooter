@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-15
+ * @modified    2014-09-19
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
@@ -16,10 +16,11 @@
 PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             GameEntityManager* gameEntityManager)
-:   gameEntity(gameEntity), windowElements(windowElements),
-    gameEntityManager(gameEntityManager), render(NULL),
+:   gameEntityManager(gameEntityManager), render(NULL),
     velocity(0, 0), velocityPerSecond(500), shooting(false)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
 }
 

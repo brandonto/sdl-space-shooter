@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-12
+ * @modified    2014-09-19
  *********************************************************************/
 #include "PlayerProjectileRenderComponent.h"
 
@@ -17,10 +17,9 @@
 PlayerProjectileRenderComponent::PlayerProjectileRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements,
                                                GameEntity* playerEntity)
-:   sprite(NULL),
-    gameEntity(gameEntity),
-    windowElements(windowElements)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/laserBlue03.png");
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
     renderRect.w = spriteWidth;

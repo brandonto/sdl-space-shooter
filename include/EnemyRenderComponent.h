@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYRENDERCOMPONENT_
     #define SPACESHOOTER_ENEMYRENDERCOMPONENT_
@@ -18,16 +18,7 @@ struct WindowElements;
 
 class EnemyRenderComponent : public RenderComponent
 {
-    private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
-
     public:
-        SDL_Rect renderRect;
-        SDL_Texture* sprite;
-        int spriteWidth;
-        int spriteHeight;
-
         //Constructor
         EnemyRenderComponent(GameEntity* gameEntity,
                                WindowElements* windowElements);

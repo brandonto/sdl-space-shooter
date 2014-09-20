@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #include "PlayerProjectilePhysicsComponent.h"
 
@@ -14,9 +14,10 @@
 
 PlayerProjectilePhysicsComponent::PlayerProjectilePhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements)
-:   gameEntity(gameEntity), windowElements(windowElements), render(NULL),
-    velocity(0, -1500), velocityPerSecond(1500)
+:   render(NULL), velocity(0, -1500), velocityPerSecond(1500)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     render = dynamic_cast<PlayerProjectileRenderComponent*>(gameEntity->getRenderComponent());
 }
 

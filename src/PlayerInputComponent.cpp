@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-09
+ * @modified    2014-09-19
  *********************************************************************/
 #include "PlayerInputComponent.h"
 
@@ -15,8 +15,10 @@
 
 PlayerInputComponent::PlayerInputComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements)
-:   gameEntity(gameEntity), windowElements(windowElements), physics(NULL)
+:   physics(NULL)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     physics = dynamic_cast<PlayerPhysicsComponent*>(gameEntity->getPhysicsComponent());
     keyStates = SDL_GetKeyboardState(0);
 }

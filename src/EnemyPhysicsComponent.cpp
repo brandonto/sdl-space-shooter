@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-17
+ * @modified    2014-09-19
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
@@ -16,10 +16,11 @@
 EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             GameEntityManager* gameEntityManager)
-:   gameEntity(gameEntity), windowElements(windowElements),
-    gameEntityManager(gameEntityManager), render(NULL),
+:   gameEntityManager(gameEntityManager), render(NULL),
     velocity(0, 200), velocityPerSecond(500), shooting(true)
 {
+    this->gameEntity = gameEntity;
+    this->windowElements = windowElements;
     render = dynamic_cast<EnemyRenderComponent*>(gameEntity->getRenderComponent());
 }
 
