@@ -28,7 +28,7 @@ PlayerCollisionComponent::PlayerCollisionComponent(GameEntity* gameEntity,
     physics = dynamic_cast<PlayerPhysicsComponent*>(gameEntity->getPhysicsComponent());
     render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
     collisionManager->addCollisionObject(gameEntity, ENTITY_FRIENDLY);
-    this->body = new CollisionBodyRectangle(gameEntity);
+    //this->body = new CollisionBodyRectangle(gameEntity);
 }
 
 PlayerCollisionComponent::~PlayerCollisionComponent()

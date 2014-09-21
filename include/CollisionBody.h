@@ -4,16 +4,17 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-19
+ * @modified    2014-09-20
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONBODY_
     #define SPACESHOOTER_COLLISIONBODY_
 
+#include <vector>
 #include <SDL2/SDL.h>
-#include "GameEntity.h"
 #include "Vector2D.h"
 
-//NOT COMPLETE
+class GameEntity;
+class RenderComponent;
 
 class CollisionBody
 {
@@ -24,11 +25,14 @@ class CollisionBody
         ~CollisionBody(){};
 
         //Methods
+        virtual void updatePoints() = 0;
+        virtual std::vector<Vector2D>* getPoints() = 0;
         virtual int getType() = 0;
         //virtual CollisionBodyRectangle* getBoundingRectangle();
 
     protected:
         GameEntity* gameEntity;
+        RenderComponent* render;
 };
 
 enum CollisionBodyShape

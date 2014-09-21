@@ -97,6 +97,7 @@ obj/CollisionManager.o: src/CollisionManager.cpp \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/Vector2D.h \
+ include/CollisionBody.h include/CollisionComponent.h \
  include/GameEntity.h include/WindowElements.h
 src/CollisionManager.cpp :
  /usr/include/stdc-predef.h include/CollisionManager.h :
@@ -197,4 +198,5 @@ src/CollisionManager.cpp :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/Vector2D.h :
+ include/CollisionBody.h include/CollisionComponent.h :
  include/GameEntity.h include/WindowElements.h :

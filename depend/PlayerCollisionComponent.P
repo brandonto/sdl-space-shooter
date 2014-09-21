@@ -71,8 +71,7 @@ obj/PlayerCollisionComponent.o: src/PlayerCollisionComponent.cpp \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h \
  include/CollisionBodyRectangle.h include/CollisionBody.h \
- include/GameEntity.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
@@ -179,8 +178,7 @@ src/PlayerCollisionComponent.cpp :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h :
  include/CollisionBodyRectangle.h include/CollisionBody.h :
- include/GameEntity.h /usr/include/c++/4.8/vector :
- /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :

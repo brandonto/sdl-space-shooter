@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-19
+ * @modified    2014-09-20
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONMANAGER_
     #define SPACESHOOTER_COLLISIONMANAGER_
@@ -18,7 +18,8 @@
 
 class GameEntity;
 class GameEntityManager;
-class WindowElements;
+
+struct WindowElements;
 
 class CollisionManager
 {
@@ -27,6 +28,10 @@ class CollisionManager
         std::vector<GameEntity*> friendlyArray;
         std::vector<GameEntity*> neutralArray;
         std::vector<GameEntity*> enemyArray;
+
+        bool checkCollisionAgainstFriendly(GameEntity* gameEntity);
+        bool checkCollisionAgainstNeutral(GameEntity* gameEntity);
+        bool checkCollisionAgainstEnemy(GameEntity* gameEntity);
 
     public:
         //Constructor

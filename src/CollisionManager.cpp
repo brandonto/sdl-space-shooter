@@ -4,10 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-19
+ * @modified    2014-09-20
  *********************************************************************/
 #include "CollisionManager.h"
 
+#include "CollisionBody.h"
+#include "CollisionComponent.h"
 #include "GameEntity.h"
 #include "WindowElements.h"
 
@@ -42,9 +44,36 @@ void CollisionManager::addCollisionObject(GameEntity* gameEntity, int flag)
 bool CollisionManager::checkCollision(GameEntity* gameEntity, int flags)
 {
     bool collision = false;
+    //CollisionBody* body = gameEntity->getCollisionComponent()->body;
+    //int bodyType = body->getType();
+
     if (ENTITY_FRIENDLY & flags)
     {
-        gameEntity->getCollisionComponent();
+        if (!collision && checkCollisionAgainstFriendly(gameEntity)) { collision = true; };
     }
+    if (ENTITY_NEUTRAL & flags)
+    {
+        if (!collision && checkCollisionAgainstNeutral(gameEntity)) { collision = true; };
+    }
+    if (ENTITY_ENEMY & flags)
+    {
+        if (!collision && checkCollisionAgainstEnemy(gameEntity)) { collision = true; };
+    }
+
     return collision;
+}
+
+bool CollisionManager::checkCollisionAgainstFriendly(GameEntity* gameEntity)
+{
+
+}
+
+bool CollisionManager::checkCollisionAgainstNeutral(GameEntity* gameEntity)
+{
+
+}
+
+bool CollisionManager::checkCollisionAgainstEnemy(GameEntity* gameEntity)
+{
+
 }

@@ -16,19 +16,17 @@
 
 //NOT COMPLETE
 
-class CollisionBody;
 class CollisionManager;
 class GameEntity;
 class GameEntityManager;
 class PlayerPhysicsComponent;
 class PlayerRenderComponent;
-class WindowElements;
+
+struct WindowElements;
 
 class PlayerCollisionComponent : public CollisionComponent
 {
     private:
-        GameEntity* gameEntity;
-        WindowElements* windowElements;
         CollisionManager* collisionManager;
 
         PlayerPhysicsComponent* physics;
