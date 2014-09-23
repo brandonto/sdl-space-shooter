@@ -32,6 +32,8 @@ class CollisionManager
         bool checkCollisionAgainstFriendly(GameEntity* gameEntity);
         bool checkCollisionAgainstNeutral(GameEntity* gameEntity);
         bool checkCollisionAgainstEnemy(GameEntity* gameEntity);
+        bool checkCollisionBoundingRect(GameEntity* checkSource,
+                                        GameEntity* checkDest);
 
     public:
         //Constructor

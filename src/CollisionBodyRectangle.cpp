@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-19
- * @modified    2014-09-20
+ * @modified    2014-09-22
  *********************************************************************/
 #include "CollisionBodyRectangle.h"
 
@@ -19,16 +19,20 @@ CollisionBodyRectangle::CollisionBodyRectangle(GameEntity* gameEntity)
 {
     this->gameEntity = gameEntity;
     RenderComponent* render = gameEntity->getRenderComponent();
+
     topLeftVector.set(-render->spriteWidth/2, render->spriteHeight/2);
     topRightVector.set(render->spriteWidth/2, render->spriteHeight/2);
     bottomLeftVector.set(-render->spriteWidth/2, -render->spriteHeight/2);
     bottomRightVector.set(render->spriteWidth/2, -render->spriteHeight/2);
-    //Vector2D pointsArray[4];
-    //pointsArray[0] = gameEntity->position + topLeftVector;
-    //pointsArray[1] = gameEntity->position + topRightVector;
-    //pointsArray[2] = gameEntity->position - topLeftVector;
-    //pointsArray[3] = gameEntity->position - topRightVector;
-    //points(pointsArray, pointsArray + sizeof(pointsArray)/sizeof(Vector2D));
+    points.push_back(gameEntity->position + topLeftVector);
+    points.push_back(gameEntity->position + topRightVector);
+    points.push_back(gameEntity->position - topLeftVector);
+    points.push_back(gameEntity->position - topRightVector);
+
+    boundingRect.x = points[0].x;
+    boundingRect.y = points[0].y;
+    boundingRect.w = render->spriteWidth;
+    boundingRect.h = render->spriteHeight;
 }
 
 CollisionBodyRectangle::~CollisionBodyRectangle()
@@ -36,12 +40,15 @@ CollisionBodyRectangle::~CollisionBodyRectangle()
 
 }
 
-void CollisionBodyRectangle::updatePoints()
+void CollisionBodyRectangle::update()
 {
-    //points[0] = gameEntity->position + topLeftVector;
-    //points[1] = gameEntity->position + topRightVector;
-    //points[2] = gameEntity->position - topLeftVector;
-    //points[3] = gameEntity->position - topRightVector;
+    points[0] = gameEntity->position + topLeftVector;
+    points[1] = gameEntity->position + topRightVector;
+    points[2] = gameEntity->position - topLeftVector;
+    points[3] = gameEntity->position - topRightVector;
+
+    boundingRect.x  = points[0].x;
+    boundingRect.y  = points[0].y;
 }
 
 std::vector<Vector2D>* CollisionBodyRectangle::getPoints()
@@ -54,7 +61,3 @@ int CollisionBodyRectangle::getType()
     return typeEnum;
 }
 
-void CollisionBodyRectangle::checkCollision(GameEntity* gameEntity, int flags)
-{
-
-}

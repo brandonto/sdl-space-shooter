@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-19
+ * @modified    2014-09-22
  *********************************************************************/
 #include "PlayerCollisionComponent.h"
 
@@ -28,7 +28,7 @@ PlayerCollisionComponent::PlayerCollisionComponent(GameEntity* gameEntity,
     physics = dynamic_cast<PlayerPhysicsComponent*>(gameEntity->getPhysicsComponent());
     render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
     collisionManager->addCollisionObject(gameEntity, ENTITY_FRIENDLY);
-    //this->body = new CollisionBodyRectangle(gameEntity);
+    this->body = new CollisionBodyRectangle(gameEntity);
 }
 
 PlayerCollisionComponent::~PlayerCollisionComponent()

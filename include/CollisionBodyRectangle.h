@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-20
+ * @modified    2014-09-22
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONBODYRECTANGLE_
     #define SPACESHOOTER_COLLISIONBODYRECTANGLE_
@@ -30,10 +30,9 @@ class CollisionBodyRectangle : public CollisionBody
         ~CollisionBodyRectangle();
 
         //Methods
-        void updatePoints();
+        void update();
         std::vector<Vector2D>* getPoints();
         int getType();
-        void checkCollision(GameEntity* gameEntity, int flags);
 };
 
 #endif

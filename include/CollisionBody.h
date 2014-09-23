@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-20
+ * @modified    2014-09-22
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONBODY_
     #define SPACESHOOTER_COLLISIONBODY_
@@ -21,11 +21,13 @@ class CollisionBody
     private:
 
     public:
+        SDL_Rect boundingRect;
+
         //Destructor
         ~CollisionBody(){};
 
         //Methods
-        virtual void updatePoints() = 0;
+        virtual void update() = 0;
         virtual std::vector<Vector2D>* getPoints() = 0;
         virtual int getType() = 0;
         //virtual CollisionBodyRectangle* getBoundingRectangle();
