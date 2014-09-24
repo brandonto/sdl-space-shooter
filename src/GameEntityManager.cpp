@@ -16,6 +16,7 @@
 #include "EnemyCollisionComponent.h"
 #include "EnemyPhysicsComponent.h"
 #include "EnemyRenderComponent.h"
+#include "EnemyProjectileCollisionComponent.h"
 #include "EnemyProjectilePhysicsComponent.h"
 #include "EnemyProjectileRenderComponent.h"
 #include "GameEntity.h"
@@ -25,6 +26,7 @@
 #include "PlayerInputComponent.h"
 #include "PlayerPhysicsComponent.h"
 #include "PlayerRenderComponent.h"
+#include "PlayerProjectileCollisionComponent.h"
 #include "PlayerProjectilePhysicsComponent.h"
 #include "PlayerProjectileRenderComponent.h"
 #include "UIClickFunctionQuit.h"
@@ -232,6 +234,7 @@ GameEntity* GameEntityManager::createEnemyProjectile(GameEntity* enemyEntity)
     GameEntity* projectile = new GameEntity();
     projectile->addRenderComponent(new EnemyProjectileRenderComponent(projectile, windowElements, enemyEntity));
     projectile->addPhysicsComponent(new EnemyProjectilePhysicsComponent(projectile, windowElements));
+    projectile->addCollisionComponent(new EnemyProjectileCollisionComponent(projectile, windowElements, &collisionManager));
     physicalLayer.add(projectile);
 
     return projectile;
@@ -287,6 +290,7 @@ GameEntity* GameEntityManager::createPlayerProjectile(GameEntity* playerEntity)
     GameEntity* projectile = new GameEntity();
     projectile->addRenderComponent(new PlayerProjectileRenderComponent(projectile, windowElements, playerEntity));
     projectile->addPhysicsComponent(new PlayerProjectilePhysicsComponent(projectile, windowElements));
+    projectile->addCollisionComponent(new PlayerProjectileCollisionComponent(projectile, windowElements, &collisionManager));
     physicalLayer.add(projectile);
 
     return projectile;

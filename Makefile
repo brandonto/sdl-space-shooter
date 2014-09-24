@@ -16,6 +16,7 @@ _OBJS =	main.o \
 		EnemyCollisionComponent.o \
 		EnemyRenderComponent.o \
 		EnemyPhysicsComponent.o \
+		EnemyProjectileCollisionComponent.o \
 		EnemyProjectilePhysicsComponent.o \
 		EnemyProjectileRenderComponent.o \
 		FrameRateManager.o \
@@ -32,6 +33,7 @@ _OBJS =	main.o \
 		PlayerInputComponent.o \
 		PlayerPhysicsComponent.o \
 		PlayerRenderComponent.o \
+		PlayerProjectileCollisionComponent.o \
 		PlayerProjectilePhysicsComponent.o \
 		PlayerProjectileRenderComponent.o \
 		SDL_util.o \

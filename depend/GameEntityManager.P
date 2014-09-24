@@ -125,12 +125,15 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  include/BackgroundRenderComponent.h include/RenderComponent.h \
  include/EnemyCollisionComponent.h include/CollisionComponent.h \
  include/Timer.h include/EnemyPhysicsComponent.h \
- include/EnemyRenderComponent.h include/EnemyProjectilePhysicsComponent.h \
+ include/EnemyRenderComponent.h \
+ include/EnemyProjectileCollisionComponent.h \
+ include/EnemyProjectilePhysicsComponent.h \
  include/EnemyProjectileRenderComponent.h include/GameEntity.h \
  include/MeteorPhysicsComponent.h include/MeteorRenderComponent.h \
  include/PlayerCollisionComponent.h include/PlayerInputComponent.h \
  include/InputComponent.h include/PlayerPhysicsComponent.h \
  include/PlayerRenderComponent.h \
+ include/PlayerProjectileCollisionComponent.h \
  include/PlayerProjectilePhysicsComponent.h \
  include/PlayerProjectileRenderComponent.h include/UIClickFunctionQuit.h \
  include/UIClickFunction.h include/UIClickFunctionPlay.h \
@@ -263,12 +266,15 @@ src/GameEntityManager.cpp :
  include/BackgroundRenderComponent.h include/RenderComponent.h :
  include/EnemyCollisionComponent.h include/CollisionComponent.h :
  include/Timer.h include/EnemyPhysicsComponent.h :
- include/EnemyRenderComponent.h include/EnemyProjectilePhysicsComponent.h :
+ include/EnemyRenderComponent.h :
+ include/EnemyProjectileCollisionComponent.h :
+ include/EnemyProjectilePhysicsComponent.h :
  include/EnemyProjectileRenderComponent.h include/GameEntity.h :
  include/MeteorPhysicsComponent.h include/MeteorRenderComponent.h :
  include/PlayerCollisionComponent.h include/PlayerInputComponent.h :
  include/InputComponent.h include/PlayerPhysicsComponent.h :
  include/PlayerRenderComponent.h :
+ include/PlayerProjectileCollisionComponent.h :
  include/PlayerProjectilePhysicsComponent.h :
  include/PlayerProjectileRenderComponent.h include/UIClickFunctionQuit.h :
  include/UIClickFunction.h include/UIClickFunctionPlay.h :

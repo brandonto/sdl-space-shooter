@@ -89,7 +89,7 @@ bool CollisionManager::checkCollisionAgainstFriendly(GameEntity* gameEntity)
         {
             gameEntity->remove = true;
             (*it)->remove = true;
-            it = friendlyArray.erase(it);
+            //it = friendlyArray.erase(it);
             return true;
             //std::vector<Vector2D> checkSource = gameEntity->getCollisionComponent()->body->getPoints();
             //std::vector<Vector2D> checkDest = friendlyArray[i]->getCollisionComponent()->body->getPoints();
@@ -106,7 +106,7 @@ bool CollisionManager::checkCollisionAgainstNeutral(GameEntity* gameEntity)
         {
             gameEntity->remove = true;
             (*it)->remove = true;
-            it = neutralArray.erase(it);
+            //it = neutralArray.erase(it);
             return true;
             //std::vector<Vector2D> checkSource = gameEntity->getCollisionComponent()->body->getPoints();
             //std::vector<Vector2D> checkDest = neutralArray[i]->getCollisionComponent()->body->getPoints();
@@ -123,7 +123,7 @@ bool CollisionManager::checkCollisionAgainstEnemy(GameEntity* gameEntity)
         {
             gameEntity->remove = true;
             (*it)->remove = true;
-            it = enemyArray.erase(it);
+            //it = enemyArray.erase(it);
             return true;
             //std::vector<Vector2D> checkSource = gameEntity->getCollisionComponent()->body->getPoints();
             //std::vector<Vector2D> checkDest = enemyArray[i]->getCollisionComponent()->body->getPoints();

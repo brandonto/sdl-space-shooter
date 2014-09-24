@@ -1,43 +1,43 @@
 /*******************************************************************//*
- * Implementation of the PlayerCollisionComponent class.
+ * Implementation of the PlayerProjectileCollisionComponent class.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-18
+ * @since       2014-09-22
  * @modified    2014-09-22
  *********************************************************************/
-#include "PlayerCollisionComponent.h"
+#include "PlayerProjectileCollisionComponent.h"
 
 #include "CollisionBodyRectangle.h"
 #include "CollisionManager.h"
 #include "GameEntity.h"
 #include "GameEntityManager.h"
-#include "PlayerRenderComponent.h"
-#include "PlayerPhysicsComponent.h"
+#include "PlayerProjectileRenderComponent.h"
+#include "PlayerProjectilePhysicsComponent.h"
 #include "WindowElements.h"
 
 //NOT COMPLETE
 
-PlayerCollisionComponent::PlayerCollisionComponent(GameEntity* gameEntity,
+PlayerProjectileCollisionComponent::PlayerProjectileCollisionComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             CollisionManager* collisionManager)
 :   collisionManager(collisionManager), physics(NULL), render(NULL)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    physics = dynamic_cast<PlayerPhysicsComponent*>(gameEntity->getPhysicsComponent());
-    render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
+    physics = dynamic_cast<PlayerProjectilePhysicsComponent*>(gameEntity->getPhysicsComponent());
+    render = dynamic_cast<PlayerProjectileRenderComponent*>(gameEntity->getRenderComponent());
     collisionManager->addCollisionObject(gameEntity, ENTITY_FRIENDLY);
     this->body = new CollisionBodyRectangle(gameEntity);
 }
 
-PlayerCollisionComponent::~PlayerCollisionComponent()
+PlayerProjectileCollisionComponent::~PlayerProjectileCollisionComponent()
 {
     delete body;
     collisionManager->deleteCollisionObject(gameEntity, ENTITY_FRIENDLY);
 }
 
-void PlayerCollisionComponent::update()
+void PlayerProjectileCollisionComponent::update()
 {
     collisionManager->checkCollision(gameEntity, ENTITY_NEUTRAL | ENTITY_ENEMY);
 }
