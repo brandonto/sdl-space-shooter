@@ -8,9 +8,11 @@
  *********************************************************************/
 #include "CollisionManager.h"
 
+#include <algorithm>
 #include "CollisionBody.h"
 #include "CollisionComponent.h"
 #include "GameEntity.h"
+#include "RenderComponent.h"
 #include "WindowElements.h"
 
 //NOT COMPLETE
@@ -41,35 +43,53 @@ void CollisionManager::addCollisionObject(GameEntity* gameEntity, int flag)
     }
 }
 
+void CollisionManager::deleteCollisionObject(GameEntity* gameEntity, int flag)
+{
+    if (ENTITY_FRIENDLY & flag)
+    {
+        friendlyArray.erase(std::find(friendlyArray.begin(), friendlyArray.end(), gameEntity));
+    }
+    else if (ENTITY_NEUTRAL & flag)
+    {
+        neutralArray.erase(std::find(neutralArray.begin(), neutralArray.end(), gameEntity));
+    }
+    else if (ENTITY_ENEMY & flag)
+    {
+        enemyArray.erase(std::find(enemyArray.begin(), enemyArray.end(), gameEntity));
+    }
+}
+
 bool CollisionManager::checkCollision(GameEntity* gameEntity, int flags)
 {
-    bool collision = false;
-    CollisionBody* body = gameEntity->getCollisionComponent()->body;
-    int bodyType = body->getType();
+    //CollisionBody* body = gameEntity->getCollisionComponent()->body;
+    //int bodyType = body->getType();
 
+    ///hard busted logic...
     if (ENTITY_FRIENDLY & flags)
     {
-        if (!collision && checkCollisionAgainstFriendly(gameEntity)) { collision = true; };
+        if (checkCollisionAgainstFriendly(gameEntity)) { return true; };
     }
     if (ENTITY_NEUTRAL & flags)
     {
-        if (!collision && checkCollisionAgainstNeutral(gameEntity)) { collision = true; };
+        if (checkCollisionAgainstNeutral(gameEntity)) { return true; };
     }
     if (ENTITY_ENEMY & flags)
     {
-        if (!collision && checkCollisionAgainstEnemy(gameEntity)) { collision = true; };
+        if (checkCollisionAgainstEnemy(gameEntity)) { return true; };
     }
 
-    return collision;
+    return false;
 }
 
 bool CollisionManager::checkCollisionAgainstFriendly(GameEntity* gameEntity)
 {
-    for (int i=0; i<friendlyArray.size(); i++)
+    for (std::vector<GameEntity*>::iterator it=friendlyArray.begin(); it!=friendlyArray.end(); it++)
     {
-        if (checkCollisionBoundingRect(gameEntity, friendlyArray[i]))
+        if (checkCollisionBoundingRect(gameEntity, *it))
         {
             gameEntity->remove = true;
+            (*it)->remove = true;
+            it = friendlyArray.erase(it);
             return true;
             //std::vector<Vector2D> checkSource = gameEntity->getCollisionComponent()->body->getPoints();
             //std::vector<Vector2D> checkDest = friendlyArray[i]->getCollisionComponent()->body->getPoints();
@@ -80,11 +100,13 @@ bool CollisionManager::checkCollisionAgainstFriendly(GameEntity* gameEntity)
 
 bool CollisionManager::checkCollisionAgainstNeutral(GameEntity* gameEntity)
 {
-    for (int i=0; i<neutralArray.size(); i++)
+    for (std::vector<GameEntity*>::iterator it=neutralArray.begin(); it!=neutralArray.end(); it++)
     {
-        if (checkCollisionBoundingRect(gameEntity, neutralArray[i]))
+        if (checkCollisionBoundingRect(gameEntity, *it))
         {
             gameEntity->remove = true;
+            (*it)->remove = true;
+            it = neutralArray.erase(it);
             return true;
             //std::vector<Vector2D> checkSource = gameEntity->getCollisionComponent()->body->getPoints();
             //std::vector<Vector2D> checkDest = neutralArray[i]->getCollisionComponent()->body->getPoints();
@@ -95,11 +117,13 @@ bool CollisionManager::checkCollisionAgainstNeutral(GameEntity* gameEntity)
 
 bool CollisionManager::checkCollisionAgainstEnemy(GameEntity* gameEntity)
 {
-    for (int i=0; i<enemyArray.size(); i++)
+    for (std::vector<GameEntity*>::iterator it=enemyArray.begin(); it!=enemyArray.end(); it++)
     {
-        if (checkCollisionBoundingRect(gameEntity, enemyArray[i]))
+        if (checkCollisionBoundingRect(gameEntity, *it))
         {
             gameEntity->remove = true;
+            (*it)->remove = true;
+            it = enemyArray.erase(it);
             return true;
             //std::vector<Vector2D> checkSource = gameEntity->getCollisionComponent()->body->getPoints();
             //std::vector<Vector2D> checkDest = enemyArray[i]->getCollisionComponent()->body->getPoints();
@@ -111,8 +135,16 @@ bool CollisionManager::checkCollisionAgainstEnemy(GameEntity* gameEntity)
 bool CollisionManager::checkCollisionBoundingRect(GameEntity* checkSource,
                                                   GameEntity* checkDest)
 {
-    SDL_Rect sourceRect = checkSource->getCollisionComponent()->body->boundingRect;
-    SDL_Rect destRect = checkDest->getCollisionComponent()->body->boundingRect;
-    //return ( (  sourceRect.x - destRect.x 
-
+    //SDL_Rect sourceRect = checkSource->getCollisionComponent()->body->boundingRect;
+    //SDL_Rect destRect = checkDest->getCollisionComponent()->body->boundingRect;
+    SDL_Rect sourceRect = checkSource->getRenderComponent()->renderRect;
+    SDL_Rect destRect = checkDest->getRenderComponent()->renderRect;
+    bool xAxisOverlap = ((sourceRect.x + sourceRect.w) > (destRect.x)) &&
+                        ((destRect.x + destRect.w) > (sourceRect.x));
+    //printf();
+    if (!xAxisOverlap) { return false; }
+    bool yAxisOverlap = ((sourceRect.y + sourceRect.h) > (destRect.y)) &&
+                        ((destRect.y + destRect.h) > (sourceRect.y));
+    if (!yAxisOverlap) { return false; }
+    return true;
 }

@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-20
+ * @modified    2014-09-22
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONMANAGER_
     #define SPACESHOOTER_COLLISIONMANAGER_
@@ -45,6 +45,7 @@ class CollisionManager
         //Methods
         //The flag represents the group of entity that the game onject belongs to
         void addCollisionObject(GameEntity* gameEntity, int flag);
+        void deleteCollisionObject(GameEntity* gameEntity, int flag);
 
         //The flags represent the group of entities to check for collisions against
         bool checkCollision(GameEntity* gameEntity, int flags);

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-19
+ * @modified    2014-09-22
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -13,6 +13,7 @@
 #include "ApplicationState.h"
 #include "BackgroundPhysicsComponent.h"
 #include "BackgroundRenderComponent.h"
+#include "EnemyCollisionComponent.h"
 #include "EnemyPhysicsComponent.h"
 #include "EnemyRenderComponent.h"
 #include "EnemyProjectilePhysicsComponent.h"
@@ -220,6 +221,7 @@ GameEntity* GameEntityManager::createEnemy()
     GameEntity* enemy = new GameEntity();
     enemy->addRenderComponent(new EnemyRenderComponent(enemy, windowElements));
     enemy->addPhysicsComponent(new EnemyPhysicsComponent(enemy, windowElements, this));
+    enemy->addCollisionComponent(new EnemyCollisionComponent(enemy, windowElements, &collisionManager));
     physicalLayer.add(enemy);
 
     return enemy;

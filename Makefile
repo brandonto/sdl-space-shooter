@@ -13,6 +13,7 @@ _OBJS =	main.o \
 		BlackScreen.o \
 		CollisionBodyRectangle.o \
 		CollisionManager.o \
+		EnemyCollisionComponent.o \
 		EnemyRenderComponent.o \
 		EnemyPhysicsComponent.o \
 		EnemyProjectilePhysicsComponent.o \
