@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-22
+ * @modified    2014-09-25
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -16,6 +16,8 @@
 #include "EnemyCollisionComponent.h"
 #include "EnemyPhysicsComponent.h"
 #include "EnemyRenderComponent.h"
+#include "ExplosionPhysicsComponent.h"
+#include "ExplosionRenderComponent.h"
 #include "EnemyProjectileCollisionComponent.h"
 #include "EnemyProjectilePhysicsComponent.h"
 #include "EnemyProjectileRenderComponent.h"
@@ -58,7 +60,7 @@ void GameEntityManager::onRender()
 {
     backgroundLayer.onRender();
     physicalLayer.onRender();
-    effectLayer.onUpdate();
+    effectLayer.onRender();
     uiLayer.onRender();
 }
 
@@ -271,6 +273,16 @@ std::vector<GameEntity*> GameEntityManager::createEnemyWaveStraight3()
     std::vector<GameEntity*> enemyWaveVector(enemyWave, enemyWave + sizeof(enemyWave)/sizeof(GameEntity*));
 
     return enemyWaveVector;
+}
+
+GameEntity* GameEntityManager::createExplosion(GameEntity* destroyedEntity)
+{
+    GameEntity* explosion = new GameEntity();
+    explosion->addRenderComponent(new ExplosionRenderComponent(explosion, windowElements, destroyedEntity));
+    explosion->addPhysicsComponent(new ExplosionPhysicsComponent(explosion, windowElements));
+    effectLayer.add(explosion);
+
+    return explosion;
 }
 
 GameEntity* GameEntityManager::createPlayer()

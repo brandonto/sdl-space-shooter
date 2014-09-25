@@ -4,12 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "PlayerProjectilePhysicsComponent.h"
 
 #include "GameEntity.h"
-#include "PlayerProjectileRenderComponent.h"
+#include "RenderComponent.h"
 #include "WindowElements.h"
 
 PlayerProjectilePhysicsComponent::PlayerProjectilePhysicsComponent(GameEntity* gameEntity,
@@ -18,7 +18,7 @@ PlayerProjectilePhysicsComponent::PlayerProjectilePhysicsComponent(GameEntity* g
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    render = dynamic_cast<PlayerProjectileRenderComponent*>(gameEntity->getRenderComponent());
+    render = gameEntity->getRenderComponent();
 }
 
 PlayerProjectilePhysicsComponent::~PlayerProjectilePhysicsComponent()

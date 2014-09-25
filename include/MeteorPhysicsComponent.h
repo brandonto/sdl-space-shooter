@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_METEORPHYSICSCOMPONENT_
     #define SPACESHOOTER_METEORPHYSICSCOMPONENT_
@@ -16,7 +16,7 @@
 
 class GameEntity;
 class GameEntityManager;
-class MeteorRenderComponent;
+class RenderComponent;
 
 struct WindowElements;
 
@@ -25,7 +25,7 @@ class MeteorPhysicsComponent : public PhysicsComponent
     private:
         GameEntityManager* gameEntityManager;
 
-        MeteorRenderComponent* render;
+        RenderComponent* render;
         Timer timeBasedMovementTimer;
         Timer projectileCapTimer;
 

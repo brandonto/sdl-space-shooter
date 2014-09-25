@@ -4,12 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "EnemyProjectilePhysicsComponent.h"
 
 #include "GameEntity.h"
-#include "EnemyProjectileRenderComponent.h"
+#include "RenderComponent.h"
 #include "WindowElements.h"
 
 EnemyProjectilePhysicsComponent::EnemyProjectilePhysicsComponent(GameEntity* gameEntity,
@@ -18,7 +18,7 @@ EnemyProjectilePhysicsComponent::EnemyProjectilePhysicsComponent(GameEntity* gam
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    render = dynamic_cast<EnemyProjectileRenderComponent*>(gameEntity->getRenderComponent());
+    render = gameEntity->getRenderComponent();
 }
 
 EnemyProjectilePhysicsComponent::~EnemyProjectilePhysicsComponent()

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_METEORRENDERCOMPONENT_
     #define SPACESHOOTER_METEORRENDERCOMPONENT_
@@ -19,8 +19,6 @@ struct WindowElements;
 class MeteorRenderComponent : public RenderComponent
 {
     public:
-        double angle;
-
         //Constructor
         MeteorRenderComponent(GameEntity* gameEntity,
                                WindowElements* windowElements);

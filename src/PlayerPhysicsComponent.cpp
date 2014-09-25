@@ -4,13 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityManager.h"
-#include "PlayerRenderComponent.h"
+#include "RenderComponent.h"
 #include "WindowElements.h"
 
 PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
@@ -21,12 +21,12 @@ PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    render = dynamic_cast<PlayerRenderComponent*>(gameEntity->getRenderComponent());
+    render = gameEntity->getRenderComponent();
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent()
 {
-
+    gameEntityManager->createExplosion(gameEntity);
 }
 
 void PlayerPhysicsComponent::update()

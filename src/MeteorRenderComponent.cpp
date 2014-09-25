@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "MeteorRenderComponent.h"
 
@@ -15,7 +15,6 @@
 
 MeteorRenderComponent::MeteorRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
-:   angle(0)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -25,6 +24,7 @@ MeteorRenderComponent::MeteorRenderComponent(GameEntity* gameEntity,
     gameEntity->position.y = -1000;
     renderRect.w = spriteWidth;
     renderRect.h = spriteHeight;
+    angle = 0;
 }
 
 void MeteorRenderComponent::update()

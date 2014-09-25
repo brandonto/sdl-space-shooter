@@ -4,13 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "MeteorPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityManager.h"
-#include "MeteorRenderComponent.h"
+#include "RenderComponent.h"
 #include "WindowElements.h"
 
 MeteorPhysicsComponent::MeteorPhysicsComponent(GameEntity* gameEntity,
@@ -21,7 +21,7 @@ MeteorPhysicsComponent::MeteorPhysicsComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    render = dynamic_cast<MeteorRenderComponent*>(gameEntity->getRenderComponent());
+    render = gameEntity->getRenderComponent();
 }
 
 MeteorPhysicsComponent::~MeteorPhysicsComponent()

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPROJECTILEPHYSICSCOMPONENT_
     #define SPACESHOOTER_ENEMYPROJECTILEPHYSICSCOMPONENT_
@@ -15,14 +15,14 @@
 #include "Vector2D.h"
 
 class GameEntity;
-class EnemyProjectileRenderComponent;
+class RenderComponent;
 
 struct WindowElements;
 
 class EnemyProjectilePhysicsComponent : public PhysicsComponent
 {
     private:
-        EnemyProjectileRenderComponent* render;
+        RenderComponent* render;
         Timer timeBasedMovementTimer;
 
     public:

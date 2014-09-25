@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
@@ -47,6 +47,7 @@ class GameEntityManager
         GameEntity* createEnemyProjectile(GameEntity* enemyEntity);
         std::vector<GameEntity*> createEnemyWaveStraight2();
         std::vector<GameEntity*> createEnemyWaveStraight3();
+        GameEntity* createExplosion(GameEntity* destroyedEntity);
         GameEntity* createPlayer();
         GameEntity* createPlayerProjectile(GameEntity* playerEntity);
         GameEntity* createMeteor();

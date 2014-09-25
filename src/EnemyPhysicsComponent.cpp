@@ -4,13 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityManager.h"
-#include "EnemyRenderComponent.h"
+#include "RenderComponent.h"
 #include "WindowElements.h"
 
 EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
@@ -21,12 +21,12 @@ EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    render = dynamic_cast<EnemyRenderComponent*>(gameEntity->getRenderComponent());
+    render = gameEntity->getRenderComponent();
 }
 
 EnemyPhysicsComponent::~EnemyPhysicsComponent()
 {
-
+    gameEntityManager->createExplosion(gameEntity);
 }
 
 void EnemyPhysicsComponent::update()

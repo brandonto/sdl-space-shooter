@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-13
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_BACKGROUNDPHYSICSCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDPHYSICSCOMPONENT_
@@ -12,7 +12,7 @@
 #include <SDL2/SDL.h>
 #include "PhysicsComponent.h"
 
-class BackgroundRenderComponent;
+class RenderComponent;
 class GameEntity;
 
 struct WindowElements;
@@ -20,7 +20,7 @@ struct WindowElements;
 class BackgroundPhysicsComponent : public PhysicsComponent
 {
     private:
-        BackgroundRenderComponent* render;
+        RenderComponent* render;
         int offsetIncrementCounter;
         int offsetIncrementModulus;
 

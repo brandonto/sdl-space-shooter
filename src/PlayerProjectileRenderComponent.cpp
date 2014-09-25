@@ -4,13 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "PlayerProjectileRenderComponent.h"
 
 #include <cstddef>
 #include "GameEntity.h"
-#include "PlayerRenderComponent.h"
 #include "SDL_util.h"
 #include "WindowElements.h"
 
@@ -25,7 +24,7 @@ PlayerProjectileRenderComponent::PlayerProjectileRenderComponent(GameEntity* gam
     renderRect.w = spriteWidth;
     renderRect.h = spriteHeight;
     gameEntity->position.x = playerEntity->position.x;
-    gameEntity->position.y = playerEntity->position.y - dynamic_cast<PlayerRenderComponent*>(playerEntity->getRenderComponent())->spriteHeight/2 - spriteHeight/2;
+    gameEntity->position.y = playerEntity->position.y - playerEntity->getRenderComponent()->spriteHeight/2 - spriteHeight/2;
 }
 
 void PlayerProjectileRenderComponent::update()

@@ -1,11 +1,11 @@
-obj/EnemyProjectileCollisionComponent.o: \
- src/EnemyProjectileCollisionComponent.cpp /usr/include/stdc-predef.h \
- include/EnemyProjectileCollisionComponent.h include/CollisionComponent.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
- /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h \
- /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+obj/ExplosionPhysicsComponent.o: src/ExplosionPhysicsComponent.cpp \
+ /usr/include/stdc-predef.h include/ExplosionPhysicsComponent.h \
+ include/PhysicsComponent.h /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -60,48 +60,16 @@ obj/EnemyProjectileCollisionComponent.o: \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/Timer.h include/Vector2D.h include/CollisionBodyRectangle.h \
- include/CollisionBody.h /usr/include/c++/4.8/vector \
- /usr/include/c++/4.8/bits/stl_algobase.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /usr/include/c++/4.8/bits/functexcept.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/cpp_type_traits.h \
- /usr/include/c++/4.8/ext/type_traits.h \
- /usr/include/c++/4.8/ext/numeric_traits.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/4.8/debug/debug.h \
- /usr/include/c++/4.8/bits/stl_iterator.h \
- /usr/include/c++/4.8/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
- /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
- include/GameEntity.h include/GameEntityManager.h \
- include/CollisionManager.h include/GameEntityCollection.h \
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
- /usr/include/c++/4.8/bits/list.tcc include/RenderComponent.h \
- include/PhysicsComponent.h include/WindowElements.h
- src/EnemyProjectileCollisionComponent.cpp /usr/include/stdc-predef.h :
- include/EnemyProjectileCollisionComponent.h include/CollisionComponent.h :
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h :
- /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h :
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h :
- /usr/include/SDL2/close_code.h /usr/include/x86_64-linux-gnu/sys/types.h :
- /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h :
+ include/Timer.h include/Vector2D.h include/GameEntity.h \
+ include/RenderComponent.h include/WindowElements.h
+src/ExplosionPhysicsComponent.cpp :
+ /usr/include/stdc-predef.h include/ExplosionPhysicsComponent.h :
+ include/PhysicsComponent.h /usr/include/SDL2/SDL.h :
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h :
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h :
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h :
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h :
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h :
  /usr/include/x86_64-linux-gnu/bits/wordsize.h :
  /usr/include/x86_64-linux-gnu/gnu/stubs.h :
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h :
@@ -156,38 +124,5 @@ obj/EnemyProjectileCollisionComponent.o: \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/Timer.h include/Vector2D.h include/CollisionBodyRectangle.h :
- include/CollisionBody.h /usr/include/c++/4.8/vector :
- /usr/include/c++/4.8/bits/stl_algobase.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
- /usr/include/c++/4.8/bits/functexcept.h :
- /usr/include/c++/4.8/bits/exception_defines.h :
- /usr/include/c++/4.8/bits/cpp_type_traits.h :
- /usr/include/c++/4.8/ext/type_traits.h :
- /usr/include/c++/4.8/ext/numeric_traits.h :
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h :
- /usr/include/c++/4.8/bits/concept_check.h :
- /usr/include/c++/4.8/bits/stl_iterator_base_types.h :
- /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h :
- /usr/include/c++/4.8/debug/debug.h :
- /usr/include/c++/4.8/bits/stl_iterator.h :
- /usr/include/c++/4.8/bits/allocator.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h :
- /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new :
- /usr/include/c++/4.8/exception :
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
- /usr/include/c++/4.8/bits/memoryfwd.h :
- /usr/include/c++/4.8/bits/stl_construct.h :
- /usr/include/c++/4.8/ext/alloc_traits.h :
- /usr/include/c++/4.8/bits/stl_uninitialized.h :
- /usr/include/c++/4.8/bits/stl_vector.h :
- /usr/include/c++/4.8/bits/stl_bvector.h :
- /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
- include/GameEntity.h include/GameEntityManager.h :
- include/CollisionManager.h include/GameEntityCollection.h :
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
- /usr/include/c++/4.8/bits/list.tcc include/RenderComponent.h :
- include/PhysicsComponent.h include/WindowElements.h :
+ include/Timer.h include/Vector2D.h include/GameEntity.h :
+ include/RenderComponent.h include/WindowElements.h :

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-18
+ * @modified    2014-09-25
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -29,9 +29,9 @@ GameEntity::GameEntity()
 GameEntity::~GameEntity()
 {
     if (input!=NULL) { delete input; }
-    if (render!=NULL) { delete render; }
-    if (physics!=NULL) { delete physics; }
     if (collision!=NULL) { delete collision; }
+    if (physics!=NULL) { delete physics; }
+    if (render!=NULL) { delete render; }
 }
 
 void GameEntity::addInputComponent(InputComponent* input)

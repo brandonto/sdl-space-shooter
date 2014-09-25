@@ -19,8 +19,8 @@
 class CollisionManager;
 class GameEntity;
 class GameEntityManager;
-class EnemyProjectilePhysicsComponent;
-class EnemyProjectileRenderComponent;
+class PhysicsComponent;
+class RenderComponent;
 
 struct WindowElements;
 
@@ -29,8 +29,8 @@ class EnemyProjectileCollisionComponent : public CollisionComponent
     private:
         CollisionManager* collisionManager;
 
-        EnemyProjectilePhysicsComponent* physics;
-        EnemyProjectileRenderComponent* render;
+        PhysicsComponent* physics;
+        RenderComponent* render;
 
     public:
         //Constructor

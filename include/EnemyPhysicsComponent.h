@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
     #define SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
@@ -16,7 +16,7 @@
 
 class GameEntity;
 class GameEntityManager;
-class EnemyRenderComponent;
+class RenderComponent;
 
 struct WindowElements;
 
@@ -25,7 +25,7 @@ class EnemyPhysicsComponent : public PhysicsComponent
     private:
         GameEntityManager* gameEntityManager;
 
-        EnemyRenderComponent* render;
+        RenderComponent* render;
         Timer timeBasedMovementTimer;
         Timer projectileCapTimer;
 

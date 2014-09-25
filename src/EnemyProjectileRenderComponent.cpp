@@ -4,13 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "EnemyProjectileRenderComponent.h"
 
 #include <cstddef>
 #include "GameEntity.h"
-#include "EnemyRenderComponent.h"
+#include "RenderComponent.h"
 #include "SDL_util.h"
 #include "WindowElements.h"
 
@@ -25,7 +25,7 @@ EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameE
     renderRect.w = spriteWidth;
     renderRect.h = spriteHeight;
     gameEntity->position.x = enemyEntity->position.x;
-    gameEntity->position.y = enemyEntity->position.y + dynamic_cast<EnemyRenderComponent*>(enemyEntity->getRenderComponent())->spriteHeight/2 - spriteHeight/2;
+    gameEntity->position.y = enemyEntity->position.y + enemyEntity->getRenderComponent()->spriteHeight/2 - spriteHeight/2;
 }
 
 void EnemyProjectileRenderComponent::update()

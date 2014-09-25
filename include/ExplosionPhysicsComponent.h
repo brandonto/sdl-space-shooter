@@ -1,13 +1,13 @@
 /*******************************************************************//*
- * Physics component for PlayerProjectile.
+ * Physics component for Explosion.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-08
+ * @since       2014-09-25
  * @modified    2014-09-25
  *********************************************************************/
-#ifndef SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
-    #define SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
+#ifndef SPACESHOOTER_EXPLOSIONPHYSICSCOMPONENT_
+    #define SPACESHOOTER_EXPLOSIONPHYSICSCOMPONENT_
 
 #include "PhysicsComponent.h"
 #include <SDL2/SDL.h>
@@ -19,21 +19,20 @@ class RenderComponent;
 
 struct WindowElements;
 
-class PlayerProjectilePhysicsComponent : public PhysicsComponent
+class ExplosionPhysicsComponent : public PhysicsComponent
 {
     private:
         RenderComponent* render;
-        Timer timeBasedMovementTimer;
+        Timer durationTimer;
 
     public:
         Vector2D velocity;
-        int velocityPerSecond;
 
         //Constructor
-        PlayerProjectilePhysicsComponent(GameEntity* gameEntity, WindowElements* windowElements);
+        ExplosionPhysicsComponent(GameEntity* gameEntity, WindowElements* windowElements);
 
         //Destructor
-        ~PlayerProjectilePhysicsComponent();
+        ~ExplosionPhysicsComponent();
 
         //Methods
         void update();

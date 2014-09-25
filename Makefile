@@ -19,6 +19,8 @@ _OBJS =	main.o \
 		EnemyProjectileCollisionComponent.o \
 		EnemyProjectilePhysicsComponent.o \
 		EnemyProjectileRenderComponent.o \
+		ExplosionPhysicsComponent.o \
+		ExplosionRenderComponent.o \
 		FrameRateManager.o \
 		GameEntity.o \
 		GameEntityCollection.o \

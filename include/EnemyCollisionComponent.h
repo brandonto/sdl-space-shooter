@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-22
- * @modified    2014-09-22
+ * @modified    2014-09-25
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYCOLLISIONCOMPONENT_
     #define SPACESHOOTER_ENEMYCOLLISIONCOMPONENT_
@@ -19,8 +19,8 @@
 class CollisionManager;
 class GameEntity;
 class GameEntityManager;
-class EnemyPhysicsComponent;
-class EnemyRenderComponent;
+class PhysicsComponent;
+class RenderComponent;
 
 struct WindowElements;
 
@@ -29,8 +29,8 @@ class EnemyCollisionComponent : public CollisionComponent
     private:
         CollisionManager* collisionManager;
 
-        EnemyPhysicsComponent* physics;
-        EnemyRenderComponent* render;
+        PhysicsComponent* physics;
+        RenderComponent* render;
 
     public:
         //Constructor

@@ -4,13 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-13
- * @modified    2014-09-19
+ * @modified    2014-09-25
  *********************************************************************/
 #include "BackgroundPhysicsComponent.h"
 
 #include <cstddef>
 #include <SDL2/SDL.h>
-#include "BackgroundRenderComponent.h"
+#include "RenderComponent.h"
 #include "GameEntity.h"
 #include "SDL_util.h"
 #include "WindowElements.h"
@@ -21,7 +21,7 @@ BackgroundPhysicsComponent::BackgroundPhysicsComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    render = dynamic_cast<BackgroundRenderComponent*>(gameEntity->getRenderComponent());
+    render = gameEntity->getRenderComponent();
 }
 
 void BackgroundPhysicsComponent::update()

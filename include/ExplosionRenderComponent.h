@@ -1,13 +1,13 @@
 /*******************************************************************//*
- * Render component for PlayerProjectile.
+ * Render component for Explosion.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-08
+ * @since       2014-09-25
  * @modified    2014-09-25
  *********************************************************************/
-#ifndef SPACESHOOTER_PLAYERPROJECTILERENDERCOMPONENT_
-    #define SPACESHOOTER_PLAYERPROJECTILERENDERCOMPONENT_
+#ifndef SPACESHOOTER_EXPLOSIONRENDERCOMPONENT_
+    #define SPACESHOOTER_EXPLOSIONRENDERCOMPONENT_
 
 #include "RenderComponent.h"
 #include <SDL2/SDL.h>
@@ -16,16 +16,16 @@ class GameEntity;
 
 struct WindowElements;
 
-class PlayerProjectileRenderComponent : public RenderComponent
+class ExplosionRenderComponent : public RenderComponent
 {
     public:
         //Constructor
-        PlayerProjectileRenderComponent(GameEntity* gameEntity,
+        ExplosionRenderComponent(GameEntity* gameEntity,
                                         WindowElements* windowElements,
-                                        GameEntity* playerEntity);
+                                        GameEntity* destroyedEntity);
 
         //Destructor
-        ~PlayerProjectileRenderComponent();
+        ~ExplosionRenderComponent();
 
         //Methods
         void update();

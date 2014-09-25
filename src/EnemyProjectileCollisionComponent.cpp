@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-22
- * @modified    2014-09-22
+ * @modified    2014-09-25
  *********************************************************************/
 #include "EnemyProjectileCollisionComponent.h"
 
@@ -12,8 +12,8 @@
 #include "CollisionManager.h"
 #include "GameEntity.h"
 #include "GameEntityManager.h"
-#include "EnemyProjectileRenderComponent.h"
-#include "EnemyProjectilePhysicsComponent.h"
+#include "RenderComponent.h"
+#include "PhysicsComponent.h"
 #include "WindowElements.h"
 
 //NOT COMPLETE
@@ -25,8 +25,8 @@ EnemyProjectileCollisionComponent::EnemyProjectileCollisionComponent(GameEntity*
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    physics = dynamic_cast<EnemyProjectilePhysicsComponent*>(gameEntity->getPhysicsComponent());
-    render = dynamic_cast<EnemyProjectileRenderComponent*>(gameEntity->getRenderComponent());
+    physics = gameEntity->getPhysicsComponent();
+    render = gameEntity->getRenderComponent();
     collisionManager->addCollisionObject(gameEntity, ENTITY_ENEMY);
     this->body = new CollisionBodyRectangle(gameEntity);
 }
