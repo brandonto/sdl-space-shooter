@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-25
+ * @modified    2014-10-21
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -68,6 +68,11 @@ void GameEntity::onUpdate()
 void GameEntity::onRender()
 {
     if (render!=NULL) { render->update(); }
+}
+
+void GameEntity::onDestroy()
+{
+    if (physics!=NULL) { physics->onDestroy(); }
 }
 
 InputComponent* GameEntity::getInputComponent()

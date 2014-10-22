@@ -4,10 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-25
- * @modified    2014-09-25
+ * @modified    2014-10-21
  *********************************************************************/
 #include "ExplosionPhysicsComponent.h"
 
+#include "ExplosionRenderComponent.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
 #include "WindowElements.h"
@@ -18,6 +19,7 @@ ExplosionPhysicsComponent::ExplosionPhysicsComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
+    //render = dynamic_cast<ExplosionRenderComponent*>(gameEntity->getRenderComponent());
     render = gameEntity->getRenderComponent();
     durationTimer.start();
 }
@@ -29,10 +31,17 @@ ExplosionPhysicsComponent::~ExplosionPhysicsComponent()
 
 void ExplosionPhysicsComponent::update()
 {
-	if (durationTimer.getTimeOnTimer()>1000)
+	if (durationTimer.getTimeOnTimer()>100)
     {
         durationTimer.stop();
-        gameEntity->remove = true;
+        if (!render->advanceAnimation())
+        {
+            gameEntity->remove = true;
+        }
+        else
+        {
+            durationTimer.start();
+        }
     }
 }
 

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-22
+ * @modified    2014-10-21
  *********************************************************************/
 #include "CollisionManager.h"
 
@@ -87,7 +87,9 @@ bool CollisionManager::checkCollisionAgainstFriendly(GameEntity* gameEntity)
     {
         if (checkCollisionBoundingRect(gameEntity, *it))
         {
+            gameEntity->onDestroy();
             gameEntity->remove = true;
+            (*it)->onDestroy();
             (*it)->remove = true;
             //it = friendlyArray.erase(it);
             return true;
@@ -104,7 +106,9 @@ bool CollisionManager::checkCollisionAgainstNeutral(GameEntity* gameEntity)
     {
         if (checkCollisionBoundingRect(gameEntity, *it))
         {
+            gameEntity->onDestroy();
             gameEntity->remove = true;
+            (*it)->onDestroy();
             (*it)->remove = true;
             //it = neutralArray.erase(it);
             return true;
@@ -121,7 +125,9 @@ bool CollisionManager::checkCollisionAgainstEnemy(GameEntity* gameEntity)
     {
         if (checkCollisionBoundingRect(gameEntity, *it))
         {
+            gameEntity->onDestroy();
             gameEntity->remove = true;
+            (*it)->onDestroy();
             (*it)->remove = true;
             //it = enemyArray.erase(it);
             return true;

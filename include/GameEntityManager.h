@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-25
+ * @modified    2014-10-21
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
@@ -30,6 +30,8 @@ class GameEntityManager
         GameEntityCollection effectLayer;
         GameEntityCollection uiLayer;
         WindowElements* windowElements;
+
+        //bool explosion
 
     public:
         GameEntityManager(WindowElements* windowElements);
