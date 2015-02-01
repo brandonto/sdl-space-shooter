@@ -128,10 +128,10 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  include/PlayerProjectilePhysicsComponent.h \
  include/PlayerProjectileRenderComponent.h \
  include/SpriteRenderComponent.h include/TextRenderComponent.h \
- include/UIClickFunctionQuit.h include/UIClickFunction.h \
- include/UIClickFunctionPlay.h include/UIClickFunctionInstructions.h \
- include/UIPanelInputComponent.h include/UIPanelRenderComponent.h \
- include/WindowElements.h
+ include/UIClickFunctionBack.h include/UIClickFunction.h \
+ include/UIClickFunctionPlay.h include/UIClickFunctionQuit.h \
+ include/UIClickFunctionInstructions.h include/UIPanelInputComponent.h \
+ include/UIPanelRenderComponent.h include/WindowElements.h
 src/GameEntityManager.cpp :
  /usr/include/stdc-predef.h include/GameEntityManager.h :
  /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
@@ -262,7 +262,7 @@ src/GameEntityManager.cpp :
  include/PlayerProjectilePhysicsComponent.h :
  include/PlayerProjectileRenderComponent.h :
  include/SpriteRenderComponent.h include/TextRenderComponent.h :
- include/UIClickFunctionQuit.h include/UIClickFunction.h :
- include/UIClickFunctionPlay.h include/UIClickFunctionInstructions.h :
- include/UIPanelInputComponent.h include/UIPanelRenderComponent.h :
- include/WindowElements.h :
+ include/UIClickFunctionBack.h include/UIClickFunction.h :
+ include/UIClickFunctionPlay.h include/UIClickFunctionQuit.h :
+ include/UIClickFunctionInstructions.h include/UIPanelInputComponent.h :
+ include/UIPanelRenderComponent.h include/WindowElements.h :

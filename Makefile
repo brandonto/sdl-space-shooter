@@ -44,6 +44,7 @@ _OBJS =	main.o \
 		TextRenderComponent.o \
 		Timer.o \
 		UIClickFunctionInstructions.o \
+		UIClickFunctionBack.o \
 		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \

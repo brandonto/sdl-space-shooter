@@ -12,8 +12,6 @@
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
-#include "TextRenderComponent.h"
-#include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
 
 InstructionsState::InstructionsState(ApplicationStateManager* applicationStateManager,
@@ -38,7 +36,7 @@ void InstructionsState::onEnter()
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiInstructions.size(); i++)
     {
-        dynamic_cast<TextRenderComponent*>(uiInstructions[i]->getRenderComponent())->setAlphaBlend(uiAlpha);
+        uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
     }
 }
 
@@ -74,7 +72,7 @@ void InstructionsState::onUpdate()
         }
         for (int i=0; i<uiInstructions.size(); i++)
         {
-            dynamic_cast<TextRenderComponent*>(uiInstructions[i]->getRenderComponent())->setAlphaBlend(uiAlpha);
+            uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
         }
     }
     else if (fadeOut)
@@ -86,7 +84,7 @@ void InstructionsState::onUpdate()
         }
         for (int i=0; i<uiInstructions.size(); i++)
         {
-            dynamic_cast<TextRenderComponent*>(uiInstructions[i]->getRenderComponent())->setAlphaBlend(uiAlpha);
+            uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
         }
     }
     else if (blackScreen.isBlackingIn())

@@ -19,6 +19,7 @@ SpriteRenderComponent::SpriteRenderComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
+    sprite = NULL;
 }
 
 void SpriteRenderComponent::update()

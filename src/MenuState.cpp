@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-17
+ * @modified    2015-02-01
  *********************************************************************/
 #include "MenuState.h"
 
@@ -13,7 +13,6 @@
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
-#include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
@@ -36,9 +35,10 @@ void MenuState::onEnter()
     background = gameEntityManager.createBackground();
     mainMenu = gameEntityManager.createMainMenu(this);
 
+    // Initializes alpha value of ui to 0
     for (int i=0; i<mainMenu.size(); i++)
     {
-        dynamic_cast<UIPanelRenderComponent*>(mainMenu[i]->getRenderComponent())->setAlphaBlend(menuAlpha);
+        mainMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
     }
 
     meteorTimer.start();
@@ -80,7 +80,7 @@ void MenuState::onUpdate()
         }
         for (int i=0; i<mainMenu.size(); i++)
         {
-            dynamic_cast<UIPanelRenderComponent*>(mainMenu[i]->getRenderComponent())->setAlphaBlend(menuAlpha);
+            mainMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
         }
     }
     else if (fadeOut)
@@ -92,7 +92,7 @@ void MenuState::onUpdate()
         }
         for (int i=0; i<mainMenu.size(); i++)
         {
-            dynamic_cast<UIPanelRenderComponent*>(mainMenu[i]->getRenderComponent())->setAlphaBlend(menuAlpha);
+            mainMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
         }
     }
     else if (blackScreen.isBlackingIn())

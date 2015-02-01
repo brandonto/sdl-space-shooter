@@ -33,8 +33,9 @@
 #include "PlayerProjectileRenderComponent.h"
 #include "SpriteRenderComponent.h"
 #include "TextRenderComponent.h"
-#include "UIClickFunctionQuit.h"
+#include "UIClickFunctionBack.h"
 #include "UIClickFunctionPlay.h"
+#include "UIClickFunctionQuit.h"
 #include "UIClickFunctionInstructions.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
@@ -217,28 +218,145 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationState* state)
 {
     SDL_Rect temp;
-    GameEntity* instructionsMenu[4];
+    GameEntity* instructionsMenu[17];
 
     int xGrid = windowElements->WINDOW_WIDTH/60;
     int yGrid = windowElements->WINDOW_HEIGHT/48;
 
-    GameEntity* movement = new GameEntity();
-    TextRenderComponent* movementRender = new TextRenderComponent(movement, windowElements);
+    GameEntity* movementText = new GameEntity();
+    TextRenderComponent* movementTextRender = new TextRenderComponent(movementText, windowElements);
     temp.x = 1*xGrid;
     temp.y = 2*yGrid;
     temp.w = 13*xGrid;
     temp.h = 5*yGrid;
-    movementRender->setRenderRect(&temp);
-    movementRender->setText("Movement:", 96);
-    movementRender->enableBlending();
-    movement->addRenderComponent(movementRender);
-    uiLayer.add(movement);
-    instructionsMenu[0] = movement;
+    movementTextRender->setRenderRect(&temp);
+    movementTextRender->setText("Movement:", 96);
+    movementTextRender->enableBlending();
+    movementText->addRenderComponent(movementTextRender);
+    uiLayer.add(movementText);
+    instructionsMenu[0] = movementText;
+
+    GameEntity* keyW = new GameEntity();
+    SpriteRenderComponent* keyWRender = new SpriteRenderComponent(keyW, windowElements);
+    temp.x = 21*xGrid;
+    temp.y = 2*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyWRender->setRenderRect(&temp);
+    keyWRender->setImage("bin/graphics/ui/Keyboard_White_W.png");
+    keyWRender->enableBlending();
+    keyW->addRenderComponent(keyWRender);
+    uiLayer.add(keyW);
+    instructionsMenu[1] = keyW;
+
+    GameEntity* keyA = new GameEntity();
+    SpriteRenderComponent* keyARender = new SpriteRenderComponent(keyA, windowElements);
+    temp.x = 17*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyARender->setRenderRect(&temp);
+    keyARender->setImage("bin/graphics/ui/Keyboard_White_A.png");
+    keyARender->enableBlending();
+    keyA->addRenderComponent(keyARender);
+    uiLayer.add(keyA);
+    instructionsMenu[2] = keyA;
+
+    GameEntity* keyS = new GameEntity();
+    SpriteRenderComponent* keySRender = new SpriteRenderComponent(keyS, windowElements);
+    temp.x = 21*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keySRender->setRenderRect(&temp);
+    keySRender->setImage("bin/graphics/ui/Keyboard_White_S.png");
+    keySRender->enableBlending();
+    keyS->addRenderComponent(keySRender);
+    uiLayer.add(keyS);
+    instructionsMenu[3] = keyS;
+
+    GameEntity* keyD = new GameEntity();
+    SpriteRenderComponent* keyDRender = new SpriteRenderComponent(keyD, windowElements);
+    temp.x = 25*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyDRender->setRenderRect(&temp);
+    keyDRender->setImage("bin/graphics/ui/Keyboard_White_D.png");
+    keyDRender->enableBlending();
+    keyD->addRenderComponent(keyDRender);
+    uiLayer.add(keyD);
+    instructionsMenu[4] = keyD;
+
+    GameEntity* orText = new GameEntity();
+    TextRenderComponent* orTextRender = new TextRenderComponent(orText, windowElements);
+    temp.x = 35*xGrid;
+    temp.y = 4*yGrid;
+    temp.w = 2*xGrid;
+    temp.h = 5*yGrid;
+    orTextRender->setRenderRect(&temp);
+    orTextRender->setText("or", 96);
+    orTextRender->enableBlending();
+    orText->addRenderComponent(orTextRender);
+    uiLayer.add(orText);
+    instructionsMenu[5] = orText;
+
+    GameEntity* keyUp = new GameEntity();
+    SpriteRenderComponent* keyUpRender = new SpriteRenderComponent(keyUp, windowElements);
+    temp.x = 46*xGrid;
+    temp.y = 2*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyUpRender->setRenderRect(&temp);
+    keyUpRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Up.png");
+    keyUpRender->enableBlending();
+    keyUp->addRenderComponent(keyUpRender);
+    uiLayer.add(keyUp);
+    instructionsMenu[6] = keyUp;
+
+    GameEntity* keyLeft = new GameEntity();
+    SpriteRenderComponent* keyLeftRender = new SpriteRenderComponent(keyLeft, windowElements);
+    temp.x = 42*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyLeftRender->setRenderRect(&temp);
+    keyLeftRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Left.png");
+    keyLeftRender->enableBlending();
+    keyLeft->addRenderComponent(keyLeftRender);
+    uiLayer.add(keyLeft);
+    instructionsMenu[7] = keyLeft;
+
+    GameEntity* keyDown = new GameEntity();
+    SpriteRenderComponent* keyDownRender = new SpriteRenderComponent(keyDown, windowElements);
+    temp.x = 46*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyDownRender->setRenderRect(&temp);
+    keyDownRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Down.png");
+    keyDownRender->enableBlending();
+    keyDown->addRenderComponent(keyDownRender);
+    uiLayer.add(keyDown);
+    instructionsMenu[8] = keyDown;
+
+    GameEntity* KeyRight = new GameEntity();
+    SpriteRenderComponent* KeyRightRender = new SpriteRenderComponent(KeyRight, windowElements);
+    temp.x = 50*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    KeyRightRender->setRenderRect(&temp);
+    KeyRightRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Right.png");
+    KeyRightRender->enableBlending();
+    KeyRight->addRenderComponent(KeyRightRender);
+    uiLayer.add(KeyRight);
+    instructionsMenu[9] = KeyRight;
 
     GameEntity* shoot = new GameEntity();
     TextRenderComponent* shootRender = new TextRenderComponent(shoot, windowElements);
     temp.x = 1*xGrid;
-    temp.y = 8*yGrid;
+    temp.y = 12*yGrid;
     temp.w = 9*xGrid;
     temp.h = 5*yGrid;
     shootRender->setRenderRect(&temp);
@@ -246,12 +364,25 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     shootRender->enableBlending();
     shoot->addRenderComponent(shootRender);
     uiLayer.add(shoot);
-    instructionsMenu[1] = shoot;
+    instructionsMenu[10] = shoot;
+
+    GameEntity* keySpace = new GameEntity();
+    SpriteRenderComponent* keySpaceRender = new SpriteRenderComponent(keySpace, windowElements);
+    temp.x = 13*xGrid;
+    temp.y = 12*yGrid;
+    temp.w = 8*xGrid;
+    temp.h = 6*yGrid;
+    keySpaceRender->setRenderRect(&temp);
+    keySpaceRender->setImage("bin/graphics/ui/Keyboard_White_Space.png");
+    keySpaceRender->enableBlending();
+    keySpace->addRenderComponent(keySpaceRender);
+    uiLayer.add(keySpace);
+    instructionsMenu[11] = keySpace;
 
     GameEntity* pause = new GameEntity();
     TextRenderComponent* pauseRender = new TextRenderComponent(pause, windowElements);
     temp.x = 1*xGrid;
-    temp.y = 14*yGrid;
+    temp.y = 18*yGrid;
     temp.w = 9*xGrid;
     temp.h = 5*yGrid;
     pauseRender->setRenderRect(&temp);
@@ -259,12 +390,25 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     pauseRender->enableBlending();
     pause->addRenderComponent(pauseRender);
     uiLayer.add(pause);
-    instructionsMenu[2] = pause;
+    instructionsMenu[12] = pause;
+
+    GameEntity* keyP = new GameEntity();
+    SpriteRenderComponent* keyPRender = new SpriteRenderComponent(keyP, windowElements);
+    temp.x = 15*xGrid;
+    temp.y = 18*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyPRender->setRenderRect(&temp);
+    keyPRender->setImage("bin/graphics/ui/Keyboard_White_P.png");
+    keyPRender->enableBlending();
+    keyP->addRenderComponent(keyPRender);
+    uiLayer.add(keyP);
+    instructionsMenu[13] = keyP;
 
     GameEntity* menu = new GameEntity();
     TextRenderComponent* menuRender = new TextRenderComponent(menu, windowElements);
     temp.x = 1*xGrid;
-    temp.y = 20*yGrid;
+    temp.y = 24*yGrid;
     temp.w = 9*xGrid;
     temp.h = 5*yGrid;
     menuRender->setRenderRect(&temp);
@@ -272,75 +416,40 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     menuRender->enableBlending();
     menu->addRenderComponent(menuRender);
     uiLayer.add(menu);
-    instructionsMenu[3] = menu;
+    instructionsMenu[14] = menu;
 
-    //GameEntity* movement = new GameEntity();
-    //UIPanelRenderComponent* movementRender = new UIPanelRenderComponent(movement, windowElements);
-    //temp.x = 1*xGrid;
-    //temp.y = 2*yGrid;
-    //temp.w = 58*xGrid;
-    //temp.h = 12*yGrid;
-    //movementRender->setRenderRect(&temp);
-    //temp.x = 10;
-    //temp.y = 5;
-    //temp.w = 60;
-    //temp.h = 30;
-    //movementRender->addText("Movement:", 96, &temp, true);
-    //movementRender->enableBlending();
-    //movement->addRenderComponent(movementRender);
-    //uiLayer.add(movement);
-    //instructionsMenu[0] = movement;
+    GameEntity* keyEsc = new GameEntity();
+    SpriteRenderComponent* keyEscRender = new SpriteRenderComponent(keyEsc, windowElements);
+    temp.x = 15*xGrid;
+    temp.y = 24*yGrid;
+    temp.w = 5*xGrid;
+    temp.h = 5*yGrid;
+    keyEscRender->setRenderRect(&temp);
+    keyEscRender->setImage("bin/graphics/ui/Keyboard_White_Esc.png");
+    keyEscRender->enableBlending();
+    keyEsc->addRenderComponent(keyEscRender);
+    uiLayer.add(keyEsc);
+    instructionsMenu[15] = keyEsc;
 
-    //GameEntity* shoot = new GameEntity();
-    //UIPanelRenderComponent* shootRender = new UIPanelRenderComponent(shoot, windowElements);
-    //temp.x = 1*xGrid;
-    //temp.y = 16*yGrid;
-    //temp.w = 28*xGrid;
-    //temp.h = 12*yGrid;
-    //shootRender->setRenderRect(&temp);
-    //temp.x = 10;
-    //temp.y = 5;
-    //temp.w = 60;
-    //temp.h = 30;
-    //shootRender->addText("Shoot:", 96, &temp, true);
-    //shootRender->enableBlending();
-    //shoot->addRenderComponent(shootRender);
-    //uiLayer.add(shoot);
-    //instructionsMenu[1] = shoot;
-
-    //GameEntity* pause = new GameEntity();
-    //UIPanelRenderComponent* pauseRender = new UIPanelRenderComponent(pause, windowElements);
-    //temp.x = 31*xGrid;
-    //temp.y = 16*yGrid;
-    //temp.w = 28*xGrid;
-    //temp.h = 12*yGrid;
-    //pauseRender->setRenderRect(&temp);
-    //temp.x = 10;
-    //temp.y = 5;
-    //temp.w = 60;
-    //temp.h = 30;
-    //pauseRender->addText("Pause:", 96, &temp, true);
-    //pauseRender->enableBlending();
-    //pause->addRenderComponent(pauseRender);
-    //uiLayer.add(pause);
-    //instructionsMenu[2] = pause;
-
-    //GameEntity* menu = new GameEntity();
-    //UIPanelRenderComponent* menuRender = new UIPanelRenderComponent(menu, windowElements);
-    //temp.x = 1*xGrid;
-    //temp.y = 30*yGrid;
-    //temp.w = 28*xGrid;
-    //temp.h = 12*yGrid;
-    //menuRender->setRenderRect(&temp);
-    //temp.x = 10;
-    //temp.y = 5;
-    //temp.w = 60;
-    //temp.h = 30;
-    //menuRender->addText("Menu:", 96, &temp, true);
-    //menuRender->enableBlending();
-    //menu->addRenderComponent(menuRender);
-    //uiLayer.add(menu);
-    //instructionsMenu[3] = menu;
+    GameEntity* uiBack = new GameEntity();
+    UIPanelRenderComponent* uiBackRender = new UIPanelRenderComponent(uiBack, windowElements);
+    temp.x = 1*xGrid;
+    temp.y = 44*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
+    uiBackRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiBackRender->addText("Back", 96, &temp, true);
+    uiBackRender->enableBlending();
+    uiBack->addRenderComponent(uiBackRender);
+    UIPanelInputComponent* uiBackInput = new UIPanelInputComponent(uiBack);
+    uiBackInput->addClickFunction(new UIClickFunctionBack(state));
+    uiBack->addInputComponent(uiBackInput);
+    uiLayer.add(uiBack);
+    instructionsMenu[16] = uiBack;
 
     std::vector<GameEntity*> instructionsMenuVector(instructionsMenu, instructionsMenu + sizeof(instructionsMenu)/sizeof(GameEntity*));
 

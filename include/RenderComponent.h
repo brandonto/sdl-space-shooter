@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-10-21
+ * @modified    2015-02-01
  *********************************************************************/
 #ifndef SPACESHOOTER_RENDERCOMPONENT_
     #define SPACESHOOTER_RENDERCOMPONENT_
@@ -32,6 +32,8 @@ class RenderComponent
 
         //Methods
         virtual void update() = 0;
+        virtual void setAlphaBlend(Uint8 alpha){};
+        virtual Uint8 getAlphaBlend(){};
         virtual bool advanceAnimation(){};
 
     protected:
