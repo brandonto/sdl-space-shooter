@@ -117,9 +117,9 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     GameEntity* uiPlay = new GameEntity();
     UIPanelRenderComponent* uiPlayRender = new UIPanelRenderComponent(uiPlay, windowElements);
     temp.x = 10*xGrid;
-    temp.y = 22*yGrid;
+    temp.y = 21*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiPlayRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -139,7 +139,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.x = 10*xGrid;
     temp.y = 26*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiInstructionsRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -157,9 +157,9 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     GameEntity* uiOptions = new GameEntity();
     UIPanelRenderComponent* uiOptionsRender = new UIPanelRenderComponent(uiOptions, windowElements);
     temp.x = 10*xGrid;
-    temp.y = 30*yGrid;
+    temp.y = 31*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiOptionsRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -176,9 +176,9 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     GameEntity* uiCredits = new GameEntity();
     UIPanelRenderComponent* uiCreditsRender = new UIPanelRenderComponent(uiCredits, windowElements);
     temp.x = 10*xGrid;
-    temp.y = 34*yGrid;
+    temp.y = 36*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiCreditsRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -196,9 +196,9 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     GameEntity* uiQuit = new GameEntity();
     UIPanelRenderComponent* uiQuitRender = new UIPanelRenderComponent(uiQuit, windowElements);
     temp.x = 10*xGrid;
-    temp.y = 38*yGrid;
+    temp.y = 41*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiQuitRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -221,7 +221,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationState* state)
 {
     SDL_Rect temp;
-    GameEntity* instructionsMenu[17];
+    GameEntity* instructionsMenu[18];
 
     int xGrid = windowElements->WINDOW_WIDTH/60;
     int yGrid = windowElements->WINDOW_HEIGHT/48;
@@ -439,7 +439,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.x = 1*xGrid;
     temp.y = 44*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiBackRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -453,6 +453,18 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     uiBack->addInputComponent(uiBackInput);
     uiLayer.add(uiBack);
     instructionsMenu[16] = uiBack;
+
+    GameEntity* uiControls = new GameEntity();
+    UIPanelRenderComponent* uiControlsRender = new UIPanelRenderComponent(uiControls, windowElements);
+    temp.x = 23*xGrid;
+    temp.y = 12*yGrid;
+    temp.w = 34*xGrid;
+    temp.h = 34*yGrid;
+    uiControlsRender->setRenderRect(&temp);
+    uiControlsRender->enableBlending();
+    uiControls->addRenderComponent(uiControlsRender);
+    uiLayer.add(uiControls);
+    instructionsMenu[17] = uiControls;
 
     std::vector<GameEntity*> instructionsMenuVector(instructionsMenu, instructionsMenu + sizeof(instructionsMenu)/sizeof(GameEntity*));
 
@@ -531,7 +543,7 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     temp.x = 1*xGrid;
     temp.y = 44*yGrid;
     temp.w = 10*xGrid;
-    temp.h = 2*yGrid;
+    temp.h = 3*yGrid;
     uiBackRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;

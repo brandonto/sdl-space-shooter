@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-09-20
+ * @modified    2015-02-01
  *********************************************************************/
 #include "BackgroundRenderComponent.h"
 
@@ -19,7 +19,7 @@ BackgroundRenderComponent::BackgroundRenderComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/darkPurple.png");
+    sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/black.png");
     SDL_QueryTexture(sprite, NULL, NULL, &(renderRect.w), &(renderRect.h));
     renderRect.x = 0;
     renderRect.y = 0;
