@@ -13,6 +13,7 @@ _OBJS =	main.o \
 		BlackScreen.o \
 		CollisionBodyRectangle.o \
 		CollisionManager.o \
+		CreditsState.o \
 		EnemyCollisionComponent.o \
 		EnemyRenderComponent.o \
 		EnemyPhysicsComponent.o \
@@ -43,8 +44,10 @@ _OBJS =	main.o \
 		SpriteRenderComponent.o \
 		TextRenderComponent.o \
 		Timer.o \
-		UIClickFunctionInstructions.o \
 		UIClickFunctionBack.o \
+		UIClickFunctionCredits.o \
+		UIClickFunctionFork.o \
+		UIClickFunctionInstructions.o \
 		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \

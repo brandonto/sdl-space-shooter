@@ -1,6 +1,6 @@
-obj/GameEntityManager.o: src/GameEntityManager.cpp \
- /usr/include/stdc-predef.h include/GameEntityManager.h \
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
+obj/CreditsState.o: src/CreditsState.cpp /usr/include/stdc-predef.h \
+ include/CreditsState.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -31,7 +31,8 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc /usr/include/SDL2/SDL.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h \
+ include/BlackScreen.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
@@ -87,55 +88,14 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- include/CollisionManager.h include/Vector2D.h \
- include/GameEntityCollection.h /usr/include/c++/4.8/list \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
- /usr/include/c++/4.8/bits/char_traits.h \
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
- /usr/include/c++/4.8/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
- /usr/include/c++/4.8/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd \
- /usr/include/c++/4.8/cctype /usr/include/c++/4.8/bits/ostream_insert.h \
- /usr/include/c++/4.8/bits/cxxabi_forced.h \
- /usr/include/c++/4.8/bits/stl_function.h \
- /usr/include/c++/4.8/backward/binders.h \
- /usr/include/c++/4.8/bits/basic_string.h \
- /usr/include/c++/4.8/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h \
- /usr/include/x86_64-linux-gnu/bits/sched.h \
- /usr/include/x86_64-linux-gnu/bits/timex.h \
- /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc include/ApplicationState.h \
- include/BackgroundPhysicsComponent.h include/PhysicsComponent.h \
- include/BackgroundRenderComponent.h include/RenderComponent.h \
- include/EnemyCollisionComponent.h include/CollisionComponent.h \
- include/Timer.h include/EnemyPhysicsComponent.h \
- include/EnemyRenderComponent.h include/ExplosionPhysicsComponent.h \
- include/ExplosionRenderComponent.h \
- include/EnemyProjectileCollisionComponent.h \
- include/EnemyProjectilePhysicsComponent.h \
- include/EnemyProjectileRenderComponent.h include/GameEntity.h \
- include/MeteorPhysicsComponent.h include/MeteorRenderComponent.h \
- include/PlayerCollisionComponent.h include/PlayerInputComponent.h \
- include/InputComponent.h include/PlayerPhysicsComponent.h \
- include/PlayerRenderComponent.h \
- include/PlayerProjectileCollisionComponent.h \
- include/PlayerProjectilePhysicsComponent.h \
- include/PlayerProjectileRenderComponent.h \
- include/SpriteRenderComponent.h include/TextRenderComponent.h \
- include/UIClickFunctionBack.h include/UIClickFunction.h \
- include/UIClickFunctionCredits.h include/UIClickFunctionFork.h \
- include/UIClickFunctionInstructions.h include/UIClickFunctionPlay.h \
- include/UIClickFunctionQuit.h include/UIPanelInputComponent.h \
- include/UIPanelRenderComponent.h include/WindowElements.h
-src/GameEntityManager.cpp :
- /usr/include/stdc-predef.h include/GameEntityManager.h :
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
+ include/GameEntityManager.h include/CollisionManager.h \
+ include/Vector2D.h include/GameEntityCollection.h \
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
+ /usr/include/c++/4.8/bits/list.tcc include/ApplicationStateManager.h \
+ include/GameEntity.h include/RenderComponent.h include/WindowElements.h
+src/CreditsState.cpp /usr/include/stdc-predef.h :
+ include/CreditsState.h /usr/include/c++/4.8/vector :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h :
@@ -166,7 +126,8 @@ src/GameEntityManager.cpp :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/vector.tcc /usr/include/SDL2/SDL.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h :
+ include/BlackScreen.h /usr/include/SDL2/SDL.h :
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h :
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h :
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h :
@@ -222,49 +183,8 @@ src/GameEntityManager.cpp :
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h :
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h :
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h :
- include/CollisionManager.h include/Vector2D.h :
- include/GameEntityCollection.h /usr/include/c++/4.8/list :
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
- /usr/include/c++/4.8/bits/char_traits.h :
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
- /usr/include/c++/4.8/bits/localefwd.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h :
- /usr/include/c++/4.8/clocale /usr/include/locale.h :
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd :
- /usr/include/c++/4.8/cctype /usr/include/c++/4.8/bits/ostream_insert.h :
- /usr/include/c++/4.8/bits/cxxabi_forced.h :
- /usr/include/c++/4.8/bits/stl_function.h :
- /usr/include/c++/4.8/backward/binders.h :
- /usr/include/c++/4.8/bits/basic_string.h :
- /usr/include/c++/4.8/ext/atomicity.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h :
- /usr/include/pthread.h /usr/include/sched.h :
- /usr/include/x86_64-linux-gnu/bits/sched.h :
- /usr/include/x86_64-linux-gnu/bits/timex.h :
- /usr/include/x86_64-linux-gnu/bits/setjmp.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc include/ApplicationState.h :
- include/BackgroundPhysicsComponent.h include/PhysicsComponent.h :
- include/BackgroundRenderComponent.h include/RenderComponent.h :
- include/EnemyCollisionComponent.h include/CollisionComponent.h :
- include/Timer.h include/EnemyPhysicsComponent.h :
- include/EnemyRenderComponent.h include/ExplosionPhysicsComponent.h :
- include/ExplosionRenderComponent.h :
- include/EnemyProjectileCollisionComponent.h :
- include/EnemyProjectilePhysicsComponent.h :
- include/EnemyProjectileRenderComponent.h include/GameEntity.h :
- include/MeteorPhysicsComponent.h include/MeteorRenderComponent.h :
- include/PlayerCollisionComponent.h include/PlayerInputComponent.h :
- include/InputComponent.h include/PlayerPhysicsComponent.h :
- include/PlayerRenderComponent.h :
- include/PlayerProjectileCollisionComponent.h :
- include/PlayerProjectilePhysicsComponent.h :
- include/PlayerProjectileRenderComponent.h :
- include/SpriteRenderComponent.h include/TextRenderComponent.h :
- include/UIClickFunctionBack.h include/UIClickFunction.h :
- include/UIClickFunctionCredits.h include/UIClickFunctionFork.h :
- include/UIClickFunctionInstructions.h include/UIClickFunctionPlay.h :
- include/UIClickFunctionQuit.h include/UIPanelInputComponent.h :
- include/UIPanelRenderComponent.h include/WindowElements.h :
+ include/GameEntityManager.h include/CollisionManager.h :
+ include/Vector2D.h include/GameEntityCollection.h :
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
+ /usr/include/c++/4.8/bits/list.tcc include/ApplicationStateManager.h :
+ include/GameEntity.h include/RenderComponent.h include/WindowElements.h :

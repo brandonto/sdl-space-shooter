@@ -12,9 +12,10 @@
 #include <cstddef>
 #include <SDL2/SDL.h>
 #include "ApplicationState.h"
+#include "CreditsState.h"
+#include "InstructionsState.h"
 #include "GameState.h"
 #include "MenuState.h"
-#include "InstructionsState.h"
 #include "PauseState.h"
 #include "WindowElements.h"
 
@@ -158,6 +159,13 @@ void ApplicationStateManager::changeState()
 
             case STATE_INSTRUCTIONS:
                 currentState = new InstructionsState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                stateStackEnum.push_back(nextStateEnum);
+                break;
+
+            case STATE_CREDITS:
+                currentState = new CreditsState(this, windowElements);
                 currentState->onEnter();
                 stateStack.push_back(currentState);
                 stateStackEnum.push_back(nextStateEnum);

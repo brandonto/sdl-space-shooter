@@ -34,9 +34,11 @@
 #include "SpriteRenderComponent.h"
 #include "TextRenderComponent.h"
 #include "UIClickFunctionBack.h"
+#include "UIClickFunctionCredits.h"
+#include "UIClickFunctionFork.h"
+#include "UIClickFunctionInstructions.h"
 #include "UIClickFunctionPlay.h"
 #include "UIClickFunctionQuit.h"
-#include "UIClickFunctionInstructions.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -186,6 +188,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     uiCreditsRender->enableBlending();
     uiCredits->addRenderComponent(uiCreditsRender);
     UIPanelInputComponent* uiCreditsInput = new UIPanelInputComponent(uiCredits);
+    uiCreditsInput->addClickFunction(new UIClickFunctionCredits(state));
     uiCredits->addInputComponent(uiCreditsInput);
     uiLayer.add(uiCredits);
     mainMenu[4] = uiCredits;
@@ -454,6 +457,98 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     std::vector<GameEntity*> instructionsMenuVector(instructionsMenu, instructionsMenu + sizeof(instructionsMenu)/sizeof(GameEntity*));
 
     return instructionsMenuVector;
+}
+
+std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* state)
+{
+    SDL_Rect temp;
+    GameEntity* creditsMenu[5];
+
+    int xGrid = windowElements->WINDOW_WIDTH/60;
+    int yGrid = windowElements->WINDOW_HEIGHT/48;
+
+    GameEntity* createdText = new GameEntity();
+    TextRenderComponent* createdTextRender = new TextRenderComponent(createdText, windowElements);
+    temp.x = 20*xGrid;
+    temp.y = 15*yGrid;
+    temp.w = 21*xGrid;
+    temp.h = 5*yGrid;
+    createdTextRender->setRenderRect(&temp);
+    createdTextRender->setText("Created by Brandon To", 96);
+    createdTextRender->enableBlending();
+    createdText->addRenderComponent(createdTextRender);
+    uiLayer.add(createdText);
+    creditsMenu[0] = createdText;
+
+    GameEntity* developmentText = new GameEntity();
+    TextRenderComponent* developmentTextRender = new TextRenderComponent(developmentText, windowElements);
+    temp.x = 7*xGrid;
+    temp.y = 20*yGrid;
+    temp.w = 45*xGrid;
+    temp.h = 5*yGrid;
+    developmentTextRender->setRenderRect(&temp);
+    developmentTextRender->setText("Development of project can be found on Github", 96);
+    developmentTextRender->enableBlending();
+    developmentText->addRenderComponent(developmentTextRender);
+    uiLayer.add(developmentText);
+    creditsMenu[1] = developmentText;
+
+    GameEntity* uiFork = new GameEntity();
+    UIPanelRenderComponent* uiForkRender = new UIPanelRenderComponent(uiFork, windowElements);
+    temp.x = 25*xGrid;
+    temp.y = 26*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 4*yGrid;
+    uiForkRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiForkRender->addText("Fork Me!", 96, &temp, true);
+    uiForkRender->enableBlending();
+    uiFork->addRenderComponent(uiForkRender);
+    UIPanelInputComponent* uiForkInput = new UIPanelInputComponent(uiFork);
+    uiForkInput->addClickFunction(new UIClickFunctionFork(state));
+    uiFork->addInputComponent(uiForkInput);
+    uiLayer.add(uiFork);
+    creditsMenu[2] = uiFork;
+
+    GameEntity* githubText = new GameEntity();
+    TextRenderComponent* githubTextRender = new TextRenderComponent(githubText, windowElements);
+    temp.x = 23*xGrid;
+    temp.y = 32*yGrid;
+    temp.w = 14*xGrid;
+    temp.h = 2*yGrid;
+    githubTextRender->setRenderRect(&temp);
+    githubTextRender->setText("https://github.com/brandonto", 96);
+    githubTextRender->enableBlending();
+    githubText->addRenderComponent(githubTextRender);
+    uiLayer.add(githubText);
+    creditsMenu[3] = githubText;
+
+    GameEntity* uiBack = new GameEntity();
+    UIPanelRenderComponent* uiBackRender = new UIPanelRenderComponent(uiBack, windowElements);
+    temp.x = 1*xGrid;
+    temp.y = 44*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
+    uiBackRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiBackRender->addText("Back", 96, &temp, true);
+    uiBackRender->enableBlending();
+    uiBack->addRenderComponent(uiBackRender);
+    UIPanelInputComponent* uiBackInput = new UIPanelInputComponent(uiBack);
+    uiBackInput->addClickFunction(new UIClickFunctionBack(state));
+    uiBack->addInputComponent(uiBackInput);
+    uiLayer.add(uiBack);
+    creditsMenu[4] = uiBack;
+
+    std::vector<GameEntity*> creditsMenuVector(creditsMenu, creditsMenu + sizeof(creditsMenu)/sizeof(GameEntity*));
+
+    return creditsMenuVector;
 }
 
 GameEntity* GameEntityManager::createBackground()
