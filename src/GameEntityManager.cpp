@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-10-21
+ * @modified    2015-02-01
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -31,8 +31,11 @@
 #include "PlayerProjectileCollisionComponent.h"
 #include "PlayerProjectilePhysicsComponent.h"
 #include "PlayerProjectileRenderComponent.h"
+#include "SpriteRenderComponent.h"
+#include "TextRenderComponent.h"
 #include "UIClickFunctionQuit.h"
 #include "UIClickFunctionPlay.h"
+#include "UIClickFunctionInstructions.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -81,15 +84,15 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     SDL_Rect temp;
     GameEntity* mainMenu[6];
 
-    int xGrid = windowElements->WINDOW_WIDTH/15;
-    int yGrid = windowElements->WINDOW_HEIGHT/24;
+    int xGrid = windowElements->WINDOW_WIDTH/30;
+    int yGrid = windowElements->WINDOW_HEIGHT/48;
 
     GameEntity* uiTitle = new GameEntity();
     UIPanelRenderComponent* uiTitleRender = new UIPanelRenderComponent(uiTitle, windowElements);
-    temp.x = 3*xGrid;
-    temp.y = 3*yGrid;
-    temp.w = 9*xGrid;
-    temp.h = 6*yGrid;
+    temp.x = 6*xGrid;
+    temp.y = 6*yGrid;
+    temp.w = 18*xGrid;
+    temp.h = 12*yGrid;
     uiTitleRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 0;
@@ -110,10 +113,10 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 
     GameEntity* uiPlay = new GameEntity();
     UIPanelRenderComponent* uiPlayRender = new UIPanelRenderComponent(uiPlay, windowElements);
-    temp.x = 5*xGrid;
-    temp.y = 11*yGrid;
-    temp.w = 5*xGrid;
-    temp.h = 1*yGrid;
+    temp.x = 10*xGrid;
+    temp.y = 22*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
     uiPlayRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -130,10 +133,10 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 
     GameEntity* uiInstructions = new GameEntity();
     UIPanelRenderComponent* uiInstructionsRender = new UIPanelRenderComponent(uiInstructions, windowElements);
-    temp.x = 5*xGrid;
-    temp.y = 13*yGrid;
-    temp.w = 5*xGrid;
-    temp.h = 1*yGrid;
+    temp.x = 10*xGrid;
+    temp.y = 26*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
     uiInstructionsRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -143,16 +146,17 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     uiInstructionsRender->enableBlending();
     uiInstructions->addRenderComponent(uiInstructionsRender);
     UIPanelInputComponent* uiInstructionsInput = new UIPanelInputComponent(uiInstructions);
+    uiInstructionsInput->addClickFunction(new UIClickFunctionInstructions(state));
     uiInstructions->addInputComponent(uiInstructionsInput);
     uiLayer.add(uiInstructions);
     mainMenu[2] = uiInstructions;
 
     GameEntity* uiOptions = new GameEntity();
     UIPanelRenderComponent* uiOptionsRender = new UIPanelRenderComponent(uiOptions, windowElements);
-    temp.x = 5*xGrid;
-    temp.y = 15*yGrid;
-    temp.w = 5*xGrid;
-    temp.h = 1*yGrid;
+    temp.x = 10*xGrid;
+    temp.y = 30*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
     uiOptionsRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -168,10 +172,10 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 
     GameEntity* uiCredits = new GameEntity();
     UIPanelRenderComponent* uiCreditsRender = new UIPanelRenderComponent(uiCredits, windowElements);
-    temp.x = 5*xGrid;
-    temp.y = 17*yGrid;
-    temp.w = 5*xGrid;
-    temp.h = 1*yGrid;
+    temp.x = 10*xGrid;
+    temp.y = 34*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
     uiCreditsRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -187,10 +191,10 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 
     GameEntity* uiQuit = new GameEntity();
     UIPanelRenderComponent* uiQuitRender = new UIPanelRenderComponent(uiQuit, windowElements);
-    temp.x = 5*xGrid;
-    temp.y = 19*yGrid;
-    temp.w = 5*xGrid;
-    temp.h = 1*yGrid;
+    temp.x = 10*xGrid;
+    temp.y = 38*yGrid;
+    temp.w = 10*xGrid;
+    temp.h = 2*yGrid;
     uiQuitRender->setRenderRect(&temp);
     temp.x = 11;
     temp.y = 5;
@@ -208,6 +212,139 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     std::vector<GameEntity*> mainMenuVector(mainMenu, mainMenu + sizeof(mainMenu)/sizeof(GameEntity*));
 
     return mainMenuVector;
+}
+
+std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationState* state)
+{
+    SDL_Rect temp;
+    GameEntity* instructionsMenu[4];
+
+    int xGrid = windowElements->WINDOW_WIDTH/60;
+    int yGrid = windowElements->WINDOW_HEIGHT/48;
+
+    GameEntity* movement = new GameEntity();
+    TextRenderComponent* movementRender = new TextRenderComponent(movement, windowElements);
+    temp.x = 1*xGrid;
+    temp.y = 2*yGrid;
+    temp.w = 13*xGrid;
+    temp.h = 5*yGrid;
+    movementRender->setRenderRect(&temp);
+    movementRender->setText("Movement:", 96);
+    movementRender->enableBlending();
+    movement->addRenderComponent(movementRender);
+    uiLayer.add(movement);
+    instructionsMenu[0] = movement;
+
+    GameEntity* shoot = new GameEntity();
+    TextRenderComponent* shootRender = new TextRenderComponent(shoot, windowElements);
+    temp.x = 1*xGrid;
+    temp.y = 8*yGrid;
+    temp.w = 9*xGrid;
+    temp.h = 5*yGrid;
+    shootRender->setRenderRect(&temp);
+    shootRender->setText("Shoot:", 96);
+    shootRender->enableBlending();
+    shoot->addRenderComponent(shootRender);
+    uiLayer.add(shoot);
+    instructionsMenu[1] = shoot;
+
+    GameEntity* pause = new GameEntity();
+    TextRenderComponent* pauseRender = new TextRenderComponent(pause, windowElements);
+    temp.x = 1*xGrid;
+    temp.y = 14*yGrid;
+    temp.w = 9*xGrid;
+    temp.h = 5*yGrid;
+    pauseRender->setRenderRect(&temp);
+    pauseRender->setText("Pause:", 96);
+    pauseRender->enableBlending();
+    pause->addRenderComponent(pauseRender);
+    uiLayer.add(pause);
+    instructionsMenu[2] = pause;
+
+    GameEntity* menu = new GameEntity();
+    TextRenderComponent* menuRender = new TextRenderComponent(menu, windowElements);
+    temp.x = 1*xGrid;
+    temp.y = 20*yGrid;
+    temp.w = 9*xGrid;
+    temp.h = 5*yGrid;
+    menuRender->setRenderRect(&temp);
+    menuRender->setText("Menu:", 96);
+    menuRender->enableBlending();
+    menu->addRenderComponent(menuRender);
+    uiLayer.add(menu);
+    instructionsMenu[3] = menu;
+
+    //GameEntity* movement = new GameEntity();
+    //UIPanelRenderComponent* movementRender = new UIPanelRenderComponent(movement, windowElements);
+    //temp.x = 1*xGrid;
+    //temp.y = 2*yGrid;
+    //temp.w = 58*xGrid;
+    //temp.h = 12*yGrid;
+    //movementRender->setRenderRect(&temp);
+    //temp.x = 10;
+    //temp.y = 5;
+    //temp.w = 60;
+    //temp.h = 30;
+    //movementRender->addText("Movement:", 96, &temp, true);
+    //movementRender->enableBlending();
+    //movement->addRenderComponent(movementRender);
+    //uiLayer.add(movement);
+    //instructionsMenu[0] = movement;
+
+    //GameEntity* shoot = new GameEntity();
+    //UIPanelRenderComponent* shootRender = new UIPanelRenderComponent(shoot, windowElements);
+    //temp.x = 1*xGrid;
+    //temp.y = 16*yGrid;
+    //temp.w = 28*xGrid;
+    //temp.h = 12*yGrid;
+    //shootRender->setRenderRect(&temp);
+    //temp.x = 10;
+    //temp.y = 5;
+    //temp.w = 60;
+    //temp.h = 30;
+    //shootRender->addText("Shoot:", 96, &temp, true);
+    //shootRender->enableBlending();
+    //shoot->addRenderComponent(shootRender);
+    //uiLayer.add(shoot);
+    //instructionsMenu[1] = shoot;
+
+    //GameEntity* pause = new GameEntity();
+    //UIPanelRenderComponent* pauseRender = new UIPanelRenderComponent(pause, windowElements);
+    //temp.x = 31*xGrid;
+    //temp.y = 16*yGrid;
+    //temp.w = 28*xGrid;
+    //temp.h = 12*yGrid;
+    //pauseRender->setRenderRect(&temp);
+    //temp.x = 10;
+    //temp.y = 5;
+    //temp.w = 60;
+    //temp.h = 30;
+    //pauseRender->addText("Pause:", 96, &temp, true);
+    //pauseRender->enableBlending();
+    //pause->addRenderComponent(pauseRender);
+    //uiLayer.add(pause);
+    //instructionsMenu[2] = pause;
+
+    //GameEntity* menu = new GameEntity();
+    //UIPanelRenderComponent* menuRender = new UIPanelRenderComponent(menu, windowElements);
+    //temp.x = 1*xGrid;
+    //temp.y = 30*yGrid;
+    //temp.w = 28*xGrid;
+    //temp.h = 12*yGrid;
+    //menuRender->setRenderRect(&temp);
+    //temp.x = 10;
+    //temp.y = 5;
+    //temp.w = 60;
+    //temp.h = 30;
+    //menuRender->addText("Menu:", 96, &temp, true);
+    //menuRender->enableBlending();
+    //menu->addRenderComponent(menuRender);
+    //uiLayer.add(menu);
+    //instructionsMenu[3] = menu;
+
+    std::vector<GameEntity*> instructionsMenuVector(instructionsMenu, instructionsMenu + sizeof(instructionsMenu)/sizeof(GameEntity*));
+
+    return instructionsMenuVector;
 }
 
 GameEntity* GameEntityManager::createBackground()

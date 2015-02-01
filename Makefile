@@ -26,6 +26,7 @@ _OBJS =	main.o \
 		GameEntityCollection.o \
 		GameEntityManager.o \
 		GameState.o \
+		InstructionsState.o \
 		IntroState.o \
 		MenuState.o \
 		MeteorPhysicsComponent.o \
@@ -39,12 +40,16 @@ _OBJS =	main.o \
 		PlayerProjectilePhysicsComponent.o \
 		PlayerProjectileRenderComponent.o \
 		SDL_util.o \
+		SpriteRenderComponent.o \
+		TextRenderComponent.o \
 		Timer.o \
+		UIClickFunctionInstructions.o \
 		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o
+
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 CC = g++

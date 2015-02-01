@@ -1,0 +1,6 @@
+obj/UIClickFunctionInstructions.o: src/UIClickFunctionInstructions.cpp \
+ /usr/include/stdc-predef.h include/UIClickFunctionInstructions.h \
+ include/UIClickFunction.h include/ApplicationState.h
+src/UIClickFunctionInstructions.cpp :
+ /usr/include/stdc-predef.h include/UIClickFunctionInstructions.h :
+ include/UIClickFunction.h include/ApplicationState.h :
