@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-09-19
+ * @modified    2015-02-01
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERRENDERCOMPONENT_
     #define SPACESHOOTER_PLAYERRENDERCOMPONENT_
@@ -18,6 +18,9 @@ struct WindowElements;
 
 class PlayerRenderComponent : public RenderComponent
 {
+    private:
+        Uint8 alpha;
+
     public:
         //Constructor
         PlayerRenderComponent(GameEntity* gameEntity,
@@ -28,6 +31,9 @@ class PlayerRenderComponent : public RenderComponent
 
         //Methods
         void update();
+        void enableBlending();
+        void setAlphaBlend(Uint8 alpha);
+        Uint8 getAlphaBlend();
 };
 
 #endif

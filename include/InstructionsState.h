@@ -25,6 +25,7 @@ class InstructionsState : public ApplicationState
         GameEntityManager gameEntityManager;
         GameEntity* background;
         std::vector<GameEntity*> uiInstructions;
+        GameEntity* playerInstructions;
         BlackScreen blackScreen;
 
         bool fadeIn;

@@ -54,6 +54,8 @@ class GameEntityManager
         GameEntity* createExplosion(GameEntity* destroyedEntity);
         GameEntity* createPlayer();
         GameEntity* createPlayerProjectile(GameEntity* playerEntity);
+        GameEntity* createPlayerInstructions();
+        GameEntity* createPlayerInstructionsProjectile(GameEntity* playerEntity);
         GameEntity* createMeteor();
 };
 

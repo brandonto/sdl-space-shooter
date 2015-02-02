@@ -122,8 +122,10 @@ obj/GameEntityManager.o: src/GameEntityManager.cpp \
  include/EnemyProjectileRenderComponent.h include/GameEntity.h \
  include/MeteorPhysicsComponent.h include/MeteorRenderComponent.h \
  include/PlayerCollisionComponent.h include/PlayerInputComponent.h \
- include/InputComponent.h include/PlayerPhysicsComponent.h \
- include/PlayerRenderComponent.h \
+ include/InputComponent.h include/PlayerInstructionsInputComponent.h \
+ include/PlayerInstructionsPhysicsComponent.h \
+ include/PlayerInstructionsProjectilePhysicsComponent.h \
+ include/PlayerPhysicsComponent.h include/PlayerRenderComponent.h \
  include/PlayerProjectileCollisionComponent.h \
  include/PlayerProjectilePhysicsComponent.h \
  include/PlayerProjectileRenderComponent.h \
@@ -257,8 +259,10 @@ src/GameEntityManager.cpp :
  include/EnemyProjectileRenderComponent.h include/GameEntity.h :
  include/MeteorPhysicsComponent.h include/MeteorRenderComponent.h :
  include/PlayerCollisionComponent.h include/PlayerInputComponent.h :
- include/InputComponent.h include/PlayerPhysicsComponent.h :
- include/PlayerRenderComponent.h :
+ include/InputComponent.h include/PlayerInstructionsInputComponent.h :
+ include/PlayerInstructionsPhysicsComponent.h :
+ include/PlayerInstructionsProjectilePhysicsComponent.h :
+ include/PlayerPhysicsComponent.h include/PlayerRenderComponent.h :
  include/PlayerProjectileCollisionComponent.h :
  include/PlayerProjectilePhysicsComponent.h :
  include/PlayerProjectileRenderComponent.h :

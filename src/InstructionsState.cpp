@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-01-31
+ * @modified    2015-02-01
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -32,12 +32,14 @@ void InstructionsState::onEnter()
     blackScreen.startBlackIn();
     background = gameEntityManager.createBackground();
     uiInstructions = gameEntityManager.createUIInstructions(this);
+    playerInstructions = gameEntityManager.createPlayerInstructions();
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiInstructions.size(); i++)
     {
         uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
     }
+    playerInstructions->getRenderComponent()->setAlphaBlend(uiAlpha);
 }
 
 void InstructionsState::onEvent()
@@ -74,6 +76,7 @@ void InstructionsState::onUpdate()
         {
             uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
         }
+        playerInstructions->getRenderComponent()->setAlphaBlend(uiAlpha);
     }
     else if (fadeOut)
     {
@@ -86,6 +89,7 @@ void InstructionsState::onUpdate()
         {
             uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
         }
+        playerInstructions->getRenderComponent()->setAlphaBlend(uiAlpha);
     }
     else if (blackScreen.isBlackingIn())
     {

@@ -26,6 +26,9 @@
 #include "MeteorRenderComponent.h"
 #include "PlayerCollisionComponent.h"
 #include "PlayerInputComponent.h"
+#include "PlayerInstructionsInputComponent.h"
+#include "PlayerInstructionsPhysicsComponent.h"
+#include "PlayerInstructionsProjectilePhysicsComponent.h"
 #include "PlayerPhysicsComponent.h"
 #include "PlayerRenderComponent.h"
 #include "PlayerProjectileCollisionComponent.h"
@@ -655,6 +658,30 @@ GameEntity* GameEntityManager::createPlayerProjectile(GameEntity* playerEntity)
     GameEntity* projectile = new GameEntity();
     projectile->addRenderComponent(new PlayerProjectileRenderComponent(projectile, windowElements, playerEntity));
     projectile->addPhysicsComponent(new PlayerProjectilePhysicsComponent(projectile, windowElements));
+    projectile->addCollisionComponent(new PlayerProjectileCollisionComponent(projectile, windowElements, &collisionManager));
+    physicalLayer.add(projectile);
+
+    return projectile;
+}
+
+GameEntity* GameEntityManager::createPlayerInstructions()
+{
+    GameEntity* player = new GameEntity();
+    PlayerRenderComponent* playerRender = new PlayerRenderComponent(player, windowElements);
+    playerRender->enableBlending();
+    player->addRenderComponent(playerRender);
+    player->addPhysicsComponent(new PlayerInstructionsPhysicsComponent(player, windowElements, this));
+    player->addInputComponent(new PlayerInstructionsInputComponent(player, windowElements));
+    physicalLayer.add(player);
+
+    return player;
+}
+
+GameEntity* GameEntityManager::createPlayerInstructionsProjectile(GameEntity* playerEntity)
+{
+    GameEntity* projectile = new GameEntity();
+    projectile->addRenderComponent(new PlayerProjectileRenderComponent(projectile, windowElements, playerEntity));
+    projectile->addPhysicsComponent(new PlayerInstructionsProjectilePhysicsComponent(projectile, windowElements));
     projectile->addCollisionComponent(new PlayerProjectileCollisionComponent(projectile, windowElements, &collisionManager));
     physicalLayer.add(projectile);
 

@@ -35,6 +35,9 @@ _OBJS =	main.o \
 		PauseState.o \
 		PlayerCollisionComponent.o \
 		PlayerInputComponent.o \
+		PlayerInstructionsInputComponent.o \
+		PlayerInstructionsPhysicsComponent.o \
+		PlayerInstructionsProjectilePhysicsComponent.o \
 		PlayerPhysicsComponent.o \
 		PlayerRenderComponent.o \
 		PlayerProjectileCollisionComponent.o \
