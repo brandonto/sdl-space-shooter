@@ -9,8 +9,10 @@ port to Windows in the future.
 Screetshots
 =================
 
+Menu Screen
 ![Menu Screen](http://i.imgur.com/hNZOrdP.png)
 
+Game
 ![Game](http://i.imgur.com/iHSs6fC.png)
 
 
@@ -25,7 +27,7 @@ Linux (Debian)
 
 sudo apt-get update
 
-apt-cache search libsd2l
+apt-cache search libsdl2
 
 sudo apt-get install libsdl2-dev
 
@@ -35,7 +37,7 @@ sudo apt-get install libsdl2-ttf-dev
 
 create a new directory for the project
 
-git clone https://github.com/brandon/sdl-space-shooter
+git clone https://github.com/brandonto/sdl-space-shooter
 
 ~/PATHTODIR/make all
 
