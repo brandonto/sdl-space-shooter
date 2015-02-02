@@ -82,7 +82,7 @@ void GameEntityManager::pauseAllTimers()
 void GameEntityManager::resumeAllTimers()
 {
     physicalLayer.onResumeTimers();
-    effectLayer.onPauseTimers();
+    effectLayer.onResumeTimers();
 }
 
 std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* state)
