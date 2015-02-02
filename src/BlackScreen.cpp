@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-06
+ * @modified    2015-02-02
  *********************************************************************/
 #include "BlackScreen.h"
 
@@ -97,4 +97,10 @@ void BlackScreen::onUpdate()
 void BlackScreen::onRender()
 {
     SDL_RenderCopy(windowElements->renderer, blackScreen, NULL, NULL);
+}
+
+void BlackScreen::setAlpha(Uint8 alpha)
+{
+    this->alpha = alpha;
+    SDL_SetTextureAlphaMod(blackScreen, alpha);
 }

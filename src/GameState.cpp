@@ -53,7 +53,8 @@ void GameState::onEvent()
             switch(event.key.keysym.scancode)
             {
                 case SDL_SCANCODE_ESCAPE:
-                    stateTransition(STATE_MENU);
+                    applicationStateManager->pushStateOnStack(STATE_GAMEMENU);
+                    setPauseStatus(PAUSED_THIS_FRAME);
                     break;
 
                 case SDL_SCANCODE_P:

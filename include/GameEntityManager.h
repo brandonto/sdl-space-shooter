@@ -46,6 +46,7 @@ class GameEntityManager
         std::vector<GameEntity*> createMainMenu(ApplicationState* state);
         std::vector<GameEntity*> createUIInstructions(ApplicationState* state);
         std::vector<GameEntity*> createUICredits(ApplicationState* state);
+        std::vector<GameEntity*> createGameMenu(ApplicationState* state);
         GameEntity* createBackground();
         GameEntity* createEnemy();
         GameEntity* createEnemyProjectile(GameEntity* enemyEntity);

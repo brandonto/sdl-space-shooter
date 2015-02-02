@@ -1,0 +1,6 @@
+obj/UIClickFunctionResume.o: src/UIClickFunctionResume.cpp \
+ /usr/include/stdc-predef.h include/UIClickFunctionResume.h \
+ include/UIClickFunction.h include/ApplicationState.h
+src/UIClickFunctionResume.cpp :
+ /usr/include/stdc-predef.h include/UIClickFunctionResume.h :
+ include/UIClickFunction.h include/ApplicationState.h :

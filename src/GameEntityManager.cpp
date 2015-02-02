@@ -40,8 +40,10 @@
 #include "UIClickFunctionCredits.h"
 #include "UIClickFunctionFork.h"
 #include "UIClickFunctionInstructions.h"
+#include "UIClickFunctionMenu.h"
 #include "UIClickFunctionPlay.h"
 #include "UIClickFunctionQuit.h"
+#include "UIClickFunctionResume.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -564,6 +566,110 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     std::vector<GameEntity*> creditsMenuVector(creditsMenu, creditsMenu + sizeof(creditsMenu)/sizeof(GameEntity*));
 
     return creditsMenuVector;
+}
+
+std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* state)
+{
+    SDL_Rect temp;
+    GameEntity* gameMenu[5];
+
+    int xGrid = windowElements->WINDOW_WIDTH/60;
+    int yGrid = windowElements->WINDOW_HEIGHT/48;
+
+    GameEntity* uiPanel = new GameEntity();
+    UIPanelRenderComponent* uiPanelRender = new UIPanelRenderComponent(uiPanel, windowElements);
+    temp.x = 15*xGrid;
+    temp.y = 9*yGrid;
+    temp.w = 30*xGrid;
+    temp.h = 30*yGrid;
+    uiPanelRender->setRenderRect(&temp);
+    uiPanelRender->enableBlending();
+    uiPanel->addRenderComponent(uiPanelRender);
+    uiLayer.add(uiPanel);
+    gameMenu[0] = uiPanel;
+
+    GameEntity* uiResume = new GameEntity();
+    UIPanelRenderComponent* uiResumeRender = new UIPanelRenderComponent(uiResume, windowElements);
+    temp.x = 20*xGrid;
+    temp.y = 14*yGrid;
+    temp.w = 20*xGrid;
+    temp.h = 3*yGrid;
+    uiResumeRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiResumeRender->addText("Resume", 96, &temp, true);
+    uiResumeRender->enableBlending();
+    uiResume->addRenderComponent(uiResumeRender);
+    UIPanelInputComponent* uiResumeInput = new UIPanelInputComponent(uiResume);
+    uiResumeInput->addClickFunction(new UIClickFunctionResume(state));
+    uiResume->addInputComponent(uiResumeInput);
+    uiLayer.add(uiResume);
+    gameMenu[1] = uiResume;
+
+    GameEntity* uiOptions = new GameEntity();
+    UIPanelRenderComponent* uiOptionsRender = new UIPanelRenderComponent(uiOptions, windowElements);
+    temp.x = 20*xGrid;
+    temp.y = 19*yGrid;
+    temp.w = 20*xGrid;
+    temp.h = 3*yGrid;
+    uiOptionsRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiOptionsRender->addText("Options", 96, &temp, true);
+    uiOptionsRender->enableBlending();
+    uiOptions->addRenderComponent(uiOptionsRender);
+    UIPanelInputComponent* uiOptionsInput = new UIPanelInputComponent(uiOptions);
+    uiOptions->addInputComponent(uiOptionsInput);
+    uiLayer.add(uiOptions);
+    gameMenu[2] = uiOptions;
+
+    GameEntity* uiMainMenu = new GameEntity();
+    UIPanelRenderComponent* uiMainMenuRender = new UIPanelRenderComponent(uiMainMenu, windowElements);
+    temp.x = 20*xGrid;
+    temp.y = 24*yGrid;
+    temp.w = 20*xGrid;
+    temp.h = 3*yGrid;
+    uiMainMenuRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiMainMenuRender->addText("Main Menu", 96, &temp, true);
+    uiMainMenuRender->enableBlending();
+    uiMainMenu->addRenderComponent(uiMainMenuRender);
+    UIPanelInputComponent* uiMainMenuInput = new UIPanelInputComponent(uiMainMenu);
+    uiMainMenuInput->addClickFunction(new UIClickFunctionMenu(state));
+    uiMainMenu->addInputComponent(uiMainMenuInput);
+    uiLayer.add(uiMainMenu);
+    gameMenu[3] = uiMainMenu;
+
+    GameEntity* uiQuit = new GameEntity();
+    UIPanelRenderComponent* uiQuitRender = new UIPanelRenderComponent(uiQuit, windowElements);
+    temp.x = 20*xGrid;
+    temp.y = 29*yGrid;
+    temp.w = 20*xGrid;
+    temp.h = 3*yGrid;
+    uiQuitRender->setRenderRect(&temp);
+    temp.x = 11;
+    temp.y = 5;
+    temp.w = 80;
+    temp.h = 100;
+    uiQuitRender->addText("Quit", 96, &temp, true);
+    uiQuitRender->enableBlending();
+    uiQuit->addRenderComponent(uiQuitRender);
+    UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
+    uiQuitInput->addClickFunction(new UIClickFunctionQuit(state));
+    uiQuit->addInputComponent(uiQuitInput);
+    uiLayer.add(uiQuit);
+    gameMenu[4] = uiQuit;
+
+    std::vector<GameEntity*> gameMenuVector(gameMenu, gameMenu + sizeof(gameMenu)/sizeof(GameEntity*));
+
+    return gameMenuVector;
 }
 
 GameEntity* GameEntityManager::createBackground()

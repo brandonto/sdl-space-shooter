@@ -27,6 +27,7 @@ _OBJS =	main.o \
 		GameEntityCollection.o \
 		GameEntityManager.o \
 		GameState.o \
+		GameMenuState.o \
 		InstructionsState.o \
 		IntroState.o \
 		MenuState.o \
@@ -51,8 +52,10 @@ _OBJS =	main.o \
 		UIClickFunctionCredits.o \
 		UIClickFunctionFork.o \
 		UIClickFunctionInstructions.o \
+		UIClickFunctionMenu.o \
 		UIClickFunctionPlay.o \
 		UIClickFunctionQuit.o \
+		UIClickFunctionResume.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o

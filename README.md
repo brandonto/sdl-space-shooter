@@ -2,17 +2,18 @@ sdl-space-shooter
 =================
 
 An object-oriented, 2D space shooter written in C++ with SDL. Primarily as
-a learning exercise. At the moment, only supported on Linux. May or may not
-port to Windows in the future.
+a learning exercise on software architecture. The code base uses many design
+patterns common in game development.
+
+Currently only supported on Linux. May or may not be port to Windows in the
+future.
 
 
 Screetshots
 =================
 
-Menu Screen
 ![Menu Screen](http://i.imgur.com/hNZOrdP.png)
 
-Game
 ![Game](http://i.imgur.com/iHSs6fC.png)
 
 
@@ -44,7 +45,8 @@ git clone https://github.com/brandonto/sdl-space-shooter
 ~/PATHTODIR/SpaceShooter
 
 
-Windows:
+Windows
 =================
 
 TBD
+

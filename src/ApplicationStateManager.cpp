@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-01
+ * @modified    2015-02-02
  *********************************************************************/
 #include "ApplicationStateManager.h"
 
@@ -15,6 +15,7 @@
 #include "CreditsState.h"
 #include "InstructionsState.h"
 #include "GameState.h"
+#include "GameMenuState.h"
 #include "MenuState.h"
 #include "PauseState.h"
 #include "WindowElements.h"
@@ -186,6 +187,14 @@ void ApplicationStateManager::changeState()
         {
             case STATE_PAUSE:
                 currentState = new PauseState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                currentStateEnum = pushedStateEnum;
+                stateStackEnum.push_back(pushedStateEnum);
+                break;
+
+            case STATE_GAMEMENU:
+                currentState = new GameMenuState(this, windowElements);
                 currentState->onEnter();
                 stateStack.push_back(currentState);
                 currentStateEnum = pushedStateEnum;

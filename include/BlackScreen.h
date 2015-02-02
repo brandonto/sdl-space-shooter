@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-05
+ * @modified    2015-02-02
  *********************************************************************/
 #ifndef SPACESHOOTER_BLACKSCREEN_H_
     #define SPACESHOOTER_BLACKSCREEN_H_
@@ -37,6 +37,7 @@ class BlackScreen
         void startBlackOut();
         void onUpdate();
         void onRender();
+        void setAlpha(Uint8 alpha);
 
 };
 
