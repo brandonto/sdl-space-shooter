@@ -48,14 +48,6 @@ _OBJS =	main.o \
 		SpriteRenderComponent.o \
 		TextRenderComponent.o \
 		Timer.o \
-		UIClickFunctionBack.o \
-		UIClickFunctionCredits.o \
-		UIClickFunctionFork.o \
-		UIClickFunctionInstructions.o \
-		UIClickFunctionMenu.o \
-		UIClickFunctionPlay.o \
-		UIClickFunctionQuit.o \
-		UIClickFunctionResume.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o
@@ -150,3 +142,12 @@ clean:
 #		$(INCDIR)/SDL_util.h
 #	$(CC) $(CFLAGS) $(LFLAGS) $< -o $@
 
+
+		#UIClickFunctionBack.o \
+		UIClickFunctionCredits.o \
+		UIClickFunctionFork.o \
+		UIClickFunctionInstructions.o \
+		UIClickFunctionMenu.o \
+		UIClickFunctionPlay.o \
+		UIClickFunctionQuit.o \
+		UIClickFunctionResume.o \

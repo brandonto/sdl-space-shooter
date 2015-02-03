@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-01
+ * @modified    2015-02-03
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -36,14 +36,15 @@
 #include "PlayerProjectileRenderComponent.h"
 #include "SpriteRenderComponent.h"
 #include "TextRenderComponent.h"
-#include "UIClickFunctionBack.h"
-#include "UIClickFunctionCredits.h"
-#include "UIClickFunctionFork.h"
-#include "UIClickFunctionInstructions.h"
-#include "UIClickFunctionMenu.h"
-#include "UIClickFunctionPlay.h"
-#include "UIClickFunctionQuit.h"
-#include "UIClickFunctionResume.h"
+#include "UIClickFunction.h"
+//#include "UIClickFunctionBack.h"
+//#include "UIClickFunctionCredits.h"
+//#include "UIClickFunctionFork.h"
+//#include "UIClickFunctionInstructions.h"
+//#include "UIClickFunctionMenu.h"
+//#include "UIClickFunctionPlay.h"
+//#include "UIClickFunctionQuit.h"
+//#include "UIClickFunctionResume.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
