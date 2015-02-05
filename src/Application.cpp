@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-06
+ * @modified    2015-02-04
  *********************************************************************/
 #include "Application.h"
 
@@ -91,7 +91,6 @@ bool Application::initialize()
 
 void Application::terminate()
 {
-
     SDL_DestroyRenderer(windowElements.renderer);
     windowElements.renderer = NULL;
 
