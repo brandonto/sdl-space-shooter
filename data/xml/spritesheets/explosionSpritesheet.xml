@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<Spritesheet>
+    <SubTexture name="explosion00" x="0" y="0" width="64" height="64" />
+    <SubTexture name="explosion01" x="64" y="0" width="64" height="64" />
+    <SubTexture name="explosion02" x="128" y="0" width="64" height="64" />
+    <SubTexture name="explosion03" x="192" y="0" width="64" height="64" />
+    <SubTexture name="explosion04" x="0" y="64" width="64" height="64" />
+    <SubTexture name="explosion05" x="64" y="64" width="64" height="64" />
+    <SubTexture name="explosion06" x="128" y="64" width="64" height="64" />
+    <SubTexture name="explosion07" x="192" y="64" width="64" height="64" />
+    <SubTexture name="explosion08" x="0" y="128" width="64" height="64" />
+    <SubTexture name="explosion09" x="64" y="128" width="64" height="64" />
+    <SubTexture name="explosion10" x="128" y="128" width="64" height="64" />
+    <SubTexture name="explosion11" x="192" y="128" width="64" height="64" />
+    <SubTexture name="explosion12" x="0" y="192" width="64" height="64" />
+    <SubTexture name="explosion13" x="64" y="192" width="64" height="64" />
+    <SubTexture name="explosion14" x="128" y="192" width="64" height="64" />
+    <SubTexture name="explosion15" x="192" y="192" width="64" height="64" />
+</spritesheet>
+
+

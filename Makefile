@@ -48,6 +48,8 @@ _OBJS =	main.o \
 		SpriteRenderComponent.o \
 		TextRenderComponent.o \
 		Timer.o \
+		tinystr.o \
+		tinyxml.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o
