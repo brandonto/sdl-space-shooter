@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERRENDERCOMPONENT_
     #define SPACESHOOTER_PLAYERRENDERCOMPONENT_
@@ -18,9 +18,6 @@ struct WindowElements;
 
 class PlayerRenderComponent : public RenderComponent
 {
-    private:
-        Uint8 alpha;
-
     public:
         //Constructor
         PlayerRenderComponent(GameEntity* gameEntity,

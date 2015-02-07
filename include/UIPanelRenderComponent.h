@@ -20,8 +20,6 @@ struct WindowElements;
 class UIPanelRenderComponent : public RenderComponent
 {
     private:
-        SDL_Surface* spriteSurface;
-        Uint8 alpha;
         const Uint8 SELECTED_ALPHA = 255;
         Uint8 cachedAlpha;
         bool selected;
@@ -36,13 +34,9 @@ class UIPanelRenderComponent : public RenderComponent
 
         //Methods
         void update();
-        void enableBlending();
-        void setAlphaBlend(Uint8 alpha);
-        Uint8 getAlphaBlend();
         bool isSelected();
         void toggleSelected();
         void setRenderRect(SDL_Rect* rect);
-        void addText(std::string text, int fontSize, SDL_Rect* destRect, bool scaled);
         bool buttonReady();
 };
 

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-13
- * @modified    2014-09-25
+ * @modified    2015-02-06
  *********************************************************************/
 #include "BackgroundPhysicsComponent.h"
 
@@ -31,7 +31,7 @@ void BackgroundPhysicsComponent::update()
     {
         gameEntity->position.y += 1;
     }
-	if (gameEntity->position.y > render->renderRect.h)
+	if (gameEntity->position.y > render->getRenderRect().h)
 	{
 		gameEntity->position.y = 0;
 	}

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #include "BackgroundRenderComponent.h"
 
@@ -12,6 +12,7 @@
 #include <SDL2/SDL.h>
 #include "GameEntity.h"
 #include "SDL_util.h"
+#include "Texture.h"
 #include "WindowElements.h"
 
 BackgroundRenderComponent::BackgroundRenderComponent(GameEntity* gameEntity,
@@ -19,22 +20,28 @@ BackgroundRenderComponent::BackgroundRenderComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite=SDL_util::create_background_texture(windowElements, "bin/graphics/background/black.png");
-    SDL_QueryTexture(sprite, NULL, NULL, &(renderRect.w), &(renderRect.h));
+
+    texture = new Texture(windowElements);
+    SDL_Texture* sprite = SDL_util::create_background_texture(windowElements, "bin/graphics/background/darkPurple.png");
+    texture->setTexture(sprite);
+    sprite = NULL;
+
+    //SDL_QueryTexture(sprite, NULL, NULL, &(renderRect.w), &(renderRect.h));
     renderRect.x = 0;
     renderRect.y = 0;
+    renderRect.w = texture->getSpriteWidth();
+    renderRect.h = texture->getSpriteHeight();
 }
 
 void BackgroundRenderComponent::update()
 {
     renderRect.y = gameEntity->position.y;
-    SDL_RenderCopyEx(windowElements->renderer, sprite, NULL, &renderRect, 0.0, NULL, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(windowElements->renderer, texture->getTexture(), NULL, &renderRect, 0.0, NULL, SDL_FLIP_NONE);
     renderRect.y = gameEntity->position.y - renderRect.h;
-    SDL_RenderCopyEx(windowElements->renderer, sprite, NULL, &renderRect, 0.0, NULL, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(windowElements->renderer, texture->getTexture(), NULL, &renderRect, 0.0, NULL, SDL_FLIP_NONE);
 }
 
 BackgroundRenderComponent::~BackgroundRenderComponent()
 {
-     SDL_DestroyTexture(sprite);
-     sprite=NULL;
+    delete texture;
 }

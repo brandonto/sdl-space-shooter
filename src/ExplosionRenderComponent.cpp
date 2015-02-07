@@ -4,13 +4,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-25
- * @modified    2014-10-21
+ * @modified    2015-02-06
  *********************************************************************/
 #include "ExplosionRenderComponent.h"
 
 #include <cstddef>
 #include "GameEntity.h"
 #include "SDL_util.h"
+#include "Texture.h"
 #include "WindowElements.h"
 
 ExplosionRenderComponent::ExplosionRenderComponent(GameEntity* gameEntity,
@@ -19,55 +20,40 @@ ExplosionRenderComponent::ExplosionRenderComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/explosionspritesheet.png");
 
-    //Spritesheet is 4 by 4
-    SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
-    spriteWidth /= 4;
-    spriteHeight /= 4;
+    texture = new Texture(windowElements);
+    texture->setTexture("bin/graphics/sprites/explosionSpritesheet.png");
 
-    //Stretches to fit render destination
-    renderRect.w = destroyedEntity->getRenderComponent()->spriteWidth;
-    renderRect.h = destroyedEntity->getRenderComponent()->spriteHeight;
+    // Stretches to fit render destination
+    renderRect.w = destroyedEntity->getRenderComponent()->getTexture()->getSpriteWidth();
+    renderRect.h = destroyedEntity->getRenderComponent()->getTexture()->getSpriteHeight();
 
-    //Calculates position of sprite
+    // Calculates position of sprite
     gameEntity->position.x = destroyedEntity->position.x;
     gameEntity->position.y = destroyedEntity->position.y;
     renderRect.x = gameEntity->position.x - renderRect.w/2;
     renderRect.y = gameEntity->position.y - renderRect.h/2;
 
-    //Sets partition spritesheet
-    for (int i=0; i<16; i++)
-    {
-        srcRectArray[i].w = spriteWidth;
-        srcRectArray[i].h = spriteHeight;
-        srcRectArray[i].x = i%4 * spriteWidth;
-        srcRectArray[i].y = i/4 * spriteHeight;
-    }
+    // Sets partition spritesheet
+    texture->partitionSpritesheet("data/xml/spritesheets/explosionSpritesheet.xml");
 
-    animationIndex = 0;
-    srcRect = srcRectArray[animationIndex];
+    // Start at the first animation frame
+    texture->setAnimationFrame(0);
 }
 
 void ExplosionRenderComponent::update()
 {
-
-    SDL_RenderCopy(windowElements->renderer, sprite, &srcRect, &renderRect);
+    SDL_Rect sourceRect = texture->getSourceRect();
+    SDL_RenderCopy(windowElements->renderer, texture->getTexture(), &sourceRect, &renderRect);
 }
 
-//Returns false if at end of animation
+// Returns false if at end of animation
 bool ExplosionRenderComponent::advanceAnimation()
 {
-    if (++animationIndex < 16)
-    {
-        srcRect = srcRectArray[animationIndex];
-        return true;
-    }
-    return false;
+    return texture->advanceAnimation();
 }
 
 ExplosionRenderComponent::~ExplosionRenderComponent()
 {
-    SDL_DestroyTexture(sprite);
-    sprite=NULL;
+    delete texture;
 }

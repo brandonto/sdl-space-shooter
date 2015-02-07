@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERINSTRUCTIONSPHYSICSCOMPONENTCOMPONENT_
     #define SPACESHOOTER_PLAYERINSTRUCTIONSPHYSICSCOMPONENTCOMPONENT_
@@ -13,6 +13,8 @@
 #include <SDL2/SDL.h>
 #include "Timer.h"
 #include "Vector2D.h"
+
+#define COLLISION_BUFFER 20
 
 class GameEntity;
 class GameEntityManager;

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-03
+ * @modified    2015-02-06
  *********************************************************************/
 #include "GameEntityManager.h"
 
@@ -37,14 +37,6 @@
 #include "SpriteRenderComponent.h"
 #include "TextRenderComponent.h"
 #include "UIClickFunction.h"
-//#include "UIClickFunctionBack.h"
-//#include "UIClickFunctionCredits.h"
-//#include "UIClickFunctionFork.h"
-//#include "UIClickFunctionInstructions.h"
-//#include "UIClickFunctionMenu.h"
-//#include "UIClickFunctionPlay.h"
-//#include "UIClickFunctionQuit.h"
-//#include "UIClickFunctionResume.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -91,7 +83,7 @@ void GameEntityManager::resumeAllTimers()
 std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* state)
 {
     SDL_Rect temp;
-    GameEntity* mainMenu[6];
+    GameEntity* mainMenu[13];
 
     int xGrid = windowElements->WINDOW_WIDTH/30;
     int yGrid = windowElements->WINDOW_HEIGHT/48;
@@ -103,22 +95,48 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 18*xGrid;
     temp.h = 12*yGrid;
     uiTitleRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 0;
-    temp.w = 80;
-    temp.h = 60;
+    //temp.x = 11;
+    //temp.y = 0;
+    //temp.w = 80;
+    //temp.h = 60;
     //printf("x = %d", temp.x);
     //printf("y = %d", temp.y);
-    uiTitleRender->addText("Space", 96, &temp, true);
-    temp.x = 5;
-    temp.y = 45;
-    temp.w = 92;
-    temp.h = 70;
-    uiTitleRender->addText("Shooter", 96, &temp, true);
-    uiTitleRender->enableBlending();
+    //uiTitleRender->addText("Space", 96, &temp, true);
+    //temp.x = 5;
+    //temp.y = 45;
+    //temp.w = 92;
+    //temp.h = 70;
+    //uiTitleRender->addText("Shooter", 96, &temp, true);
+    uiTitleRender->getTexture()->enableAlphaBlend();
     uiTitle->addRenderComponent(uiTitleRender);
     uiLayer.add(uiTitle);
     mainMenu[0] = uiTitle;
+
+    GameEntity* spaceText = new GameEntity();
+    TextRenderComponent* spaceTextRender = new TextRenderComponent(spaceText, windowElements);
+    temp.x = 6*xGrid+30;
+    temp.y = 6*yGrid+2;
+    temp.w = 18*xGrid-45;
+    temp.h = 6*yGrid-5;
+    spaceTextRender->setRenderRect(&temp);
+    spaceTextRender->setText("Space", 96);
+    spaceTextRender->getTexture()->enableAlphaBlend();
+    spaceText->addRenderComponent(spaceTextRender);
+    uiLayer.add(spaceText);
+    mainMenu[1] = spaceText;
+
+    GameEntity* shooterText = new GameEntity();
+    TextRenderComponent* shooterTextRender = new TextRenderComponent(shooterText, windowElements);
+    temp.x = 6*xGrid+30;
+    temp.y = 12*yGrid+2;
+    temp.w = 18*xGrid-45;
+    temp.h = 6*yGrid-5;
+    shooterTextRender->setRenderRect(&temp);
+    shooterTextRender->setText("Shooter", 96);
+    shooterTextRender->getTexture()->enableAlphaBlend();
+    shooterText->addRenderComponent(shooterTextRender);
+    uiLayer.add(shooterText);
+    mainMenu[2] = shooterText;
 
     GameEntity* uiPlay = new GameEntity();
     UIPanelRenderComponent* uiPlayRender = new UIPanelRenderComponent(uiPlay, windowElements);
@@ -127,18 +145,31 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiPlayRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiPlayRender->addText("Play", 96, &temp, true);
-    uiPlayRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiPlayRender->addText("Play", 96, &temp, true);
+    uiPlayRender->getTexture()->enableAlphaBlend();
     uiPlay->addRenderComponent(uiPlayRender);
     UIPanelInputComponent* uiPlayInput = new UIPanelInputComponent(uiPlay);
     uiPlayInput->addClickFunction(new UIClickFunctionPlay(state));
     uiPlay->addInputComponent(uiPlayInput);
     uiLayer.add(uiPlay);
-    mainMenu[1] = uiPlay;
+    mainMenu[3] = uiPlay;
+
+    GameEntity* playText = new GameEntity();
+    TextRenderComponent* playTextRender = new TextRenderComponent(playText, windowElements);
+    temp.x = 10*xGrid+18;
+    temp.y = 21*yGrid+2;
+    temp.w = 10*xGrid-25;
+    temp.h = 3*yGrid-5;
+    playTextRender->setRenderRect(&temp);
+    playTextRender->setText("Play", 96);
+    playTextRender->getTexture()->enableAlphaBlend();
+    playText->addRenderComponent(playTextRender);
+    uiLayer.add(playText);
+    mainMenu[4] = playText;
 
     GameEntity* uiInstructions = new GameEntity();
     UIPanelRenderComponent* uiInstructionsRender = new UIPanelRenderComponent(uiInstructions, windowElements);
@@ -147,18 +178,31 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiInstructionsRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiInstructionsRender->addText("Instructions", 96, &temp, true);
-    uiInstructionsRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiInstructionsRender->addText("Instructions", 96, &temp, true);
+    uiInstructionsRender->getTexture()->enableAlphaBlend();
     uiInstructions->addRenderComponent(uiInstructionsRender);
     UIPanelInputComponent* uiInstructionsInput = new UIPanelInputComponent(uiInstructions);
     uiInstructionsInput->addClickFunction(new UIClickFunctionInstructions(state));
     uiInstructions->addInputComponent(uiInstructionsInput);
     uiLayer.add(uiInstructions);
-    mainMenu[2] = uiInstructions;
+    mainMenu[5] = uiInstructions;
+
+    GameEntity* instructionsText = new GameEntity();
+    TextRenderComponent* instructionsTextRender = new TextRenderComponent(instructionsText, windowElements);
+    temp.x = 10*xGrid+18;
+    temp.y = 26*yGrid+2;
+    temp.w = 10*xGrid-25;
+    temp.h = 3*yGrid-5;
+    instructionsTextRender->setRenderRect(&temp);
+    instructionsTextRender->setText("Instructions", 96);
+    instructionsTextRender->getTexture()->enableAlphaBlend();
+    instructionsText->addRenderComponent(instructionsTextRender);
+    uiLayer.add(instructionsText);
+    mainMenu[6] = instructionsText;
 
     GameEntity* uiOptions = new GameEntity();
     UIPanelRenderComponent* uiOptionsRender = new UIPanelRenderComponent(uiOptions, windowElements);
@@ -167,17 +211,30 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiOptionsRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiOptionsRender->addText("Options", 96, &temp, true);
-    uiOptionsRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiOptionsRender->addText("Options", 96, &temp, true);
+    uiOptionsRender->getTexture()->enableAlphaBlend();
     uiOptions->addRenderComponent(uiOptionsRender);
     UIPanelInputComponent* uiOptionsInput = new UIPanelInputComponent(uiOptions);
     uiOptions->addInputComponent(uiOptionsInput);
     uiLayer.add(uiOptions);
-    mainMenu[3] = uiOptions;
+    mainMenu[7] = uiOptions;
+
+    GameEntity* optionsText = new GameEntity();
+    TextRenderComponent* optionsTextRender = new TextRenderComponent(optionsText, windowElements);
+    temp.x = 10*xGrid+18;
+    temp.y = 31*yGrid+2;
+    temp.w = 10*xGrid-25;
+    temp.h = 3*yGrid-5;
+    optionsTextRender->setRenderRect(&temp);
+    optionsTextRender->setText("Options", 96);
+    optionsTextRender->getTexture()->enableAlphaBlend();
+    optionsText->addRenderComponent(optionsTextRender);
+    uiLayer.add(optionsText);
+    mainMenu[8] = optionsText;
 
     GameEntity* uiCredits = new GameEntity();
     UIPanelRenderComponent* uiCreditsRender = new UIPanelRenderComponent(uiCredits, windowElements);
@@ -186,18 +243,31 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiCreditsRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiCreditsRender->addText("Credits", 96, &temp, true);
-    uiCreditsRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiCreditsRender->addText("Credits", 96, &temp, true);
+    uiCreditsRender->getTexture()->enableAlphaBlend();
     uiCredits->addRenderComponent(uiCreditsRender);
     UIPanelInputComponent* uiCreditsInput = new UIPanelInputComponent(uiCredits);
     uiCreditsInput->addClickFunction(new UIClickFunctionCredits(state));
     uiCredits->addInputComponent(uiCreditsInput);
     uiLayer.add(uiCredits);
-    mainMenu[4] = uiCredits;
+    mainMenu[9] = uiCredits;
+
+    GameEntity* creditsText = new GameEntity();
+    TextRenderComponent* creditsTextRender = new TextRenderComponent(creditsText, windowElements);
+    temp.x = 10*xGrid+18;
+    temp.y = 36*yGrid+2;
+    temp.w = 10*xGrid-25;
+    temp.h = 3*yGrid-5;
+    creditsTextRender->setRenderRect(&temp);
+    creditsTextRender->setText("Credits", 96);
+    creditsTextRender->getTexture()->enableAlphaBlend();
+    creditsText->addRenderComponent(creditsTextRender);
+    uiLayer.add(creditsText);
+    mainMenu[10] = creditsText;
 
     GameEntity* uiQuit = new GameEntity();
     UIPanelRenderComponent* uiQuitRender = new UIPanelRenderComponent(uiQuit, windowElements);
@@ -206,18 +276,31 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiQuitRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiQuitRender->addText("Quit", 96, &temp, true);
-    uiQuitRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiQuitRender->addText("Quit", 96, &temp, true);
+    uiQuitRender->getTexture()->enableAlphaBlend();
     uiQuit->addRenderComponent(uiQuitRender);
     UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
     uiQuitInput->addClickFunction(new UIClickFunctionQuit(state));
     uiQuit->addInputComponent(uiQuitInput);
     uiLayer.add(uiQuit);
-    mainMenu[5] = uiQuit;
+    mainMenu[11] = uiQuit;
+
+    GameEntity* quitText = new GameEntity();
+    TextRenderComponent* quitTextRender = new TextRenderComponent(quitText, windowElements);
+    temp.x = 10*xGrid+18;
+    temp.y = 41*yGrid+2;
+    temp.w = 10*xGrid-25;
+    temp.h = 3*yGrid-5;
+    quitTextRender->setRenderRect(&temp);
+    quitTextRender->setText("Quit", 96);
+    quitTextRender->getTexture()->enableAlphaBlend();
+    quitText->addRenderComponent(quitTextRender);
+    uiLayer.add(quitText);
+    mainMenu[12] = quitText;
 
     std::vector<GameEntity*> mainMenuVector(mainMenu, mainMenu + sizeof(mainMenu)/sizeof(GameEntity*));
 
@@ -227,7 +310,7 @@ std::vector<GameEntity*> GameEntityManager::createMainMenu(ApplicationState* sta
 std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationState* state)
 {
     SDL_Rect temp;
-    GameEntity* instructionsMenu[18];
+    GameEntity* instructionsMenu[19];
 
     int xGrid = windowElements->WINDOW_WIDTH/60;
     int yGrid = windowElements->WINDOW_HEIGHT/48;
@@ -240,7 +323,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.h = 5*yGrid;
     movementTextRender->setRenderRect(&temp);
     movementTextRender->setText("Movement:", 96);
-    movementTextRender->enableBlending();
+    movementTextRender->getTexture()->enableAlphaBlend();
     movementText->addRenderComponent(movementTextRender);
     uiLayer.add(movementText);
     instructionsMenu[0] = movementText;
@@ -252,8 +335,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyWRender->setRenderRect(&temp);
-    keyWRender->setImage("bin/graphics/ui/Keyboard_White_W.png");
-    keyWRender->enableBlending();
+    keyWRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_W.png");
+    keyWRender->getTexture()->enableAlphaBlend();
     keyW->addRenderComponent(keyWRender);
     uiLayer.add(keyW);
     instructionsMenu[1] = keyW;
@@ -265,8 +348,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyARender->setRenderRect(&temp);
-    keyARender->setImage("bin/graphics/ui/Keyboard_White_A.png");
-    keyARender->enableBlending();
+    keyARender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_A.png");
+    keyARender->getTexture()->enableAlphaBlend();
     keyA->addRenderComponent(keyARender);
     uiLayer.add(keyA);
     instructionsMenu[2] = keyA;
@@ -278,8 +361,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keySRender->setRenderRect(&temp);
-    keySRender->setImage("bin/graphics/ui/Keyboard_White_S.png");
-    keySRender->enableBlending();
+    keySRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_S.png");
+    keySRender->getTexture()->enableAlphaBlend();
     keyS->addRenderComponent(keySRender);
     uiLayer.add(keyS);
     instructionsMenu[3] = keyS;
@@ -291,8 +374,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyDRender->setRenderRect(&temp);
-    keyDRender->setImage("bin/graphics/ui/Keyboard_White_D.png");
-    keyDRender->enableBlending();
+    keyDRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_D.png");
+    keyDRender->getTexture()->enableAlphaBlend();
     keyD->addRenderComponent(keyDRender);
     uiLayer.add(keyD);
     instructionsMenu[4] = keyD;
@@ -305,7 +388,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.h = 5*yGrid;
     orTextRender->setRenderRect(&temp);
     orTextRender->setText("or", 96);
-    orTextRender->enableBlending();
+    orTextRender->getTexture()->enableAlphaBlend();
     orText->addRenderComponent(orTextRender);
     uiLayer.add(orText);
     instructionsMenu[5] = orText;
@@ -317,8 +400,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyUpRender->setRenderRect(&temp);
-    keyUpRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Up.png");
-    keyUpRender->enableBlending();
+    keyUpRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_Arrow_Up.png");
+    keyUpRender->getTexture()->enableAlphaBlend();
     keyUp->addRenderComponent(keyUpRender);
     uiLayer.add(keyUp);
     instructionsMenu[6] = keyUp;
@@ -330,8 +413,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyLeftRender->setRenderRect(&temp);
-    keyLeftRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Left.png");
-    keyLeftRender->enableBlending();
+    keyLeftRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_Arrow_Left.png");
+    keyLeftRender->getTexture()->enableAlphaBlend();
     keyLeft->addRenderComponent(keyLeftRender);
     uiLayer.add(keyLeft);
     instructionsMenu[7] = keyLeft;
@@ -343,8 +426,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyDownRender->setRenderRect(&temp);
-    keyDownRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Down.png");
-    keyDownRender->enableBlending();
+    keyDownRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_Arrow_Down.png");
+    keyDownRender->getTexture()->enableAlphaBlend();
     keyDown->addRenderComponent(keyDownRender);
     uiLayer.add(keyDown);
     instructionsMenu[8] = keyDown;
@@ -356,8 +439,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     KeyRightRender->setRenderRect(&temp);
-    KeyRightRender->setImage("bin/graphics/ui/Keyboard_White_Arrow_Right.png");
-    KeyRightRender->enableBlending();
+    KeyRightRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_Arrow_Right.png");
+    KeyRightRender->getTexture()->enableAlphaBlend();
     KeyRight->addRenderComponent(KeyRightRender);
     uiLayer.add(KeyRight);
     instructionsMenu[9] = KeyRight;
@@ -370,7 +453,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.h = 5*yGrid;
     shootRender->setRenderRect(&temp);
     shootRender->setText("Shoot:", 96);
-    shootRender->enableBlending();
+    shootRender->getTexture()->enableAlphaBlend();
     shoot->addRenderComponent(shootRender);
     uiLayer.add(shoot);
     instructionsMenu[10] = shoot;
@@ -382,8 +465,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 8*xGrid;
     temp.h = 6*yGrid;
     keySpaceRender->setRenderRect(&temp);
-    keySpaceRender->setImage("bin/graphics/ui/Keyboard_White_Space.png");
-    keySpaceRender->enableBlending();
+    keySpaceRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_Space.png");
+    keySpaceRender->getTexture()->enableAlphaBlend();
     keySpace->addRenderComponent(keySpaceRender);
     uiLayer.add(keySpace);
     instructionsMenu[11] = keySpace;
@@ -396,7 +479,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.h = 5*yGrid;
     pauseRender->setRenderRect(&temp);
     pauseRender->setText("Pause:", 96);
-    pauseRender->enableBlending();
+    pauseRender->getTexture()->enableAlphaBlend();
     pause->addRenderComponent(pauseRender);
     uiLayer.add(pause);
     instructionsMenu[12] = pause;
@@ -408,8 +491,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyPRender->setRenderRect(&temp);
-    keyPRender->setImage("bin/graphics/ui/Keyboard_White_P.png");
-    keyPRender->enableBlending();
+    keyPRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_P.png");
+    keyPRender->getTexture()->enableAlphaBlend();
     keyP->addRenderComponent(keyPRender);
     uiLayer.add(keyP);
     instructionsMenu[13] = keyP;
@@ -422,7 +505,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.h = 5*yGrid;
     menuRender->setRenderRect(&temp);
     menuRender->setText("Menu:", 96);
-    menuRender->enableBlending();
+    menuRender->getTexture()->enableAlphaBlend();
     menu->addRenderComponent(menuRender);
     uiLayer.add(menu);
     instructionsMenu[14] = menu;
@@ -434,8 +517,8 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 5*xGrid;
     temp.h = 5*yGrid;
     keyEscRender->setRenderRect(&temp);
-    keyEscRender->setImage("bin/graphics/ui/Keyboard_White_Esc.png");
-    keyEscRender->enableBlending();
+    keyEscRender->getTexture()->setTexture("bin/graphics/ui/Keyboard_White_Esc.png");
+    keyEscRender->getTexture()->enableAlphaBlend();
     keyEsc->addRenderComponent(keyEscRender);
     uiLayer.add(keyEsc);
     instructionsMenu[15] = keyEsc;
@@ -447,18 +530,31 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiBackRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiBackRender->addText("Back", 96, &temp, true);
-    uiBackRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiBackRender->addText("Back", 96, &temp, true);
+    uiBackRender->getTexture()->enableAlphaBlend();
     uiBack->addRenderComponent(uiBackRender);
     UIPanelInputComponent* uiBackInput = new UIPanelInputComponent(uiBack);
     uiBackInput->addClickFunction(new UIClickFunctionBack(state));
     uiBack->addInputComponent(uiBackInput);
     uiLayer.add(uiBack);
     instructionsMenu[16] = uiBack;
+
+    GameEntity* backText = new GameEntity();
+    TextRenderComponent* backTextRender = new TextRenderComponent(backText, windowElements);
+    temp.x = 1*xGrid+10;
+    temp.y = 44*yGrid+1;
+    temp.w = 10*xGrid-15;
+    temp.h = 3*yGrid-1;
+    backTextRender->setRenderRect(&temp);
+    backTextRender->setText("Back", 96);
+    backTextRender->getTexture()->enableAlphaBlend();
+    backText->addRenderComponent(backTextRender);
+    uiLayer.add(backText);
+    instructionsMenu[17] = backText;
 
     GameEntity* uiControls = new GameEntity();
     UIPanelRenderComponent* uiControlsRender = new UIPanelRenderComponent(uiControls, windowElements);
@@ -467,10 +563,10 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
     temp.w = 34*xGrid;
     temp.h = 34*yGrid;
     uiControlsRender->setRenderRect(&temp);
-    uiControlsRender->enableBlending();
+    uiControlsRender->getTexture()->enableAlphaBlend();
     uiControls->addRenderComponent(uiControlsRender);
     uiLayer.add(uiControls);
-    instructionsMenu[17] = uiControls;
+    instructionsMenu[18] = uiControls;
 
     std::vector<GameEntity*> instructionsMenuVector(instructionsMenu, instructionsMenu + sizeof(instructionsMenu)/sizeof(GameEntity*));
 
@@ -480,7 +576,7 @@ std::vector<GameEntity*> GameEntityManager::createUIInstructions(ApplicationStat
 std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* state)
 {
     SDL_Rect temp;
-    GameEntity* creditsMenu[5];
+    GameEntity* creditsMenu[7];
 
     int xGrid = windowElements->WINDOW_WIDTH/60;
     int yGrid = windowElements->WINDOW_HEIGHT/48;
@@ -493,7 +589,7 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     temp.h = 5*yGrid;
     createdTextRender->setRenderRect(&temp);
     createdTextRender->setText("Created by Brandon To", 96);
-    createdTextRender->enableBlending();
+    createdTextRender->getTexture()->enableAlphaBlend();
     createdText->addRenderComponent(createdTextRender);
     uiLayer.add(createdText);
     creditsMenu[0] = createdText;
@@ -506,7 +602,7 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     temp.h = 5*yGrid;
     developmentTextRender->setRenderRect(&temp);
     developmentTextRender->setText("Development of project can be found on Github", 96);
-    developmentTextRender->enableBlending();
+    developmentTextRender->getTexture()->enableAlphaBlend();
     developmentText->addRenderComponent(developmentTextRender);
     uiLayer.add(developmentText);
     creditsMenu[1] = developmentText;
@@ -518,18 +614,31 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     temp.w = 10*xGrid;
     temp.h = 4*yGrid;
     uiForkRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiForkRender->addText("Fork Me!", 96, &temp, true);
-    uiForkRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiForkRender->addText("Fork Me!", 96, &temp, true);
+    uiForkRender->getTexture()->enableAlphaBlend();
     uiFork->addRenderComponent(uiForkRender);
     UIPanelInputComponent* uiForkInput = new UIPanelInputComponent(uiFork);
     uiForkInput->addClickFunction(new UIClickFunctionFork(state));
     uiFork->addInputComponent(uiForkInput);
     uiLayer.add(uiFork);
     creditsMenu[2] = uiFork;
+
+    GameEntity* forkText = new GameEntity();
+    TextRenderComponent* forkTextRender = new TextRenderComponent(forkText, windowElements);
+    temp.x = 25*xGrid+10;
+    temp.y = 26*yGrid+1;
+    temp.w = 10*xGrid-15;
+    temp.h = 4*yGrid-1;
+    forkTextRender->setRenderRect(&temp);
+    forkTextRender->setText("Fork Me!", 96);
+    forkTextRender->getTexture()->enableAlphaBlend();
+    forkText->addRenderComponent(forkTextRender);
+    uiLayer.add(forkText);
+    creditsMenu[3] = forkText;
 
     GameEntity* githubText = new GameEntity();
     TextRenderComponent* githubTextRender = new TextRenderComponent(githubText, windowElements);
@@ -539,10 +648,10 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     temp.h = 2*yGrid;
     githubTextRender->setRenderRect(&temp);
     githubTextRender->setText("https://github.com/brandonto", 96);
-    githubTextRender->enableBlending();
+    githubTextRender->getTexture()->enableAlphaBlend();
     githubText->addRenderComponent(githubTextRender);
     uiLayer.add(githubText);
-    creditsMenu[3] = githubText;
+    creditsMenu[4] = githubText;
 
     GameEntity* uiBack = new GameEntity();
     UIPanelRenderComponent* uiBackRender = new UIPanelRenderComponent(uiBack, windowElements);
@@ -551,18 +660,31 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
     temp.w = 10*xGrid;
     temp.h = 3*yGrid;
     uiBackRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiBackRender->addText("Back", 96, &temp, true);
-    uiBackRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiBackRender->addText("Back", 96, &temp, true);
+    uiBackRender->getTexture()->enableAlphaBlend();
     uiBack->addRenderComponent(uiBackRender);
     UIPanelInputComponent* uiBackInput = new UIPanelInputComponent(uiBack);
     uiBackInput->addClickFunction(new UIClickFunctionBack(state));
     uiBack->addInputComponent(uiBackInput);
     uiLayer.add(uiBack);
-    creditsMenu[4] = uiBack;
+    creditsMenu[5] = uiBack;
+
+    GameEntity* backText = new GameEntity();
+    TextRenderComponent* backTextRender = new TextRenderComponent(backText, windowElements);
+    temp.x = 1*xGrid+10;
+    temp.y = 44*yGrid+1;
+    temp.w = 10*xGrid-15;
+    temp.h = 3*yGrid-1;
+    backTextRender->setRenderRect(&temp);
+    backTextRender->setText("Back", 96);
+    backTextRender->getTexture()->enableAlphaBlend();
+    backText->addRenderComponent(backTextRender);
+    uiLayer.add(backText);
+    creditsMenu[6] = backText;
 
     std::vector<GameEntity*> creditsMenuVector(creditsMenu, creditsMenu + sizeof(creditsMenu)/sizeof(GameEntity*));
 
@@ -572,7 +694,7 @@ std::vector<GameEntity*> GameEntityManager::createUICredits(ApplicationState* st
 std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* state)
 {
     SDL_Rect temp;
-    GameEntity* gameMenu[5];
+    GameEntity* gameMenu[9];
 
     int xGrid = windowElements->WINDOW_WIDTH/60;
     int yGrid = windowElements->WINDOW_HEIGHT/48;
@@ -584,7 +706,7 @@ std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* sta
     temp.w = 30*xGrid;
     temp.h = 30*yGrid;
     uiPanelRender->setRenderRect(&temp);
-    uiPanelRender->enableBlending();
+    uiPanelRender->getTexture()->enableAlphaBlend();
     uiPanel->addRenderComponent(uiPanelRender);
     uiLayer.add(uiPanel);
     gameMenu[0] = uiPanel;
@@ -596,18 +718,31 @@ std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* sta
     temp.w = 20*xGrid;
     temp.h = 3*yGrid;
     uiResumeRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiResumeRender->addText("Resume", 96, &temp, true);
-    uiResumeRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiResumeRender->addText("Resume", 96, &temp, true);
+    uiResumeRender->getTexture()->enableAlphaBlend();
     uiResume->addRenderComponent(uiResumeRender);
     UIPanelInputComponent* uiResumeInput = new UIPanelInputComponent(uiResume);
     uiResumeInput->addClickFunction(new UIClickFunctionResume(state));
     uiResume->addInputComponent(uiResumeInput);
     uiLayer.add(uiResume);
     gameMenu[1] = uiResume;
+
+    GameEntity* resumeText = new GameEntity();
+    TextRenderComponent* resumeTextRender = new TextRenderComponent(resumeText, windowElements);
+    temp.x = 20*xGrid+15;
+    temp.y = 14*yGrid+5;
+    temp.w = 20*xGrid-25;
+    temp.h = 3*yGrid-5;
+    resumeTextRender->setRenderRect(&temp);
+    resumeTextRender->setText("Resume", 96);
+    resumeTextRender->getTexture()->enableAlphaBlend();
+    resumeText->addRenderComponent(resumeTextRender);
+    uiLayer.add(resumeText);
+    gameMenu[2] = resumeText;
 
     GameEntity* uiOptions = new GameEntity();
     UIPanelRenderComponent* uiOptionsRender = new UIPanelRenderComponent(uiOptions, windowElements);
@@ -616,17 +751,30 @@ std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* sta
     temp.w = 20*xGrid;
     temp.h = 3*yGrid;
     uiOptionsRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiOptionsRender->addText("Options", 96, &temp, true);
-    uiOptionsRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiOptionsRender->addText("Options", 96, &temp, true);
+    uiOptionsRender->getTexture()->enableAlphaBlend();
     uiOptions->addRenderComponent(uiOptionsRender);
     UIPanelInputComponent* uiOptionsInput = new UIPanelInputComponent(uiOptions);
     uiOptions->addInputComponent(uiOptionsInput);
     uiLayer.add(uiOptions);
-    gameMenu[2] = uiOptions;
+    gameMenu[3] = uiOptions;
+
+    GameEntity* optionsText = new GameEntity();
+    TextRenderComponent* optionsTextRender = new TextRenderComponent(optionsText, windowElements);
+    temp.x = 20*xGrid+15;
+    temp.y = 19*yGrid+5;
+    temp.w = 20*xGrid-25;
+    temp.h = 3*yGrid-5;
+    optionsTextRender->setRenderRect(&temp);
+    optionsTextRender->setText("Options", 96);
+    optionsTextRender->getTexture()->enableAlphaBlend();
+    optionsText->addRenderComponent(optionsTextRender);
+    uiLayer.add(optionsText);
+    gameMenu[4] = optionsText;
 
     GameEntity* uiMainMenu = new GameEntity();
     UIPanelRenderComponent* uiMainMenuRender = new UIPanelRenderComponent(uiMainMenu, windowElements);
@@ -635,18 +783,31 @@ std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* sta
     temp.w = 20*xGrid;
     temp.h = 3*yGrid;
     uiMainMenuRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiMainMenuRender->addText("Main Menu", 96, &temp, true);
-    uiMainMenuRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiMainMenuRender->addText("Main Menu", 96, &temp, true);
+    uiMainMenuRender->getTexture()->enableAlphaBlend();
     uiMainMenu->addRenderComponent(uiMainMenuRender);
     UIPanelInputComponent* uiMainMenuInput = new UIPanelInputComponent(uiMainMenu);
     uiMainMenuInput->addClickFunction(new UIClickFunctionMenu(state));
     uiMainMenu->addInputComponent(uiMainMenuInput);
     uiLayer.add(uiMainMenu);
-    gameMenu[3] = uiMainMenu;
+    gameMenu[5] = uiMainMenu;
+
+    GameEntity* mainMenuText = new GameEntity();
+    TextRenderComponent* mainMenuTextRender = new TextRenderComponent(mainMenuText, windowElements);
+    temp.x = 20*xGrid+15;
+    temp.y = 24*yGrid+5;
+    temp.w = 20*xGrid-25;
+    temp.h = 3*yGrid-5;
+    mainMenuTextRender->setRenderRect(&temp);
+    mainMenuTextRender->setText("Main Menu", 96);
+    mainMenuTextRender->getTexture()->enableAlphaBlend();
+    mainMenuText->addRenderComponent(mainMenuTextRender);
+    uiLayer.add(mainMenuText);
+    gameMenu[6] = mainMenuText;
 
     GameEntity* uiQuit = new GameEntity();
     UIPanelRenderComponent* uiQuitRender = new UIPanelRenderComponent(uiQuit, windowElements);
@@ -655,18 +816,31 @@ std::vector<GameEntity*> GameEntityManager::createGameMenu(ApplicationState* sta
     temp.w = 20*xGrid;
     temp.h = 3*yGrid;
     uiQuitRender->setRenderRect(&temp);
-    temp.x = 11;
-    temp.y = 5;
-    temp.w = 80;
-    temp.h = 100;
-    uiQuitRender->addText("Quit", 96, &temp, true);
-    uiQuitRender->enableBlending();
+    //temp.x = 11;
+    //temp.y = 5;
+    //temp.w = 80;
+    //temp.h = 100;
+    //uiQuitRender->addText("Quit", 96, &temp, true);
+    uiQuitRender->getTexture()->enableAlphaBlend();
     uiQuit->addRenderComponent(uiQuitRender);
     UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
     uiQuitInput->addClickFunction(new UIClickFunctionQuit(state));
     uiQuit->addInputComponent(uiQuitInput);
     uiLayer.add(uiQuit);
-    gameMenu[4] = uiQuit;
+    gameMenu[7] = uiQuit;
+
+    GameEntity* quitText = new GameEntity();
+    TextRenderComponent* quitTextRender = new TextRenderComponent(quitText, windowElements);
+    temp.x = 20*xGrid+15;
+    temp.y = 29*yGrid+5;
+    temp.w = 20*xGrid-25;
+    temp.h = 3*yGrid-5;
+    quitTextRender->setRenderRect(&temp);
+    quitTextRender->setText("Quit", 96);
+    quitTextRender->getTexture()->enableAlphaBlend();
+    quitText->addRenderComponent(quitTextRender);
+    uiLayer.add(quitText);
+    gameMenu[8] = quitText;
 
     std::vector<GameEntity*> gameMenuVector(gameMenu, gameMenu + sizeof(gameMenu)/sizeof(GameEntity*));
 
@@ -775,7 +949,7 @@ GameEntity* GameEntityManager::createPlayerInstructions()
 {
     GameEntity* player = new GameEntity();
     PlayerRenderComponent* playerRender = new PlayerRenderComponent(player, windowElements);
-    playerRender->enableBlending();
+    playerRender->getTexture()->enableAlphaBlend();
     player->addRenderComponent(playerRender);
     player->addPhysicsComponent(new PlayerInstructionsPhysicsComponent(player, windowElements, this));
     player->addInputComponent(new PlayerInstructionsInputComponent(player, windowElements));

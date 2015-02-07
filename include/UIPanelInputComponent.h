@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-03
- * @modified    2014-09-19
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_UIPANELINPUTCOMPONENT_
     #define SPACESHOOTER_UIPANELINPUTCOMPONENT_
@@ -21,7 +21,7 @@ class UIPanelInputComponent : public InputComponent
     private:
         UIClickFunction* clickFunction;
         UIPanelRenderComponent* render;
-        SDL_Rect* uiRect;
+        SDL_Rect uiRect;
         bool buttonPressedDown;
 
     public:

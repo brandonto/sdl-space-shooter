@@ -176,7 +176,7 @@ void TiXmlNode::Clear()
 		temp = node;
 		node = node->next;
 		delete temp;
-	}	
+	}
 
 	firstChild = 0;
 	lastChild = 0;
@@ -191,7 +191,7 @@ TiXmlNode* TiXmlNode::LinkEndChild( TiXmlNode* node )
 	if ( node->Type() == TiXmlNode::TINYXML_DOCUMENT )
 	{
 		delete node;
-		if ( GetDocument() ) 
+		if ( GetDocument() )
 			GetDocument()->SetError( TIXML_ERROR_DOCUMENT_TOP_ONLY, 0, 0, TIXML_ENCODING_UNKNOWN );
 		return 0;
 	}
@@ -215,7 +215,7 @@ TiXmlNode* TiXmlNode::InsertEndChild( const TiXmlNode& addThis )
 {
 	if ( addThis.Type() == TiXmlNode::TINYXML_DOCUMENT )
 	{
-		if ( GetDocument() ) 
+		if ( GetDocument() )
 			GetDocument()->SetError( TIXML_ERROR_DOCUMENT_TOP_ONLY, 0, 0, TIXML_ENCODING_UNKNOWN );
 		return 0;
 	}
@@ -228,13 +228,13 @@ TiXmlNode* TiXmlNode::InsertEndChild( const TiXmlNode& addThis )
 
 
 TiXmlNode* TiXmlNode::InsertBeforeChild( TiXmlNode* beforeThis, const TiXmlNode& addThis )
-{	
+{
 	if ( !beforeThis || beforeThis->parent != this ) {
 		return 0;
 	}
 	if ( addThis.Type() == TiXmlNode::TINYXML_DOCUMENT )
 	{
-		if ( GetDocument() ) 
+		if ( GetDocument() )
 			GetDocument()->SetError( TIXML_ERROR_DOCUMENT_TOP_ONLY, 0, 0, TIXML_ENCODING_UNKNOWN );
 		return 0;
 	}
@@ -267,7 +267,7 @@ TiXmlNode* TiXmlNode::InsertAfterChild( TiXmlNode* afterThis, const TiXmlNode& a
 	}
 	if ( addThis.Type() == TiXmlNode::TINYXML_DOCUMENT )
 	{
-		if ( GetDocument() ) 
+		if ( GetDocument() )
 			GetDocument()->SetError( TIXML_ERROR_DOCUMENT_TOP_ONLY, 0, 0, TIXML_ENCODING_UNKNOWN );
 		return 0;
 	}
@@ -304,7 +304,7 @@ TiXmlNode* TiXmlNode::ReplaceChild( TiXmlNode* replaceThis, const TiXmlNode& wit
 	if ( withThis.ToDocument() ) {
 		// A document can never be a child.	Thanks to Noam.
 		TiXmlDocument* document = GetDocument();
-		if ( document ) 
+		if ( document )
 			document->SetError( TIXML_ERROR_DOCUMENT_TOP_ONLY, 0, 0, TIXML_ENCODING_UNKNOWN );
 		return 0;
 	}
@@ -968,7 +968,7 @@ bool TiXmlDocument::LoadFile( const char* _filename, TiXmlEncoding encoding )
 	value = filename;
 
 	// reading in binary mode so that tinyxml can normalize the EOL
-	FILE* file = TiXmlFOpen( value.c_str (), "rb" );	
+	FILE* file = TiXmlFOpen( value.c_str (), "rb" );
 
 	if ( file )
 	{
@@ -985,7 +985,7 @@ bool TiXmlDocument::LoadFile( const char* _filename, TiXmlEncoding encoding )
 
 bool TiXmlDocument::LoadFile( FILE* file, TiXmlEncoding encoding )
 {
-	if ( !file ) 
+	if ( !file )
 	{
 		SetError( TIXML_ERROR_OPENING_FILE, 0, 0, TIXML_ENCODING_UNKNOWN );
 		return false;
@@ -1097,7 +1097,7 @@ bool TiXmlDocument::SaveFile( const char * filename ) const
 
 bool TiXmlDocument::SaveFile( FILE* fp ) const
 {
-	if ( useMicrosoftBOM ) 
+	if ( useMicrosoftBOM )
 	{
 		const unsigned char TIXML_UTF_LEAD_0 = 0xefU;
 		const unsigned char TIXML_UTF_LEAD_1 = 0xbbU;
@@ -1127,7 +1127,7 @@ void TiXmlDocument::CopyTo( TiXmlDocument* target ) const
 	for ( node = firstChild; node; node = node->NextSibling() )
 	{
 		target->LinkEndChild( node->Clone() );
-	}	
+	}
 }
 
 

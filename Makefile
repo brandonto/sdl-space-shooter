@@ -3,6 +3,7 @@ SDIR = src
 IDIR = include
 PDIR = depend
 BDIR = bin
+DDIR = data
 
 _OBJS =	main.o \
 		Application.o \
@@ -47,9 +48,12 @@ _OBJS =	main.o \
 		SDL_util.o \
 		SpriteRenderComponent.o \
 		TextRenderComponent.o \
+		Texture.o \
 		Timer.o \
 		tinystr.o \
 		tinyxml.o \
+		tinyxmlerror.o \
+		tinyxmlparser.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o
@@ -65,7 +69,7 @@ LFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf
 PROG = SpaceShooter
 
 all: $(OBJS)
-	$(CC) $(CFLAGS) -I$(IDIR) -I$(BDIR) -o $(PROG) $^ $(LFLAGS)
+	$(CC) $(CFLAGS) -I$(IDIR) -I$(BDIR) -I$(DDIR) -o $(PROG) $^ $(LFLAGS)
 
 $(ODIR)/%.o : $(SDIR)/%.cpp
 	$(CC) $(CFLAGS) -I$(IDIR) -MD -c -o $@ $<

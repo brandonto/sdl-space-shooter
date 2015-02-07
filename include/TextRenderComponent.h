@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_TEXTRENDERCOMPONENT_
     #define SPACESHOOTER_TEXTRENDERCOMPONENT_
@@ -19,11 +19,6 @@ struct WindowElements;
 
 class TextRenderComponent : public RenderComponent
 {
-    private:
-        Uint8 alpha;
-        const Uint8 SELECTED_ALPHA = 255;
-        Uint8 cachedAlpha;
-
     public:
         //Constructor
         TextRenderComponent(GameEntity* gameEntity,
@@ -34,9 +29,6 @@ class TextRenderComponent : public RenderComponent
 
         //Methods
         void update();
-        void enableBlending();
-        void setAlphaBlend(Uint8 alpha);
-        Uint8 getAlphaBlend();
         void setRenderRect(SDL_Rect* rect);
         void setText(std::string text, int fontSize);
 };

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-22
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONBODY_
     #define SPACESHOOTER_COLLISIONBODY_
@@ -14,7 +14,6 @@
 #include "Vector2D.h"
 
 class GameEntity;
-class RenderComponent;
 
 class CollisionBody
 {
@@ -34,7 +33,6 @@ class CollisionBody
 
     protected:
         GameEntity* gameEntity;
-        RenderComponent* render;
 };
 
 enum CollisionBodyShape

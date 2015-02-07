@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-10-21
+ * @modified    2015-02-06
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
@@ -35,22 +35,25 @@ void EnemyPhysicsComponent::update()
     //gameEntity->xPos += (xVel * timeSinceLastFrame);
     gameEntity->position += velocity*timeSinceLastFrame;
 
+    int spriteWidth = render->getTexture()->getSpriteWidth();
+    int spriteHeight = render->getTexture()->getSpriteHeight();
+
     if (!gameEntity->active)
     {
-        if (gameEntity->position.x + render->spriteWidth/2 > 0 &&
-            gameEntity->position.y + render->spriteHeight/2 > 0 &&
-            gameEntity->position.x - render->spriteWidth/2 < windowElements->WINDOW_WIDTH &&
-            gameEntity->position.y - render->spriteHeight/2 < windowElements->WINDOW_HEIGHT)
+        if (gameEntity->position.x + spriteWidth/2 > 0 &&
+            gameEntity->position.y + spriteHeight/2 > 0 &&
+            gameEntity->position.x - spriteWidth/2 < windowElements->WINDOW_WIDTH &&
+            gameEntity->position.y - spriteHeight/2 < windowElements->WINDOW_HEIGHT)
         {
             gameEntity->active = true;
         }
     }
     else
     {
-        if (gameEntity->position.x + render->spriteWidth/2 + offScreenBuffer < 0 ||
-            gameEntity->position.y + render->spriteHeight/2 + offScreenBuffer < 0 ||
-            gameEntity->position.x - render->spriteWidth/2 - offScreenBuffer > windowElements->WINDOW_WIDTH ||
-            gameEntity->position.y - render->spriteHeight/2 - offScreenBuffer > windowElements->WINDOW_HEIGHT)
+        if (gameEntity->position.x + spriteWidth/2 + offScreenBuffer < 0 ||
+            gameEntity->position.y + spriteHeight/2 + offScreenBuffer < 0 ||
+            gameEntity->position.x - spriteWidth/2 - offScreenBuffer > windowElements->WINDOW_WIDTH ||
+            gameEntity->position.y - spriteHeight/2 - offScreenBuffer > windowElements->WINDOW_HEIGHT)
         {
             gameEntity->remove = true;
         }

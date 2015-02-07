@@ -4,50 +4,31 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #include "TextRenderComponent.h"
 
 #include <cstddef>
 #include "GameEntity.h"
 #include "SDL_util.h"
+#include "Texture.h"
 #include "WindowElements.h"
 
 TextRenderComponent::TextRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
-:   alpha(0),
-    cachedAlpha(0)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite = NULL;
+
+    texture = new Texture(windowElements);
 }
 
 void TextRenderComponent::update()
 {
-    if (sprite != NULL)
+    if (texture->getTexture() != NULL)
     {
-        SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
+        SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
     }
-}
-
-// Enables alpha blending effect on texture
-void TextRenderComponent::enableBlending()
-{
-    SDL_SetTextureBlendMode(sprite, SDL_BLENDMODE_BLEND);
-}
-
-// Sets the alpha value of the texture
-void TextRenderComponent::setAlphaBlend(Uint8 alpha)
-{
-    this->alpha = alpha;
-    SDL_SetTextureAlphaMod(sprite, alpha);
-}
-
-// Returns the alpha value of the texture
-Uint8 TextRenderComponent::getAlphaBlend()
-{
-    return alpha;
 }
 
 // Sets the SDL_Rect to render to
@@ -63,16 +44,16 @@ void TextRenderComponent::setText(std::string text, int fontSize)
     color.g = 0xFF;
     color.b = 0xFF;
     color.a = 0xFF;
-    if (sprite != NULL)
-    {
-        SDL_DestroyTexture(sprite);
-    }
-    sprite = SDL_util::create_texture_from_text(windowElements, "bin/font/kenpixel_square.ttf",
-                text, fontSize, &color);
+    SDL_Texture* sprite = SDL_util::create_texture_from_text(windowElements,
+                                                            "bin/font/kenpixel_square.ttf",
+                                                            text,
+                                                            fontSize,
+                                                            &color);
+    texture->setTexture(sprite);
+    sprite = NULL;
 }
 
 TextRenderComponent::~TextRenderComponent()
 {
-    SDL_DestroyTexture(sprite);
-    sprite=NULL;
+    delete texture;
 }

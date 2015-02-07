@@ -11,6 +11,7 @@
 #include <cstddef>
 #include "GameEntity.h"
 #include "SDL_util.h"
+#include "Texture.h"
 #include "WindowElements.h"
 
 PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
@@ -18,42 +19,42 @@ PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/playerShip1_blue.png");
-    SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
+
+    texture = new Texture(windowElements);
+    texture->setTexture("bin/graphics/sprites/playerShip1_blue.png");
+
     gameEntity->position.x = windowElements->WINDOW_WIDTH/2;
     gameEntity->position.y = 0.8*windowElements->WINDOW_HEIGHT;
-    renderRect.w = spriteWidth;
-    renderRect.h = spriteHeight;
+    renderRect.w = texture->getSpriteWidth();
+    renderRect.h = texture->getSpriteHeight();
 }
 
 void PlayerRenderComponent::update()
 {
-    renderRect.x = gameEntity->position.x - spriteWidth/2;
-    renderRect.y = gameEntity->position.y - spriteHeight/2;
-    SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
+    renderRect.x = gameEntity->position.x - texture->getSpriteWidth()/2;
+    renderRect.y = gameEntity->position.y - texture->getSpriteHeight()/2;
+    SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
 }
 
 // Enables alpha blending effect on texture
 void PlayerRenderComponent::enableBlending()
 {
-    SDL_SetTextureBlendMode(sprite, SDL_BLENDMODE_BLEND);
+    texture->enableAlphaBlend();
 }
 
 // Sets the alpha value of the texture
 void PlayerRenderComponent::setAlphaBlend(Uint8 alpha)
 {
-    this->alpha = alpha;
-    SDL_SetTextureAlphaMod(sprite, alpha);
+    texture->setAlphaBlend(alpha);
 }
 
 // Returns the alpha value of the texture
 Uint8 PlayerRenderComponent::getAlphaBlend()
 {
-    return alpha;
+    return texture->getAlphaBlend();
 }
 
 PlayerRenderComponent::~PlayerRenderComponent()
 {
-    SDL_DestroyTexture(sprite);
-    sprite=NULL;
+    delete texture;
 }

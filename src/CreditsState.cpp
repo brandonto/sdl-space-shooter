@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #include "CreditsState.h"
 
@@ -36,7 +36,7 @@ void CreditsState::onEnter()
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiCredits.size(); i++)
     {
-        uiCredits[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
+        uiCredits[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
 }
 
@@ -72,7 +72,7 @@ void CreditsState::onUpdate()
         }
         for (int i=0; i<uiCredits.size(); i++)
         {
-            uiCredits[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
+            uiCredits[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
     else if (fadeOut)
@@ -84,7 +84,7 @@ void CreditsState::onUpdate()
         }
         for (int i=0; i<uiCredits.size(); i++)
         {
-            uiCredits[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
+            uiCredits[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
     else if (blackScreen.isBlackingIn())

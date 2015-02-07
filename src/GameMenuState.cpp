@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-02
+ * @modified    2015-02-06
  *********************************************************************/
 #include "GameMenuState.h"
 
@@ -19,8 +19,12 @@
 
 GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   fadeIn(true), fadeOut(false), menuAlpha(0), nextState(0),
-    transitioningStates(false), gameEntityManager(windowElements),
+:   fadeIn(true),
+    fadeOut(false),
+    menuAlpha(0),
+    nextState(0),
+    transitioningStates(false),
+    gameEntityManager(windowElements),
     blackScreen(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
@@ -34,7 +38,7 @@ GameMenuState::~GameMenuState()
 
 void GameMenuState::onEnter()
 {
-    blackScreen.setAlpha(0);
+    blackScreen.setAlphaBlend(0);
     gameMenu = gameEntityManager.createGameMenu(this);
 }
 
@@ -70,7 +74,7 @@ void GameMenuState::onUpdate()
         }
         for (int i=0; i<gameMenu.size(); i++)
         {
-            gameMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
+            gameMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
         }
     }
     else if (fadeOut)
@@ -94,7 +98,7 @@ void GameMenuState::onUpdate()
         }
         for (int i=0; i<gameMenu.size(); i++)
         {
-            gameMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
+            gameMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
         }
     }
     else if (blackScreen.isBlackingOut())

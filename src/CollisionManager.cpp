@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-10-21
+ * @modified    2015-02-06
  *********************************************************************/
 #include "CollisionManager.h"
 
@@ -143,8 +143,8 @@ bool CollisionManager::checkCollisionBoundingRect(GameEntity* checkSource,
 {
     //SDL_Rect sourceRect = checkSource->getCollisionComponent()->body->boundingRect;
     //SDL_Rect destRect = checkDest->getCollisionComponent()->body->boundingRect;
-    SDL_Rect sourceRect = checkSource->getRenderComponent()->renderRect;
-    SDL_Rect destRect = checkDest->getRenderComponent()->renderRect;
+    SDL_Rect sourceRect = checkSource->getRenderComponent()->getRenderRect();
+    SDL_Rect destRect = checkDest->getRenderComponent()->getRenderRect();
     bool xAxisOverlap = ((sourceRect.x + sourceRect.w) > (destRect.x)) &&
                         ((destRect.x + destRect.w) > (sourceRect.x));
     //printf();

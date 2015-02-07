@@ -4,22 +4,26 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-05
- * @modified    2015-02-05
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_TEXTURE_
     #define SPACESHOOTER_TEXTURE_
 
 #include <SDL2/SDL.h>
+#include <string>
 #include <vector>
 
 #define OPAQUE 255
+
+struct WindowElements;
 
 class Texture
 {
     private:
         //Fields
+        WindowElements* windowElements;
         SDL_Texture* sprite;
-        SDL_Rect renderRect;
+        SDL_Rect sourceRect;
         int spriteWidth;
         int spriteHeight;
 
@@ -34,20 +38,21 @@ class Texture
 
     public:
         //Constructor
-        Texture();
+        Texture(WindowElements* windowElements);
 
         //Destructor
         ~Texture();
 
         //Methods
         void setTexture(std::string imagePath);
-        void setRenderRect(SDL_Rect* rect);
-        SDL_Rect getRenderRect();
-        void setRenderRect(SDL_Rect* rect);
+        void setTexture(SDL_Texture* texture);
+        SDL_Texture* getTexture();
+        void setSourceRect(SDL_Rect* rect);
+        SDL_Rect getSourceRect();
         int getSpriteWidth();
         int getSpriteHeight();
 
-        void setAngle();
+        void setAngle(double angle);
         double getAngle();
 
         void enableAlphaBlend();
@@ -55,9 +60,9 @@ class Texture
         void setAlphaBlend(Uint8 alpha);
         Uint8 getAlphaBlend();
 
-        bool partitionSpritesheet(std::string xmlPath);
-        bool advanceAnimation()
-        bool setAnimationFrame(int animationFrame)
+        bool partitionSpritesheet(const char* xmlPath);
+        bool advanceAnimation();
+        bool setAnimationFrame(int animationFrame);
 };
 
 #endif

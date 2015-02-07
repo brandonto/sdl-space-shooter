@@ -5,21 +5,27 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-02
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_BLACKSCREEN_H_
     #define SPACESHOOTER_BLACKSCREEN_H_
 
 #include <SDL2/SDL.h>
 
+#define SCREEN_OPAQUE 255
+#define SCREEN_DIM 192
+#define SCREEN_UNDIM 0
+
+#define ALPHA_UPDATE 50
+
+class Texture;
 class WindowElements;
 
 class BlackScreen
 {
     private:
-        SDL_Texture* blackScreen;
+        Texture* blackScreen;
         WindowElements* windowElements;
-        Uint8 alpha;
         bool blackIn;
         bool blackOut;
 
@@ -37,8 +43,10 @@ class BlackScreen
         void startBlackOut();
         void onUpdate();
         void onRender();
-        void setAlpha(Uint8 alpha);
-
+        void setAlphaBlend(Uint8 alpha);
+        Uint8 getAlphaBlend();
+        void screenDim();
+        void screenUndim();
 };
 
 #endif

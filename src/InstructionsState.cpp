@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -16,8 +16,12 @@
 
 InstructionsState::InstructionsState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   fadeIn(false), fadeOut(false), uiAlpha(0), nextState(0),
-    gameEntityManager(windowElements), blackScreen(windowElements)
+:   fadeIn(false),
+    fadeOut(false),
+    uiAlpha(0),
+    nextState(0),
+    gameEntityManager(windowElements),
+    blackScreen(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -37,9 +41,9 @@ void InstructionsState::onEnter()
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiInstructions.size(); i++)
     {
-        uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
+        uiInstructions[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
-    playerInstructions->getRenderComponent()->setAlphaBlend(uiAlpha);
+    playerInstructions->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
 }
 
 void InstructionsState::onEvent()
@@ -74,9 +78,9 @@ void InstructionsState::onUpdate()
         }
         for (int i=0; i<uiInstructions.size(); i++)
         {
-            uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
+            uiInstructions[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
-        playerInstructions->getRenderComponent()->setAlphaBlend(uiAlpha);
+        playerInstructions->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
     else if (fadeOut)
     {
@@ -87,9 +91,9 @@ void InstructionsState::onUpdate()
         }
         for (int i=0; i<uiInstructions.size(); i++)
         {
-            uiInstructions[i]->getRenderComponent()->setAlphaBlend(uiAlpha);
+            uiInstructions[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
-        playerInstructions->getRenderComponent()->setAlphaBlend(uiAlpha);
+        playerInstructions->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
     else if (blackScreen.isBlackingIn())
     {

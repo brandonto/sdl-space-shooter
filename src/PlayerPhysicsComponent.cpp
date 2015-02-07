@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2014-10-21
+ * @modified    2015-02-06
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
@@ -16,8 +16,11 @@
 PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             GameEntityManager* gameEntityManager)
-:   gameEntityManager(gameEntityManager), render(NULL),
-    velocity(0, 0), velocityPerSecond(500), shooting(false)
+:   gameEntityManager(gameEntityManager),
+    render(NULL),
+    velocity(0,0),
+    velocityPerSecond(500),
+    shooting(false)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -31,8 +34,6 @@ PlayerPhysicsComponent::~PlayerPhysicsComponent()
 void PlayerPhysicsComponent::update()
 {
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
-    //x = x + speedPerSeconds*secondsSinceLastFrame
-    //gameEntity->xPos += (xVel * timeSinceLastFrame);
     gameEntity->position += velocity*timeSinceLastFrame;
 
     if (gameEntity->position.x > windowElements->WINDOW_WIDTH)
@@ -44,15 +45,14 @@ void PlayerPhysicsComponent::update()
         gameEntity->position.x = 0;
     }
 
-    //y = y + speedPerSeconds*secondsSinceLastFrame
-    //gameEntity->yPos += (yVel * timeSinceLastFrame);
-    if (gameEntity->position.y > windowElements->WINDOW_HEIGHT - render->spriteHeight/2)
+    int spriteHeight = render->getTexture()->getSpriteHeight();
+    if (gameEntity->position.y > windowElements->WINDOW_HEIGHT - spriteHeight/2)
     {
-        gameEntity->position.y = windowElements->WINDOW_HEIGHT - render->spriteHeight/2;
+        gameEntity->position.y = windowElements->WINDOW_HEIGHT - spriteHeight/2;
     }
-    else if (gameEntity->position.y < 0 + render->spriteHeight/2)
+    else if (gameEntity->position.y < 0 + spriteHeight/2)
     {
-        gameEntity->position.y = 0 + render->spriteHeight/2;
+        gameEntity->position.y = 0 + spriteHeight/2;
     }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();

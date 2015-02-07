@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-25
+ * @modified    2015-02-06
  *********************************************************************/
 #include "EnemyProjectilePhysicsComponent.h"
 
@@ -32,7 +32,9 @@ void EnemyProjectilePhysicsComponent::update()
 
     //y = y + speedPerSeconds*secondsSinceLastFrame
     gameEntity->position += velocity*timeSinceLastFrame;
-    if (gameEntity->position.y - render->renderRect.h/2 > windowElements->WINDOW_HEIGHT)
+
+    int height = render->getRenderRect().h;
+    if (gameEntity->position.y - height/2 > windowElements->WINDOW_HEIGHT)
     {
         gameEntity->remove = true;
     }

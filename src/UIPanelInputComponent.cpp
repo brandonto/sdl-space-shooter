@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-03
- * @modified    2014-09-19
+ * @modified    2015-02-06
  *********************************************************************/
 #include "UIPanelInputComponent.h"
 
@@ -19,7 +19,8 @@ UIPanelInputComponent::UIPanelInputComponent(GameEntity* gameEntity)
 {
     this->gameEntity = gameEntity;
     render = dynamic_cast<UIPanelRenderComponent*>(gameEntity->getRenderComponent());
-    uiRect = &(render->renderRect);
+    uiRect = render->getRenderRect();
+    //printf("x=%d y=%d w=%d h=%d\n", uiRect.x, uiRect.y, uiRect.w, uiRect.h);
 }
 
 UIPanelInputComponent::~UIPanelInputComponent()
@@ -32,8 +33,8 @@ void UIPanelInputComponent::update(SDL_Event* event)
     if (event->type == SDL_MOUSEMOTION)
     {
         //If the mouse moves inside the button
-        if (event->motion.x >= uiRect->x && event->motion.x <= uiRect->x+uiRect->w &&
-            event->motion.y >= uiRect->y && event->motion.y <= uiRect->y+uiRect->h)
+        if (event->motion.x >= uiRect.x && event->motion.x <= uiRect.x+uiRect.w &&
+            event->motion.y >= uiRect.y && event->motion.y <= uiRect.y+uiRect.h)
         {
             if (!render->isSelected() && render->buttonReady())
             {

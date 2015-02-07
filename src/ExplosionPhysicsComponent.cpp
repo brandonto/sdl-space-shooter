@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-25
- * @modified    2014-10-21
+ * @modified    2015-02-06
  *********************************************************************/
 #include "ExplosionPhysicsComponent.h"
 
@@ -34,7 +34,7 @@ void ExplosionPhysicsComponent::update()
 	if (durationTimer.getTimeOnTimer()>100)
     {
         durationTimer.stop();
-        if (!render->advanceAnimation())
+        if (!render->getTexture()->advanceAnimation())
         {
             gameEntity->remove = true;
         }

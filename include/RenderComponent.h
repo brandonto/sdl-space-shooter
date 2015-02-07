@@ -5,12 +5,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #ifndef SPACESHOOTER_RENDERCOMPONENT_
     #define SPACESHOOTER_RENDERCOMPONENT_
 
 #include <SDL2/SDL.h>
+#include "Texture.h"
 
 class GameEntity;
 
@@ -19,24 +20,20 @@ struct WindowElements;
 class RenderComponent
 {
     public:
-        //Fields
-        SDL_Rect srcRect;
-        SDL_Rect renderRect;
-        SDL_Texture* sprite;
-        int spriteWidth;
-        int spriteHeight;
-        double angle;
-
         //Destructor
         virtual ~RenderComponent(){};
 
         //Methods
         virtual void update() = 0;
-        virtual void setAlphaBlend(Uint8 alpha){};
-        virtual Uint8 getAlphaBlend(){};
+        virtual Texture* getTexture(){ return texture; };
+        virtual SDL_Rect getRenderRect(){ return renderRect; };
         virtual bool advanceAnimation(){};
 
     protected:
+        //Fields
+        Texture* texture;
+        SDL_Rect renderRect;
+
         GameEntity* gameEntity;
         WindowElements* windowElements;
 };

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-25
+ * @modified    2015-02-06
  *********************************************************************/
 #include "EnemyProjectileRenderComponent.h"
 
@@ -20,23 +20,26 @@ EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameE
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/laserRed03.png");
-    SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
-    renderRect.w = spriteWidth;
-    renderRect.h = spriteHeight;
+
+    texture = new Texture(windowElements);
+    texture->setTexture("bin/graphics/sprites/laserRed03.png");
+
+    renderRect.w = texture->getSpriteWidth();
+    renderRect.h = texture->getSpriteHeight();
     gameEntity->position.x = enemyEntity->position.x;
-    gameEntity->position.y = enemyEntity->position.y + enemyEntity->getRenderComponent()->spriteHeight/2 - spriteHeight/2;
+    gameEntity->position.y = enemyEntity->position.y
+        + (enemyEntity->getRenderComponent()->getTexture()->getSpriteHeight())/2
+        - (texture->getSpriteHeight())/2;
 }
 
 void EnemyProjectileRenderComponent::update()
 {
-    renderRect.x = gameEntity->position.x - spriteWidth/2;
-    renderRect.y = gameEntity->position.y - spriteHeight/2;
-    SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
+    renderRect.x = gameEntity->position.x - renderRect.w/2;
+    renderRect.y = gameEntity->position.y - renderRect.h/2;
+    SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
 }
 
 EnemyProjectileRenderComponent::~EnemyProjectileRenderComponent()
 {
-    SDL_DestroyTexture(sprite);
-    sprite=NULL;
+    delete texture;
 }

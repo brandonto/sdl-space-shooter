@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #include "PlayerInstructionsPhysicsComponent.h"
 
@@ -16,8 +16,11 @@
 PlayerInstructionsPhysicsComponent::PlayerInstructionsPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             GameEntityManager* gameEntityManager)
-:   gameEntityManager(gameEntityManager), render(NULL),
-    velocity(0, 0), velocityPerSecond(500), shooting(false)
+:   gameEntityManager(gameEntityManager),
+    render(NULL),
+    velocity(0,0),
+    velocityPerSecond(500),
+    shooting(false)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -45,30 +48,32 @@ PlayerInstructionsPhysicsComponent::~PlayerInstructionsPhysicsComponent()
 
 void PlayerInstructionsPhysicsComponent::update()
 {
-    int collisionBuffer = 20;
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
     //x = x + speedPerSeconds*secondsSinceLastFrame
     //gameEntity->xPos += (xVel * timeSinceLastFrame);
     gameEntity->position += velocity*timeSinceLastFrame;
 
-    if (gameEntity->position.x > xMax - render->spriteHeight/2 - collisionBuffer)
+    int spriteWidth = render->getTexture()->getSpriteWidth();
+    int spriteHeight = render->getTexture()->getSpriteHeight();
+
+    if (gameEntity->position.x > xMax - spriteWidth/2 - COLLISION_BUFFER)
     {
-        gameEntity->position.x = xMax - render->spriteHeight/2 - collisionBuffer;
+        gameEntity->position.x = xMax - spriteWidth/2 - COLLISION_BUFFER;
     }
-    else if (gameEntity->position.x < xMin + render->spriteHeight/2 + collisionBuffer)
+    else if (gameEntity->position.x < xMin + spriteWidth/2 + COLLISION_BUFFER)
     {
-        gameEntity->position.x = xMin + render->spriteHeight/2 + collisionBuffer;
+        gameEntity->position.x = xMin + spriteWidth/2 + COLLISION_BUFFER;
     }
 
     //y = y + speedPerSeconds*secondsSinceLastFrame
     //gameEntity->yPos += (yVel * timeSinceLastFrame);
-    if (gameEntity->position.y > yMax - render->spriteHeight/2 - collisionBuffer)
+    if (gameEntity->position.y > yMax - spriteHeight/2 - COLLISION_BUFFER)
     {
-        gameEntity->position.y = yMax - render->spriteHeight/2 - collisionBuffer;
+        gameEntity->position.y = yMax - spriteHeight/2 - COLLISION_BUFFER;
     }
-    else if (gameEntity->position.y < yMin + render->spriteHeight/2 + collisionBuffer)
+    else if (gameEntity->position.y < yMin + spriteHeight/2 + COLLISION_BUFFER)
     {
-        gameEntity->position.y = yMin + render->spriteHeight/2 + collisionBuffer;
+        gameEntity->position.y = yMin + spriteHeight/2 + COLLISION_BUFFER;
     }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();

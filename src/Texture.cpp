@@ -4,15 +4,16 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-05
- * @modified    2015-02-05
+ * @modified    2015-02-06
  *********************************************************************/
 #include "Texture.h"
 
 #include <cstddef>
-#include <string>
 #include "SDL_util.h"
+#include "tinyxml.h"
+#include "WindowElements.h"
 
-Texture::Texture()
+Texture::Texture(WindowElements* windowElements)
 :   sprite(NULL),
     spriteWidth(0),
     spriteHeight(0),
@@ -22,13 +23,14 @@ Texture::Texture()
     currentAnimationFrame(0),
     partitioned(false)
 {
+    this->windowElements = windowElements;
 }
 
 // Sets the sprite to the image given in imagePath
 void Texture::setTexture(std::string imagePath)
 {
     // Creates a new sprite from the filepath given in imagePath
-    SDL_Texture* newSprite = SDL_util::create_texture_from_image(imagePath)
+    SDL_Texture* newSprite = SDL_util::create_texture_from_image(windowElements, imagePath);
     if (newSprite == NULL)
     {
         fprintf(stdout, "[ERROR] setTexture(): Texture could not be constructed from image.\n");
@@ -51,22 +53,65 @@ void Texture::setTexture(std::string imagePath)
 
     // Sets spriteWidth and spriteHeight to the width and height of the new image
     SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
-    renderRect.x = 0;
-    renderRect.y = 0;
-    renderRect.w = spriteWidth;
-    renderRect.h = spriteHeight;
+    sourceRect.x = 0;
+    sourceRect.y = 0;
+    sourceRect.w = spriteWidth;
+    sourceRect.h = spriteHeight;
+}
+
+// Sets the sprite to be the one passed in
+void Texture::setTexture(SDL_Texture* texture)
+{
+    // If there was a previously set sprite, destroy the sprite and reset variables
+    if (sprite != NULL)
+    {
+        SDL_DestroyTexture(sprite);
+        sprite = NULL;
+        alpha = OPAQUE;
+        alphaEnabled = false;
+        currentAnimationFrame = 0;
+        partitioned = false;
+    }
+
+    sprite = texture;
+    texture = NULL;
+
+    // Sets spriteWidth and spriteHeight to the width and height of the new image
+    SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
+    sourceRect.x = 0;
+    sourceRect.y = 0;
+    sourceRect.w = spriteWidth;
+    sourceRect.h = spriteHeight;
+}
+
+// Getter for texture
+SDL_Texture* Texture::getTexture()
+{
+    return sprite;
 }
 
 // Sets the area of the sprite that will be rendered
-void Texture::setRenderRect(SDL_Rect* rect)
+void Texture::setSourceRect(SDL_Rect* rect)
 {
-    renderRect = *rect;
+    sourceRect = *rect;
 }
 
-// Getter for renderRect
-SDL_Rect Texture::getRenderRect()
+// Getter for sourceRect
+SDL_Rect Texture::getSourceRect()
 {
-    return renderRect;
+    return sourceRect;
+}
+
+// Getter for spriteWidth
+int Texture::getSpriteWidth()
+{
+    return spriteWidth;
+}
+
+// Getter for spriteHeight
+int Texture::getSpriteHeight()
+{
+    return spriteHeight;
 }
 
 // Sets the angle at which the sprite will be rendered
@@ -87,6 +132,7 @@ void Texture::enableAlphaBlend()
     if (!alphaEnabled)
     {
         SDL_SetTextureBlendMode(sprite, SDL_BLENDMODE_BLEND);
+        alphaEnabled = true;
     }
     else
     {
@@ -100,6 +146,7 @@ void Texture::disableAlphaBlend()
     if (alphaEnabled)
     {
         SDL_SetTextureBlendMode(sprite, SDL_BLENDMODE_NONE);
+        alphaEnabled = false;
     }
     else
     {
@@ -133,12 +180,12 @@ Uint8 Texture::getAlphaBlend()
 }
 
 // Creates an array of sub-textures for use in animation
-bool Texture::partitionSpritesheet(std::string xmlPath)
+bool Texture::partitionSpritesheet(const char* xmlPath)
 {
     TiXmlDocument xmlDoc;
 
     // Return false if the XML file is not found
-    if (!xmlDoc.LoadFile(xmlPath.c_str()))
+    if (!xmlDoc.LoadFile(xmlPath))
     {
         fprintf(stderr, "[ERROR] partitionSpritesheet(): Xml file not found.\n");
         return false;
@@ -184,7 +231,7 @@ bool Texture::advanceAnimation()
         return false;
     }
 
-    renderRect = animationRect[currentAnimationFrame];
+    sourceRect = animationRect[currentAnimationFrame];
     return true;
 }
 
@@ -208,7 +255,7 @@ bool Texture::setAnimationFrame(int animationFrame)
     }
 
     currentAnimationFrame = animationFrame;
-    renderRect = animationRect[animationFrame];
+    sourceRect = animationRect[animationFrame];
     return true;
 }
 

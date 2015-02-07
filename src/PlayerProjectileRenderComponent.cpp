@@ -4,13 +4,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2014-09-25
+ * @modified    2015-02-06
  *********************************************************************/
 #include "PlayerProjectileRenderComponent.h"
 
 #include <cstddef>
 #include "GameEntity.h"
 #include "SDL_util.h"
+#include "Texture.h"
 #include "WindowElements.h"
 
 PlayerProjectileRenderComponent::PlayerProjectileRenderComponent(GameEntity* gameEntity,
@@ -19,23 +20,24 @@ PlayerProjectileRenderComponent::PlayerProjectileRenderComponent(GameEntity* gam
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
-    sprite = SDL_util::create_texture_from_image(windowElements, "bin/graphics/sprites/laserBlue03.png");
-    SDL_QueryTexture(sprite, NULL, NULL, &spriteWidth, &spriteHeight);
-    renderRect.w = spriteWidth;
-    renderRect.h = spriteHeight;
+
+    texture = new Texture(windowElements);
+    texture->setTexture("bin/graphics/sprites/laserBlue03.png");
+
+    renderRect.w = texture->getSpriteWidth();
+    renderRect.h = texture->getSpriteHeight();
     gameEntity->position.x = playerEntity->position.x;
-    gameEntity->position.y = playerEntity->position.y - playerEntity->getRenderComponent()->spriteHeight/2 - spriteHeight/2;
+    gameEntity->position.y = playerEntity->position.y - (playerEntity->getRenderComponent()->getTexture()->getSpriteHeight())/2 - (texture->getSpriteHeight())/2;
 }
 
 void PlayerProjectileRenderComponent::update()
 {
-    renderRect.x = gameEntity->position.x - spriteWidth/2;
-    renderRect.y = gameEntity->position.y - spriteHeight/2;
-    SDL_RenderCopy(windowElements->renderer, sprite, NULL, &renderRect);
+    renderRect.x = gameEntity->position.x - texture->getSpriteWidth()/2;
+    renderRect.y = gameEntity->position.y - texture->getSpriteHeight()/2;
+    SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
 }
 
 PlayerProjectileRenderComponent::~PlayerProjectileRenderComponent()
 {
-    SDL_DestroyTexture(sprite);
-    sprite=NULL;
+    delete texture;
 }

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-01
+ * @modified    2015-02-06
  *********************************************************************/
 #include "MenuState.h"
 
@@ -17,8 +17,13 @@
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   fadeIn(false), fadeOut(false), menuAlpha(0), randomMeteorTime(0),
-    nextState(0), blackScreen(windowElements), gameEntityManager(windowElements)
+:   fadeIn(false),
+    fadeOut(false),
+    menuAlpha(0),
+    randomMeteorTime(0),
+    nextState(0),
+    blackScreen(windowElements),
+    gameEntityManager(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -38,7 +43,7 @@ void MenuState::onEnter()
     // Initializes alpha value of ui to 0
     for (int i=0; i<mainMenu.size(); i++)
     {
-        mainMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
+        mainMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
     }
 
     meteorTimer.start();
@@ -80,7 +85,7 @@ void MenuState::onUpdate()
         }
         for (int i=0; i<mainMenu.size(); i++)
         {
-            mainMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
+            mainMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
         }
     }
     else if (fadeOut)
@@ -92,7 +97,7 @@ void MenuState::onUpdate()
         }
         for (int i=0; i<mainMenu.size(); i++)
         {
-            mainMenu[i]->getRenderComponent()->setAlphaBlend(menuAlpha);
+            mainMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
         }
     }
     else if (blackScreen.isBlackingIn())
