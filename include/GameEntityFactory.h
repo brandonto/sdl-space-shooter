@@ -36,6 +36,9 @@ class GameEntityFactory
         ~GameEntityFactory();
 
         //Methods
+        std::vector<GameEntity*> createBackgroundEntities();
+        std::vector<GameEntity*> createPhysicalEntities();
+        std::vector<GameEntity*> createEffectEntities();
         std::vector<GameEntity*> createUIEntities();
         std::vector<GameEntity*> createMainMenu(ApplicationState* state);
         std::vector<GameEntity*> createUIInstructions(ApplicationState* state);

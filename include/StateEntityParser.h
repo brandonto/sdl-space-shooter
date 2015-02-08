@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-07
+ * @modified    2015-02-08
  *********************************************************************/
 #ifndef SPACESHOOTER_STATEENTITYPARSER_H_
     #define SPACESHOOTER_STATEENTITYPARSER_H_
@@ -20,6 +20,7 @@ struct EntityXmlStruct;
 class StateEntityParser
 {
     private:
+        std::string mapEnumeration(int parsingLayer);
 
     public:
         //Constructor

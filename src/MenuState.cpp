@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-07
+ * @modified    2015-02-08
  *********************************************************************/
 #include "MenuState.h"
 
@@ -27,6 +27,7 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->xmlPath = "data/xml/states/MenuState.xml";
     srand(time(NULL));
 }
 
@@ -37,7 +38,8 @@ MenuState::~MenuState()
 void MenuState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.getFactory()->createBackground();
+    //background = gameEntityManager.getFactory()->createBackground();
+    background = gameEntityManager.getFactory()->createBackgroundEntities();
     mainMenu = gameEntityManager.getFactory()->createMainMenu(this);
 
     // Initializes alpha value of ui to 0

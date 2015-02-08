@@ -52,6 +52,25 @@ GameEntityFactory::~GameEntityFactory()
 
 }
 
+std::vector<GameEntity*> GameEntityFactory::createBackgroundEntities()
+{
+    std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_BACKGROUND);
+    GameEntity* background[1];
+    background[0] = createBackground();
+    std::vector<GameEntity*> backgroundVector(background, background + sizeof(background)/sizeof(GameEntity*));
+    return backgroundVector;
+}
+
+std::vector<GameEntity*> GameEntityFactory::createPhysicalEntities()
+{
+    //xmlParser.parse(gameEntityManager->getState(), PARSE_PHYSICAL);
+}
+
+std::vector<GameEntity*> GameEntityFactory::createEffectEntities()
+{
+    //xmlParser.parse(gameEntityManager->getState(), PARSE_EFFECT);
+}
+
 std::vector<GameEntity*> GameEntityFactory::createUIEntities()
 {
     //xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
