@@ -14,18 +14,18 @@
 
     <Ui>
         <entity type="uiPanel" name="title" x="200" y="96" width="624" height="192" function="NONE" id="ui1" alphaEnabled="true"/>
-        <entity type="text" name="spaceText" data="Space" x="6" y="6" width="18" height="12" function="NONE" id="text1" alphaEnabled="true"/>
-        <entity type="text" name="shooterText" data="Shooter" x="6" y="6" width="18" height="12" function="NONE" id="text2" alphaEnabled="true"/>
-        <entity type="uiPanel" name="play" x="10" y="21" width="10" height="3" function="PLAY" id="ui2" alphaEnabled="true"/>
-        <entity type="text" name="playText" data="Play" x="6" y="6" width="18" height="12" function="NONE" id="text3" alphaEnabled="true"/>
-        <entity type="uiPanel" name="instructions" x="10" y="26" width="10" height="3" function="INSTRUCTIONS" id="ui3" alphaEnabled="true"/>
-        <entity type="text" name="instructionsText" data="Instructions" x="6" y="6" width="18" height="12" function="NONE" id="text4" alphaEnabled="true"/>
-        <entity type="uiPanel" name="options" x="10" y="31" width="10" height="3" function="NONE" id="ui4" alphaEnabled="true"/>
-        <entity type="text" name="optionsText" data="Options" x="6" y="6" width="18" height="12" function="NONE" id="text5" alphaEnabled="true"/>
-        <entity type="uiPanel" name="credits" x="10" y="36" width="10" height="3" function="CREDITS" id="ui5" alphaEnabled="true"/>
-        <entity type="text" name="creditsText" data="Credits" x="6" y="6" width="18" height="12" function="NONE" id="text6" alphaEnabled="true"/>
-        <entity type="uiPanel" name="quit" x="10" y="41" width="10" height="3" function="QUIT" id="ui6" alphaEnabled="true"/>
-        <entity type="text" name="quitText" data="Quit" x="6" y="6" width="18" height="12" function="NONE" id="text7" alphaEnabled="true"/>
+        <entity type="text" name="spaceText" data="Space" x="270" y="98" width="510" height="104" function="NONE" id="text1" alphaEnabled="true"/>
+        <entity type="text" name="shooterText" data="Shooter" x="235" y="182" width="564" height="104" function="NONE" id="text2" alphaEnabled="true"/>
+        <entity type="uiPanel" name="play" x="340" y="336" width="344" height="48" function="PLAY" id="ui2" alphaEnabled="true"/>
+        <entity type="text" name="playText" data="Play" x="385" y="336" width="265" height="48" function="NONE" id="text3" alphaEnabled="true"/>
+        <entity type="uiPanel" name="instructions" x="340" y="416" width="344" height="48" function="INSTRUCTIONS" id="ui3" alphaEnabled="true"/>
+        <entity type="text" name="instructionsText" data="Instructions" x="360" y="416" width="305" height="48" function="NONE" id="text4" alphaEnabled="true"/>
+        <entity type="uiPanel" name="options" x="340" y="496" width="344" height="48" function="NONE" id="ui4" alphaEnabled="true"/>
+        <entity type="text" name="optionsText" data="Options" x="370" y="496" width="290" height="48" function="NONE" id="text5" alphaEnabled="true"/>
+        <entity type="uiPanel" name="credits" x="340" y="576" width="344" height="48" function="CREDITS" id="ui5" alphaEnabled="true"/>
+        <entity type="text" name="creditsText" data="Credits" x="370" y="576" width="290" height="48" function="NONE" id="text6" alphaEnabled="true"/>
+        <entity type="uiPanel" name="quit" x="340" y="656" width="344" height="48" function="QUIT" id="ui6" alphaEnabled="true"/>
+        <entity type="text" name="quitText" data="Quit" x="385" y="654" width="265" height="48" function="NONE" id="text7" alphaEnabled="true"/>
     </Ui>
 
 </State>

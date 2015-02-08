@@ -1,0 +1,7 @@
+################################################
+# Files and folders that will be ignored by git
+################################################
+
+obj/
+depend/
+Spaceshooter

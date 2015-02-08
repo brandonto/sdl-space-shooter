@@ -119,9 +119,12 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         {
             UIPanelRenderComponent* entityRender = new UIPanelRenderComponent(entity, windowElements);
             entity->addRenderComponent(entityRender);
-            UIPanelInputComponent* entityInput = new UIPanelInputComponent(entity);
-            //entityInput->addClickFunction(new UIClickFunctionPlay(state));
-            entity->addInputComponent(entityInput);
+            if (xmlStruct.function != "NONE")
+            {
+                UIPanelInputComponent* entityInput = new UIPanelInputComponent(entity);
+                //entityInput->addClickFunction(new UIClickFunctionPlay(state));
+                entity->addInputComponent(entityInput);
+            }
             configureEntity(entity, xmlStruct);
             gameEntityManager->addUIEntity(entity);
             break;
