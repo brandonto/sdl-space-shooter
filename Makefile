@@ -74,6 +74,8 @@ all: $(OBJS)
 	$(CC) $(CFLAGS) -I$(IDIR) -I$(BDIR) -I$(DDIR) -o $(PROG) $^ $(LFLAGS)
 
 $(ODIR)/%.o : $(SDIR)/%.cpp
+	@mkdir -p $(ODIR)
+	@mkdir -p $(PDIR)
 	$(CC) $(CFLAGS) -I$(IDIR) -MD -c -o $@ $<
 	@cp $(ODIR)/$*.d $(PDIR)/$*.P; \
 		sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
