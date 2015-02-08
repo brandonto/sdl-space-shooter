@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-07
+ * @modified    2015-02-08
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -99,9 +99,19 @@ RenderComponent* GameEntity::getRenderComponent()
     return render;
 }
 
+void GameEntity::setID(std::string id)
+{
+    this->id.assign(id);
+}
+
 std::string GameEntity::getID()
 {
     return id;
+}
+
+void GameEntity::setName(std::string name)
+{
+    this->name.assign(name);
 }
 
 std::string GameEntity::getName()
@@ -109,12 +119,13 @@ std::string GameEntity::getName()
     return name;
 }
 
+void GameEntity::setType(std::string type)
+{
+    this->type.assign(type);
+}
+
 std::string GameEntity::getType()
 {
     return type;
 }
 
-void GameEntity::setXmlTags(EntityXmlStruct xmlStruct)
-{
-    //TODO implemenation
-}

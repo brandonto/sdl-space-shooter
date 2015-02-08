@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-07
+ * @modified    2015-02-08
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -45,6 +45,9 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
 :   gameEntityManager(gameEntityManager),
     windowElements(windowElements)
 {
+    stringToEntityEnum["background"] = ENTITY_BACKGROUND;
+    stringToEntityEnum["text"] = ENTITY_TEXT;
+    stringToEntityEnum["uiPanel"] = ENTITY_UIPANEL;
 }
 
 GameEntityFactory::~GameEntityFactory()
@@ -73,17 +76,83 @@ std::vector<GameEntity*> GameEntityFactory::createEffectEntities()
 
 std::vector<GameEntity*> GameEntityFactory::createUIEntities()
 {
-    //std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
-    //int numEntities = xmlStructs.size();
+    std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
+    int numEntities = xmlStructs.size();
 
-    //GameEntity* ui[numEntities];
+    GameEntity* ui[numEntities];
 
-    //for (int i=0; i<numEntities; i++)
-    //{
-    //    GameEntity* entity = new GameEntity();
-    //}
-    //std::vector<GameEntity*> uiVector(ui, ui + sizeof(ui)/sizeof(GameEntity*));
-    //return uiVector;
+    for (int i=0; i<numEntities; i++)
+    {
+        ui[i] = createEntity(xmlStructs[i]);
+    }
+
+    std::vector<GameEntity*> uiVector(ui, ui + sizeof(ui)/sizeof(GameEntity*));
+    return uiVector;
+}
+
+GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
+{
+    GameEntity* entity = new GameEntity();
+
+    switch (stringToEntityEnum[xmlStruct.type])
+    {
+        case ENTITY_BACKGROUND:
+        {
+            entity->addRenderComponent(new BackgroundRenderComponent(entity, windowElements));
+            entity->addPhysicsComponent(new BackgroundPhysicsComponent(entity, windowElements));
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addBackgroundEntity(entity);
+            break;
+        }
+
+        case ENTITY_TEXT:
+        {
+            TextRenderComponent* entityRender = new TextRenderComponent(entity, windowElements);
+            entityRender->setText(xmlStruct.data, 96);
+            entity->addRenderComponent(entityRender);
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addUIEntity(entity);
+            break;
+        }
+
+        case ENTITY_UIPANEL:
+        {
+            UIPanelRenderComponent* entityRender = new UIPanelRenderComponent(entity, windowElements);
+            entity->addRenderComponent(entityRender);
+            UIPanelInputComponent* entityInput = new UIPanelInputComponent(entity);
+            //entityInput->addClickFunction(new UIClickFunctionPlay(state));
+            entity->addInputComponent(entityInput);
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addUIEntity(entity);
+            break;
+        }
+
+        default:
+            fprintf(stderr, "[ERROR] createEntity(): unknown type.\n");
+            delete entity;
+            entity = NULL;
+            break;
+    }
+
+    return entity;
+}
+
+// Configures entity using the data passed in xmlStruct
+void GameEntityFactory::configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct)
+{
+    entity->setID(xmlStruct.id);
+    entity->setName(xmlStruct.name);
+    entity->setType(xmlStruct.type);
+    // Only sets texture if there was one specified, otherwise use the default
+    if (xmlStruct.texture != "")
+    {
+        entity->getRenderComponent()->getTexture()->setTexture(xmlStruct.texture);
+    }
+    entity->getRenderComponent()->setRenderRect(&(xmlStruct.renderRect));
+    if (xmlStruct.alphaEnabled)
+    {
+        entity->getRenderComponent()->getTexture()->enableAlphaBlend();
+    }
 }
 
 std::vector<GameEntity*> GameEntityFactory::createMainMenu(ApplicationState* state)

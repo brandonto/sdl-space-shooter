@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2015-02-06
+ * @modified    2015-02-08
  *********************************************************************/
 #ifndef SPACESHOOTER_RENDERCOMPONENT_
     #define SPACESHOOTER_RENDERCOMPONENT_
@@ -25,6 +25,7 @@ class RenderComponent
 
         //Methods
         virtual void update() = 0;
+        virtual void setRenderRect(SDL_Rect* rect){ renderRect = *rect; };
         virtual Texture* getTexture(){ return texture; };
         virtual SDL_Rect getRenderRect(){ return renderRect; };
         virtual bool advanceAnimation(){};

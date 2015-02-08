@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2014-09-19
+ * @modified    2015-02-08
  *********************************************************************/
 #ifndef SPACESHOOTER_UIPANELRENDERCOMPONENT_
     #define SPACESHOOTER_UIPANELRENDERCOMPONENT_
@@ -20,7 +20,6 @@ struct WindowElements;
 class UIPanelRenderComponent : public RenderComponent
 {
     private:
-        const Uint8 SELECTED_ALPHA = 255;
         Uint8 cachedAlpha;
         bool selected;
 
@@ -36,7 +35,6 @@ class UIPanelRenderComponent : public RenderComponent
         void update();
         bool isSelected();
         void toggleSelected();
-        void setRenderRect(SDL_Rect* rect);
         bool buttonReady();
 };
 

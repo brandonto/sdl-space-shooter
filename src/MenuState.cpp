@@ -40,7 +40,8 @@ void MenuState::onEnter()
     blackScreen.startBlackIn();
     //background = gameEntityManager.getFactory()->createBackground();
     background = gameEntityManager.getFactory()->createBackgroundEntities();
-    mainMenu = gameEntityManager.getFactory()->createMainMenu(this);
+    //mainMenu = gameEntityManager.getFactory()->createMainMenu(this);
+    mainMenu = gameEntityManager.getFactory()->createUIEntities();
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<mainMenu.size(); i++)

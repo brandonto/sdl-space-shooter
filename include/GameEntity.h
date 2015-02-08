@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-07
+ * @modified    2015-02-08
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
@@ -64,10 +64,12 @@ class GameEntity
         PhysicsComponent* getPhysicsComponent();
         RenderComponent* getRenderComponent();
 
+        void setID(std::string id);
         std::string getID();
+        void setName(std::string name);
         std::string getName();
+        void setType(std::string type);
         std::string getType();
-        void setXmlTags(EntityXmlStruct xmlStruct);
 };
 
 #endif

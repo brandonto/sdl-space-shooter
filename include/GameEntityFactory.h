@@ -4,11 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-07
+ * @modified    2015-02-08
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
 
+#include <map>
 #include <string>
 #include <vector>
 
@@ -27,6 +28,9 @@ class GameEntityFactory
         GameEntityManager* gameEntityManager;
         WindowElements* windowElements;
 
+        // Used alongside EntityEnum to map strings to integers
+        std::map<std::string, int> stringToEntityEnum;
+
     public:
         //Constructor
         GameEntityFactory(GameEntityManager* gameEntityManager,
@@ -40,6 +44,8 @@ class GameEntityFactory
         std::vector<GameEntity*> createPhysicalEntities();
         std::vector<GameEntity*> createEffectEntities();
         std::vector<GameEntity*> createUIEntities();
+        GameEntity* createEntity(EntityXmlStruct xmlStruct);
+        void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
         std::vector<GameEntity*> createMainMenu(ApplicationState* state);
         std::vector<GameEntity*> createUIInstructions(ApplicationState* state);
         std::vector<GameEntity*> createUICredits(ApplicationState* state);
@@ -55,6 +61,14 @@ class GameEntityFactory
         GameEntity* createPlayerInstructions();
         GameEntity* createPlayerInstructionsProjectile(GameEntity* playerEntity);
         GameEntity* createMeteor();
+};
+
+// Used alongside stringToEntityEnum to map strings to integers
+enum EntityEnum
+{
+    ENTITY_BACKGROUND,
+    ENTITY_TEXT,
+    ENTITY_UIPANEL,
 };
 
 #endif

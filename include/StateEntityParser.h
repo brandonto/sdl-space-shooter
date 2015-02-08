@@ -12,6 +12,7 @@
 
 #include <string>
 #include <vector>
+#include <SDL2/SDL.h>>
 
 class ApplicationState;
 
@@ -39,13 +40,17 @@ struct EntityXmlStruct
     std::string id = "";
     std::string name = "";
     std::string type = "";
+    std::string data = "";
     std::string texture = "";
     std::string function = "";
 
-    int x = 0;
-    int y = 0;
-    int width = 0;
-    int height = 0;
+    SDL_Rect renderRect;
+    //int x = 0;
+    //int y = 0;
+    //int width = 0;
+    //int height = 0;
+
+    bool alphaEnabled = false;
 };
 
 enum ParsingLayer

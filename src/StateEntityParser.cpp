@@ -19,6 +19,8 @@ StateEntityParser::~StateEntityParser()
 {
 }
 
+// This function will parse through an XML file to construct an array of
+// EntityXmlStruct structures
 std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
                                                     int parsingLayer)
 {
@@ -54,7 +56,7 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     // Return false if the parsing layer element is not found
     if (rootParsingLayer == NULL)
     {
-        fprintf(stderr, "[ERROR] parse(): Parsing layer elemenet not found.\n");
+        fprintf(stderr, "[ERROR] parse(): Parsing layer element not found.\n");
         return error;
     }
 
@@ -99,6 +101,14 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
             xmlStruct[index].type.assign(cString, cStringSize);
         }
 
+        if (e->Attribute("data") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("data");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].data.assign(cString, cStringSize);
+        }
+
         if (e->Attribute("texture") != NULL)
         {
             // Converting c_str to std::string
@@ -117,23 +127,29 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
 
         if (e->Attribute("x") != NULL)
         {
-            xmlStruct[index].x = atoi(e->Attribute("x"));
+            xmlStruct[index].renderRect.x = atoi(e->Attribute("x"));
         }
 
         if (e->Attribute("y") != NULL)
         {
-            xmlStruct[index].y = atoi(e->Attribute("y"));
+            xmlStruct[index].renderRect.y = atoi(e->Attribute("y"));
         }
 
         if (e->Attribute("width") != NULL)
         {
-            xmlStruct[index].width = atoi(e->Attribute("width"));
+            xmlStruct[index].renderRect.w = atoi(e->Attribute("width"));
         }
 
         if (e->Attribute("height") != NULL)
         {
-            xmlStruct[index].height = atoi(e->Attribute("height"));
+            xmlStruct[index].renderRect.h = atoi(e->Attribute("height"));
         }
+
+        if (e->Attribute("alphaEnabled") != NULL)
+        {
+            xmlStruct[index].alphaEnabled = true;
+        }
+
         index++;
     }
 

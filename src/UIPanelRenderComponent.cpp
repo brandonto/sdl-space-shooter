@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2015-02-06
+ * @modified    2015-02-08
  *********************************************************************/
 #include "UIPanelRenderComponent.h"
 
@@ -52,11 +52,6 @@ void UIPanelRenderComponent::toggleSelected()
         texture->setAlphaBlend(cachedAlpha);
         selected = false;
     }
-}
-
-void UIPanelRenderComponent::setRenderRect(SDL_Rect* rect)
-{
-    renderRect = *rect;
 }
 
 bool UIPanelRenderComponent::buttonReady()
