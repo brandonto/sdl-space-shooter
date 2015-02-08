@@ -69,11 +69,14 @@ obj/GameMenuState.o: src/GameMenuState.cpp /usr/include/stdc-predef.h \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/ApplicationState.h \
- include/BlackScreen.h include/GameEntityManager.h \
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/c++/4.8/string \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/4.8/bits/stringfwd.h \
+ /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/char_traits.h \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/c++/4.8/bits/functexcept.h \
  /usr/include/c++/4.8/bits/exception_defines.h \
  /usr/include/c++/4.8/bits/cpp_type_traits.h \
@@ -85,28 +88,12 @@ obj/GameMenuState.o: src/GameMenuState.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
  /usr/include/c++/4.8/debug/debug.h \
  /usr/include/c++/4.8/bits/stl_iterator.h \
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
  /usr/include/c++/4.8/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
  /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
  /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
- include/Vector2D.h include/GameEntityCollection.h \
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
- /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h \
- include/ApplicationStateManager.h include/GameEntity.h \
- include/GameState.h include/PauseState.h include/RenderComponent.h \
- include/Texture.h /usr/include/c++/4.8/string \
- /usr/include/c++/4.8/bits/stringfwd.h \
- /usr/include/c++/4.8/bits/char_traits.h \
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
  /usr/include/c++/4.8/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
  /usr/include/c++/4.8/clocale /usr/include/locale.h \
@@ -115,6 +102,7 @@ obj/GameMenuState.o: src/GameMenuState.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/4.8/bits/cxxabi_forced.h \
  /usr/include/c++/4.8/bits/stl_function.h \
  /usr/include/c++/4.8/backward/binders.h \
+ /usr/include/c++/4.8/bits/range_access.h \
  /usr/include/c++/4.8/bits/basic_string.h \
  /usr/include/c++/4.8/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
@@ -124,7 +112,20 @@ obj/GameMenuState.o: src/GameMenuState.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc include/SDL_util.h \
+ /usr/include/c++/4.8/bits/basic_string.tcc include/BlackScreen.h \
+ include/GameEntityManager.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
+ include/Vector2D.h include/GameEntityCollection.h \
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
+ /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h \
+ include/StateEntityParser.h include/ApplicationStateManager.h \
+ include/GameEntity.h include/GameState.h include/PauseState.h \
+ include/RenderComponent.h include/Texture.h include/SDL_util.h \
  include/WindowElements.h
 src/GameMenuState.cpp /usr/include/stdc-predef.h :
  include/GameMenuState.h /usr/local/include/SDL2/SDL.h :
@@ -197,11 +198,14 @@ src/GameMenuState.cpp /usr/include/stdc-predef.h :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/ApplicationState.h :
- include/BlackScreen.h include/GameEntityManager.h :
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
+ /usr/include/c++/4.8/string :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
+ /usr/include/c++/4.8/bits/stringfwd.h :
+ /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/char_traits.h :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/c++/4.8/bits/functexcept.h :
  /usr/include/c++/4.8/bits/exception_defines.h :
  /usr/include/c++/4.8/bits/cpp_type_traits.h :
@@ -213,28 +217,12 @@ src/GameMenuState.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h :
  /usr/include/c++/4.8/debug/debug.h :
  /usr/include/c++/4.8/bits/stl_iterator.h :
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
  /usr/include/c++/4.8/bits/allocator.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h :
  /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new :
  /usr/include/c++/4.8/exception :
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
- /usr/include/c++/4.8/bits/memoryfwd.h :
- /usr/include/c++/4.8/bits/stl_construct.h :
- /usr/include/c++/4.8/ext/alloc_traits.h :
- /usr/include/c++/4.8/bits/stl_uninitialized.h :
- /usr/include/c++/4.8/bits/stl_vector.h :
- /usr/include/c++/4.8/bits/stl_bvector.h :
- /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
- include/Vector2D.h include/GameEntityCollection.h :
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
- /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h :
- include/ApplicationStateManager.h include/GameEntity.h :
- include/GameState.h include/PauseState.h include/RenderComponent.h :
- include/Texture.h /usr/include/c++/4.8/string :
- /usr/include/c++/4.8/bits/stringfwd.h :
- /usr/include/c++/4.8/bits/char_traits.h :
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
  /usr/include/c++/4.8/bits/localefwd.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h :
  /usr/include/c++/4.8/clocale /usr/include/locale.h :
@@ -243,6 +231,7 @@ src/GameMenuState.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/4.8/bits/cxxabi_forced.h :
  /usr/include/c++/4.8/bits/stl_function.h :
  /usr/include/c++/4.8/backward/binders.h :
+ /usr/include/c++/4.8/bits/range_access.h :
  /usr/include/c++/4.8/bits/basic_string.h :
  /usr/include/c++/4.8/ext/atomicity.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h :
@@ -252,5 +241,18 @@ src/GameMenuState.cpp /usr/include/stdc-predef.h :
  /usr/include/x86_64-linux-gnu/bits/timex.h :
  /usr/include/x86_64-linux-gnu/bits/setjmp.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc include/SDL_util.h :
+ /usr/include/c++/4.8/bits/basic_string.tcc include/BlackScreen.h :
+ include/GameEntityManager.h /usr/include/c++/4.8/vector :
+ /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
+ include/Vector2D.h include/GameEntityCollection.h :
+ /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
+ /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h :
+ include/StateEntityParser.h include/ApplicationStateManager.h :
+ include/GameEntity.h include/GameState.h include/PauseState.h :
+ include/RenderComponent.h include/Texture.h include/SDL_util.h :
  include/WindowElements.h :

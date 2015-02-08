@@ -24,19 +24,21 @@ struct WindowElements;
 class GameEntityManager
 {
     private:
+        ApplicationState* gameState;
         CollisionManager collisionManager;
         GameEntityFactory gameEntityFactory;
+        WindowElements* windowElements;
 
         GameEntityCollection backgroundLayer;
         GameEntityCollection physicalLayer;
         GameEntityCollection effectLayer;
         GameEntityCollection uiLayer;
-        WindowElements* windowElements;
 
         //bool explosion
 
     public:
-        GameEntityManager(WindowElements* windowElements);
+        GameEntityManager(WindowElements* windowElements,
+                        ApplicationState* gameState);
 
         void onEvent(SDL_Event* event);
         void onUpdate();
@@ -50,6 +52,7 @@ class GameEntityManager
         void addEffectEntity(GameEntity* gameEntity);
         void addUIEntity(GameEntity* gameEntity);
 
+        ApplicationState* getState();
         CollisionManager* getCollisionManager();
         GameEntityFactory* getFactory();
 };

@@ -4,26 +4,30 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-10-21
+ * @modified    2015-02-07
  *********************************************************************/
 #include "GameEntity.h"
 
 #include <cstddef>
 #include <SDL2/SDL.h>
-#include "InputComponent.h"
-#include "RenderComponent.h"
-#include "PhysicsComponent.h"
+
 #include "CollisionComponent.h"
+#include "InputComponent.h"
+#include "PhysicsComponent.h"
+#include "RenderComponent.h"
 
 //Constructor
 GameEntity::GameEntity()
 :   position(0, 0),
     remove(false),
     active(false),
+    id(""),
+    name(""),
+    type(""),
+    collision(NULL),
     input(NULL),
-    render(NULL),
     physics(NULL),
-    collision(NULL)
+    render(NULL)
 {}
 
 GameEntity::~GameEntity()
@@ -34,14 +38,14 @@ GameEntity::~GameEntity()
     if (render!=NULL) { delete render; }
 }
 
+void GameEntity::addCollisionComponent(CollisionComponent* collision)
+{
+    this->collision = collision;
+}
+
 void GameEntity::addInputComponent(InputComponent* input)
 {
     this->input = input;
-}
-
-void GameEntity::addRenderComponent(RenderComponent* render)
-{
-    this->render = render;
 }
 
 void GameEntity::addPhysicsComponent(PhysicsComponent* physics)
@@ -49,9 +53,9 @@ void GameEntity::addPhysicsComponent(PhysicsComponent* physics)
     this->physics = physics;
 }
 
-void GameEntity::addCollisionComponent(CollisionComponent* collision)
+void GameEntity::addRenderComponent(RenderComponent* render)
 {
-    this->collision = collision;
+    this->render = render;
 }
 
 void GameEntity::onEvent(SDL_Event *event)
@@ -75,14 +79,14 @@ void GameEntity::onDestroy()
     if (physics!=NULL) { physics->onDestroy(); }
 }
 
+CollisionComponent* GameEntity::getCollisionComponent()
+{
+    return collision;
+}
+
 InputComponent* GameEntity::getInputComponent()
 {
     return input;
-}
-
-RenderComponent* GameEntity::getRenderComponent()
-{
-    return render;
 }
 
 PhysicsComponent* GameEntity::getPhysicsComponent()
@@ -90,7 +94,27 @@ PhysicsComponent* GameEntity::getPhysicsComponent()
     return physics;
 }
 
-CollisionComponent* GameEntity::getCollisionComponent()
+RenderComponent* GameEntity::getRenderComponent()
 {
-    return collision;
+    return render;
+}
+
+std::string GameEntity::getID()
+{
+    return id;
+}
+
+std::string GameEntity::getName()
+{
+    return name;
+}
+
+std::string GameEntity::getType()
+{
+    return type;
+}
+
+void GameEntity::setXmlTags(EntityXmlStruct xmlStruct)
+{
+    //TODO implemenation
 }

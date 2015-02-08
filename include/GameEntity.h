@@ -6,17 +6,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-10-21
+ * @modified    2015-02-07
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
 
 #include "Vector2D.h"
 
-class InputComponent;
-class RenderComponent;
-class PhysicsComponent;
+#include <string>
+
+#include "StateEntityParser.h" //For EntityXmlStruct structure
+
 class CollisionComponent;
+class InputComponent;
+class PhysicsComponent;
+class RenderComponent;
 
 union SDL_Event;
 
@@ -24,10 +28,14 @@ class GameEntity
 {
     private:
         //Fields
-        InputComponent* input;
-        RenderComponent* render;
-        PhysicsComponent* physics;
         CollisionComponent* collision;
+        InputComponent* input;
+        PhysicsComponent* physics;
+        RenderComponent* render;
+
+        std::string id;
+        std::string name;
+        std::string type;
 
     public:
         //Fields
@@ -42,19 +50,24 @@ class GameEntity
         ~GameEntity();
 
         //Methods
-        void addInputComponent(InputComponent* input);
-        void addRenderComponent(RenderComponent* render);
-        void addPhysicsComponent(PhysicsComponent* physics);
         void addCollisionComponent(CollisionComponent* collision);
+        void addInputComponent(InputComponent* input);
+        void addPhysicsComponent(PhysicsComponent* physics);
+        void addRenderComponent(RenderComponent* render);
         void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
         virtual void onDestroy();
 
-        RenderComponent* getRenderComponent();
+        CollisionComponent* getCollisionComponent();
         InputComponent* getInputComponent();
         PhysicsComponent* getPhysicsComponent();
-        CollisionComponent* getCollisionComponent();
+        RenderComponent* getRenderComponent();
+
+        std::string getID();
+        std::string getName();
+        std::string getType();
+        void setXmlTags(EntityXmlStruct xmlStruct);
 };
 
 #endif

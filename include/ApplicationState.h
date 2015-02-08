@@ -10,6 +10,8 @@
 #ifndef SPACESHOOTER_APPLICATIONSTATE_H_
     #define SPACESHOOTER_APPLICATIONSTATE_H_
 
+#include <string>
+
 class ApplicationStateManager;
 class WindowElements;
 
@@ -29,6 +31,8 @@ class ApplicationState
         virtual void onExit();
         virtual void stateTransition(int nextState);
         int getStateEnum();
+        void setXmlPath(std::string xmlPath);
+        std::string getXmlPath();
 
     protected:
         //Fields
@@ -36,6 +40,7 @@ class ApplicationState
         WindowElements* windowElements;
 
         int stateEnum;
+        std::string xmlPath;
 };
 
 

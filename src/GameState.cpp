@@ -16,8 +16,10 @@
 
 GameState::GameState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   blackScreen(windowElements), gameEntityManager(windowElements),
-    nextState(0), pauseStatus(PAUSED_NONE)
+:   blackScreen(windowElements),
+    gameEntityManager(windowElements,this),
+    nextState(0),
+    pauseStatus(PAUSED_NONE)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;

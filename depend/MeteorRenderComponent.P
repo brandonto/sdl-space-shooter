@@ -120,8 +120,8 @@ obj/MeteorRenderComponent.o: src/MeteorRenderComponent.cpp \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/vector.tcc /usr/include/c++/4.8/cstddef \
- include/GameEntity.h include/Vector2D.h include/SDL_util.h \
- include/WindowElements.h
+ include/GameEntity.h include/Vector2D.h include/StateEntityParser.h \
+ include/SDL_util.h include/WindowElements.h
 src/MeteorRenderComponent.cpp :
  /usr/include/stdc-predef.h include/MeteorRenderComponent.h :
  include/RenderComponent.h /usr/local/include/SDL2/SDL.h :
@@ -244,5 +244,5 @@ src/MeteorRenderComponent.cpp :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/vector.tcc /usr/include/c++/4.8/cstddef :
- include/GameEntity.h include/Vector2D.h include/SDL_util.h :
- include/WindowElements.h :
+ include/GameEntity.h include/Vector2D.h include/StateEntityParser.h :
+ include/SDL_util.h include/WindowElements.h :

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-05
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #ifndef SPACESHOOTER_TEXTURE_
     #define SPACESHOOTER_TEXTURE_
@@ -60,7 +60,7 @@ class Texture
         void setAlphaBlend(Uint8 alpha);
         Uint8 getAlphaBlend();
 
-        bool partitionSpritesheet(const char* xmlPath);
+        bool partitionSpritesheet(std::string xmlPath);
         bool advanceAnimation();
         bool setAnimationFrame(int animationFrame);
 };

@@ -99,11 +99,7 @@ obj/PlayerCollisionComponent.o: src/PlayerCollisionComponent.cpp \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
  /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
- include/GameEntity.h include/GameEntityManager.h \
- include/CollisionManager.h include/GameEntityCollection.h \
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
- /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h \
- include/RenderComponent.h include/Texture.h /usr/include/c++/4.8/string \
+ include/GameEntity.h /usr/include/c++/4.8/string \
  /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
@@ -124,8 +120,12 @@ obj/PlayerCollisionComponent.o: src/PlayerCollisionComponent.cpp \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc include/PhysicsComponent.h \
- include/WindowElements.h
+ /usr/include/c++/4.8/bits/basic_string.tcc include/StateEntityParser.h \
+ include/GameEntityManager.h include/CollisionManager.h \
+ include/GameEntityCollection.h /usr/include/c++/4.8/list \
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
+ include/GameEntityFactory.h include/RenderComponent.h include/Texture.h \
+ include/PhysicsComponent.h include/WindowElements.h
 src/PlayerCollisionComponent.cpp :
  /usr/include/stdc-predef.h include/PlayerCollisionComponent.h :
  include/CollisionComponent.h /usr/local/include/SDL2/SDL.h :
@@ -227,11 +227,7 @@ src/PlayerCollisionComponent.cpp :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
  /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
- include/GameEntity.h include/GameEntityManager.h :
- include/CollisionManager.h include/GameEntityCollection.h :
- /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
- /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h :
- include/RenderComponent.h include/Texture.h /usr/include/c++/4.8/string :
+ include/GameEntity.h /usr/include/c++/4.8/string :
  /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
@@ -252,5 +248,9 @@ src/PlayerCollisionComponent.cpp :
  /usr/include/x86_64-linux-gnu/bits/timex.h :
  /usr/include/x86_64-linux-gnu/bits/setjmp.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc include/PhysicsComponent.h :
- include/WindowElements.h :
+ /usr/include/c++/4.8/bits/basic_string.tcc include/StateEntityParser.h :
+ include/GameEntityManager.h include/CollisionManager.h :
+ include/GameEntityCollection.h /usr/include/c++/4.8/list :
+ /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
+ include/GameEntityFactory.h include/RenderComponent.h include/Texture.h :
+ include/PhysicsComponent.h include/WindowElements.h :

@@ -10,6 +10,13 @@
 #ifndef SPACESHOOTER_STATEENTITYPARSER_H_
     #define SPACESHOOTER_STATEENTITYPARSER_H_
 
+#include <string>
+#include <vector>
+
+class ApplicationState;
+
+struct EntityXmlStruct;
+
 class StateEntityParser
 {
     private:
@@ -22,7 +29,30 @@ class StateEntityParser
         ~StateEntityParser();
 
         //Methods
-        //TODO Design this class
+        std::vector<EntityXmlStruct> parse(ApplicationState* state,
+                                        int parsingLayer);
+};
+
+struct EntityXmlStruct
+{
+    std::string id;
+    std::string name;
+    std::string type;
+    std::string texture;
+    std::string function;
+
+    int x;
+    int y;
+    int width;
+    int height;
+};
+
+enum ParsingLayer
+{
+    PARSE_BACKGROUND,
+    PARSE_PHYSICAL,
+    PARSE_EFFECT,
+    PARSE_UI,
 };
 
 #endif

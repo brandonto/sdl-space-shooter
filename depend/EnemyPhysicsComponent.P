@@ -70,11 +70,14 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h \
- include/GameEntity.h include/GameEntityFactory.h \
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
+ include/GameEntity.h /usr/include/c++/4.8/string \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/4.8/bits/stringfwd.h \
+ /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/char_traits.h \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/c++/4.8/bits/functexcept.h \
  /usr/include/c++/4.8/bits/exception_defines.h \
  /usr/include/c++/4.8/bits/cpp_type_traits.h \
@@ -86,23 +89,12 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
  /usr/include/c++/4.8/debug/debug.h \
  /usr/include/c++/4.8/bits/stl_iterator.h \
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
  /usr/include/c++/4.8/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
  /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
  /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/memoryfwd.h \
- /usr/include/c++/4.8/bits/stl_construct.h \
- /usr/include/c++/4.8/ext/alloc_traits.h \
- /usr/include/c++/4.8/bits/stl_uninitialized.h \
- /usr/include/c++/4.8/bits/stl_vector.h \
- /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc include/RenderComponent.h \
- include/Texture.h /usr/include/c++/4.8/string \
- /usr/include/c++/4.8/bits/stringfwd.h \
- /usr/include/c++/4.8/bits/char_traits.h \
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
  /usr/include/c++/4.8/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
  /usr/include/c++/4.8/clocale /usr/include/locale.h \
@@ -111,6 +103,7 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/include/c++/4.8/bits/cxxabi_forced.h \
  /usr/include/c++/4.8/bits/stl_function.h \
  /usr/include/c++/4.8/backward/binders.h \
+ /usr/include/c++/4.8/bits/range_access.h \
  /usr/include/c++/4.8/bits/basic_string.h \
  /usr/include/c++/4.8/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
@@ -120,7 +113,14 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h
+ /usr/include/c++/4.8/bits/basic_string.tcc include/StateEntityParser.h \
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_vector.h \
+ /usr/include/c++/4.8/bits/stl_bvector.h \
+ /usr/include/c++/4.8/bits/vector.tcc include/GameEntityFactory.h \
+ include/RenderComponent.h include/Texture.h include/WindowElements.h
 src/EnemyPhysicsComponent.cpp :
  /usr/include/stdc-predef.h include/EnemyPhysicsComponent.h :
  include/PhysicsComponent.h /usr/local/include/SDL2/SDL.h :
@@ -193,11 +193,14 @@ src/EnemyPhysicsComponent.cpp :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h :
- include/GameEntity.h include/GameEntityFactory.h :
- /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
+ include/GameEntity.h /usr/include/c++/4.8/string :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h :
+ /usr/include/c++/4.8/bits/stringfwd.h :
+ /usr/include/c++/4.8/bits/memoryfwd.h :
+ /usr/include/c++/4.8/bits/char_traits.h :
+ /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/c++/4.8/bits/functexcept.h :
  /usr/include/c++/4.8/bits/exception_defines.h :
  /usr/include/c++/4.8/bits/cpp_type_traits.h :
@@ -209,23 +212,12 @@ src/EnemyPhysicsComponent.cpp :
  /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h :
  /usr/include/c++/4.8/debug/debug.h :
  /usr/include/c++/4.8/bits/stl_iterator.h :
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
  /usr/include/c++/4.8/bits/allocator.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h :
  /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new :
  /usr/include/c++/4.8/exception :
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h :
- /usr/include/c++/4.8/bits/memoryfwd.h :
- /usr/include/c++/4.8/bits/stl_construct.h :
- /usr/include/c++/4.8/ext/alloc_traits.h :
- /usr/include/c++/4.8/bits/stl_uninitialized.h :
- /usr/include/c++/4.8/bits/stl_vector.h :
- /usr/include/c++/4.8/bits/stl_bvector.h :
- /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/vector.tcc include/RenderComponent.h :
- include/Texture.h /usr/include/c++/4.8/string :
- /usr/include/c++/4.8/bits/stringfwd.h :
- /usr/include/c++/4.8/bits/char_traits.h :
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
  /usr/include/c++/4.8/bits/localefwd.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h :
  /usr/include/c++/4.8/clocale /usr/include/locale.h :
@@ -234,6 +226,7 @@ src/EnemyPhysicsComponent.cpp :
  /usr/include/c++/4.8/bits/cxxabi_forced.h :
  /usr/include/c++/4.8/bits/stl_function.h :
  /usr/include/c++/4.8/backward/binders.h :
+ /usr/include/c++/4.8/bits/range_access.h :
  /usr/include/c++/4.8/bits/basic_string.h :
  /usr/include/c++/4.8/ext/atomicity.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h :
@@ -243,4 +236,11 @@ src/EnemyPhysicsComponent.cpp :
  /usr/include/x86_64-linux-gnu/bits/timex.h :
  /usr/include/x86_64-linux-gnu/bits/setjmp.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h :
+ /usr/include/c++/4.8/bits/basic_string.tcc include/StateEntityParser.h :
+ /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_construct.h :
+ /usr/include/c++/4.8/ext/alloc_traits.h :
+ /usr/include/c++/4.8/bits/stl_uninitialized.h :
+ /usr/include/c++/4.8/bits/stl_vector.h :
+ /usr/include/c++/4.8/bits/stl_bvector.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/GameEntityFactory.h :
+ include/RenderComponent.h include/Texture.h include/WindowElements.h :

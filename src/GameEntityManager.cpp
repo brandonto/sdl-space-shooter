@@ -14,8 +14,10 @@
 #include "GameEntity.h"
 #include "WindowElements.h"
 
-GameEntityManager::GameEntityManager(WindowElements* windowElements)
+GameEntityManager::GameEntityManager(WindowElements* windowElements,
+                                    ApplicationState* gameState)
 :   windowElements(windowElements),
+    gameState(gameState),
     collisionManager(windowElements),
     gameEntityFactory(this,windowElements)
 {
@@ -81,6 +83,12 @@ void GameEntityManager::addEffectEntity(GameEntity* gameEntity)
 void GameEntityManager::addUIEntity(GameEntity* gameEntity)
 {
     uiLayer.add(gameEntity);
+}
+
+// Getter for ApplicationState
+ApplicationState* GameEntityManager::getState()
+{
+    return gameState;
 }
 
 // Getter for CollisionManager

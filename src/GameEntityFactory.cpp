@@ -45,12 +45,16 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
 :   gameEntityManager(gameEntityManager),
     windowElements(windowElements)
 {
-
 }
 
 GameEntityFactory::~GameEntityFactory()
 {
 
+}
+
+std::vector<GameEntity*> GameEntityFactory::createUIEntities()
+{
+    //xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
 }
 
 std::vector<GameEntity*> GameEntityFactory::createMainMenu(ApplicationState* state)

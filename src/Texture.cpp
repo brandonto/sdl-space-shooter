@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-05
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "Texture.h"
 
@@ -180,12 +180,12 @@ Uint8 Texture::getAlphaBlend()
 }
 
 // Creates an array of sub-textures for use in animation
-bool Texture::partitionSpritesheet(const char* xmlPath)
+bool Texture::partitionSpritesheet(std::string xmlPath)
 {
     TiXmlDocument xmlDoc;
 
     // Return false if the XML file is not found
-    if (!xmlDoc.LoadFile(xmlPath))
+    if (!xmlDoc.LoadFile(xmlPath.c_str()))
     {
         fprintf(stderr, "[ERROR] partitionSpritesheet(): Xml file not found.\n");
         return false;

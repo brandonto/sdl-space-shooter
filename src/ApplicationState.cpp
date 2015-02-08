@@ -41,3 +41,13 @@ int ApplicationState::getStateEnum()
 {
     return stateEnum;
 }
+
+void ApplicationState::setXmlPath(std::string xmlPath)
+{
+    this->xmlPath = xmlPath;
+}
+
+std::string ApplicationState::getXmlPath()
+{
+    return xmlPath;
+}

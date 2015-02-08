@@ -48,6 +48,7 @@ _OBJS =	main.o \
 		PlayerProjectileRenderComponent.o \
 		SDL_util.o \
 		SpriteRenderComponent.o \
+		StateEntityParser.o \
 		TextRenderComponent.o \
 		Texture.o \
 		Timer.o \

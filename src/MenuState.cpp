@@ -23,7 +23,7 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
     randomMeteorTime(0),
     nextState(0),
     blackScreen(windowElements),
-    gameEntityManager(windowElements)
+    gameEntityManager(windowElements,this)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;

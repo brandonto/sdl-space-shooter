@@ -9,7 +9,10 @@
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
 
+#include <string>
 #include <vector>
+
+#include "StateEntityParser.h"
 
 class ApplicationState;
 class GameEntity;
@@ -20,6 +23,7 @@ struct WindowElements;
 class GameEntityFactory
 {
     private:
+        StateEntityParser xmlParser;
         GameEntityManager* gameEntityManager;
         WindowElements* windowElements;
 
@@ -32,6 +36,7 @@ class GameEntityFactory
         ~GameEntityFactory();
 
         //Methods
+        std::vector<GameEntity*> createUIEntities();
         std::vector<GameEntity*> createMainMenu(ApplicationState* state);
         std::vector<GameEntity*> createUIInstructions(ApplicationState* state);
         std::vector<GameEntity*> createUICredits(ApplicationState* state);

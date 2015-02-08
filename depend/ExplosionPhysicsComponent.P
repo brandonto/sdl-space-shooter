@@ -121,7 +121,8 @@ obj/ExplosionPhysicsComponent.o: src/ExplosionPhysicsComponent.cpp \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/vector.tcc include/GameEntity.h \
- include/RenderComponent.h include/WindowElements.h
+ include/StateEntityParser.h include/RenderComponent.h \
+ include/WindowElements.h
 src/ExplosionPhysicsComponent.cpp :
  /usr/include/stdc-predef.h include/ExplosionPhysicsComponent.h :
  include/PhysicsComponent.h /usr/local/include/SDL2/SDL.h :
@@ -245,4 +246,5 @@ src/ExplosionPhysicsComponent.cpp :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/vector.tcc include/GameEntity.h :
- include/RenderComponent.h include/WindowElements.h :
+ include/StateEntityParser.h include/RenderComponent.h :
+ include/WindowElements.h :

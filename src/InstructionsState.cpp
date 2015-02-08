@@ -20,7 +20,7 @@ InstructionsState::InstructionsState(ApplicationStateManager* applicationStateMa
     fadeOut(false),
     uiAlpha(0),
     nextState(0),
-    gameEntityManager(windowElements),
+    gameEntityManager(windowElements,this),
     blackScreen(windowElements)
 {
     this->applicationStateManager = applicationStateManager;

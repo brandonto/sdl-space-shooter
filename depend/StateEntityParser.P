@@ -1,5 +1,5 @@
-obj/IntroState.o: src/IntroState.cpp /usr/include/stdc-predef.h \
- include/IntroState.h include/ApplicationState.h \
+obj/StateEntityParser.o: src/StateEntityParser.cpp \
+ /usr/include/stdc-predef.h include/StateEntityParser.h \
  /usr/include/c++/4.8/string \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
@@ -59,16 +59,15 @@ obj/IntroState.o: src/IntroState.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc \
- include/ApplicationStateManager.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/basic_string.tcc /usr/include/c++/4.8/vector \
  /usr/include/c++/4.8/bits/stl_construct.h \
  /usr/include/c++/4.8/ext/alloc_traits.h \
  /usr/include/c++/4.8/bits/stl_uninitialized.h \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/vector.tcc include/WindowElements.h
-src/IntroState.cpp /usr/include/stdc-predef.h :
- include/IntroState.h include/ApplicationState.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h
+src/StateEntityParser.cpp :
+ /usr/include/stdc-predef.h include/StateEntityParser.h :
  /usr/include/c++/4.8/string :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
@@ -128,11 +127,10 @@ src/IntroState.cpp /usr/include/stdc-predef.h :
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h :
  /usr/include/x86_64-linux-gnu/bits/setjmp.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc :
- include/ApplicationStateManager.h /usr/include/c++/4.8/vector :
+ /usr/include/c++/4.8/bits/basic_string.tcc /usr/include/c++/4.8/vector :
  /usr/include/c++/4.8/bits/stl_construct.h :
  /usr/include/c++/4.8/ext/alloc_traits.h :
  /usr/include/c++/4.8/bits/stl_uninitialized.h :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
- /usr/include/c++/4.8/bits/vector.tcc include/WindowElements.h :
+ /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h :

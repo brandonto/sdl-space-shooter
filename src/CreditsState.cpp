@@ -20,7 +20,7 @@ CreditsState::CreditsState(ApplicationStateManager* applicationStateManager,
     fadeOut(false),
     uiAlpha(0),
     nextState(0),
-    gameEntityManager(windowElements),
+    gameEntityManager(windowElements,this),
     blackScreen(windowElements)
 {
     this->applicationStateManager = applicationStateManager;

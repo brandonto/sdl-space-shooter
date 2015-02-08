@@ -32,35 +32,57 @@ obj/CreditsState.o: src/CreditsState.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
  /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h \
- include/BlackScreen.h /usr/local/include/SDL2/SDL.h \
- /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h \
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
+ /usr/include/c++/4.8/bits/char_traits.h \
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
+ /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/include/xlocale.h /usr/include/c++/4.8/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
+ /usr/include/c++/4.8/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd \
+ /usr/include/c++/4.8/cctype /usr/include/ctype.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /usr/include/c++/4.8/bits/ostream_insert.h \
+ /usr/include/c++/4.8/bits/cxxabi_forced.h \
+ /usr/include/c++/4.8/bits/stl_function.h \
+ /usr/include/c++/4.8/backward/binders.h \
+ /usr/include/c++/4.8/bits/basic_string.h \
+ /usr/include/c++/4.8/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
+ /usr/include/c++/4.8/bits/basic_string.tcc include/BlackScreen.h \
+ /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
+ /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
  /usr/local/include/SDL2/SDL_platform.h \
  /usr/local/include/SDL2/begin_code.h \
  /usr/local/include/SDL2/close_code.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h \
- /usr/include/x86_64-linux-gnu/bits/endian.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
  /usr/include/x86_64-linux-gnu/sys/select.h \
  /usr/include/x86_64-linux-gnu/bits/select.h \
  /usr/include/x86_64-linux-gnu/bits/sigset.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
- /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/stdio.h \
- /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/xlocale.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/string.h /usr/include/strings.h /usr/include/inttypes.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/ctype.h \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
@@ -101,29 +123,9 @@ obj/CreditsState.o: src/CreditsState.cpp /usr/include/stdc-predef.h \
  include/CollisionManager.h include/Vector2D.h \
  include/GameEntityCollection.h /usr/include/c++/4.8/list \
  /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- include/GameEntityFactory.h include/ApplicationStateManager.h \
- include/GameEntity.h include/RenderComponent.h include/Texture.h \
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
- /usr/include/c++/4.8/bits/char_traits.h \
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
- /usr/include/c++/4.8/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
- /usr/include/c++/4.8/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd \
- /usr/include/c++/4.8/cctype /usr/include/c++/4.8/bits/ostream_insert.h \
- /usr/include/c++/4.8/bits/cxxabi_forced.h \
- /usr/include/c++/4.8/bits/stl_function.h \
- /usr/include/c++/4.8/backward/binders.h \
- /usr/include/c++/4.8/bits/basic_string.h \
- /usr/include/c++/4.8/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h \
- /usr/include/x86_64-linux-gnu/bits/sched.h \
- /usr/include/x86_64-linux-gnu/bits/timex.h \
- /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
- /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h
+ include/GameEntityFactory.h include/StateEntityParser.h \
+ include/ApplicationStateManager.h include/GameEntity.h \
+ include/RenderComponent.h include/Texture.h include/WindowElements.h
 src/CreditsState.cpp /usr/include/stdc-predef.h :
  include/CreditsState.h /usr/include/c++/4.8/vector :
  /usr/include/c++/4.8/bits/stl_algobase.h :
@@ -158,35 +160,57 @@ src/CreditsState.cpp /usr/include/stdc-predef.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
  /usr/include/c++/4.8/bits/vector.tcc include/ApplicationState.h :
- include/BlackScreen.h /usr/local/include/SDL2/SDL.h :
- /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h :
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
+ /usr/include/c++/4.8/bits/char_traits.h :
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
+ /usr/include/wchar.h /usr/include/stdio.h :
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h :
+ /usr/include/x86_64-linux-gnu/bits/wchar.h :
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h :
+ /usr/include/xlocale.h /usr/include/c++/4.8/bits/localefwd.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h :
+ /usr/include/c++/4.8/clocale /usr/include/locale.h :
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd :
+ /usr/include/c++/4.8/cctype /usr/include/ctype.h :
+ /usr/include/x86_64-linux-gnu/bits/types.h :
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/endian.h :
+ /usr/include/x86_64-linux-gnu/bits/endian.h :
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h :
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h :
+ /usr/include/c++/4.8/bits/ostream_insert.h :
+ /usr/include/c++/4.8/bits/cxxabi_forced.h :
+ /usr/include/c++/4.8/bits/stl_function.h :
+ /usr/include/c++/4.8/backward/binders.h :
+ /usr/include/c++/4.8/bits/basic_string.h :
+ /usr/include/c++/4.8/ext/atomicity.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h :
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h :
+ /usr/include/x86_64-linux-gnu/bits/sched.h :
+ /usr/include/x86_64-linux-gnu/bits/time.h :
+ /usr/include/x86_64-linux-gnu/bits/timex.h :
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h :
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h :
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
+ /usr/include/c++/4.8/bits/basic_string.tcc include/BlackScreen.h :
+ /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h :
+ /usr/local/include/SDL2/SDL_stdinc.h :
  /usr/local/include/SDL2/SDL_config.h :
  /usr/local/include/SDL2/SDL_platform.h :
  /usr/local/include/SDL2/begin_code.h :
  /usr/local/include/SDL2/close_code.h :
  /usr/include/x86_64-linux-gnu/sys/types.h :
- /usr/include/x86_64-linux-gnu/bits/types.h :
- /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/time.h :
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h /usr/include/endian.h :
- /usr/include/x86_64-linux-gnu/bits/endian.h :
- /usr/include/x86_64-linux-gnu/bits/byteswap.h :
- /usr/include/x86_64-linux-gnu/bits/byteswap-16.h :
  /usr/include/x86_64-linux-gnu/sys/select.h :
  /usr/include/x86_64-linux-gnu/bits/select.h :
  /usr/include/x86_64-linux-gnu/bits/sigset.h :
- /usr/include/x86_64-linux-gnu/bits/time.h :
- /usr/include/x86_64-linux-gnu/sys/sysmacros.h :
- /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/stdio.h :
- /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h :
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h :
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h :
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/libio.h :
+ /usr/include/_G_config.h /usr/include/x86_64-linux-gnu/bits/stdio_lim.h :
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h :
  /usr/include/x86_64-linux-gnu/bits/waitflags.h :
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/xlocale.h :
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h :
- /usr/include/string.h /usr/include/strings.h /usr/include/inttypes.h :
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h :
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h :
+ /usr/include/strings.h /usr/include/inttypes.h :
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h :
- /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/ctype.h :
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/huge_val.h :
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h :
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h :
@@ -227,26 +251,6 @@ src/CreditsState.cpp /usr/include/stdc-predef.h :
  include/CollisionManager.h include/Vector2D.h :
  include/GameEntityCollection.h /usr/include/c++/4.8/list :
  /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- include/GameEntityFactory.h include/ApplicationStateManager.h :
- include/GameEntity.h include/RenderComponent.h include/Texture.h :
- /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
- /usr/include/c++/4.8/bits/char_traits.h :
- /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
- /usr/include/c++/4.8/bits/localefwd.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h :
- /usr/include/c++/4.8/clocale /usr/include/locale.h :
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/iosfwd :
- /usr/include/c++/4.8/cctype /usr/include/c++/4.8/bits/ostream_insert.h :
- /usr/include/c++/4.8/bits/cxxabi_forced.h :
- /usr/include/c++/4.8/bits/stl_function.h :
- /usr/include/c++/4.8/backward/binders.h :
- /usr/include/c++/4.8/bits/basic_string.h :
- /usr/include/c++/4.8/ext/atomicity.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h :
- /usr/include/pthread.h /usr/include/sched.h :
- /usr/include/x86_64-linux-gnu/bits/sched.h :
- /usr/include/x86_64-linux-gnu/bits/timex.h :
- /usr/include/x86_64-linux-gnu/bits/setjmp.h :
- /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h :
- /usr/include/c++/4.8/bits/basic_string.tcc include/WindowElements.h :
+ include/GameEntityFactory.h include/StateEntityParser.h :
+ include/ApplicationStateManager.h include/GameEntity.h :
+ include/RenderComponent.h include/Texture.h include/WindowElements.h :

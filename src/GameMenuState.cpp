@@ -24,7 +24,7 @@ GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
     menuAlpha(0),
     nextState(0),
     transitioningStates(false),
-    gameEntityManager(windowElements),
+    gameEntityManager(windowElements,this),
     blackScreen(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
