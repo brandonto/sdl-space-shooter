@@ -1,6 +1,0 @@
-obj/UIClickFunctionBack.o: src/UIClickFunctionBack.cpp \
- /usr/include/stdc-predef.h include/UIClickFunctionBack.h \
- include/UIClickFunction.h include/ApplicationState.h
-src/UIClickFunctionBack.cpp :
- /usr/include/stdc-predef.h include/UIClickFunctionBack.h :
- include/UIClickFunction.h include/ApplicationState.h :

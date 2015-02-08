@@ -1,6 +1,0 @@
-obj/UIClickFunctionMenu.o: src/UIClickFunctionMenu.cpp \
- /usr/include/stdc-predef.h include/UIClickFunctionMenu.h \
- include/UIClickFunction.h include/ApplicationState.h
-src/UIClickFunctionMenu.cpp :
- /usr/include/stdc-predef.h include/UIClickFunctionMenu.h :
- include/UIClickFunction.h include/ApplicationState.h :

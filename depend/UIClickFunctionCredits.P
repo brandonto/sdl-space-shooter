@@ -1,6 +1,0 @@
-obj/UIClickFunctionCredits.o: src/UIClickFunctionCredits.cpp \
- /usr/include/stdc-predef.h include/UIClickFunctionCredits.h \
- include/UIClickFunction.h include/ApplicationState.h
-src/UIClickFunctionCredits.cpp :
- /usr/include/stdc-predef.h include/UIClickFunctionCredits.h :
- include/UIClickFunction.h include/ApplicationState.h :
