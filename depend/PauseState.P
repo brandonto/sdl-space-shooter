@@ -102,8 +102,8 @@ obj/PauseState.o: src/PauseState.cpp /usr/include/stdc-predef.h \
  include/GameEntityManager.h include/CollisionManager.h \
  include/GameEntityCollection.h /usr/include/c++/4.8/list \
  /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- include/SDL_util.h /usr/include/c++/4.8/string \
- /usr/include/c++/4.8/bits/stringfwd.h \
+ include/GameEntityFactory.h include/SDL_util.h \
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
  /usr/include/c++/4.8/bits/localefwd.h \
@@ -228,8 +228,8 @@ src/PauseState.cpp /usr/include/stdc-predef.h :
  include/GameEntityManager.h include/CollisionManager.h :
  include/GameEntityCollection.h /usr/include/c++/4.8/list :
  /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- include/SDL_util.h /usr/include/c++/4.8/string :
- /usr/include/c++/4.8/bits/stringfwd.h :
+ include/GameEntityFactory.h include/SDL_util.h :
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :
  /usr/include/c++/4.8/bits/localefwd.h :

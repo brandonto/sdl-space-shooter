@@ -26,6 +26,7 @@ _OBJS =	main.o \
 		FrameRateManager.o \
 		GameEntity.o \
 		GameEntityCollection.o \
+		GameEntityFactory.o \
 		GameEntityManager.o \
 		GameState.o \
 		GameMenuState.o \

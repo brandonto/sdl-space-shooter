@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-10-21
+ * @modified    2015-02-07
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
     #define SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
@@ -15,7 +15,7 @@
 #include "Vector2D.h"
 
 class GameEntity;
-class GameEntityManager;
+class GameEntityFactory;
 class RenderComponent;
 
 struct WindowElements;
@@ -23,7 +23,7 @@ struct WindowElements;
 class EnemyPhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntityManager* gameEntityManager;
+        GameEntityFactory* gameEntityFactory;
 
         RenderComponent* render;
         Timer timeBasedMovementTimer;
@@ -36,8 +36,9 @@ class EnemyPhysicsComponent : public PhysicsComponent
         const int offScreenBuffer = 25;
 
         //Constructor
-        EnemyPhysicsComponent(GameEntity* gameEntity, WindowElements* windowElements,
-                                GameEntityManager* gameEntityManager);
+        EnemyPhysicsComponent(GameEntity* gameEntity,
+                                WindowElements* windowElements,
+                                GameEntityFactory* gameEntityFactory);
 
         //Destructor
         ~EnemyPhysicsComponent();

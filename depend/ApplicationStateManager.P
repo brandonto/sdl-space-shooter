@@ -103,9 +103,10 @@ obj/ApplicationStateManager.o: src/ApplicationStateManager.cpp \
  include/GameEntityManager.h include/CollisionManager.h \
  include/Vector2D.h include/GameEntityCollection.h \
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
- /usr/include/c++/4.8/bits/list.tcc include/InstructionsState.h \
- include/GameState.h include/GameMenuState.h include/MenuState.h \
- include/Timer.h include/PauseState.h include/WindowElements.h
+ /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h \
+ include/InstructionsState.h include/GameState.h include/GameMenuState.h \
+ include/MenuState.h include/Timer.h include/PauseState.h \
+ include/WindowElements.h
 src/ApplicationStateManager.cpp :
  /usr/include/stdc-predef.h include/ApplicationStateManager.h :
  /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
@@ -211,6 +212,7 @@ src/ApplicationStateManager.cpp :
  include/GameEntityManager.h include/CollisionManager.h :
  include/Vector2D.h include/GameEntityCollection.h :
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
- /usr/include/c++/4.8/bits/list.tcc include/InstructionsState.h :
- include/GameState.h include/GameMenuState.h include/MenuState.h :
- include/Timer.h include/PauseState.h include/WindowElements.h :
+ /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h :
+ include/InstructionsState.h include/GameState.h include/GameMenuState.h :
+ include/MenuState.h include/Timer.h include/PauseState.h :
+ include/WindowElements.h :

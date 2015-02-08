@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "GameMenuState.h"
 
@@ -39,7 +39,7 @@ GameMenuState::~GameMenuState()
 void GameMenuState::onEnter()
 {
     blackScreen.setAlphaBlend(0);
-    gameMenu = gameEntityManager.createGameMenu(this);
+    gameMenu = gameEntityManager.getFactory()->createGameMenu(this);
 }
 
 void GameMenuState::onEvent()

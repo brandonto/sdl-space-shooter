@@ -1,11 +1,11 @@
 /*******************************************************************//*
- * This class encapsulates all game entity code. Responsibilities
+ * This class manages all game entity code. Responsibilities
  * include spawning... TBD
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-01
+ * @modified    2015-02-07
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYMANAGER_H_
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
@@ -14,6 +14,7 @@
 #include <SDL2/SDL.h>
 #include "CollisionManager.h"
 #include "GameEntityCollection.h"
+#include "GameEntityFactory.h"
 
 class ApplicationState;
 class GameEntity;
@@ -24,6 +25,7 @@ class GameEntityManager
 {
     private:
         CollisionManager collisionManager;
+        GameEntityFactory gameEntityFactory;
 
         GameEntityCollection backgroundLayer;
         GameEntityCollection physicalLayer;
@@ -43,21 +45,13 @@ class GameEntityManager
         void pauseAllTimers();
         void resumeAllTimers();
 
-        std::vector<GameEntity*> createMainMenu(ApplicationState* state);
-        std::vector<GameEntity*> createUIInstructions(ApplicationState* state);
-        std::vector<GameEntity*> createUICredits(ApplicationState* state);
-        std::vector<GameEntity*> createGameMenu(ApplicationState* state);
-        GameEntity* createBackground();
-        GameEntity* createEnemy();
-        GameEntity* createEnemyProjectile(GameEntity* enemyEntity);
-        std::vector<GameEntity*> createEnemyWaveStraight2();
-        std::vector<GameEntity*> createEnemyWaveStraight3();
-        GameEntity* createExplosion(GameEntity* destroyedEntity);
-        GameEntity* createPlayer();
-        GameEntity* createPlayerProjectile(GameEntity* playerEntity);
-        GameEntity* createPlayerInstructions();
-        GameEntity* createPlayerInstructionsProjectile(GameEntity* playerEntity);
-        GameEntity* createMeteor();
+        void addBackgroundEntity(GameEntity* gameEntity);
+        void addPhysicalEntity(GameEntity* gameEntity);
+        void addEffectEntity(GameEntity* gameEntity);
+        void addUIEntity(GameEntity* gameEntity);
+
+        CollisionManager* getCollisionManager();
+        GameEntityFactory* getFactory();
 };
 
 #endif

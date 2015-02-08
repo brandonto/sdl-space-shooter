@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
     #define SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
@@ -15,7 +15,7 @@
 #include "Vector2D.h"
 
 class GameEntity;
-class GameEntityManager;
+class GameEntityFactory;
 class RenderComponent;
 
 struct WindowElements;
@@ -23,7 +23,7 @@ struct WindowElements;
 class PlayerPhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntityManager* gameEntityManager;
+        GameEntityFactory* gameEntityFactory;
 
         RenderComponent* render;
         Timer timeBasedMovementTimer;
@@ -36,7 +36,7 @@ class PlayerPhysicsComponent : public PhysicsComponent
 
         //Constructor
         PlayerPhysicsComponent(GameEntity* gameEntity, WindowElements* windowElements,
-                                GameEntityManager* gameEntityManager);
+                                GameEntityFactory* gameEntityFactory);
 
         //Destructor
         ~PlayerPhysicsComponent();

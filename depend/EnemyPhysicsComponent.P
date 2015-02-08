@@ -70,7 +70,7 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h \
- include/GameEntity.h include/GameEntityManager.h \
+ include/GameEntity.h include/GameEntityFactory.h \
  /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
@@ -98,10 +98,8 @@ obj/EnemyPhysicsComponent.o: src/EnemyPhysicsComponent.cpp \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
  /usr/include/c++/4.8/bits/range_access.h \
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h \
- include/GameEntityCollection.h /usr/include/c++/4.8/list \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- include/RenderComponent.h include/Texture.h /usr/include/c++/4.8/string \
+ /usr/include/c++/4.8/bits/vector.tcc include/RenderComponent.h \
+ include/Texture.h /usr/include/c++/4.8/string \
  /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
@@ -195,7 +193,7 @@ src/EnemyPhysicsComponent.cpp :
  /usr/local/include/SDL2/SDL_power.h /usr/local/include/SDL2/SDL_render.h :
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h :
  /usr/local/include/SDL2/SDL_version.h include/Timer.h include/Vector2D.h :
- include/GameEntity.h include/GameEntityManager.h :
+ include/GameEntity.h include/GameEntityFactory.h :
  /usr/include/c++/4.8/vector /usr/include/c++/4.8/bits/stl_algobase.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h :
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h :
@@ -223,10 +221,8 @@ src/EnemyPhysicsComponent.cpp :
  /usr/include/c++/4.8/bits/stl_vector.h :
  /usr/include/c++/4.8/bits/stl_bvector.h :
  /usr/include/c++/4.8/bits/range_access.h :
- /usr/include/c++/4.8/bits/vector.tcc include/CollisionManager.h :
- include/GameEntityCollection.h /usr/include/c++/4.8/list :
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc :
- include/RenderComponent.h include/Texture.h /usr/include/c++/4.8/string :
+ /usr/include/c++/4.8/bits/vector.tcc include/RenderComponent.h :
+ include/Texture.h /usr/include/c++/4.8/string :
  /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :

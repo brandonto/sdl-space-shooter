@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERINSTRUCTIONSPHYSICSCOMPONENTCOMPONENT_
     #define SPACESHOOTER_PLAYERINSTRUCTIONSPHYSICSCOMPONENTCOMPONENT_
@@ -17,7 +17,7 @@
 #define COLLISION_BUFFER 20
 
 class GameEntity;
-class GameEntityManager;
+class GameEntityFactory;
 class RenderComponent;
 
 struct WindowElements;
@@ -25,7 +25,7 @@ struct WindowElements;
 class PlayerInstructionsPhysicsComponent : public PhysicsComponent
 {
     private:
-        GameEntityManager* gameEntityManager;
+        GameEntityFactory* gameEntityFactory;
 
         RenderComponent* render;
         Timer timeBasedMovementTimer;
@@ -45,7 +45,7 @@ class PlayerInstructionsPhysicsComponent : public PhysicsComponent
 
         //Constructor
         PlayerInstructionsPhysicsComponent(GameEntity* gameEntity, WindowElements* windowElements,
-                                GameEntityManager* gameEntityManager);
+                                GameEntityFactory* gameEntityFactory);
 
         //Destructor
         ~PlayerInstructionsPhysicsComponent();

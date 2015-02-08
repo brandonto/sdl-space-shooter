@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "MenuState.h"
 
@@ -37,8 +37,8 @@ MenuState::~MenuState()
 void MenuState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.createBackground();
-    mainMenu = gameEntityManager.createMainMenu(this);
+    background = gameEntityManager.getFactory()->createBackground();
+    mainMenu = gameEntityManager.getFactory()->createMainMenu(this);
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<mainMenu.size(); i++)
@@ -119,7 +119,7 @@ void MenuState::onUpdate()
 
     if (meteorTimer.getTimeOnTimer() > randomMeteorTime)
     {
-        GameEntity *meteor = gameEntityManager.createMeteor();
+        GameEntity *meteor = gameEntityManager.getFactory()->createMeteor();
         meteor->position.x = 1.1*windowElements->WINDOW_WIDTH;
         meteor->position.y = rand()%(int)(0.8*windowElements->WINDOW_HEIGHT);
         meteors.push_back(meteor);

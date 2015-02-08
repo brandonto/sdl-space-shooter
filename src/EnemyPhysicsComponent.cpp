@@ -4,20 +4,23 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
 #include "GameEntity.h"
-#include "GameEntityManager.h"
+#include "GameEntityFactory.h"
 #include "RenderComponent.h"
 #include "WindowElements.h"
 
 EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
-                                            GameEntityManager* gameEntityManager)
-:   gameEntityManager(gameEntityManager), render(NULL),
-    velocity(0, 200), velocityPerSecond(500), shooting(true)
+                                            GameEntityFactory* gameEntityFactory)
+:   gameEntityFactory(gameEntityFactory),
+    render(NULL),
+    velocity(0,200),
+    velocityPerSecond(500),
+    shooting(true)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -64,13 +67,13 @@ void EnemyPhysicsComponent::update()
             {
                 if (projectileCapTimer.getTimeOnTimer()>2000)
                 {
-                    gameEntityManager->createEnemyProjectile(gameEntity);
+                    gameEntityFactory->createEnemyProjectile(gameEntity);
                     projectileCapTimer.stop();
                 }
             }
             else
             {
-                gameEntityManager->createEnemyProjectile(gameEntity);
+                gameEntityFactory->createEnemyProjectile(gameEntity);
             }
             projectileCapTimer.start();
         }
@@ -94,5 +97,5 @@ void EnemyPhysicsComponent::resumeTimers()
 
 void EnemyPhysicsComponent::onDestroy()
 {
-    gameEntityManager->createExplosion(gameEntity);
+    gameEntityFactory->createExplosion(gameEntity);
 }

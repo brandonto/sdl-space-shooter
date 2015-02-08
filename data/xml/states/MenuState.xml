@@ -1,17 +1,30 @@
 <?xml version="1.0" ?>
 
-<Menu>
+<State>
+    <Background>
+        <entity type="background" name="backgroundBlack" texture="bin/graphics/background/black.png" />
+        <entity type="background" name="backgroundBlue" texture="bin/graphics/background/blueblack.png" />
+        <entity type="background" name="backgroundDarkPurple" texture="bin/graphics/background/darkPurple.png" />
+        <entity type="background" name="backgroundPurple" texture="bin/graphics/background/darkPurple.png" />
+    </Background>
+
     <UI>
-        <ui id="Title" x="6" y="6" width="18" height="12" />
-        <ui id="Play" x="10" y="21" width="10" height="3" />
-        <ui id="Instructions" x="10" y="26" width="10" height="3" />
-        <ui id="Options" x="10" y="31" width="10" height="3" />
-        <ui id="Credits" x="10" y="36" width="10" height="3" />
-        <ui id="Quit" x="10" y="41" width="10" height="3" />
+        <entity type="uiPanel" name="title" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="text" name="spaceText" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="text" name="shooterText" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="uiPanel" name="play" x="10" y="21" width="10" height="3" function="PLAY"/>
+        <entity type="text" name="playText" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="uiPanel" name="instructions" x="10" y="26" width="10" height="3" function="INSTRUCTIONS"/>
+        <entity type="text" name="instructionsText" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="uiPanel" name="options" x="10" y="31" width="10" height="3" function="NONE"/>
+        <entity type="text" name="optionsText" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="uiPanel" name="credits" x="10" y="36" width="10" height="3" function="CREDITS"/>
+        <entity type="text" name="creditsText" x="6" y="6" width="18" height="12" function="NONE"/>
+        <entity type="uiPanel" name="quit" x="10" y="41" width="10" height="3" function="QUIT"/>
+        <entity type="text" name="quitText" x="6" y="6" width="18" height="12" function="NONE"/>
     </UI>
 
-    <Objects>
-        <object id="Meteor" texture="bin/graphics/sprites/meteorBrown_big1.png" />
-    </Objects>
-
-</Menu>
+    <Physical>
+        <entity type="meteor" name="meteor" texture="bin/graphics/sprites/meteorBrown_big1.png" />
+    </Physical>
+</State>

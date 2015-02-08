@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "CreditsState.h"
 
@@ -16,11 +16,16 @@
 
 CreditsState::CreditsState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   fadeIn(false), fadeOut(false), uiAlpha(0), nextState(0),
-    gameEntityManager(windowElements), blackScreen(windowElements)
+:   fadeIn(false),
+    fadeOut(false),
+    uiAlpha(0),
+    nextState(0),
+    gameEntityManager(windowElements),
+    blackScreen(windowElements)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->stateEnum = STATE_CREDITS;
 }
 
 CreditsState::~CreditsState()
@@ -30,8 +35,8 @@ CreditsState::~CreditsState()
 void CreditsState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.createBackground();
-    uiCredits = gameEntityManager.createUICredits(this);
+    background = gameEntityManager.getFactory()->createBackground();
+    uiCredits = gameEntityManager.getFactory()->createUICredits(this);
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiCredits.size(); i++)

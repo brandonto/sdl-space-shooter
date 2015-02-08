@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2014-09-05
+ * @modified    2015-02-07
  *********************************************************************/
 #include "ApplicationState.h"
 
@@ -35,4 +35,9 @@ void ApplicationState::onExit()
 void ApplicationState::stateTransition(int nextState)
 {
     applicationStateManager->setNextState(nextState);
+}
+
+int ApplicationState::getStateEnum()
+{
+    return stateEnum;
 }

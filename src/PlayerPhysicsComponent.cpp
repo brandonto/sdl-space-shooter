@@ -4,19 +4,19 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
 #include "GameEntity.h"
-#include "GameEntityManager.h"
+#include "GameEntityFactory.h"
 #include "RenderComponent.h"
 #include "WindowElements.h"
 
 PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
-                                            GameEntityManager* gameEntityManager)
-:   gameEntityManager(gameEntityManager),
+                                            GameEntityFactory* gameEntityFactory)
+:   gameEntityFactory(gameEntityFactory),
     render(NULL),
     velocity(0,0),
     velocityPerSecond(500),
@@ -63,13 +63,13 @@ void PlayerPhysicsComponent::update()
         {
             if (projectileCapTimer.getTimeOnTimer()>150)
             {
-                gameEntityManager->createPlayerProjectile(gameEntity);
+                gameEntityFactory->createPlayerProjectile(gameEntity);
                 projectileCapTimer.stop();
             }
         }
         else
         {
-            gameEntityManager->createPlayerProjectile(gameEntity);
+            gameEntityFactory->createPlayerProjectile(gameEntity);
         }
         projectileCapTimer.start();
     }
@@ -89,5 +89,5 @@ void PlayerPhysicsComponent::resumeTimers()
 
 void PlayerPhysicsComponent::onDestroy()
 {
-    gameEntityManager->createExplosion(gameEntity);
+    gameEntityFactory->createExplosion(gameEntity);
 }

@@ -102,8 +102,8 @@ obj/EnemyCollisionComponent.o: src/EnemyCollisionComponent.cpp \
  include/GameEntity.h include/GameEntityManager.h \
  include/CollisionManager.h include/GameEntityCollection.h \
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h \
- /usr/include/c++/4.8/bits/list.tcc include/RenderComponent.h \
- include/Texture.h /usr/include/c++/4.8/string \
+ /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h \
+ include/RenderComponent.h include/Texture.h /usr/include/c++/4.8/string \
  /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
@@ -230,8 +230,8 @@ src/EnemyCollisionComponent.cpp :
  include/GameEntity.h include/GameEntityManager.h :
  include/CollisionManager.h include/GameEntityCollection.h :
  /usr/include/c++/4.8/list /usr/include/c++/4.8/bits/stl_list.h :
- /usr/include/c++/4.8/bits/list.tcc include/RenderComponent.h :
- include/Texture.h /usr/include/c++/4.8/string :
+ /usr/include/c++/4.8/bits/list.tcc include/GameEntityFactory.h :
+ include/RenderComponent.h include/Texture.h /usr/include/c++/4.8/string :
  /usr/include/c++/4.8/bits/stringfwd.h :
  /usr/include/c++/4.8/bits/char_traits.h :
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar :

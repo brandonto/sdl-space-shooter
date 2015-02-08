@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-17
+ * @modified    2015-02-07
  *********************************************************************/
 #include "GameState.h"
 
@@ -31,12 +31,12 @@ GameState::~GameState()
 void GameState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.createBackground();
-    player = gameEntityManager.createPlayer();
-    meteor = gameEntityManager.createMeteor();
-    std::vector<GameEntity*> enemyWave = gameEntityManager.createEnemyWaveStraight2();
+    background = gameEntityManager.getFactory()->createBackground();
+    player = gameEntityManager.getFactory()->createPlayer();
+    meteor = gameEntityManager.getFactory()->createMeteor();
+    std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
     enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
-    enemyWave = gameEntityManager.createEnemyWaveStraight3();
+    enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight3();
     enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
 }
 

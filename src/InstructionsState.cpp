@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-06
+ * @modified    2015-02-07
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -34,9 +34,9 @@ InstructionsState::~InstructionsState()
 void InstructionsState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.createBackground();
-    uiInstructions = gameEntityManager.createUIInstructions(this);
-    playerInstructions = gameEntityManager.createPlayerInstructions();
+    background = gameEntityManager.getFactory()->createBackground();
+    uiInstructions = gameEntityManager.getFactory()->createUIInstructions(this);
+    playerInstructions = gameEntityManager.getFactory()->createPlayerInstructions();
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiInstructions.size(); i++)
