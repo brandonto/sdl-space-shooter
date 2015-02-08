@@ -36,16 +36,16 @@ class StateEntityParser
 
 struct EntityXmlStruct
 {
-    std::string id;
-    std::string name;
-    std::string type;
-    std::string texture;
-    std::string function;
+    std::string id = "";
+    std::string name = "";
+    std::string type = "";
+    std::string texture = "";
+    std::string function = "";
 
-    int x;
-    int y;
-    int width;
-    int height;
+    int x = 0;
+    int y = 0;
+    int width = 0;
+    int height = 0;
 };
 
 enum ParsingLayer

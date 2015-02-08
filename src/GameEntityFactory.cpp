@@ -73,7 +73,17 @@ std::vector<GameEntity*> GameEntityFactory::createEffectEntities()
 
 std::vector<GameEntity*> GameEntityFactory::createUIEntities()
 {
-    //xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
+    //std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
+    //int numEntities = xmlStructs.size();
+
+    //GameEntity* ui[numEntities];
+
+    //for (int i=0; i<numEntities; i++)
+    //{
+    //    GameEntity* entity = new GameEntity();
+    //}
+    //std::vector<GameEntity*> uiVector(ui, ui + sizeof(ui)/sizeof(GameEntity*));
+    //return uiVector;
 }
 
 std::vector<GameEntity*> GameEntityFactory::createMainMenu(ApplicationState* state)

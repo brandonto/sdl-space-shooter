@@ -22,7 +22,7 @@ StateEntityParser::~StateEntityParser()
 std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
                                                     int parsingLayer)
 {
-    std::vector<EntityXmlStruct> xmlStructVector;
+    std::vector<EntityXmlStruct> error;
 
     TiXmlDocument xmlDoc;
 
@@ -30,7 +30,7 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     if (!xmlDoc.LoadFile(state->getXmlPath().c_str()))
     {
         fprintf(stderr, "[ERROR] parse(): Xml file not found.\n");
-        return xmlStructVector;
+        return error;
     }
 
     // The root element of this xml file
@@ -55,9 +55,10 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     if (rootParsingLayer == NULL)
     {
         fprintf(stderr, "[ERROR] parse(): Parsing layer elemenet not found.\n");
-        return xmlStructVector;
+        return error;
     }
 
+    // Gets the number of elements in order to construct array
     int arraySize = 0;
     for (   TiXmlElement* e = rootParsingLayer->FirstChildElement();
             e != NULL;
@@ -65,8 +66,78 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     {
         arraySize++;
     }
+    EntityXmlStruct xmlStruct[arraySize];
 
-    printf("arraySize = %d\n", arraySize);
+    // Parses through subelements of the parsing layer element and
+    // fills values of the array of EntityXmlStruct as we go
+    int index = 0;
+    for (   TiXmlElement* e = rootParsingLayer->FirstChildElement();
+            e != NULL;
+            e = e->NextSiblingElement())
+    {
+        if (e->Attribute("id") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("id");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].id.assign(cString, cStringSize);
+        }
+
+        if (e->Attribute("name") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("name");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].name.assign(cString, cStringSize);
+        }
+
+        if (e->Attribute("type") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("type");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].type.assign(cString, cStringSize);
+        }
+
+        if (e->Attribute("texture") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("texture");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].texture.assign(cString, cStringSize);
+        }
+
+        if (e->Attribute("function") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("function");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].function.assign(cString, cStringSize);
+        }
+
+        if (e->Attribute("x") != NULL)
+        {
+            xmlStruct[index].x = atoi(e->Attribute("x"));
+        }
+
+        if (e->Attribute("y") != NULL)
+        {
+            xmlStruct[index].y = atoi(e->Attribute("y"));
+        }
+
+        if (e->Attribute("width") != NULL)
+        {
+            xmlStruct[index].width = atoi(e->Attribute("width"));
+        }
+
+        if (e->Attribute("height") != NULL)
+        {
+            xmlStruct[index].height = atoi(e->Attribute("height"));
+        }
+        index++;
+    }
+
+    std::vector<EntityXmlStruct> xmlStructVector(xmlStruct, xmlStruct + sizeof(xmlStruct)/sizeof(EntityXmlStruct));
     return xmlStructVector;
 }
 
