@@ -1,0 +1,22 @@
+#########################################################################
+#                    Current list of known bugs                         #
+#########################################################################
+
+-------------------------------------------------------------------------
+
+Changing states too quickly may cause game to freeze up. Most likely to
+occur when changing to/from the MenuState.
+
+-------------------------------------------------------------------------
+
+Entering GameMenu state while moving will and going back into GameState
+causes player to move indefinitely in the direction of movement until
+a movement key is pressed.
+
+-------------------------------------------------------------------------
+
+On some keyboards, simultaneously pressing the left and down arrow keys
+while shooting will not cause player to move diagonally as expected.
+This does not occur when using the wasd movement keys.
+
+-------------------------------------------------------------------------

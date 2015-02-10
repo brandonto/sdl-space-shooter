@@ -1,14 +1,15 @@
 /*******************************************************************//*
- * This astract class encapsulates a function called on UI click
+ * This class encapsulates a function called on UI click
  *
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-04
- * @modified    2015-02-03
+ * @modified    2015-02-09
  *********************************************************************/
 #ifndef SPACESHOOTER_UICLICKFUNCTION_
     #define SPACESHOOTER_UICLICKFUNCTION_
 
+#include <map>
 #include <stdlib.h>
 #include <string>
 #include "ApplicationState.h"
@@ -31,12 +32,20 @@
 
 class UIClickFunction
 {
-    public:
-        //Destructor
-        virtual ~UIClickFunction(){};
+    private:
+        ApplicationState* state;
+        std::map<std::string, void(*)(ApplicationState*)> functionTable;
+        void (*callback)(ApplicationState*);
 
-        //Must override virtual method
-        virtual void onClick() = 0;
+    public:
+        //Constructor
+        UIClickFunction(ApplicationState* state);
+
+        //Destructor
+        ~UIClickFunction();
+
+        void setCallback(std::string callback);
+        virtual void onClick();
 };
 
 class UIClickFunctionBack : public UIClickFunction
@@ -45,7 +54,7 @@ class UIClickFunctionBack : public UIClickFunction
         ApplicationState* state;
 
     public:
-        UIClickFunctionBack(ApplicationState* state) : state(state) {};
+        UIClickFunctionBack(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         void onClick() { state->stateTransition(STATE_MENU); }
 };
@@ -56,7 +65,7 @@ class UIClickFunctionCredits : public UIClickFunction
         ApplicationState* state;
 
     public:
-        UIClickFunctionCredits(ApplicationState* state) : state(state) {};
+        UIClickFunctionCredits(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         void onClick() { state->stateTransition(STATE_CREDITS); }
 };
@@ -67,7 +76,7 @@ class UIClickFunctionFork : public UIClickFunction
         ApplicationState* state;
 
     public:
-        UIClickFunctionFork(ApplicationState* state) : state(state) {};
+        UIClickFunctionFork(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         void onClick() {
             std::string url = "xdg-open https://github.com/brandonto/sdl-space-shooter";
@@ -84,7 +93,7 @@ class UIClickFunctionInstructions : public UIClickFunction
         ApplicationState* state;
 
     public:
-        UIClickFunctionInstructions(ApplicationState* state) : state(state) {};
+        UIClickFunctionInstructions(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         void onClick() { state->stateTransition(STATE_INSTRUCTIONS); }
 };
@@ -95,7 +104,7 @@ class UIClickFunctionMenu : public UIClickFunction
         ApplicationState* state;
 
     public:
-        UIClickFunctionMenu(ApplicationState* state) : state(state) {};
+        UIClickFunctionMenu(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         void onClick() { state->stateTransition(STATE_MENU); }
 };
@@ -106,7 +115,7 @@ class UIClickFunctionPlay : public UIClickFunction
         ApplicationState* state;
 
     public:
-        UIClickFunctionPlay(ApplicationState* state) : state(state) {};
+        UIClickFunctionPlay(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         void onClick() { state->stateTransition(STATE_GAME); }
 };
@@ -118,7 +127,7 @@ class UIClickFunctionQuit : public UIClickFunction
 
     public:
         //Constructor
-        UIClickFunctionQuit(ApplicationState* state) : state(state) {};
+        UIClickFunctionQuit(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         //Methods
         void onClick() { state->stateTransition(STATE_EXIT); }
@@ -131,7 +140,7 @@ class UIClickFunctionResume : public UIClickFunction
 
     public:
         //Constructor
-        UIClickFunctionResume(ApplicationState* state) : state(state) {};
+        UIClickFunctionResume(ApplicationState* state) : UIClickFunction(state), state(state) {};
 
         //Methods
         void onClick() { state->onExit(); }

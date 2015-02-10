@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-08
+ * @modified    2015-02-09
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -122,7 +122,9 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             if (xmlStruct.function != "NONE")
             {
                 UIPanelInputComponent* entityInput = new UIPanelInputComponent(entity);
-                //entityInput->addClickFunction(new UIClickFunctionPlay(state));
+                UIClickFunction* clickFunction = new UIClickFunction(gameEntityManager->getState());
+                clickFunction->setCallback(xmlStruct.function);
+                entityInput->addClickFunction(clickFunction);
                 entity->addInputComponent(entityInput);
             }
             configureEntity(entity, xmlStruct);

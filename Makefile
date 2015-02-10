@@ -56,6 +56,7 @@ _OBJS =	main.o \
 		tinyxml.o \
 		tinyxmlerror.o \
 		tinyxmlparser.o \
+		UIClickFunction.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o
