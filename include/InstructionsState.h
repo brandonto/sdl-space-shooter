@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-01
+ * @modified    2015-02-10
  *********************************************************************/
 #ifndef SPACESHOOTER_INSTRUCTIONSSTATE_H_
     #define SPACESHOOTER_INSTRUCTIONSSTATE_H_
@@ -23,9 +23,9 @@ class InstructionsState : public ApplicationState
     private:
         SDL_Event event;
         GameEntityManager gameEntityManager;
-        GameEntity* background;
-        std::vector<GameEntity*> uiInstructions;
-        GameEntity* playerInstructions;
+        std::vector<GameEntity*> backgroundEntities;
+        std::vector<GameEntity*> uiEntities;
+        std::vector<GameEntity*> physicalEntities;
         BlackScreen blackScreen;
 
         bool fadeIn;

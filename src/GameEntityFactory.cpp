@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-09
+ * @modified    2015-02-10
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -46,6 +46,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     windowElements(windowElements)
 {
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
+    stringToEntityEnum["sprite"] = ENTITY_SPRITE;
     stringToEntityEnum["text"] = ENTITY_TEXT;
     stringToEntityEnum["uiPanel"] = ENTITY_UIPANEL;
 }
@@ -66,7 +67,18 @@ std::vector<GameEntity*> GameEntityFactory::createBackgroundEntities()
 
 std::vector<GameEntity*> GameEntityFactory::createPhysicalEntities()
 {
-    //xmlParser.parse(gameEntityManager->getState(), PARSE_PHYSICAL);
+    std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_PHYSICAL);
+    int numEntities = xmlStructs.size();
+
+    GameEntity* physical[numEntities];
+
+    for (int i=0; i<numEntities; i++)
+    {
+        physical[i] = createEntity(xmlStructs[i]);
+    }
+
+    std::vector<GameEntity*> physicalVector(physical, physical + sizeof(physical)/sizeof(GameEntity*));
+    return physicalVector;
 }
 
 std::vector<GameEntity*> GameEntityFactory::createEffectEntities()
@@ -102,6 +114,14 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addPhysicsComponent(new BackgroundPhysicsComponent(entity, windowElements));
             configureEntity(entity, xmlStruct);
             gameEntityManager->addBackgroundEntity(entity);
+            break;
+        }
+
+        case ENTITY_SPRITE:
+        {
+            entity->addRenderComponent(new SpriteRenderComponent(entity, windowElements));
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
             break;
         }
 
@@ -158,196 +178,6 @@ void GameEntityFactory::configureEntity(GameEntity* entity, EntityXmlStruct xmlS
     {
         entity->getRenderComponent()->getTexture()->enableAlphaBlend();
     }
-}
-
-std::vector<GameEntity*> GameEntityFactory::createMainMenu(ApplicationState* state)
-{
-    SDL_Rect temp;
-    GameEntity* mainMenu[13];
-
-    int xGrid = windowElements->WINDOW_WIDTH/30;
-    int yGrid = windowElements->WINDOW_HEIGHT/48;
-
-    GameEntity* uiTitle = new GameEntity();
-    UIPanelRenderComponent* uiTitleRender = new UIPanelRenderComponent(uiTitle, windowElements);
-    temp.x = 6*xGrid;
-    temp.y = 6*yGrid;
-    temp.w = 18*xGrid;
-    temp.h = 12*yGrid;
-    uiTitleRender->setRenderRect(&temp);
-    uiTitleRender->getTexture()->enableAlphaBlend();
-    uiTitle->addRenderComponent(uiTitleRender);
-    gameEntityManager->addUIEntity(uiTitle);
-    mainMenu[0] = uiTitle;
-
-    GameEntity* spaceText = new GameEntity();
-    TextRenderComponent* spaceTextRender = new TextRenderComponent(spaceText, windowElements);
-    temp.x = 6*xGrid+30;
-    temp.y = 6*yGrid+2;
-    temp.w = 18*xGrid-45;
-    temp.h = 6*yGrid-5;
-    spaceTextRender->setRenderRect(&temp);
-    spaceTextRender->setText("Space", 96);
-    spaceTextRender->getTexture()->enableAlphaBlend();
-    spaceText->addRenderComponent(spaceTextRender);
-    gameEntityManager->addUIEntity(spaceText);
-    mainMenu[1] = spaceText;
-
-    GameEntity* shooterText = new GameEntity();
-    TextRenderComponent* shooterTextRender = new TextRenderComponent(shooterText, windowElements);
-    temp.x = 6*xGrid+30;
-    temp.y = 12*yGrid+2;
-    temp.w = 18*xGrid-45;
-    temp.h = 6*yGrid-5;
-    shooterTextRender->setRenderRect(&temp);
-    shooterTextRender->setText("Shooter", 96);
-    shooterTextRender->getTexture()->enableAlphaBlend();
-    shooterText->addRenderComponent(shooterTextRender);
-    gameEntityManager->addUIEntity(shooterText);
-    mainMenu[2] = shooterText;
-
-    GameEntity* uiPlay = new GameEntity();
-    UIPanelRenderComponent* uiPlayRender = new UIPanelRenderComponent(uiPlay, windowElements);
-    temp.x = 10*xGrid;
-    temp.y = 21*yGrid;
-    temp.w = 10*xGrid;
-    temp.h = 3*yGrid;
-    uiPlayRender->setRenderRect(&temp);
-    uiPlayRender->getTexture()->enableAlphaBlend();
-    uiPlay->addRenderComponent(uiPlayRender);
-    UIPanelInputComponent* uiPlayInput = new UIPanelInputComponent(uiPlay);
-    uiPlayInput->addClickFunction(new UIClickFunctionPlay(state));
-    uiPlay->addInputComponent(uiPlayInput);
-    gameEntityManager->addUIEntity(uiPlay);
-    mainMenu[3] = uiPlay;
-
-    GameEntity* playText = new GameEntity();
-    TextRenderComponent* playTextRender = new TextRenderComponent(playText, windowElements);
-    temp.x = 10*xGrid+18;
-    temp.y = 21*yGrid+2;
-    temp.w = 10*xGrid-25;
-    temp.h = 3*yGrid-5;
-    playTextRender->setRenderRect(&temp);
-    playTextRender->setText("Play", 96);
-    playTextRender->getTexture()->enableAlphaBlend();
-    playText->addRenderComponent(playTextRender);
-    gameEntityManager->addUIEntity(playText);
-    mainMenu[4] = playText;
-
-    GameEntity* uiInstructions = new GameEntity();
-    UIPanelRenderComponent* uiInstructionsRender = new UIPanelRenderComponent(uiInstructions, windowElements);
-    temp.x = 10*xGrid;
-    temp.y = 26*yGrid;
-    temp.w = 10*xGrid;
-    temp.h = 3*yGrid;
-    uiInstructionsRender->setRenderRect(&temp);
-    uiInstructionsRender->getTexture()->enableAlphaBlend();
-    uiInstructions->addRenderComponent(uiInstructionsRender);
-    UIPanelInputComponent* uiInstructionsInput = new UIPanelInputComponent(uiInstructions);
-    uiInstructionsInput->addClickFunction(new UIClickFunctionInstructions(state));
-    uiInstructions->addInputComponent(uiInstructionsInput);
-    gameEntityManager->addUIEntity(uiInstructions);
-    mainMenu[5] = uiInstructions;
-
-    GameEntity* instructionsText = new GameEntity();
-    TextRenderComponent* instructionsTextRender = new TextRenderComponent(instructionsText, windowElements);
-    temp.x = 10*xGrid+18;
-    temp.y = 26*yGrid+2;
-    temp.w = 10*xGrid-25;
-    temp.h = 3*yGrid-5;
-    instructionsTextRender->setRenderRect(&temp);
-    instructionsTextRender->setText("Instructions", 96);
-    instructionsTextRender->getTexture()->enableAlphaBlend();
-    instructionsText->addRenderComponent(instructionsTextRender);
-    gameEntityManager->addUIEntity(instructionsText);
-    mainMenu[6] = instructionsText;
-
-    GameEntity* uiOptions = new GameEntity();
-    UIPanelRenderComponent* uiOptionsRender = new UIPanelRenderComponent(uiOptions, windowElements);
-    temp.x = 10*xGrid;
-    temp.y = 31*yGrid;
-    temp.w = 10*xGrid;
-    temp.h = 3*yGrid;
-    uiOptionsRender->setRenderRect(&temp);
-    uiOptionsRender->getTexture()->enableAlphaBlend();
-    uiOptions->addRenderComponent(uiOptionsRender);
-    UIPanelInputComponent* uiOptionsInput = new UIPanelInputComponent(uiOptions);
-    uiOptions->addInputComponent(uiOptionsInput);
-    gameEntityManager->addUIEntity(uiOptions);
-    mainMenu[7] = uiOptions;
-
-    GameEntity* optionsText = new GameEntity();
-    TextRenderComponent* optionsTextRender = new TextRenderComponent(optionsText, windowElements);
-    temp.x = 10*xGrid+18;
-    temp.y = 31*yGrid+2;
-    temp.w = 10*xGrid-25;
-    temp.h = 3*yGrid-5;
-    optionsTextRender->setRenderRect(&temp);
-    optionsTextRender->setText("Options", 96);
-    optionsTextRender->getTexture()->enableAlphaBlend();
-    optionsText->addRenderComponent(optionsTextRender);
-    gameEntityManager->addUIEntity(optionsText);
-    mainMenu[8] = optionsText;
-
-    GameEntity* uiCredits = new GameEntity();
-    UIPanelRenderComponent* uiCreditsRender = new UIPanelRenderComponent(uiCredits, windowElements);
-    temp.x = 10*xGrid;
-    temp.y = 36*yGrid;
-    temp.w = 10*xGrid;
-    temp.h = 3*yGrid;
-    uiCreditsRender->setRenderRect(&temp);
-    uiCreditsRender->getTexture()->enableAlphaBlend();
-    uiCredits->addRenderComponent(uiCreditsRender);
-    UIPanelInputComponent* uiCreditsInput = new UIPanelInputComponent(uiCredits);
-    uiCreditsInput->addClickFunction(new UIClickFunctionCredits(state));
-    uiCredits->addInputComponent(uiCreditsInput);
-    gameEntityManager->addUIEntity(uiCredits);
-    mainMenu[9] = uiCredits;
-
-    GameEntity* creditsText = new GameEntity();
-    TextRenderComponent* creditsTextRender = new TextRenderComponent(creditsText, windowElements);
-    temp.x = 10*xGrid+18;
-    temp.y = 36*yGrid+2;
-    temp.w = 10*xGrid-25;
-    temp.h = 3*yGrid-5;
-    creditsTextRender->setRenderRect(&temp);
-    creditsTextRender->setText("Credits", 96);
-    creditsTextRender->getTexture()->enableAlphaBlend();
-    creditsText->addRenderComponent(creditsTextRender);
-    gameEntityManager->addUIEntity(creditsText);
-    mainMenu[10] = creditsText;
-
-    GameEntity* uiQuit = new GameEntity();
-    UIPanelRenderComponent* uiQuitRender = new UIPanelRenderComponent(uiQuit, windowElements);
-    temp.x = 10*xGrid;
-    temp.y = 41*yGrid;
-    temp.w = 10*xGrid;
-    temp.h = 3*yGrid;
-    uiQuitRender->setRenderRect(&temp);
-    uiQuitRender->getTexture()->enableAlphaBlend();
-    uiQuit->addRenderComponent(uiQuitRender);
-    UIPanelInputComponent* uiQuitInput = new UIPanelInputComponent(uiQuit);
-    uiQuitInput->addClickFunction(new UIClickFunctionQuit(state));
-    uiQuit->addInputComponent(uiQuitInput);
-    gameEntityManager->addUIEntity(uiQuit);
-    mainMenu[11] = uiQuit;
-
-    GameEntity* quitText = new GameEntity();
-    TextRenderComponent* quitTextRender = new TextRenderComponent(quitText, windowElements);
-    temp.x = 10*xGrid+18;
-    temp.y = 41*yGrid+2;
-    temp.w = 10*xGrid-25;
-    temp.h = 3*yGrid-5;
-    quitTextRender->setRenderRect(&temp);
-    quitTextRender->setText("Quit", 96);
-    quitTextRender->getTexture()->enableAlphaBlend();
-    quitText->addRenderComponent(quitTextRender);
-    gameEntityManager->addUIEntity(quitText);
-    mainMenu[12] = quitText;
-
-    std::vector<GameEntity*> mainMenuVector(mainMenu, mainMenu + sizeof(mainMenu)/sizeof(GameEntity*));
-
-    return mainMenuVector;
 }
 
 std::vector<GameEntity*> GameEntityFactory::createUIInstructions(ApplicationState* state)
@@ -953,17 +783,19 @@ GameEntity* GameEntityFactory::createPlayerProjectile(GameEntity* playerEntity)
     return projectile;
 }
 
-GameEntity* GameEntityFactory::createPlayerInstructions()
+std::vector<GameEntity*> GameEntityFactory::createPlayerInstructions()
 {
-    GameEntity* player = new GameEntity();
-    PlayerRenderComponent* playerRender = new PlayerRenderComponent(player, windowElements);
+    GameEntity* player[1];
+    player[0]= new GameEntity();
+    PlayerRenderComponent* playerRender = new PlayerRenderComponent(player[0], windowElements);
     playerRender->getTexture()->enableAlphaBlend();
-    player->addRenderComponent(playerRender);
-    player->addPhysicsComponent(new PlayerInstructionsPhysicsComponent(player, windowElements, this));
-    player->addInputComponent(new PlayerInstructionsInputComponent(player, windowElements));
-    gameEntityManager->addPhysicalEntity(player);
+    player[0]->addRenderComponent(playerRender);
+    player[0]->addPhysicsComponent(new PlayerInstructionsPhysicsComponent(player[0], windowElements, this));
+    player[0]->addInputComponent(new PlayerInstructionsInputComponent(player[0], windowElements));
+    gameEntityManager->addPhysicalEntity(player[0]);
 
-    return player;
+    std::vector<GameEntity*> playerVector(player, player + sizeof(player)/sizeof(GameEntity*));
+    return playerVector;
 }
 
 GameEntity* GameEntityFactory::createPlayerInstructionsProjectile(GameEntity* playerEntity)

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-08
+ * @modified    2015-02-10
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -46,7 +46,6 @@ class GameEntityFactory
         std::vector<GameEntity*> createUIEntities();
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
-        std::vector<GameEntity*> createMainMenu(ApplicationState* state);
         std::vector<GameEntity*> createUIInstructions(ApplicationState* state);
         std::vector<GameEntity*> createUICredits(ApplicationState* state);
         std::vector<GameEntity*> createGameMenu(ApplicationState* state);
@@ -58,7 +57,7 @@ class GameEntityFactory
         GameEntity* createExplosion(GameEntity* destroyedEntity);
         GameEntity* createPlayer();
         GameEntity* createPlayerProjectile(GameEntity* playerEntity);
-        GameEntity* createPlayerInstructions();
+        std::vector<GameEntity*> createPlayerInstructions();
         GameEntity* createPlayerInstructionsProjectile(GameEntity* playerEntity);
         GameEntity* createMeteor();
 };
@@ -67,6 +66,7 @@ class GameEntityFactory
 enum EntityEnum
 {
     ENTITY_BACKGROUND,
+    ENTITY_SPRITE,
     ENTITY_TEXT,
     ENTITY_UIPANEL,
 };

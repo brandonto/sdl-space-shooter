@@ -27,5 +27,4 @@
         <entity type="uiPanel" name="quit" x="340" y="656" width="344" height="48" function="QUIT" id="ui6" alphaEnabled="true"/>
         <entity type="text" name="quitText" data="Quit" x="385" y="654" width="265" height="48" function="NONE" id="text7" alphaEnabled="true"/>
     </Ui>
-
 </State>

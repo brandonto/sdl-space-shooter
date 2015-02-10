@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-07
+ * @modified    2015-02-10
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -25,6 +25,7 @@ InstructionsState::InstructionsState(ApplicationStateManager* applicationStateMa
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->xmlPath = "data/xml/states/InstructionsState.xml"; //Default xml path
 }
 
 InstructionsState::~InstructionsState()
@@ -34,16 +35,16 @@ InstructionsState::~InstructionsState()
 void InstructionsState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.getFactory()->createBackground();
-    uiInstructions = gameEntityManager.getFactory()->createUIInstructions(this);
-    playerInstructions = gameEntityManager.getFactory()->createPlayerInstructions();
+    backgroundEntities = gameEntityManager.getFactory()->createBackgroundEntities();
+    uiEntities = gameEntityManager.getFactory()->createUIEntities();
+    physicalEntities = gameEntityManager.getFactory()->createPlayerInstructions();
 
     // Initializes alpha value of ui to 0
-    for (int i=0; i<uiInstructions.size(); i++)
+    for (int i=0; i<uiEntities.size(); i++)
     {
-        uiInstructions[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+        uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
-    playerInstructions->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+    physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
 }
 
 void InstructionsState::onEvent()
@@ -76,11 +77,11 @@ void InstructionsState::onUpdate()
             uiAlpha+=10;
             if (uiAlpha==200) { fadeIn = false; }
         }
-        for (int i=0; i<uiInstructions.size(); i++)
+        for (int i=0; i<uiEntities.size(); i++)
         {
-            uiInstructions[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
-        playerInstructions->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+        physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
     else if (fadeOut)
     {
@@ -89,11 +90,11 @@ void InstructionsState::onUpdate()
             uiAlpha-=10;
             if (uiAlpha==0) { fadeOut = false; blackScreen.startBlackOut(); }
         }
-        for (int i=0; i<uiInstructions.size(); i++)
+        for (int i=0; i<uiEntities.size(); i++)
         {
-            uiInstructions[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
-        playerInstructions->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+        physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
     else if (blackScreen.isBlackingIn())
     {

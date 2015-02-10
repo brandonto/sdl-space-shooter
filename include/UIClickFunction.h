@@ -14,22 +14,6 @@
 #include <string>
 #include "ApplicationState.h"
 
-//namespace UIClickFunction
-//{
-//    enum Functions
-//    {
-//        //Click Functions
-//        FUNCTION_BACK,
-//        FUNCTION_CREDITS,
-//        FUNCTION_FORK,
-//        FUNCTION_INSTRUCTIONS,
-//        FUNCTION_MENU,
-//        FUNCTION_PLAY,
-//        FUNCTION_QUIT,
-//        FUNCTION_RESUME,
-//    };
-//}
-
 class UIClickFunction
 {
     private:
