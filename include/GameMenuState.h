@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-02
+ * @modified    2015-02-11
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEMENUSTATE_H_
     #define SPACESHOOTER_GAMEMENUSTATE_H_
@@ -23,7 +23,7 @@ class GameMenuState : public ApplicationState
         SDL_Event event;
 
         GameEntityManager gameEntityManager;
-        std::vector<GameEntity*> gameMenu;
+        std::vector<GameEntity*> uiEntities;
         BlackScreen blackScreen;
 
         bool fadeIn;

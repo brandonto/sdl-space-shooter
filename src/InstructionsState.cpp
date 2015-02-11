@@ -25,6 +25,7 @@ InstructionsState::InstructionsState(ApplicationStateManager* applicationStateMa
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->stateEnum = STATE_INSTRUCTIONS;
     this->xmlPath = "data/xml/states/InstructionsState.xml"; //Default xml path
 }
 

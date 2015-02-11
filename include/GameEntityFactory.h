@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-10
+ * @modified    2015-02-11
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -46,9 +46,6 @@ class GameEntityFactory
         std::vector<GameEntity*> createUIEntities();
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
-        std::vector<GameEntity*> createUIInstructions(ApplicationState* state);
-        std::vector<GameEntity*> createUICredits(ApplicationState* state);
-        std::vector<GameEntity*> createGameMenu(ApplicationState* state);
         GameEntity* createBackground();
         GameEntity* createEnemy();
         GameEntity* createEnemyProjectile(GameEntity* enemyEntity);

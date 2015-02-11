@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-07
+ * @modified    2015-02-11
  *********************************************************************/
 #include "GameMenuState.h"
 
@@ -29,6 +29,8 @@ GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->stateEnum = STATE_GAMEMENU;
+    this->xmlPath = "data/xml/states/GameMenuState.xml";
 }
 
 GameMenuState::~GameMenuState()
@@ -39,7 +41,7 @@ GameMenuState::~GameMenuState()
 void GameMenuState::onEnter()
 {
     blackScreen.setAlphaBlend(0);
-    gameMenu = gameEntityManager.getFactory()->createGameMenu(this);
+    uiEntities = gameEntityManager.getFactory()->createUIEntities();
 }
 
 void GameMenuState::onEvent()
@@ -72,9 +74,9 @@ void GameMenuState::onUpdate()
             menuAlpha+=10;
             if (menuAlpha==200) { fadeIn = false; }
         }
-        for (int i=0; i<gameMenu.size(); i++)
+        for (int i=0; i<uiEntities.size(); i++)
         {
-            gameMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
+            uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
         }
     }
     else if (fadeOut)
@@ -96,9 +98,9 @@ void GameMenuState::onUpdate()
                 }
             }
         }
-        for (int i=0; i<gameMenu.size(); i++)
+        for (int i=0; i<uiEntities.size(); i++)
         {
-            gameMenu[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
+            uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(menuAlpha);
         }
     }
     else if (blackScreen.isBlackingOut())

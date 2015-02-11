@@ -27,6 +27,7 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->stateEnum = STATE_MENU;
     this->xmlPath = "data/xml/states/MenuState.xml"; //Default xml path
     srand(time(NULL));
 }

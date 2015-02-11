@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-01
+ * @modified    2015-02-10
  *********************************************************************/
 #ifndef SPACESHOOTER_CREDITSSTATE_H_
     #define SPACESHOOTER_CREDITSSTATE_H_
@@ -23,8 +23,8 @@ class CreditsState : public ApplicationState
     private:
         SDL_Event event;
         GameEntityManager gameEntityManager;
-        GameEntity* background;
-        std::vector<GameEntity*> uiCredits;
+        std::vector<GameEntity*> backgroundEntities;
+        std::vector<GameEntity*> uiEntities;
         BlackScreen blackScreen;
 
         bool fadeIn;

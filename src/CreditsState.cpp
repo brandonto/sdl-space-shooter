@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-07
+ * @modified    2015-02-10
  *********************************************************************/
 #include "CreditsState.h"
 
@@ -26,6 +26,7 @@ CreditsState::CreditsState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_CREDITS;
+    this->xmlPath = "data/xml/states/CreditsState.xml"; //Default xml path
 }
 
 CreditsState::~CreditsState()
@@ -35,13 +36,13 @@ CreditsState::~CreditsState()
 void CreditsState::onEnter()
 {
     blackScreen.startBlackIn();
-    background = gameEntityManager.getFactory()->createBackground();
-    uiCredits = gameEntityManager.getFactory()->createUICredits(this);
+    backgroundEntities = gameEntityManager.getFactory()->createBackgroundEntities();
+    uiEntities = gameEntityManager.getFactory()->createUIEntities();
 
     // Initializes alpha value of ui to 0
-    for (int i=0; i<uiCredits.size(); i++)
+    for (int i=0; i<uiEntities.size(); i++)
     {
-        uiCredits[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+        uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
 }
 
@@ -75,9 +76,9 @@ void CreditsState::onUpdate()
             uiAlpha+=10;
             if (uiAlpha==200) { fadeIn = false; }
         }
-        for (int i=0; i<uiCredits.size(); i++)
+        for (int i=0; i<uiEntities.size(); i++)
         {
-            uiCredits[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
     else if (fadeOut)
@@ -87,9 +88,9 @@ void CreditsState::onUpdate()
             uiAlpha-=10;
             if (uiAlpha==0) { fadeOut = false; blackScreen.startBlackOut(); }
         }
-        for (int i=0; i<uiCredits.size(); i++)
+        for (int i=0; i<uiEntities.size(); i++)
         {
-            uiCredits[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
     else if (blackScreen.isBlackingIn())
