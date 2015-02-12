@@ -20,7 +20,7 @@ Screetshots
 Building
 =================
 
-Dependancies: lSDL2, lSDL2_image, and lSDL2_ttf installed
+Dependancies: lSDL2, lSDL2_image, lSDL2_ttf, and lSDL2_mixer installed
 
 
 Linux (Debian)
@@ -35,6 +35,8 @@ sudo apt-get install libsdl2-dev
 sudo apt-get install libsdl2-image-dev
 
 sudo apt-get install libsdl2-ttf-dev
+
+sudo apt-get install libsdl2-mixer-dev
 
 create a new directory for the project
 
