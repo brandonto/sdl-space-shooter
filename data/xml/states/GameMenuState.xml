@@ -1,6 +1,15 @@
 <?xml version="1.0" ?>
 
 <State>
+    <Background>
+    </Background>
+
+    <Effect>
+    </Effect>
+
+    <Physical>
+    </Physical>
+
     <Ui>
         <entity type="uiPanel" name="container" x="272" y="144" width="480" height="480" id="uiContainer" alphaEnabled="true"/>
         <entity type="uiPanel" name="resume" x="340" y="210" width="344" height="48" function="RESUME" id="ui1" alphaEnabled="true"/>

@@ -8,6 +8,9 @@
         <entity type="background" name="backgroundPurple" texture="bin/graphics/background/darkPurple.png" id="background4"/>
     </Background>
 
+    <Effect>
+    </Effect>
+
     <Physical>
         <entity type="player" name="player" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
     </Physical>

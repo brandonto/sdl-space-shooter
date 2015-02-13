@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-11
+ * @modified    2015-02-12
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -13,7 +13,8 @@
 #include <string>
 #include <vector>
 
-#include "StateEntityParser.h"
+#include "GameEntityData.h"
+#include "StateEntityParser.h" // For EntityXmlStruct structure
 
 class ApplicationState;
 class GameEntity;
@@ -25,6 +26,7 @@ class GameEntityFactory
 {
     private:
         StateEntityParser xmlParser;
+        GameEntityData gameEntityData;
         GameEntityManager* gameEntityManager;
         WindowElements* windowElements;
 

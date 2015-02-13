@@ -38,13 +38,13 @@ sudo apt-get install libsdl2-ttf-dev
 
 sudo apt-get install libsdl2-mixer-dev
 
-create a new directory for the project
+navigate to the directory where you want the project to be cloned
 
 git clone https://github.com/brandonto/sdl-space-shooter
 
-~/PATHTODIR/make all
+make all
 
-~/PATHTODIR/SpaceShooter
+./SpaceShooter
 
 
 Windows

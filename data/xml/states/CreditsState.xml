@@ -8,6 +8,12 @@
         <entity type="background" name="backgroundPurple" texture="bin/graphics/background/darkPurple.png" id="background4"/>
     </Background>
 
+    <Effect>
+    </Effect>
+
+    <Physical>
+    </Physical>
+
     <Ui>
         <entity type="text" name="createdText" data="Create by Brandon To" x="344" y="240" width="336" height="80" id="text1" alphaEnabled="true"/>
         <entity type="text" name="movementText" data="Development of project can be found on Github" x="152" y="320" width="720" height="80" id="text2" alphaEnabled="true"/>

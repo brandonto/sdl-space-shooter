@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-11
+ * @modified    2015-02-12
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -58,7 +58,7 @@ GameEntityFactory::~GameEntityFactory()
 
 std::vector<GameEntity*> GameEntityFactory::createBackgroundEntities()
 {
-    std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_BACKGROUND);
+    std::vector<EntityXmlStruct> xmlStructs = gameEntityData.getBackgroundData(gameEntityManager->getState());
     GameEntity* background[1];
     background[0] = createBackground();
     std::vector<GameEntity*> backgroundVector(background, background + sizeof(background)/sizeof(GameEntity*));
@@ -67,7 +67,7 @@ std::vector<GameEntity*> GameEntityFactory::createBackgroundEntities()
 
 std::vector<GameEntity*> GameEntityFactory::createPhysicalEntities()
 {
-    std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_PHYSICAL);
+    std::vector<EntityXmlStruct> xmlStructs = gameEntityData.getPhysicalData(gameEntityManager->getState());
     int numEntities = xmlStructs.size();
 
     GameEntity* physical[numEntities];
@@ -83,12 +83,12 @@ std::vector<GameEntity*> GameEntityFactory::createPhysicalEntities()
 
 std::vector<GameEntity*> GameEntityFactory::createEffectEntities()
 {
-    //xmlParser.parse(gameEntityManager->getState(), PARSE_EFFECT);
+    //gameEntityData.getEffectData(gameEntityManager->getState());
 }
 
 std::vector<GameEntity*> GameEntityFactory::createUIEntities()
 {
-    std::vector<EntityXmlStruct> xmlStructs = xmlParser.parse(gameEntityManager->getState(), PARSE_UI);
+    std::vector<EntityXmlStruct> xmlStructs = gameEntityData.getUIData(gameEntityManager->getState());
     int numEntities = xmlStructs.size();
 
     GameEntity* ui[numEntities];
