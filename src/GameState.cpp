@@ -4,13 +4,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-07
+ * @modified    2015-02-15
  *********************************************************************/
 #include "GameState.h"
 
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
+#include "Level.h"
 #include "PauseState.h" //For the enumeration
 #include "WindowElements.h"
 
@@ -37,10 +38,10 @@ void GameState::onEnter()
     background = gameEntityManager.getFactory()->createBackground();
     player = gameEntityManager.getFactory()->createEntity("player");
     meteor = gameEntityManager.getFactory()->createMeteor();
-    std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
-    enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
-    enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight3();
-    enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
+    //std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
+    //enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
+    //enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight3();
+    //enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
 }
 
 void GameState::onEvent()
@@ -88,15 +89,25 @@ void GameState::onUpdate()
             applicationStateManager->setNextState(nextState);
         }
     }
+
+    level.onUpdate();
+    while (!level.getSpawningQueue().empty())
+    {
+        SpawnData data = level.popSpawningQueue();
+        gameEntityManager.getFactory()->createEntity(data);
+    }
+
     gameEntityManager.onUpdate();
     if (pauseStatus == PAUSED_THIS_FRAME)
     {
         gameEntityManager.pauseAllTimers();
+        level.pauseTimers();
         setPauseStatus(PAUSED_NONE);
     }
     else if (pauseStatus == UNPAUSED_THIS_FRAME)
     {
         gameEntityManager.resumeAllTimers();
+        level.resumeTimers();
         setPauseStatus(PAUSED_NONE);
     }
 }

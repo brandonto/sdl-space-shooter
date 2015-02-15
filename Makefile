@@ -33,6 +33,7 @@ _OBJS =	main.o \
 		GameMenuState.o \
 		InstructionsState.o \
 		IntroState.o \
+		Level.o \
 		MenuState.o \
 		MeteorPhysicsComponent.o \
 		MeteorRenderComponent.o \

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-12
+ * @modified    2015-02-15
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -14,6 +14,7 @@
 #include <vector>
 
 #include "GameEntityData.h"
+#include "Level.h" // For SpawnData structure
 #include "StateEntityParser.h" // For EntityXmlStruct structure
 
 class ApplicationState;
@@ -46,6 +47,7 @@ class GameEntityFactory
         std::vector<GameEntity*> createEffectEntities();
         std::vector<GameEntity*> createUIEntities();
         GameEntity* createEntity(std::string type);
+        GameEntity* createEntity(SpawnData data);
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
         GameEntity* createBackground();
@@ -54,7 +56,6 @@ class GameEntityFactory
         std::vector<GameEntity*> createEnemyWaveStraight2();
         std::vector<GameEntity*> createEnemyWaveStraight3();
         GameEntity* createExplosion(GameEntity* destroyedEntity);
-        GameEntity* createPlayer();
         GameEntity* createPlayerProjectile(GameEntity* playerEntity);
         std::vector<GameEntity*> createPlayerInstructions();
         GameEntity* createPlayerInstructionsProjectile(GameEntity* playerEntity);

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-22
- * @modified    2014-09-25
+ * @modified    2015-02-15
  *********************************************************************/
 #include "EnemyCollisionComponent.h"
 

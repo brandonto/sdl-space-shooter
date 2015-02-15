@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-12
- * @modified    2015-02-14
+ * @modified    2015-02-15
  *********************************************************************/
 #include "GameEntityData.h"
 
@@ -81,7 +81,35 @@ EntityXmlStruct GameEntityData::getDataByName(ApplicationState* state, std::stri
         }
     }
 
-    fprintf(stderr, "[ERROR] getDataByName(): no data named %s\n", name.c_str());
+    fprintf(stderr, "[ERROR] getDataByName(): no data with name %s\n", name.c_str());
+    EntityXmlStruct error;
+    return error;
+}
+
+EntityXmlStruct GameEntityData::getDataByType(ApplicationState* state, std::string type)
+{
+    populate(state);
+    std::vector<EntityXmlStruct>::iterator collectionIterator;
+    for (   collectionIterator=physicalData.begin();
+            collectionIterator!=physicalData.end();
+            collectionIterator++)
+    {
+        if ((*collectionIterator).type == type)
+        {
+            return (*collectionIterator);
+        }
+    }
+    for (   collectionIterator=effectData.begin();
+            collectionIterator!=effectData.end();
+            collectionIterator++)
+    {
+        if ((*collectionIterator).type == type)
+        {
+            return (*collectionIterator);
+        }
+    }
+
+    fprintf(stderr, "[ERROR] getDataByName(): no data with type %s\n", type.c_str());
     EntityXmlStruct error;
     return error;
 }

@@ -1,12 +1,19 @@
 <?xml version="1.0" ?>
 
 <Level>
+    <settings time="10000"/>
+
     <EnemyType>
-        <entity type="enemyStraight" spawn-time=""/>
-        <entity type="enemyStraight" spawn-time=""/>
-        <entity type="enemyStraight" spawn-time=""/>
-        <entity type="enemyStraight" spawn-time=""/>
-        <entity type="enemyStraight" spawn-time=""/>
+        <entity type="enemyStraight" x="100" y="-50" spawn-time="1000"/>
+        <entity type="enemyStraight" x="500" y="-50" spawn-time="1500"/>
+        <entity type="enemyStraight" x="700" y="-50" spawn-time="2000"/>
+        <entity type="enemyStraight" x="300" y="-50" spawn-time="2500"/>
+        <entity type="enemyStraight" x="900" y="-50" spawn-time="3000"/>
+        <entity type="enemyStraight" x="750" y="-50" spawn-time="3500"/>
+        <entity type="enemyStraight" x="450" y="-50" spawn-time="4000"/>
+        <entity type="enemyStraight" x="350" y="-50" spawn-time="4500"/>
+        <entity type="enemyStraight" x="200" y="-50" spawn-time="5000"/>
+        <entity type="enemyStraight" x="950" y="-50" spawn-time="5500"/>
     </EnemyType>
 </Level>
 

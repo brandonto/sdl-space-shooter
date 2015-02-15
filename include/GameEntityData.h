@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-12
- * @modified    2015-02-14
+ * @modified    2015-02-15
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYDATA_H_
     #define SPACESHOOTER_GAMEENTITYDATA_H_
@@ -41,6 +41,7 @@ class GameEntityData
 
         EntityXmlStruct getDataByID(std::string id);
         EntityXmlStruct getDataByName(ApplicationState* state, std::string name);
+        EntityXmlStruct getDataByType(ApplicationState* state, std::string type);
 };
 
 #endif

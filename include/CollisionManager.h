@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2014-09-22
+ * @modified    2015-02-15
  *********************************************************************/
 #ifndef SPACESHOOTER_COLLISIONMANAGER_
     #define SPACESHOOTER_COLLISIONMANAGER_

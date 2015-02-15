@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2014-09-15
+ * @modified    2015-02-15
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -31,6 +31,8 @@ class GameState : public ApplicationState
 
         int nextState;
         int pauseStatus;
+
+        Level level;
 
     public:
         //Constructor

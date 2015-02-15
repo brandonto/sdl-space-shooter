@@ -12,10 +12,10 @@
     </Effect>
 
     <Physical>
-        <entity type="player" name="player" x="512" y="650" width="66" height="50" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
-        <entity type="enemyStraight" name="enemyStraight" width="62" height="56" texture="bin/graphics/enemyBlack3.png" id="enemyStraight"/>
-        <entity type="enemyZigZag" name="enemyZigZag" width="62" height="56" texture="bin/graphics/enemyBlack2.png" id="enemyStraight"/>
-        <entity type="enemyStraight" name="enemy" width="62" height="56" texture="bin/graphics/enemyBlack2.png" id="enemyStraight"/>
+        <entity type="player" name="player" x="512" y="650" width="80" height="61" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
+        <entity type="enemyStraight" name="enemyStraight" width="75" height="61" texture="bin/graphics/sprites/enemyBlack3.png" id="enemyStraight"/>
+        <entity type="enemyZigZag" name="enemyZigZag" width="75" height="61" texture="bin/graphics/sprites/enemyBlack2.png" id="enemyZigZag"/>
+        <entity type="enemyKamikaze" name="enemyKamikaze" width="65" height="56" texture="bin/graphics/sprites/enemyBlack5.png" id="enemyKamikaze"/>
     </Physical>
 
     <Ui>
