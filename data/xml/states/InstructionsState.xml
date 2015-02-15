@@ -12,7 +12,7 @@
     </Effect>
 
     <Physical>
-        <entity type="player" name="player" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
+        <entity type="playerInstructions" name="player" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
     </Physical>
 
     <Ui>

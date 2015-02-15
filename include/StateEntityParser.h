@@ -5,14 +5,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-09
+ * @modified    2015-02-14
  *********************************************************************/
 #ifndef SPACESHOOTER_STATEENTITYPARSER_H_
     #define SPACESHOOTER_STATEENTITYPARSER_H_
 
 #include <string>
 #include <vector>
-#include <SDL2/SDL.h>>
 
 class ApplicationState;
 
@@ -44,11 +43,10 @@ struct EntityXmlStruct
     std::string texture = "";
     std::string function = "NONE";
 
-    SDL_Rect renderRect;
-    //int x = 0;
-    //int y = 0;
-    //int width = 0;
-    //int height = 0;
+    int x = 0;
+    int y = 0;
+    int width = 0;
+    int height = 0;
 
     bool alphaEnabled = false;
 };

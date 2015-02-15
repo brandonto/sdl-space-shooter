@@ -45,14 +45,14 @@ void PlayerPhysicsComponent::update()
         gameEntity->position.x = 0;
     }
 
-    int spriteHeight = render->getTexture()->getSpriteHeight();
-    if (gameEntity->position.y > windowElements->WINDOW_HEIGHT - spriteHeight/2)
+    int height = render->getRenderRect().h;
+    if (gameEntity->position.y > windowElements->WINDOW_HEIGHT - height/2)
     {
-        gameEntity->position.y = windowElements->WINDOW_HEIGHT - spriteHeight/2;
+        gameEntity->position.y = windowElements->WINDOW_HEIGHT - height/2;
     }
-    else if (gameEntity->position.y < 0 + spriteHeight/2)
+    else if (gameEntity->position.y < 0 + height/2)
     {
-        gameEntity->position.y = 0 + spriteHeight/2;
+        gameEntity->position.y = 0 + height/2;
     }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();

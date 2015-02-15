@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-08
+ * @modified    2015-02-14
  *********************************************************************/
 #include "StateEntityParser.h"
 
@@ -127,22 +127,22 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
 
         if (e->Attribute("x") != NULL)
         {
-            xmlStruct[index].renderRect.x = atoi(e->Attribute("x"));
+            xmlStruct[index].x = atoi(e->Attribute("x"));
         }
 
         if (e->Attribute("y") != NULL)
         {
-            xmlStruct[index].renderRect.y = atoi(e->Attribute("y"));
+            xmlStruct[index].y = atoi(e->Attribute("y"));
         }
 
         if (e->Attribute("width") != NULL)
         {
-            xmlStruct[index].renderRect.w = atoi(e->Attribute("width"));
+            xmlStruct[index].width = atoi(e->Attribute("width"));
         }
 
         if (e->Attribute("height") != NULL)
         {
-            xmlStruct[index].renderRect.h = atoi(e->Attribute("height"));
+            xmlStruct[index].height = atoi(e->Attribute("height"));
         }
 
         if (e->Attribute("alphaEnabled") != NULL)

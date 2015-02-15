@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-01
+ * @modified    2015-02-14
  *********************************************************************/
 #include "PlayerRenderComponent.h"
 
@@ -31,8 +31,8 @@ PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
 
 void PlayerRenderComponent::update()
 {
-    renderRect.x = gameEntity->position.x - texture->getSpriteWidth()/2;
-    renderRect.y = gameEntity->position.y - texture->getSpriteHeight()/2;
+    renderRect.x = gameEntity->position.x - renderRect.w/2;
+    renderRect.y = gameEntity->position.y - renderRect.h/2;
     SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
 }
 

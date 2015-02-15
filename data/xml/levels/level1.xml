@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+
+<Level>
+    <EnemyType>
+        <entity type="enemyStraight" spawn-time=""/>
+        <entity type="enemyStraight" spawn-time=""/>
+        <entity type="enemyStraight" spawn-time=""/>
+        <entity type="enemyStraight" spawn-time=""/>
+        <entity type="enemyStraight" spawn-time=""/>
+    </EnemyType>
+</Level>
+
+

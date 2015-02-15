@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<State>
+    <Background>
+        <entity type="background" name="backgroundBlack" texture="bin/graphics/background/black.png" id="background1"/>
+        <entity type="background" name="backgroundBlue" texture="bin/graphics/background/blueblack.png" id="background2"/>
+        <entity type="background" name="backgroundDarkPurple" texture="bin/graphics/background/darkPurple.png" id="background3"/>
+        <entity type="background" name="backgroundPurple" texture="bin/graphics/background/darkPurple.png" id="background4"/>
+    </Background>
+
+    <Effect>
+    </Effect>
+
+    <Physical>
+        <entity type="player" name="player" x="512" y="650" width="66" height="50" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
+        <entity type="enemyStraight" name="enemyStraight" width="62" height="56" texture="bin/graphics/enemyBlack3.png" id="enemyStraight"/>
+        <entity type="enemyZigZag" name="enemyZigZag" width="62" height="56" texture="bin/graphics/enemyBlack2.png" id="enemyStraight"/>
+        <entity type="enemyStraight" name="enemy" width="62" height="56" texture="bin/graphics/enemyBlack2.png" id="enemyStraight"/>
+    </Physical>
+
+    <Ui>
+    </Ui>
+</State>
+

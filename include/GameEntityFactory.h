@@ -25,7 +25,6 @@ struct WindowElements;
 class GameEntityFactory
 {
     private:
-        StateEntityParser xmlParser;
         GameEntityData gameEntityData;
         GameEntityManager* gameEntityManager;
         WindowElements* windowElements;
@@ -46,6 +45,7 @@ class GameEntityFactory
         std::vector<GameEntity*> createPhysicalEntities();
         std::vector<GameEntity*> createEffectEntities();
         std::vector<GameEntity*> createUIEntities();
+        GameEntity* createEntity(std::string type);
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
         GameEntity* createBackground();
@@ -65,6 +65,9 @@ class GameEntityFactory
 enum EntityEnum
 {
     ENTITY_BACKGROUND,
+    ENTITY_ENEMYSTRAIGHT,
+    ENTITY_ENEMYZIGZAG,
+    ENTITY_PLAYER,
     ENTITY_SPRITE,
     ENTITY_TEXT,
     ENTITY_UIPANEL,

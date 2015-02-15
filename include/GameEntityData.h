@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-12
- * @modified    2015-02-12
+ * @modified    2015-02-14
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYDATA_H_
     #define SPACESHOOTER_GAMEENTITYDATA_H_
@@ -38,6 +38,9 @@ class GameEntityData
         std::vector<EntityXmlStruct> getEffectData(ApplicationState* state);
         std::vector<EntityXmlStruct> getPhysicalData(ApplicationState* state);
         std::vector<EntityXmlStruct> getUIData(ApplicationState* state);
+
+        EntityXmlStruct getDataByID(std::string id);
+        EntityXmlStruct getDataByName(ApplicationState* state, std::string name);
 };
 
 #endif

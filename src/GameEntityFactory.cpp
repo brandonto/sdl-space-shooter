@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-12
+ * @modified    2015-02-14
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -45,7 +45,11 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
 :   gameEntityManager(gameEntityManager),
     windowElements(windowElements)
 {
+
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
+    stringToEntityEnum["enemyStraight"] = ENTITY_ENEMYSTRAIGHT;
+    stringToEntityEnum["enemyZigZag"] = ENTITY_ENEMYZIGZAG;
+    stringToEntityEnum["player"] = ENTITY_PLAYER;
     stringToEntityEnum["sprite"] = ENTITY_SPRITE;
     stringToEntityEnum["text"] = ENTITY_TEXT;
     stringToEntityEnum["uiPanel"] = ENTITY_UIPANEL;
@@ -102,6 +106,11 @@ std::vector<GameEntity*> GameEntityFactory::createUIEntities()
     return uiVector;
 }
 
+GameEntity* GameEntityFactory::createEntity(std::string name)
+{
+    return createEntity(gameEntityData.getDataByName(gameEntityManager->getState(), name));
+}
+
 GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
 {
     GameEntity* entity = new GameEntity();
@@ -117,9 +126,38 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             break;
         }
 
+        case ENTITY_ENEMYSTRAIGHT:
+        {
+            GameEntity* enemy = new GameEntity();
+            enemy->addRenderComponent(new EnemyRenderComponent(enemy, windowElements));
+            enemy->addPhysicsComponent(new EnemyPhysicsComponent(enemy, windowElements, this));
+            enemy->addCollisionComponent(new EnemyCollisionComponent(enemy, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(enemy);
+        }
+
+        case ENTITY_PLAYER:
+        {
+            entity->addRenderComponent(new PlayerRenderComponent(entity, windowElements));
+            entity->addPhysicsComponent(new PlayerPhysicsComponent(entity, windowElements, this));
+            entity->addCollisionComponent(new PlayerCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->addInputComponent(new PlayerInputComponent(entity, windowElements));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
         case ENTITY_SPRITE:
         {
             entity->addRenderComponent(new SpriteRenderComponent(entity, windowElements));
+            SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
+            rect.x = xmlStruct.x;
+            rect.y = xmlStruct.y;
+            entity->getRenderComponent()->setRenderRect(&rect);
             configureEntity(entity, xmlStruct);
             gameEntityManager->addPhysicalEntity(entity);
             break;
@@ -130,6 +168,10 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             TextRenderComponent* entityRender = new TextRenderComponent(entity, windowElements);
             entityRender->setText(xmlStruct.data, 96);
             entity->addRenderComponent(entityRender);
+            SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
+            rect.x = xmlStruct.x;
+            rect.y = xmlStruct.y;
+            entity->getRenderComponent()->setRenderRect(&rect);
             configureEntity(entity, xmlStruct);
             gameEntityManager->addUIEntity(entity);
             break;
@@ -139,6 +181,10 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         {
             UIPanelRenderComponent* entityRender = new UIPanelRenderComponent(entity, windowElements);
             entity->addRenderComponent(entityRender);
+            SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
+            rect.x = xmlStruct.x;
+            rect.y = xmlStruct.y;
+            entity->getRenderComponent()->setRenderRect(&rect);
             if (xmlStruct.function != "NONE")
             {
                 UIPanelInputComponent* entityInput = new UIPanelInputComponent(entity);
@@ -173,7 +219,10 @@ void GameEntityFactory::configureEntity(GameEntity* entity, EntityXmlStruct xmlS
     {
         entity->getRenderComponent()->getTexture()->setTexture(xmlStruct.texture);
     }
-    entity->getRenderComponent()->setRenderRect(&(xmlStruct.renderRect));
+    SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
+    rect.w = xmlStruct.width;
+    rect.h = xmlStruct.height;
+    entity->getRenderComponent()->setRenderRect(&rect);
     if (xmlStruct.alphaEnabled)
     {
         entity->getRenderComponent()->getTexture()->enableAlphaBlend();

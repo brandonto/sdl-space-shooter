@@ -23,6 +23,7 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->xmlPath = "data/xml/states/GameState.xml";
 }
 
 GameState::~GameState()
@@ -34,7 +35,7 @@ void GameState::onEnter()
 {
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
-    player = gameEntityManager.getFactory()->createPlayer();
+    player = gameEntityManager.getFactory()->createEntity("player");
     meteor = gameEntityManager.getFactory()->createMeteor();
     std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
     enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());

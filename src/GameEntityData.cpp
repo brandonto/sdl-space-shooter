@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-12
- * @modified    2015-02-12
+ * @modified    2015-02-14
  *********************************************************************/
 #include "GameEntityData.h"
 
@@ -56,5 +56,33 @@ std::vector<EntityXmlStruct> GameEntityData::getUIData(ApplicationState* state)
 {
     populate(state);
     return uiData;
+}
+
+EntityXmlStruct GameEntityData::getDataByName(ApplicationState* state, std::string name)
+{
+    populate(state);
+    std::vector<EntityXmlStruct>::iterator collectionIterator;
+    for (   collectionIterator=physicalData.begin();
+            collectionIterator!=physicalData.end();
+            collectionIterator++)
+    {
+        if ((*collectionIterator).name == name)
+        {
+            return (*collectionIterator);
+        }
+    }
+    for (   collectionIterator=effectData.begin();
+            collectionIterator!=effectData.end();
+            collectionIterator++)
+    {
+        if ((*collectionIterator).name == name)
+        {
+            return (*collectionIterator);
+        }
+    }
+
+    fprintf(stderr, "[ERROR] getDataByName(): no data named %s\n", name.c_str());
+    EntityXmlStruct error;
+    return error;
 }
 

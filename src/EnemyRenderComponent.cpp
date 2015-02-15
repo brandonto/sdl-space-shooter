@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-06
+ * @modified    2015-02-14
  *********************************************************************/
 #include "EnemyRenderComponent.h"
 
@@ -31,8 +31,8 @@ EnemyRenderComponent::EnemyRenderComponent(GameEntity* gameEntity,
 
 void EnemyRenderComponent::update()
 {
-    renderRect.x = gameEntity->position.x - texture->getSpriteWidth()/2;
-    renderRect.y = gameEntity->position.y - texture->getSpriteHeight()/2;
+    renderRect.x = gameEntity->position.x - renderRect.w/2;
+    renderRect.y = gameEntity->position.y - renderRect.h/2;
     SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
 }
 
