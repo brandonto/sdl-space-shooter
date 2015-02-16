@@ -25,8 +25,8 @@ PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
     render = gameEntity->getRenderComponent();
-    health = 3;
-    maxHealth = 3;
+    health = 4;
+    maxHealth = 4;
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent()
@@ -95,7 +95,6 @@ void PlayerPhysicsComponent::onHit()
     {
         onDestroy();
     }
-    printf("Health = %d\n", getHealth());
 }
 
 void PlayerPhysicsComponent::onDestroy()

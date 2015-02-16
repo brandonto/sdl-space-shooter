@@ -35,6 +35,7 @@
 #include "PlayerProjectileRenderComponent.h"
 #include "SpriteRenderComponent.h"
 #include "TextRenderComponent.h"
+#include "Texture.h"
 #include "UIClickFunction.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
@@ -49,7 +50,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     stringToEntityEnum["enemyProjectileHit"] = ENTITY_ENEMYPROJECTILEHIT;
     stringToEntityEnum["enemyStraight"] = ENTITY_ENEMYSTRAIGHT;
     stringToEntityEnum["enemyZigZag"] = ENTITY_ENEMYZIGZAG;
-    stringToEntityEnum["player"] = ENTITY_PLAYER;
+    stringToEntityEnum["player"] = ENTITY_PLAYER1;
     stringToEntityEnum["playerProjectileHit"] = ENTITY_PLAYERPROJECTILEHIT;
     stringToEntityEnum["sprite"] = ENTITY_SPRITE;
     stringToEntityEnum["text"] = ENTITY_TEXT;
@@ -162,9 +163,19 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             break;
         }
 
-        case ENTITY_PLAYER:
+        case ENTITY_PLAYER1:
         {
-            entity->addRenderComponent(new PlayerRenderComponent(entity, windowElements));
+            PlayerRenderComponent* render = new PlayerRenderComponent(entity, windowElements);
+            Texture* damagedTexture1 = new Texture(windowElements);
+            damagedTexture1->setTexture("bin/graphics/sprites/playerShip1_damage1.png");
+            render->addDamagedSprite(3, damagedTexture1);
+            Texture* damagedTexture2 = new Texture(windowElements);
+            damagedTexture2->setTexture("bin/graphics/sprites/playerShip1_damage2.png");
+            render->addDamagedSprite(2, damagedTexture2);
+            Texture* damagedTexture3 = new Texture(windowElements);
+            damagedTexture3->setTexture("bin/graphics/sprites/playerShip1_damage3.png");
+            render->addDamagedSprite(1, damagedTexture3);
+            entity->addRenderComponent(render);
             entity->addPhysicsComponent(new PlayerPhysicsComponent(entity, windowElements, this));
             entity->addCollisionComponent(new PlayerCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->addInputComponent(new PlayerInputComponent(entity, windowElements));

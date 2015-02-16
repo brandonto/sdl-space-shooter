@@ -36,6 +36,7 @@ class PhysicsComponent
         virtual void onDestroy(){};
 
         int getHealth(){ return health; };
+        int getMaxHealth(){ return maxHealth; };
         bool decrementHealth(int val)
         {
             health-=val;
