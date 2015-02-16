@@ -4,28 +4,30 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2015-02-06
+ * @modified    2015-02-16
  *********************************************************************/
 #include "PlayerProjectilePhysicsComponent.h"
 
 #include "GameEntity.h"
+#include "GameEntityFactory.h"
 #include "RenderComponent.h"
 #include "WindowElements.h"
 
 PlayerProjectilePhysicsComponent::PlayerProjectilePhysicsComponent(GameEntity* gameEntity,
-                                            WindowElements* windowElements)
+                                            WindowElements* windowElements,
+                                            GameEntityFactory* factory)
 :   render(NULL),
     velocity(0,-1500),
     velocityPerSecond(1500)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
+    this->factory = factory;
     render = gameEntity->getRenderComponent();
 }
 
 PlayerProjectilePhysicsComponent::~PlayerProjectilePhysicsComponent()
 {
-
 }
 
 void PlayerProjectilePhysicsComponent::update()
@@ -49,5 +51,14 @@ void PlayerProjectilePhysicsComponent::pauseTimers()
 void PlayerProjectilePhysicsComponent::resumeTimers()
 {
     timeBasedMovementTimer.resume();
+}
+
+void PlayerProjectilePhysicsComponent::onDestroy()
+{
+    SpawnData data;
+    data.type = "playerProjectileHit";
+    data.x = gameEntity->position.x;
+    data.y = gameEntity->position.y;
+    factory->createEntity(data);
 }
 

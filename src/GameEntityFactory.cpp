@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-14
+ * @modified    2015-02-16
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -45,11 +45,12 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
 :   gameEntityManager(gameEntityManager),
     windowElements(windowElements)
 {
-
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
+    stringToEntityEnum["enemyProjectileHit"] = ENTITY_ENEMYPROJECTILEHIT;
     stringToEntityEnum["enemyStraight"] = ENTITY_ENEMYSTRAIGHT;
     stringToEntityEnum["enemyZigZag"] = ENTITY_ENEMYZIGZAG;
     stringToEntityEnum["player"] = ENTITY_PLAYER;
+    stringToEntityEnum["playerProjectileHit"] = ENTITY_PLAYERPROJECTILEHIT;
     stringToEntityEnum["sprite"] = ENTITY_SPRITE;
     stringToEntityEnum["text"] = ENTITY_TEXT;
     stringToEntityEnum["uiPanel"] = ENTITY_UIPANEL;
@@ -135,6 +136,20 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             break;
         }
 
+        case ENTITY_ENEMYPROJECTILEHIT:
+        {
+            SpriteRenderComponent* render = new SpriteRenderComponent(entity, windowElements);
+            SDL_Rect rect = render->getRenderRect();
+            rect.x = xmlStruct.x - xmlStruct.width/2;
+            rect.y = xmlStruct.y - xmlStruct.height/2;
+            render->setRenderRect(&rect);
+            render->setActiveTimer(100);
+            entity->addRenderComponent(render);
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addEffectEntity(entity);
+            break;
+        }
+
         case ENTITY_ENEMYSTRAIGHT:
         {
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
@@ -157,6 +172,20 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->position.y = xmlStruct.y;
             configureEntity(entity, xmlStruct);
             gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
+        case ENTITY_PLAYERPROJECTILEHIT:
+        {
+            SpriteRenderComponent* render = new SpriteRenderComponent(entity, windowElements);
+            SDL_Rect rect = render->getRenderRect();
+            rect.x = xmlStruct.x - xmlStruct.width/2;
+            rect.y = xmlStruct.y - xmlStruct.height/2;
+            render->setRenderRect(&rect);
+            render->setActiveTimer(100);
+            entity->addRenderComponent(render);
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addEffectEntity(entity);
             break;
         }
 
@@ -248,59 +277,15 @@ GameEntity* GameEntityFactory::createBackground()
     return background;
 }
 
-GameEntity* GameEntityFactory::createEnemy()
-{
-    GameEntity* enemy = new GameEntity();
-    enemy->addRenderComponent(new EnemyRenderComponent(enemy, windowElements));
-    enemy->addPhysicsComponent(new EnemyPhysicsComponent(enemy, windowElements, this));
-    enemy->addCollisionComponent(new EnemyCollisionComponent(enemy, windowElements, gameEntityManager->getCollisionManager()));
-    gameEntityManager->addPhysicalEntity(enemy);
-
-    return enemy;
-}
-
 GameEntity* GameEntityFactory::createEnemyProjectile(GameEntity* enemyEntity)
 {
     GameEntity* projectile = new GameEntity();
     projectile->addRenderComponent(new EnemyProjectileRenderComponent(projectile, windowElements, enemyEntity));
-    projectile->addPhysicsComponent(new EnemyProjectilePhysicsComponent(projectile, windowElements));
+    projectile->addPhysicsComponent(new EnemyProjectilePhysicsComponent(projectile, windowElements, this));
     projectile->addCollisionComponent(new EnemyProjectileCollisionComponent(projectile, windowElements, gameEntityManager->getCollisionManager()));
     gameEntityManager->addPhysicalEntity(projectile);
 
     return projectile;
-}
-
-std::vector<GameEntity*> GameEntityFactory::createEnemyWaveStraight2()
-{
-    GameEntity* enemyWave[2];
-
-    enemyWave[0] = createEnemy();
-    enemyWave[0]->position.x = windowElements->WINDOW_WIDTH/3;
-
-    enemyWave[1] = createEnemy();
-    enemyWave[1]->position.x = windowElements->WINDOW_WIDTH*2/3;
-
-    std::vector<GameEntity*> enemyWaveVector(enemyWave, enemyWave + sizeof(enemyWave)/sizeof(GameEntity*));
-
-    return enemyWaveVector;
-}
-
-std::vector<GameEntity*> GameEntityFactory::createEnemyWaveStraight3()
-{
-    GameEntity* enemyWave[3];
-
-    enemyWave[0] = createEnemy();
-    enemyWave[0]->position.x = windowElements->WINDOW_WIDTH*1/6;
-
-    enemyWave[1] = createEnemy();
-    enemyWave[1]->position.x = windowElements->WINDOW_WIDTH*3/6;
-
-    enemyWave[2] = createEnemy();
-    enemyWave[2]->position.x = windowElements->WINDOW_WIDTH*5/6;
-
-    std::vector<GameEntity*> enemyWaveVector(enemyWave, enemyWave + sizeof(enemyWave)/sizeof(GameEntity*));
-
-    return enemyWaveVector;
 }
 
 GameEntity* GameEntityFactory::createExplosion(GameEntity* destroyedEntity)
@@ -317,7 +302,7 @@ GameEntity* GameEntityFactory::createPlayerProjectile(GameEntity* playerEntity)
 {
     GameEntity* projectile = new GameEntity();
     projectile->addRenderComponent(new PlayerProjectileRenderComponent(projectile, windowElements, playerEntity));
-    projectile->addPhysicsComponent(new PlayerProjectilePhysicsComponent(projectile, windowElements));
+    projectile->addPhysicsComponent(new PlayerProjectilePhysicsComponent(projectile, windowElements, this));
     projectile->addCollisionComponent(new PlayerProjectileCollisionComponent(projectile, windowElements, gameEntityManager->getCollisionManager()));
     gameEntityManager->addPhysicalEntity(projectile);
 
