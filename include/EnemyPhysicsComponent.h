@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-07
+ * @modified    2015-02-16
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
     #define SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
@@ -47,6 +47,7 @@ class EnemyPhysicsComponent : public PhysicsComponent
         void update();
         void pauseTimers();
         void resumeTimers();
+        void onHit();
         void onDestroy();
 };
 

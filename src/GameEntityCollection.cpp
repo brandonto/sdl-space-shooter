@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-15
+ * @modified    2015-02-16
  *********************************************************************/
 #include "GameEntityCollection.h"
 
@@ -56,15 +56,18 @@ void GameEntityCollection::onUpdate()
             collectionIterator!=collection.end();
             collectionIterator++)
     {
+        (*collectionIterator)->onUpdate();
+    }
+
+    for (   collectionIterator=collection.begin();
+            collectionIterator!=collection.end();
+            collectionIterator++)
+    {
         if ((*collectionIterator)->remove)
         {
             delete *collectionIterator;
             collectionIterator = collection.erase(collectionIterator);
             collectionIterator--;
-        }
-        else
-        {
-            (*collectionIterator)->onUpdate();
         }
     }
 }

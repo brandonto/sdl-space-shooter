@@ -57,6 +57,11 @@ void EnemyProjectilePhysicsComponent::resumeTimers()
     timeBasedMovementTimer.resume();
 }
 
+void EnemyProjectilePhysicsComponent::onHit()
+{
+    onDestroy();
+}
+
 void EnemyProjectilePhysicsComponent::onDestroy()
 {
     SpawnData data;
@@ -64,5 +69,6 @@ void EnemyProjectilePhysicsComponent::onDestroy()
     data.x = gameEntity->position.x;
     data.y = gameEntity->position.y;
     factory->createEntity(data);
+    gameEntity->remove = true;
 }
 

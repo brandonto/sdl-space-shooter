@@ -44,6 +44,7 @@ class EnemyProjectilePhysicsComponent : public PhysicsComponent
         void update();
         void pauseTimers();
         void resumeTimers();
+        void onHit();
         void onDestroy();
 };
 

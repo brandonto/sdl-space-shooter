@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-07
+ * @modified    2015-02-16
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
@@ -95,7 +95,13 @@ void EnemyPhysicsComponent::resumeTimers()
     projectileCapTimer.resume();
 }
 
+void EnemyPhysicsComponent::onHit()
+{
+    onDestroy();
+}
+
 void EnemyPhysicsComponent::onDestroy()
 {
     gameEntityFactory->createExplosion(gameEntity);
+    gameEntity->remove = true;
 }

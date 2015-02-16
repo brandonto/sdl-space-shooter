@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-08
+ * @modified    2015-02-16
  *********************************************************************/
 #include "GameEntity.h"
 
@@ -72,6 +72,11 @@ void GameEntity::onUpdate()
 void GameEntity::onRender()
 {
     if (render!=NULL) { render->update(); }
+}
+
+void GameEntity::onHit()
+{
+    if (physics!=NULL) { physics->onHit(); }
 }
 
 void GameEntity::onDestroy()

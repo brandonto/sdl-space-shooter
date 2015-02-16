@@ -9,8 +9,8 @@
     </Background>
 
     <Effect>
-        <entity type="playerProjectileHit" name="playerProjectileHit" width="30" height="30" texture="bin/graphics/sprites/laserHitBlue.png" id="playerProjectileHit"/>
-        <entity type="enemyProjectileHit" name="enemyProjectileHit" width="30" height="30" texture="bin/graphics/sprites/laserHitRed.png" id="enemyProjectileHit"/>
+        <entity type="playerProjectileHit" name="playerProjectileHit" width="35" height="35" texture="bin/graphics/sprites/laserHitBlue.png" id="playerProjectileHit"/>
+        <entity type="enemyProjectileHit" name="enemyProjectileHit" width="35" height="35" texture="bin/graphics/sprites/laserHitRed.png" id="enemyProjectileHit"/>
     </Effect>
 
     <Physical>

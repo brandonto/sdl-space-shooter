@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-07
+ * @modified    2015-02-16
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
@@ -25,6 +25,8 @@ PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
     render = gameEntity->getRenderComponent();
+    health = 3;
+    maxHealth = 3;
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent()
@@ -87,7 +89,17 @@ void PlayerPhysicsComponent::resumeTimers()
     projectileCapTimer.resume();
 }
 
+void PlayerPhysicsComponent::onHit()
+{
+    if (!decrementHealth(1))
+    {
+        onDestroy();
+    }
+    printf("Health = %d\n", getHealth());
+}
+
 void PlayerPhysicsComponent::onDestroy()
 {
     gameEntityFactory->createExplosion(gameEntity);
+    gameEntity->remove = true;
 }

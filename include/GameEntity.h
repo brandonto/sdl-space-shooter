@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-08
+ * @modified    2015-02-16
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
@@ -57,6 +57,7 @@ class GameEntity
         void onEvent(SDL_Event* event);
         void onUpdate();
         void onRender();
+        virtual void onHit();
         virtual void onDestroy();
 
         CollisionComponent* getCollisionComponent();
