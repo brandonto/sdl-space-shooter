@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-06
+ * @modified    2015-02-16
  *********************************************************************/
 #include "TextRenderComponent.h"
 
@@ -45,7 +45,7 @@ void TextRenderComponent::setText(std::string text, int fontSize)
     color.b = 0xFF;
     color.a = 0xFF;
     SDL_Texture* sprite = SDL_util::create_texture_from_text(windowElements,
-                                                            "bin/font/kenpixel_square.ttf",
+                                                            "../data/font/kenpixel_square.ttf",
                                                             text,
                                                             fontSize,
                                                             &color);

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-15
+ * @modified    2015-02-16
  *********************************************************************/
 #include "Level.h"
 
@@ -15,7 +15,7 @@ Level::Level()
     doneLevel(true),
     nextSpawnTime()
 {
-    levelXmlPaths[0] = "data/xml/levels/level1.xml";
+    levelXmlPaths[0] = "../data/xml/levels/level1.xml";
     levelXmlPathsSize = 1;
 }
 

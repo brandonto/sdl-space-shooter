@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-10
+ * @modified    2015-02-16
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -26,7 +26,7 @@ InstructionsState::InstructionsState(ApplicationStateManager* applicationStateMa
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_INSTRUCTIONS;
-    this->xmlPath = "data/xml/states/InstructionsState.xml"; //Default xml path
+    this->xmlPath = "../data/xml/states/InstructionsState.xml"; //Default xml path
 }
 
 InstructionsState::~InstructionsState()

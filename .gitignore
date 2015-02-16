@@ -2,6 +2,7 @@
 # Files and folders that will be ignored by git
 ################################################
 
+bin/
 obj/
 depend/
 SpaceShooter

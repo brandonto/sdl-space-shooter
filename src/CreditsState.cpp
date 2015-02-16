@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-10
+ * @modified    2015-02-16
  *********************************************************************/
 #include "CreditsState.h"
 
@@ -26,7 +26,7 @@ CreditsState::CreditsState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_CREDITS;
-    this->xmlPath = "data/xml/states/CreditsState.xml"; //Default xml path
+    this->xmlPath = "../data/xml/states/CreditsState.xml"; //Default xml path
 }
 
 CreditsState::~CreditsState()

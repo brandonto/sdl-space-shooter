@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-15
+ * @modified    2015-02-16
  *********************************************************************/
 #include "GameState.h"
 
@@ -24,7 +24,7 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
-    this->xmlPath = "data/xml/states/GameState.xml";
+    this->xmlPath = "../data/xml/states/GameState.xml";
 }
 
 GameState::~GameState()

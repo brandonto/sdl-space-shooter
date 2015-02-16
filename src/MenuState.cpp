@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-08
+ * @modified    2015-02-16
  *********************************************************************/
 #include "MenuState.h"
 
@@ -28,7 +28,7 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_MENU;
-    this->xmlPath = "data/xml/states/MenuState.xml"; //Default xml path
+    this->xmlPath = "../data/xml/states/MenuState.xml"; //Default xml path
     srand(time(NULL));
 }
 

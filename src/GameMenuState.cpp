@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-11
+ * @modified    2015-02-16
  *********************************************************************/
 #include "GameMenuState.h"
 
@@ -30,7 +30,7 @@ GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_GAMEMENU;
-    this->xmlPath = "data/xml/states/GameMenuState.xml";
+    this->xmlPath = "../data/xml/states/GameMenuState.xml";
 }
 
 GameMenuState::~GameMenuState()

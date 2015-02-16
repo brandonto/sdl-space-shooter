@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-14
- * @modified    2015-02-06
+ * @modified    2015-02-16
  *********************************************************************/
 #include "MeteorRenderComponent.h"
 
@@ -20,7 +20,7 @@ MeteorRenderComponent::MeteorRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("bin/graphics/sprites/meteorBrown_big1.png");
+    texture->setTexture("../data/graphics/sprites/meteorBrown_big1.png");
 
     gameEntity->position.x = -1000; // Put the meteor off the screen
     gameEntity->position.y = -1000;

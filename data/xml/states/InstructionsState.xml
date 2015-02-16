@@ -2,36 +2,36 @@
 
 <State>
     <Background>
-        <entity type="background" name="backgroundBlack" texture="bin/graphics/background/black.png" id="background1"/>
-        <entity type="background" name="backgroundBlue" texture="bin/graphics/background/blueblack.png" id="background2"/>
-        <entity type="background" name="backgroundDarkPurple" texture="bin/graphics/background/darkPurple.png" id="background3"/>
-        <entity type="background" name="backgroundPurple" texture="bin/graphics/background/darkPurple.png" id="background4"/>
+        <entity type="background" name="backgroundBlack" texture="../data/graphics/background/black.png" id="background1"/>
+        <entity type="background" name="backgroundBlue" texture="../data/graphics/background/blueblack.png" id="background2"/>
+        <entity type="background" name="backgroundDarkPurple" texture="../data/graphics/background/darkPurple.png" id="background3"/>
+        <entity type="background" name="backgroundPurple" texture="../data/graphics/background/darkPurple.png" id="background4"/>
     </Background>
 
     <Effect>
     </Effect>
 
     <Physical>
-        <entity type="playerInstructions" name="player" texture="bin/graphics/sprites/playerShip1_blue.png" id="player"/>
+        <entity type="playerInstructions" name="player" texture="../data/graphics/sprites/playerShip1_blue.png" id="player"/>
     </Physical>
 
     <Ui>
         <entity type="text" name="movementText" data="Movement:" x="56" y="24" width="208" height="80" id="text1" alphaEnabled="true"/>
-        <entity type="sprite" name="keyW" texture="bin/graphics/ui/Keyboard_White_W.png" x="376" y="24" width="80" height="80" id="sprite1" alphaEnabled="true"/>
-        <entity type="sprite" name="keyA" texture="bin/graphics/ui/Keyboard_White_A.png" x="312" y="88" width="80" height="80" id="sprite2" alphaEnabled="true"/>
-        <entity type="sprite" name="keyS" texture="bin/graphics/ui/Keyboard_White_S.png" x="376" y="88" width="80" height="80" id="sprite3" alphaEnabled="true"/>
-        <entity type="sprite" name="keyD" texture="bin/graphics/ui/Keyboard_White_D.png" x="440" y="88" width="80" height="80" id="sprite4" alphaEnabled="true"/>
+        <entity type="sprite" name="keyW" texture="../data/graphics/ui/Keyboard_White_W.png" x="376" y="24" width="80" height="80" id="sprite1" alphaEnabled="true"/>
+        <entity type="sprite" name="keyA" texture="../data/graphics/ui/Keyboard_White_A.png" x="312" y="88" width="80" height="80" id="sprite2" alphaEnabled="true"/>
+        <entity type="sprite" name="keyS" texture="../data/graphics/ui/Keyboard_White_S.png" x="376" y="88" width="80" height="80" id="sprite3" alphaEnabled="true"/>
+        <entity type="sprite" name="keyD" texture="../data/graphics/ui/Keyboard_White_D.png" x="440" y="88" width="80" height="80" id="sprite4" alphaEnabled="true"/>
         <entity type="text" name="orText" data="or" x="600" y="58" width="32" height="80"  id="text2" alphaEnabled="true"/>
-        <entity type="sprite" name="keyUp" texture="bin/graphics/ui/Keyboard_White_Arrow_Up.png" x="776" y="24" width="80" height="80" id="sprite5" alphaEnabled="true"/>
-        <entity type="sprite" name="keyLeft" texture="bin/graphics/ui/Keyboard_White_Arrow_Left.png" x="712" y="88" width="80" height="80" id="sprite6" alphaEnabled="true"/>
-        <entity type="sprite" name="keyDown" texture="bin/graphics/ui/Keyboard_White_Arrow_Down.png" x="776" y="88" width="80" height="80" id="sprite7" alphaEnabled="true"/>
-        <entity type="sprite" name="keyRight" texture="bin/graphics/ui/Keyboard_White_Arrow_Right.png" x="840" y="88" width="80" height="80" id="sprite8" alphaEnabled="true"/>
+        <entity type="sprite" name="keyUp" texture="../data/graphics/ui/Keyboard_White_Arrow_Up.png" x="776" y="24" width="80" height="80" id="sprite5" alphaEnabled="true"/>
+        <entity type="sprite" name="keyLeft" texture="../data/graphics/ui/Keyboard_White_Arrow_Left.png" x="712" y="88" width="80" height="80" id="sprite6" alphaEnabled="true"/>
+        <entity type="sprite" name="keyDown" texture="../data/graphics/ui/Keyboard_White_Arrow_Down.png" x="776" y="88" width="80" height="80" id="sprite7" alphaEnabled="true"/>
+        <entity type="sprite" name="keyRight" texture="../data/graphics/ui/Keyboard_White_Arrow_Right.png" x="840" y="88" width="80" height="80" id="sprite8" alphaEnabled="true"/>
         <entity type="text" name="shootText" data="Shoot:" x="32" y="200" width="144" height="80" id="text3" alphaEnabled="true"/>
-        <entity type="sprite" name="keySpace" texture="bin/graphics/ui/Keyboard_White_Space.png" x="216" y="200" width="128" height="96" id="sprite9" alphaEnabled="true"/>
+        <entity type="sprite" name="keySpace" texture="../data/graphics/ui/Keyboard_White_Space.png" x="216" y="200" width="128" height="96" id="sprite9" alphaEnabled="true"/>
         <entity type="text" name="pauseText" data="Pause:" x="32" y="296" width="144" height="80" id="text4" alphaEnabled="true"/>
-        <entity type="sprite" name="keyP" texture="bin/graphics/ui/Keyboard_White_P.png" x="240" y="296" width="80" height="80" id="sprite10" alphaEnabled="true"/>
+        <entity type="sprite" name="keyP" texture="../data/graphics/ui/Keyboard_White_P.png" x="240" y="296" width="80" height="80" id="sprite10" alphaEnabled="true"/>
         <entity type="text" name="menuText" data="Menu:" x="32" y="392" width="144" height="80" id="text5" alphaEnabled="true"/>
-        <entity type="sprite" name="keyEsc" texture="bin/graphics/ui/Keyboard_White_Esc.png" x="240" y="392" width="80" height="80" id="sprite11" alphaEnabled="true"/>
+        <entity type="sprite" name="keyEsc" texture="../data/graphics/ui/Keyboard_White_Esc.png" x="240" y="392" width="80" height="80" id="sprite11" alphaEnabled="true"/>
         <entity type="uiPanel" name="back" x="16" y="704" width="160" height="48" function="MENU" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="backText" data="Back" x="25" y="704" width="148" height="48" id="text6" alphaEnabled="true"/>
         <entity type="uiPanel" name="demoWindow" x="374" y="180" width="612" height="572" id="ui2" alphaEnabled="true"/>

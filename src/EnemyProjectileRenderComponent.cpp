@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-06
+ * @modified    2015-02-16
  *********************************************************************/
 #include "EnemyProjectileRenderComponent.h"
 
@@ -22,7 +22,7 @@ EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameE
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("bin/graphics/sprites/laserRed03.png");
+    texture->setTexture("../data/graphics/sprites/laserRed03.png");
 
     renderRect.w = texture->getSpriteWidth();
     renderRect.h = texture->getSpriteHeight();

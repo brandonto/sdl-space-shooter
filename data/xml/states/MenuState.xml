@@ -2,17 +2,17 @@
 
 <State>
     <Background>
-        <entity type="background" name="backgroundBlack" texture="bin/graphics/background/black.png" id="background1"/>
-        <entity type="background" name="backgroundBlue" texture="bin/graphics/background/blueblack.png" id="background2"/>
-        <entity type="background" name="backgroundDarkPurple" texture="bin/graphics/background/darkPurple.png" id="background3"/>
-        <entity type="background" name="backgroundPurple" texture="bin/graphics/background/darkPurple.png" id="background4"/>
+        <entity type="background" name="backgroundBlack" texture="../data/graphics/background/black.png" id="background1"/>
+        <entity type="background" name="backgroundBlue" texture="../data/graphics/background/blueblack.png" id="background2"/>
+        <entity type="background" name="backgroundDarkPurple" texture="../data/graphics/background/darkPurple.png" id="background3"/>
+        <entity type="background" name="backgroundPurple" texture="../data/graphics/background/darkPurple.png" id="background4"/>
     </Background>
 
     <Effect>
     </Effect>
 
     <Physical>
-        <entity type="meteor" name="meteor" texture="bin/graphics/sprites/meteorBrown_big1.png" id="meteor1"/>
+        <entity type="meteor" name="meteor" texture="../data/graphics/sprites/meteorBrown_big1.png" id="meteor1"/>
     </Physical>
 
     <Ui>

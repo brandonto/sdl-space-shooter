@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2015-02-06
+ * @modified    2015-02-16
  *********************************************************************/
 #include "PlayerProjectileRenderComponent.h"
 
@@ -22,7 +22,7 @@ PlayerProjectileRenderComponent::PlayerProjectileRenderComponent(GameEntity* gam
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("bin/graphics/sprites/laserBlue03.png");
+    texture->setTexture("../data/graphics/sprites/laserBlue03.png");
 
     renderRect.w = texture->getSpriteWidth();
     renderRect.h = texture->getSpriteHeight();

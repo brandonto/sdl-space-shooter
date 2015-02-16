@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-25
- * @modified    2015-02-06
+ * @modified    2015-02-16
  *********************************************************************/
 #include "ExplosionRenderComponent.h"
 
@@ -22,7 +22,7 @@ ExplosionRenderComponent::ExplosionRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("bin/graphics/sprites/explosionSpritesheet.png");
+    texture->setTexture("../data/graphics/sprites/explosionSpritesheet.png");
 
     // Stretches to fit render destination
     renderRect.w = destroyedEntity->getRenderComponent()->getTexture()->getSpriteWidth();
@@ -35,7 +35,7 @@ ExplosionRenderComponent::ExplosionRenderComponent(GameEntity* gameEntity,
     renderRect.y = gameEntity->position.y - renderRect.h/2;
 
     // Sets partition spritesheet
-    texture->partitionSpritesheet("data/xml/spritesheets/explosionSpritesheet.xml");
+    texture->partitionSpritesheet("../data/xml/spritesheets/explosionSpritesheet.xml");
 
     // Start at the first animation frame
     texture->setAnimationFrame(0);

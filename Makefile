@@ -74,7 +74,8 @@ LFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 PROG = SpaceShooter
 
 all: $(OBJS)
-	$(CC) $(CFLAGS) -I$(IDIR) -I$(BDIR) -I$(DDIR) -o $(PROG) $^ $(LFLAGS)
+	@mkdir -p $(BDIR)
+	$(CC) $(CFLAGS) -I$(IDIR) -I$(BDIR) -I$(DDIR) -o $(BDIR)/$(PROG) $^ $(LFLAGS)
 
 $(ODIR)/%.o : $(SDIR)/%.cpp
 	@mkdir -p $(ODIR)
