@@ -19,6 +19,7 @@
         <entity type="enemyZigZag" name="enemyZigZag" width="75" height="61" texture="../data/graphics/sprites/enemyBlack2.png" id="enemyZigZag"/>
         <entity type="enemySwoopLeft" name="enemySwoopLeft" width="75" height="68" texture="../data/graphics/sprites/enemyBlack1.png" id="enemySwoopLeft"/>
         <entity type="enemySwoopRight" name="enemySwoopRight" width="75" height="68" texture="../data/graphics/sprites/enemyBlack1.png" id="enemySwoopRight"/>
+        <entity type="enemyCarrier" name="enemyCarrier" width="125" height="128" texture="../data/graphics/sprites/enemyBlack4.png" id="enemyCarrier"/>
         <entity type="enemyKamikaze" name="enemyKamikaze" width="65" height="56" texture="../data/graphics/sprites/enemyBlack5.png" id="enemyKamikaze"/>
     </Physical>
 

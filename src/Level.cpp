@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "Level.h"
 
@@ -64,6 +64,7 @@ void Level::parse(int level)
             e = e->NextSiblingElement())
     {
         timerQueue.push(atoi(e->Attribute("spawn-time")));
+
         SpawnData data;
         data.x = atoi(e->Attribute("x"));
         data.y = atoi(e->Attribute("y"));
@@ -71,6 +72,11 @@ void Level::parse(int level)
         const char* cString = e->Attribute("type");
         int cStringSize = strlen(cString);
         data.type.assign(cString, cStringSize);
+        if (e->Attribute("health") != NULL)
+        {
+            data.health = atoi(e->Attribute("health"));
+        }
+
         dataQueue.push(data);
     }
 

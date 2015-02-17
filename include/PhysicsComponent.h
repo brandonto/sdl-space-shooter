@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #ifndef SPACESHOOTER_PHYSICSCOMPONENT_
     #define SPACESHOOTER_PHYSICSCOMPONENT_
@@ -37,6 +37,7 @@ class PhysicsComponent
 
         int getHealth(){ return health; };
         int getMaxHealth(){ return maxHealth; };
+        void setMaxHealth(int hp){ maxHealth=hp; health=hp; };
         bool decrementHealth(int val)
         {
             health-=val;

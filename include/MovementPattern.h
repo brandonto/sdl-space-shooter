@@ -44,6 +44,7 @@ enum MovementPatternEnum
     MOVEMENT_ZIGZAG,
     MOVEMENT_SWOOPLEFT,
     MOVEMENT_SWOOPRIGHT,
+    MOVEMENT_STRAIGHTSLOW,
 };
 
 #endif

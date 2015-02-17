@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-15
+ * @modified    2015-02-17
  *********************************************************************/
 #ifndef SPACESHOOTER_LEVEL_H_
     #define SPACESHOOTER_LEVEL_H_
@@ -58,6 +58,7 @@ struct SpawnData
     std::string type;
     int x;
     int y;
+    int health = 1;
 };
 
 #endif

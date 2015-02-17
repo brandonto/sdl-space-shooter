@@ -71,6 +71,19 @@ void MovementPattern::setMovementPattern(int patternId)
         timeQueue.push(time);
         timeQueue.push(time);
     }
+    else if (patternId == MOVEMENT_STRAIGHTSLOW)
+    {
+        Vector2D vector1(0, 75);
+        Vector2D vector2(0, 0);
+        int time1 = 6000;
+        int time2 = 3000;
+        velocityQueue.push(vector1);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector1);
+        timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time1);
+    }
 
     currentVelocity = velocityQueue.front();
     currentVelocityTime = timeQueue.front();

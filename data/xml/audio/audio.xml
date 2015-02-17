@@ -7,7 +7,7 @@
     </Music>
 
     <Sound>
-        <sound id="explosion" file="../data/audio/sound/explosion.ogg" />
+        <sound id="explosion" file="../data/audio/sound/explosion.ogg" volume="96" />
         <sound id="laser" file="../data/audio/sound/laser.ogg" />
         <sound id="laserHit" file="../data/audio/sound/laserHit.ogg" />
         <sound id="powerUp" file="../data/audio/sound/powerUp.ogg" />

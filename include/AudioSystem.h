@@ -25,6 +25,9 @@ class AudioSystem
         bool musicEnabled;
         bool soundEnabled;
 
+        int musicVolume;
+        int soundVolume;
+
         AudioSystem();
 
     public:

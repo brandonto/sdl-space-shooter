@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-14
+ * @modified    2015-02-17
  *********************************************************************/
 #ifndef SPACESHOOTER_STATEENTITYPARSER_H_
     #define SPACESHOOTER_STATEENTITYPARSER_H_
@@ -47,6 +47,7 @@ struct EntityXmlStruct
     int y = 0;
     int width = 0;
     int height = 0;
+    int health = 1;
 
     bool alphaEnabled = false;
 };

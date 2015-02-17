@@ -50,6 +50,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
     stringToEntityEnum["enemyProjectileHit"] = ENTITY_ENEMYPROJECTILEHIT;
     stringToEntityEnum["enemyStraight"] = ENTITY_ENEMYSTRAIGHT;
+    stringToEntityEnum["enemyCarrier"] = ENTITY_ENEMYCARRIER;
     stringToEntityEnum["enemySwoopLeft"] = ENTITY_ENEMYSWOOPLEFT;
     stringToEntityEnum["enemySwoopRight"] = ENTITY_ENEMYSWOOPRIGHT;
     stringToEntityEnum["enemyZigZag"] = ENTITY_ENEMYZIGZAG;
@@ -122,6 +123,7 @@ GameEntity* GameEntityFactory::createEntity(SpawnData data)
     EntityXmlStruct xmlStruct = gameEntityData.getDataByType(gameEntityManager->getState(), data.type);
     xmlStruct.x = data.x;
     xmlStruct.y = data.y;
+    xmlStruct.health = data.health;
     return createEntity(xmlStruct);
 }
 
@@ -159,6 +161,21 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
+            entity->addPhysicsComponent(physics);
+            entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
+        case ENTITY_ENEMYCARRIER:
+        {
+            entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHTSLOW);
+            physics->setMaxHealth(xmlStruct.health);
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;

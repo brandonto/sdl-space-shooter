@@ -99,7 +99,10 @@ void EnemyPhysicsComponent::resumeTimers()
 
 void EnemyPhysicsComponent::onHit()
 {
-    onDestroy();
+    if (!decrementHealth(1))
+    {
+        onDestroy();
+    }
 }
 
 void EnemyPhysicsComponent::onDestroy()

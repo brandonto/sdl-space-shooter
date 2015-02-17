@@ -17,6 +17,8 @@ AudioSystem::AudioSystem()
     soundEnabled(true),
     currentMusic(NULL)
 {
+    //printf("music volume = %d\n", Mix_VolumeMusic(-1));
+    Mix_VolumeMusic(64);
 }
 
 // Initializes AudioSystem by loading all music files
@@ -108,6 +110,11 @@ void AudioSystem::initialize()
             printf( "File was not loaded: %s\n", e->Attribute("file"));
         }
 
+        if (e->Attribute("volume") != NULL)
+        {
+            char volume = atoi(e->Attribute("volume"));
+            Mix_VolumeChunk(sound, volume);
+        }
         // Insert key and Sound into table
         soundTable[key] = sound;
     }
@@ -133,7 +140,7 @@ void AudioSystem::playMusic()
         if (Mix_PlayingMusic() == 0)
         {
             // Play music
-            Mix_PlayMusic(currentMusic, -1);
+            Mix_FadeInMusic(currentMusic, -1, 1000);
         }
         // If music is paused
         else if (Mix_PausedMusic() == 1)
