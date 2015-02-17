@@ -39,7 +39,8 @@ MenuState::~MenuState()
 
 void MenuState::onEnter()
 {
-    AudioSystem::getInstance()->playMusic("menu");
+    AudioSystem::getInstance()->loadMusic("menu");
+    AudioSystem::getInstance()->playMusic();
     blackScreen.startBlackIn();
     //background = gameEntityManager.getFactory()->createBackground();
     background = gameEntityManager.getFactory()->createBackgroundEntities();

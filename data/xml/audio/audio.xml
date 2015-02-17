@@ -3,9 +3,14 @@
 <Audio>
     <Music>
         <music id="menu" file="../data/audio/music/menu.ogg" />
+        <music id="level1" file="../data/audio/music/level1.ogg" />
     </Music>
 
-    <Chunk>
-    </Chunk>
+    <Sound>
+        <sound id="explosion" file="../data/audio/sound/explosion.ogg" />
+        <sound id="laser" file="../data/audio/sound/laser.ogg" />
+        <sound id="laserHit" file="../data/audio/sound/laserHit.ogg" />
+        <sound id="powerUp" file="../data/audio/sound/powerUp.ogg" />
+    </Sound>
 </Audio>
 

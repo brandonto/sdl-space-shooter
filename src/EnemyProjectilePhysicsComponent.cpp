@@ -4,11 +4,12 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "EnemyProjectilePhysicsComponent.h"
 
 #include <string>
+#include "AudioSystem.h"
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
 #include "RenderComponent.h"
@@ -25,6 +26,7 @@ EnemyProjectilePhysicsComponent::EnemyProjectilePhysicsComponent(GameEntity* gam
     this->windowElements = windowElements;
     this->factory = factory;
     render = gameEntity->getRenderComponent();
+    AudioSystem::getInstance()->playSound("laser");
 }
 
 EnemyProjectilePhysicsComponent::~EnemyProjectilePhysicsComponent()
@@ -59,6 +61,7 @@ void EnemyProjectilePhysicsComponent::resumeTimers()
 
 void EnemyProjectilePhysicsComponent::onHit()
 {
+    AudioSystem::getInstance()->playSound("laserHit");
     onDestroy();
 }
 

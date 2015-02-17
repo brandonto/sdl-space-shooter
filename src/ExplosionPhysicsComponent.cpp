@@ -4,10 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-25
- * @modified    2015-02-06
+ * @modified    2015-02-17
  *********************************************************************/
 #include "ExplosionPhysicsComponent.h"
 
+#include "AudioSystem.h"
 #include "ExplosionRenderComponent.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
@@ -22,6 +23,7 @@ ExplosionPhysicsComponent::ExplosionPhysicsComponent(GameEntity* gameEntity,
     //render = dynamic_cast<ExplosionRenderComponent*>(gameEntity->getRenderComponent());
     render = gameEntity->getRenderComponent();
     durationTimer.start();
+    AudioSystem::getInstance()->playSound("explosion");
 }
 
 ExplosionPhysicsComponent::~ExplosionPhysicsComponent()

@@ -14,7 +14,8 @@ AudioSystem* AudioSystem::instance = NULL;
 
 AudioSystem::AudioSystem()
 :   musicEnabled(true),
-    soundEnabled(true)
+    soundEnabled(true),
+    currentMusic(NULL)
 {
 }
 
@@ -36,16 +37,24 @@ void AudioSystem::initialize()
     // The music root element of this xml file
     TiXmlElement* rootMusic = NULL;
 
+    //The sound root element of this xml file
+    TiXmlElement* rootSound = NULL;
+
     // Parses through Audio subelements to find the music root
     // element, then assigns it to it's own root variable
-    std::string value = "Music";
+    std::string valueMusic = "Music";
+    std::string valueSound = "Sound";
     for (   TiXmlElement* e = rootElement->FirstChildElement();
             e != NULL;
             e = e->NextSiblingElement())
     {
-        if (e->Value() == value)
+        if (e->Value() == valueMusic)
         {
             rootMusic = e;
+        }
+        else if (e->Value() == valueSound)
+        {
+            rootSound = e;
         }
     }
 
@@ -53,6 +62,13 @@ void AudioSystem::initialize()
     if (rootMusic == NULL)
     {
         fprintf(stderr, "[ERROR] parse(): Music root element not found.\n");
+        return;
+    }
+
+    // Return false if thesSound root element is not found
+    if (rootSound == NULL)
+    {
+        fprintf(stderr, "[ERROR] parse(): Sound root element not found.\n");
         return;
     }
 
@@ -76,6 +92,25 @@ void AudioSystem::initialize()
         // Insert key and music into table
         musicTable[key] = music;
     }
+
+    for (   TiXmlElement* e = rootSound->FirstChildElement();
+            e != NULL;
+            e = e->NextSiblingElement())
+    {
+        // Load key
+        std::string key = e->Attribute("id");
+
+        // Load Sound
+        Mix_Chunk* sound = Mix_LoadWAV(e->Attribute("file"));
+        if (sound == NULL)
+        {
+            printf( "Failed to load sound! SDL_mixer Error: %s\n", Mix_GetError() );
+            printf( "File was not loaded: %s\n", e->Attribute("file"));
+        }
+
+        // Insert key and Sound into table
+        soundTable[key] = sound;
+    }
 }
 
 //void AudioSystem::toggleMusic()
@@ -84,7 +119,12 @@ void AudioSystem::initialize()
     //pauseMusic();
 //}
 
-void AudioSystem::playMusic(std::string id)
+void AudioSystem::loadMusic(std::string id)
+{
+    currentMusic = musicTable[id];
+}
+
+void AudioSystem::playMusic()
 {
     // If music is enabled
     if (musicEnabled)
@@ -93,7 +133,7 @@ void AudioSystem::playMusic(std::string id)
         if (Mix_PlayingMusic() == 0)
         {
             // Play music
-            Mix_PlayMusic(musicTable[id], -1);
+            Mix_PlayMusic(currentMusic, -1);
         }
         // If music is paused
         else if (Mix_PausedMusic() == 1)
@@ -118,6 +158,16 @@ void AudioSystem::stopMusic()
 {
     // Stops music
     Mix_HaltMusic();
+}
+
+void AudioSystem::playSound(std::string id)
+{
+    // If sound is enabled
+    if (soundEnabled)
+    {
+        // Play the sound on any available channel, no repeat
+        Mix_PlayChannel(-1, soundTable[id], 0);
+    }
 }
 
 // Terminates AudioSystem by freeing all music files

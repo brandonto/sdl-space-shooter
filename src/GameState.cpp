@@ -35,7 +35,8 @@ GameState::~GameState()
 
 void GameState::onEnter()
 {
-    //AudioSystem::getInstance()->playMusic("game");
+    AudioSystem::getInstance()->loadMusic("level1");
+    AudioSystem::getInstance()->playMusic();
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
     player = gameEntityManager.getFactory()->createEntity("player");
@@ -104,12 +105,14 @@ void GameState::onUpdate()
     {
         gameEntityManager.pauseAllTimers();
         level.pauseTimers();
+        AudioSystem::getInstance()->pauseMusic();
         setPauseStatus(PAUSED_NONE);
     }
     else if (pauseStatus == UNPAUSED_THIS_FRAME)
     {
         gameEntityManager.resumeAllTimers();
         level.resumeTimers();
+        AudioSystem::getInstance()->playMusic();
         setPauseStatus(PAUSED_NONE);
     }
 }
@@ -121,7 +124,7 @@ void GameState::onRender()
 
 void GameState::onExit()
 {
-
+    AudioSystem::getInstance()->stopMusic();
 }
 
 void GameState::stateTransition(int nextState)

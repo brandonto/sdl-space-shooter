@@ -20,6 +20,7 @@ class AudioSystem
         static AudioSystem* instance;
         std::map<std::string, Mix_Music*> musicTable;
         std::map<std::string, Mix_Chunk*> soundTable;
+        Mix_Music* currentMusic;
 
         bool musicEnabled;
         bool soundEnabled;
@@ -38,7 +39,9 @@ class AudioSystem
         void toggleMusic();
         void toggleSound();
 
-        void playMusic(std::string id);
+        void loadMusic(std::string id);
+
+        void playMusic();
         void pauseMusic();
         void stopMusic();
 
