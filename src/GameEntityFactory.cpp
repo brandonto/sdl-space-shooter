@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -23,6 +23,7 @@
 #include "GameEntityManager.h"
 #include "MeteorPhysicsComponent.h"
 #include "MeteorRenderComponent.h"
+#include "MovementPattern.h"
 #include "PlayerCollisionComponent.h"
 #include "PlayerInputComponent.h"
 #include "PlayerInstructionsInputComponent.h"
@@ -154,7 +155,23 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         case ENTITY_ENEMYSTRAIGHT:
         {
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
-            entity->addPhysicsComponent(new EnemyPhysicsComponent(entity, windowElements, this));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
+            entity->addPhysicsComponent(physics);
+            entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
+        case ENTITY_ENEMYZIGZAG:
+        {
+            entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_ZIGZAG);
+            entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
             entity->position.y = xmlStruct.y;

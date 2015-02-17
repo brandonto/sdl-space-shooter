@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
@@ -18,7 +18,7 @@ EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
                                             GameEntityFactory* gameEntityFactory)
 :   gameEntityFactory(gameEntityFactory),
     render(NULL),
-    velocity(0,200),
+    velocity(0,150),
     velocityPerSecond(500),
     shooting(true)
 {
@@ -36,7 +36,9 @@ void EnemyPhysicsComponent::update()
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
     //x = x + speedPerSeconds*secondsSinceLastFrame
     //gameEntity->xPos += (xVel * timeSinceLastFrame);
-    gameEntity->position += velocity*timeSinceLastFrame;
+    //gameEntity->position += velocity*timeSinceLastFrame;
+
+    gameEntity->position += movement.getCurrentVelocity()*timeSinceLastFrame;
 
     int spriteWidth = render->getTexture()->getSpriteWidth();
     int spriteHeight = render->getTexture()->getSpriteHeight();
@@ -104,4 +106,9 @@ void EnemyPhysicsComponent::onDestroy()
 {
     gameEntityFactory->createExplosion(gameEntity);
     gameEntity->remove = true;
+}
+
+MovementPattern* EnemyPhysicsComponent::getMovementPattern()
+{
+    return &movement;
 }

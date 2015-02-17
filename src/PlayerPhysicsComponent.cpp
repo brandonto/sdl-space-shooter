@@ -19,7 +19,7 @@ PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
 :   gameEntityFactory(gameEntityFactory),
     render(NULL),
     velocity(0,0),
-    velocityPerSecond(500),
+    velocityPerSecond(400),
     shooting(false)
 {
     this->gameEntity = gameEntity;

@@ -73,7 +73,7 @@ void Level::parse(int level)
         dataQueue.push(data);
     }
 
-    int nextSpawnTime = timerQueue.front();
+    nextSpawnTime = timerQueue.front();
 }
 
 void Level::onUpdate()
@@ -98,8 +98,8 @@ void Level::onUpdate()
     {
         if (!timerQueue.empty())
         {
-            nextSpawnTime = timerQueue.front();
             timerQueue.pop();
+            nextSpawnTime = timerQueue.front();
             SpawnData toSpawn = dataQueue.front();
             dataQueue.pop();
             spawningQueue.push(toSpawn);
