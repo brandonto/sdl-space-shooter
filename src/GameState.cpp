@@ -4,12 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "GameState.h"
 
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 #include "GameEntity.h"
 #include "Level.h"
 #include "PauseState.h" //For the enumeration
@@ -34,6 +35,7 @@ GameState::~GameState()
 
 void GameState::onEnter()
 {
+    //AudioSystem::getInstance()->playMusic("game");
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
     player = gameEntityManager.getFactory()->createEntity("player");

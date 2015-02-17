@@ -50,11 +50,12 @@ void Level::parse(int level)
 
     // The parsing EnemyType root element of this xml file
     TiXmlElement* rootEnemyType = settings->NextSiblingElement();
-    //if (rootEnemyType->Value() != "EnemyType")
-    //{
-    //    fprintf(stderr, "[ERROR] parse(): EnemyType root element not found.\n");
-    //    return;
-    //}
+    std::string value = "EnemyType";
+    if (rootEnemyType->Value() != value)
+    {
+        fprintf(stderr, "[ERROR] parse(): EnemyType root element not found.\n");
+        return;
+    }
 
     // Parses through subelements of the EnemyType element and
     // fills data queue and time queue as we go

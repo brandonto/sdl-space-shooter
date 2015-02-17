@@ -17,6 +17,8 @@
         <entity type="player" name="player" x="512" y="650" width="80" height="61" texture="../data/graphics/sprites/playerShip1_blue.png" id="player"/>
         <entity type="enemyStraight" name="enemyStraight" width="75" height="61" texture="../data/graphics/sprites/enemyBlack3.png" id="enemyStraight"/>
         <entity type="enemyZigZag" name="enemyZigZag" width="75" height="61" texture="../data/graphics/sprites/enemyBlack2.png" id="enemyZigZag"/>
+        <entity type="enemySwoopLeft" name="enemySwoopLeft" width="75" height="68" texture="../data/graphics/sprites/enemyBlack1.png" id="enemySwoopLeft"/>
+        <entity type="enemySwoopRight" name="enemySwoopRight" width="75" height="68" texture="../data/graphics/sprites/enemyBlack1.png" id="enemySwoopRight"/>
         <entity type="enemyKamikaze" name="enemyKamikaze" width="65" height="56" texture="../data/graphics/sprites/enemyBlack5.png" id="enemyKamikaze"/>
     </Physical>
 

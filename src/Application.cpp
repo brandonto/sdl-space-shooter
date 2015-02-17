@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-09
+ * @modified    2015-02-17
  *********************************************************************/
 #include "Application.h"
 
@@ -12,6 +12,7 @@
 #include <cstddef>
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 #include "SDL_util.h"
 
 // Constructor
@@ -28,6 +29,7 @@ Application::~Application()
     if (applicationStateManager!=NULL) { delete applicationStateManager; }
 }
 
+// Main game loop
 int Application::start()
 {
     if (!initialize())
@@ -50,6 +52,7 @@ int Application::start()
     return 0;
 }
 
+// Initialize all modules and allocates memory to assets
 bool Application::initialize()
 {
     // Initializes all SDL modules
@@ -84,13 +87,18 @@ bool Application::initialize()
     SDL_SetRenderDrawColor(windowElements.renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderSetLogicalSize(windowElements.renderer, windowElements.WINDOW_WIDTH, windowElements.WINDOW_HEIGHT);
 
+    AudioSystem::getInstance()->initialize();
+
     applicationStateManager = new ApplicationStateManager(&windowElements);
 
     return true;
 }
 
+// Deinitializes all modules and free all allocated memory
 void Application::terminate()
 {
+    AudioSystem::getInstance()->terminate();
+
     SDL_DestroyRenderer(windowElements.renderer);
     windowElements.renderer = NULL;
 

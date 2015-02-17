@@ -9,6 +9,7 @@ _OBJS =	main.o \
 		Application.o \
 		ApplicationState.o \
 		ApplicationStateManager.o \
+		AudioSystem.o \
 		BackgroundPhysicsComponent.o \
 		BackgroundRenderComponent.o \
 		BlackScreen.o \

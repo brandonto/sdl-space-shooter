@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2014-09-03
+ * @modified    2015-02-17
  *********************************************************************/
 #include "SDL_util.h"
 
@@ -12,6 +12,7 @@
 #include <cstddef>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
 #include "WindowElements.h"
 
@@ -19,12 +20,14 @@ namespace SDL_util
 {
     bool initialize()
     {
+        // Initialize SDL
         if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
             printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
             return false;
         }
 
+        // Initialize SDL_image
         int imgFlags = IMG_INIT_PNG;
         if(!(IMG_Init(imgFlags) & imgFlags))
         {
@@ -32,9 +35,17 @@ namespace SDL_util
             return false;
         }
 
+        // Initialize SDL_tff
         if(TTF_Init() == -1)
         {
             printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+            return false;
+        }
+
+        // Initialize SDL_mixer
+        if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+        {
+            printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
             return false;
         }
 
@@ -240,6 +251,7 @@ namespace SDL_util
 
     void terminate()
     {
+        Mix_Quit();
         TTF_Quit();
         IMG_Quit();
         SDL_Quit();

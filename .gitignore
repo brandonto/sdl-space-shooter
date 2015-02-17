@@ -5,5 +5,6 @@
 bin/
 obj/
 depend/
+data/audio/music
 SpaceShooter
 *.swp

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+
+<Audio>
+    <Music>
+        <music id="menu" file="../data/audio/music/menu.ogg" />
+    </Music>
+
+    <Chunk>
+    </Chunk>
+</Audio>
+

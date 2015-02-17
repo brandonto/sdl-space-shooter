@@ -45,6 +45,32 @@ void MovementPattern::setMovementPattern(int patternId)
         timeQueue.push(time);
         timeQueue.push(time);
     }
+    else if (patternId == MOVEMENT_SWOOPLEFT)
+    {
+        Vector2D vector1(-400, 100);
+        Vector2D vector2(120, 200);
+        Vector2D vector3(0, 150);
+        int time = 2000;
+        velocityQueue.push(vector1);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        timeQueue.push(time);
+        timeQueue.push(time);
+        timeQueue.push(time);
+    }
+    else if (patternId == MOVEMENT_SWOOPRIGHT)
+    {
+        Vector2D vector1(400, 100);
+        Vector2D vector2(-120, 200);
+        Vector2D vector3(0, 150);
+        int time = 2000;
+        velocityQueue.push(vector1);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        timeQueue.push(time);
+        timeQueue.push(time);
+        timeQueue.push(time);
+    }
 
     currentVelocity = velocityQueue.front();
     currentVelocityTime = timeQueue.front();

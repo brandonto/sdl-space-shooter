@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
@@ -63,7 +63,7 @@ void PlayerPhysicsComponent::update()
     {
         if (projectileCapTimer.isStarted())
         {
-            if (projectileCapTimer.getTimeOnTimer()>150)
+            if (projectileCapTimer.getTimeOnTimer()>200)
             {
                 gameEntityFactory->createPlayerProjectile(gameEntity);
                 projectileCapTimer.stop();

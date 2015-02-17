@@ -4,13 +4,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-16
+ * @modified    2015-02-17
  *********************************************************************/
 #include "MenuState.h"
 
 #include <time.h>
 #include <SDL2/SDL.h>
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
 #include "WindowElements.h"
@@ -38,6 +39,7 @@ MenuState::~MenuState()
 
 void MenuState::onEnter()
 {
+    AudioSystem::getInstance()->playMusic("menu");
     blackScreen.startBlackIn();
     //background = gameEntityManager.getFactory()->createBackground();
     background = gameEntityManager.getFactory()->createBackgroundEntities();
@@ -145,7 +147,7 @@ void MenuState::onRender()
 
 void MenuState::onExit()
 {
-
+    AudioSystem::getInstance()->stopMusic();
 }
 
 void MenuState::stateTransition(int nextState)

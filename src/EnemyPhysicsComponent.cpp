@@ -67,7 +67,7 @@ void EnemyPhysicsComponent::update()
         {
             if (projectileCapTimer.isStarted())
             {
-                if (projectileCapTimer.getTimeOnTimer()>2000)
+                if (projectileCapTimer.getTimeOnTimer()>2500)
                 {
                     gameEntityFactory->createEnemyProjectile(gameEntity);
                     projectileCapTimer.stop();

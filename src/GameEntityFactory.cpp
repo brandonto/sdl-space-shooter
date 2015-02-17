@@ -50,6 +50,8 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
     stringToEntityEnum["enemyProjectileHit"] = ENTITY_ENEMYPROJECTILEHIT;
     stringToEntityEnum["enemyStraight"] = ENTITY_ENEMYSTRAIGHT;
+    stringToEntityEnum["enemySwoopLeft"] = ENTITY_ENEMYSWOOPLEFT;
+    stringToEntityEnum["enemySwoopRight"] = ENTITY_ENEMYSWOOPRIGHT;
     stringToEntityEnum["enemyZigZag"] = ENTITY_ENEMYZIGZAG;
     stringToEntityEnum["player"] = ENTITY_PLAYER1;
     stringToEntityEnum["playerProjectileHit"] = ENTITY_PLAYERPROJECTILEHIT;
@@ -157,6 +159,34 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
+            entity->addPhysicsComponent(physics);
+            entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
+        case ENTITY_ENEMYSWOOPLEFT:
+        {
+            entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_SWOOPLEFT);
+            entity->addPhysicsComponent(physics);
+            entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
+        case ENTITY_ENEMYSWOOPRIGHT:
+        {
+            entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_SWOOPRIGHT);
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
