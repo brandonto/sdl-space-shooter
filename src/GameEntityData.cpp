@@ -15,7 +15,6 @@
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
-
 #include "ApplicationState.h"
 #include "GameEntity.h"
 
@@ -87,7 +86,7 @@ EntityXmlStruct GameEntityData::getDataByName(ApplicationState* state, std::stri
         }
     }
 
-    fprintf(stderr, "[ERROR] getDataByName(): no data with name %s\n", name.c_str());
+    printf("[ERROR] getDataByName(): no data with name %s\n", name.c_str());
     EntityXmlStruct error;
     return error;
 }
@@ -124,7 +123,7 @@ EntityXmlStruct GameEntityData::getDataByType(ApplicationState* state, std::stri
         }
     }
 
-    fprintf(stderr, "[ERROR] getDataByName(): no data with type %s\n", type.c_str());
+    printf("[ERROR] getDataByName(): no data with type %s\n", type.c_str());
     EntityXmlStruct error;
     return error;
 }

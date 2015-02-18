@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-05
- * @modified    2015-02-07
+ * @modified    2015-02-18
  *********************************************************************/
 #include "Texture.h"
 
@@ -33,7 +33,7 @@ void Texture::setTexture(std::string imagePath)
     SDL_Texture* newSprite = SDL_util::create_texture_from_image(windowElements, imagePath);
     if (newSprite == NULL)
     {
-        fprintf(stdout, "[ERROR] setTexture(): Texture could not be constructed from image.\n");
+        printf("[ERROR] setTexture(): Texture could not be constructed from image.\n");
     }
 
     // If there was a previously set sprite, destroy the sprite and reset variables
@@ -136,7 +136,7 @@ void Texture::enableAlphaBlend()
     }
     else
     {
-        fprintf(stdout, "[WARNING] enableAlphaBlend(): Alpha blending is already enabled.\n");
+        printf("[WARNING] enableAlphaBlend(): Alpha blending is already enabled.\n");
     }
 }
 
@@ -150,7 +150,7 @@ void Texture::disableAlphaBlend()
     }
     else
     {
-        fprintf(stdout, "[WARNING] disableAlphaBlend(): Alpha blending is already disabled.\n");
+        printf("[WARNING] disableAlphaBlend(): Alpha blending is already disabled.\n");
     }
 }
 
@@ -165,7 +165,7 @@ void Texture::setAlphaBlend(Uint8 alpha)
     }
     else
     {
-        fprintf(stderr, "[ERROR] setAlphaBlend(): Alpha blending has not been enabled. Please call enableAlphaBlend() first.\n");
+        printf("[ERROR] setAlphaBlend(): Alpha blending has not been enabled. Please call enableAlphaBlend() first.\n");
     }
 }
 
@@ -174,7 +174,7 @@ Uint8 Texture::getAlphaBlend()
 {
     if (!alphaEnabled)
     {
-        fprintf(stdout, "[WARNING] getAlphaBlend(): Called before alpha blending has been enabled.\n");
+        printf("[WARNING] getAlphaBlend(): Called before alpha blending has been enabled.\n");
     }
     return alpha;
 }
@@ -187,7 +187,7 @@ bool Texture::partitionSpritesheet(std::string xmlPath)
     // Return false if the XML file is not found
     if (!xmlDoc.LoadFile(xmlPath.c_str()))
     {
-        fprintf(stderr, "[ERROR] partitionSpritesheet(): Xml file not found.\n");
+        printf("[ERROR] partitionSpritesheet(): Xml file not found.\n");
         return false;
     }
 
@@ -221,7 +221,7 @@ bool Texture::advanceAnimation()
     // Return immediately if texture is not partitioned
     if (!partitioned)
     {
-        fprintf(stderr, "[ERROR] advanceAnimation(): Texture is not partitioned.\n");
+        printf("[ERROR] advanceAnimation(): Texture is not partitioned.\n");
         return false;
     }
 
@@ -243,14 +243,14 @@ bool Texture::setAnimationFrame(int animationFrame)
     // Return immediately if texture is not partitioned
     if (!partitioned)
     {
-        fprintf(stderr, "[ERROR] setAnimationFrame(): Texture is not partitioned.\n");
+        printf("[ERROR] setAnimationFrame(): Texture is not partitioned.\n");
         return false;
     }
 
     // Returns false if animation is out of bounds
     if (animationFrame<0 || animationRect.size()<animationFrame)
     {
-        fprintf(stderr, "[ERROR] setAnimationFrame(): Attempted to set to an invalid animation frame.\n");
+        printf("[ERROR] setAnimationFrame(): Attempted to set to an invalid animation frame.\n");
         return false;
     }
 

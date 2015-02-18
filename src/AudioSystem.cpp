@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-17
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "AudioSystem.h"
 
@@ -29,7 +29,7 @@ void AudioSystem::initialize()
     // Return false if the XML file is not found
     if (!xmlDoc.LoadFile("../data/xml/audio/audio.xml"))
     {
-        fprintf(stderr, "[ERROR] initialize(): Xml file not found.\n");
+        printf("[ERROR] initialize(): Xml file not found.\n");
         return;
     }
 
@@ -63,14 +63,14 @@ void AudioSystem::initialize()
     // Return false if the music root element is not found
     if (rootMusic == NULL)
     {
-        fprintf(stderr, "[ERROR] parse(): Music root element not found.\n");
+        printf("[ERROR] parse(): Music root element not found.\n");
         return;
     }
 
     // Return false if thesSound root element is not found
     if (rootSound == NULL)
     {
-        fprintf(stderr, "[ERROR] parse(): Sound root element not found.\n");
+        printf("[ERROR] parse(): Sound root element not found.\n");
         return;
     }
 

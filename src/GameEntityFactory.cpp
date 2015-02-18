@@ -330,7 +330,7 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         }
 
         default:
-            fprintf(stderr, "[ERROR] createEntity(): unknown type.\n");
+            printf("[ERROR] createEntity(): unknown type.\n");
             delete entity;
             entity = NULL;
             break;

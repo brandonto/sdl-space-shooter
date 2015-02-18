@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "Level.h"
 
@@ -32,7 +32,7 @@ void Level::parse(int level)
     // Return false if the XML file is not found
     if (!xmlDoc.LoadFile(levelXmlPaths[level].c_str()))
     {
-        fprintf(stderr, "[ERROR] parse(): Xml file not found.\n");
+        printf("[ERROR] parse(): Xml file not found.\n");
         return;
     }
 
@@ -43,7 +43,7 @@ void Level::parse(int level)
     TiXmlElement* settings = rootElement->FirstChildElement();
     if (settings == NULL)
     {
-        fprintf(stderr, "[ERROR] parse(): settings element not found.\n");
+        printf("[ERROR] parse(): settings element not found.\n");
         return;
     }
     levelFinishTime = atoi(settings->Attribute("time"));
@@ -53,7 +53,7 @@ void Level::parse(int level)
     std::string value = "EnemyType";
     if (rootEnemyType->Value() != value)
     {
-        fprintf(stderr, "[ERROR] parse(): EnemyType root element not found.\n");
+        printf("[ERROR] parse(): EnemyType root element not found.\n");
         return;
     }
 

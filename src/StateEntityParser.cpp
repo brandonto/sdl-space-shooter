@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-14
+ * @modified    2015-02-18
  *********************************************************************/
 #include "StateEntityParser.h"
 
@@ -31,7 +31,7 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     // Return false if the XML file is not found
     if (!xmlDoc.LoadFile(state->getXmlPath().c_str()))
     {
-        fprintf(stderr, "[ERROR] parse(): Xml file not found.\n");
+        printf("[ERROR] parse(): Xml file not found.\n");
         return error;
     }
 
@@ -56,7 +56,7 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     // Return false if the parsing layer element is not found
     if (rootParsingLayer == NULL)
     {
-        fprintf(stderr, "[ERROR] parse(): Parsing layer element not found.\n");
+        printf("[ERROR] parse(): Parsing layer element not found.\n");
         return error;
     }
 
