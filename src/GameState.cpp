@@ -14,6 +14,7 @@
 #include "GameEntity.h"
 #include "Level.h"
 #include "PauseState.h" //For the enumeration
+#include "PlayerPhysicsComponent.h"
 #include "WindowElements.h"
 
 GameState::GameState(ApplicationStateManager* applicationStateManager,
@@ -21,7 +22,9 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
 :   blackScreen(windowElements),
     gameEntityManager(windowElements,this),
     nextState(0),
-    pauseStatus(PAUSED_NONE)
+    pauseStatus(PAUSED_NONE),
+    lives(3),
+    playerDestroyed(true)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -30,7 +33,6 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
 
 GameState::~GameState()
 {
-
 }
 
 void GameState::onEnter()
@@ -39,8 +41,6 @@ void GameState::onEnter()
     AudioSystem::getInstance()->playMusic();
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
-    player = gameEntityManager.getFactory()->createEntity("player");
-    meteor = gameEntityManager.getFactory()->createMeteor();
     //std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
     //enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
     //enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight3();
@@ -93,6 +93,19 @@ void GameState::onUpdate()
         }
     }
 
+    if (playerDestroyed)
+    {
+        if (lives>0)
+        {
+            player = gameEntityManager.getFactory()->createEntity("player");
+        }
+        else
+        {
+            //state transition
+        }
+        playerDestroyed = false;
+    }
+
     level.onUpdate();
     while (!level.getSpawningQueue().empty())
     {
@@ -136,4 +149,15 @@ void GameState::stateTransition(int nextState)
 void GameState::setPauseStatus(int pauseStatus)
 {
     this->pauseStatus = pauseStatus;
+}
+
+void GameState::onNotify(GameEntity* entity, int event)
+{
+    switch (event)
+    {
+        case PLAYER_DESTROYED:
+            lives--;
+            playerDestroyed = true;
+            break;
+    }
 }

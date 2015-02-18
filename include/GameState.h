@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-15
+ * @modified    2015-02-17
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -14,10 +14,12 @@
 #include "ApplicationState.h"
 #include "BlackScreen.h"
 #include "GameEntityManager.h"
+#include "IObserver.h"
 
 class GameEntity;
 
-class GameState : public ApplicationState
+class GameState : public ApplicationState,
+                    public IObserver
 {
     private:
         SDL_Event event;
@@ -26,13 +28,15 @@ class GameState : public ApplicationState
         GameEntityManager gameEntityManager;
         GameEntity* background;
         GameEntity* player;
-        GameEntity* meteor;
         std::vector<GameEntity*> enemies;
 
         int nextState;
         int pauseStatus;
 
         Level level;
+
+        int lives;
+        bool playerDestroyed;
 
     public:
         //Constructor
@@ -50,6 +54,9 @@ class GameState : public ApplicationState
         void onExit();
         void stateTransition(int nextState);
         void setPauseStatus(int pauseStatus);
+
+        //IObserver virtual methods
+        void onNotify(GameEntity* entity, int event);
 };
 
 #endif

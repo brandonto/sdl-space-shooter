@@ -22,6 +22,7 @@ class PlayerRenderComponent : public RenderComponent
 {
     private:
         std::map<int, Texture*> damagedSprites;
+        const int alphaInvulnerable = 128;
 
     public:
         //Constructor

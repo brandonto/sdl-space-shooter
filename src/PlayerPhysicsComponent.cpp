@@ -11,6 +11,7 @@
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
 #include "RenderComponent.h"
+#include "Texture.h"
 #include "WindowElements.h"
 
 PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
@@ -20,11 +21,13 @@ PlayerPhysicsComponent::PlayerPhysicsComponent(GameEntity* gameEntity,
     render(NULL),
     velocity(0,0),
     velocityPerSecond(400),
-    shooting(false)
+    shooting(false),
+    invulnerable(true)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
     render = gameEntity->getRenderComponent();
+    invulnerableTimer.start();
     health = 4;
     maxHealth = 4;
 }
@@ -75,6 +78,25 @@ void PlayerPhysicsComponent::update()
         }
         projectileCapTimer.start();
     }
+
+    if (invulnerable)
+    {
+        if (invulnerableTimer.getTimeOnTimer() % 1000 > 500)
+        {
+            render->getTexture()->setAlphaBlend(alphaInvulnerableLow);
+        }
+        else
+        {
+            render->getTexture()->setAlphaBlend(alphaInvulnerableHigh);
+        }
+
+        if (invulnerableTimer.getTimeOnTimer() > 3000)
+        {
+            invulnerableTimer.stop();
+            render->getTexture()->setAlphaBlend(OPAQUE);
+            invulnerable = false;
+        }
+    }
 }
 
 void PlayerPhysicsComponent::pauseTimers()
@@ -91,7 +113,7 @@ void PlayerPhysicsComponent::resumeTimers()
 
 void PlayerPhysicsComponent::onHit()
 {
-    if (!decrementHealth(1))
+    if (!invulnerable && !decrementHealth(1))
     {
         onDestroy();
     }
@@ -101,4 +123,5 @@ void PlayerPhysicsComponent::onDestroy()
 {
     gameEntityFactory->createExplosion(gameEntity);
     gameEntity->remove = true;
+    notify(gameEntity, PLAYER_DESTROYED);
 }

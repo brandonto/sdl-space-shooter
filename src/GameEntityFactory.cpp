@@ -21,6 +21,7 @@
 #include "EnemyProjectileRenderComponent.h"
 #include "GameEntity.h"
 #include "GameEntityManager.h"
+#include "GameState.h"
 #include "MeteorPhysicsComponent.h"
 #include "MeteorRenderComponent.h"
 #include "MovementPattern.h"
@@ -240,7 +241,9 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             damagedTexture3->setTexture("../data/graphics/sprites/playerShip1_damage3.png");
             render->addDamagedSprite(1, damagedTexture3);
             entity->addRenderComponent(render);
-            entity->addPhysicsComponent(new PlayerPhysicsComponent(entity, windowElements, this));
+            PlayerPhysicsComponent* physics = new PlayerPhysicsComponent(entity, windowElements, this);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
+            entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new PlayerCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->addInputComponent(new PlayerInputComponent(entity, windowElements));
             entity->position.x = xmlStruct.x;
