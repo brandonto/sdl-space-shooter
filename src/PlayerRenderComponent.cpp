@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "PlayerRenderComponent.h"
 
@@ -13,6 +13,7 @@
 #include "PlayerPhysicsComponent.h"
 #include "SDL_util.h"
 #include "Texture.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
@@ -22,7 +23,7 @@ PlayerRenderComponent::PlayerRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("../data/graphics/sprites/playerShip1_blue.png");
+    texture->setTexture(Util::fix_path("../data/graphics/sprites/playerShip1_blue.png"));
 
     gameEntity->position.x = windowElements->WINDOW_WIDTH/2;
     gameEntity->position.y = 0.8*windowElements->WINDOW_HEIGHT;

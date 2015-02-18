@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-10
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "PauseState.h"
 
@@ -19,6 +19,7 @@
 #include "GameEntity.h"
 #include "GameState.h"
 #include "SDL_util.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 PauseState::PauseState(ApplicationStateManager* applicationStateManager,
@@ -42,7 +43,7 @@ void PauseState::onEnter()
     color.b = 255;
     color.a = 255;
     pausedText = SDL_util::create_texture_from_text(windowElements,
-                                                "../data/font/kenvector_future.ttf",
+                        Util::fix_path("../data/font/kenvector_future.ttf"),
                                                 "PAUSED", 72, &color);
     SDL_SetTextureBlendMode(pausedText, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod(pausedText, 75);

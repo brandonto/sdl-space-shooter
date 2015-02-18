@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "EnemyProjectileRenderComponent.h"
 
@@ -12,6 +12,7 @@
 #include "GameEntity.h"
 #include "RenderComponent.h"
 #include "SDL_util.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameEntity,
@@ -22,7 +23,7 @@ EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameE
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("../data/graphics/sprites/laserRed03.png");
+    texture->setTexture(Util::fix_path("../data/graphics/sprites/laserRed03.png"));
 
     renderRect.w = texture->getSpriteWidth();
     renderRect.h = texture->getSpriteHeight();

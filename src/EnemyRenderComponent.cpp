@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "EnemyRenderComponent.h"
 
@@ -12,6 +12,7 @@
 #include "GameEntity.h"
 #include "SDL_util.h"
 #include "Texture.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 EnemyRenderComponent::EnemyRenderComponent(GameEntity* gameEntity,
@@ -21,7 +22,7 @@ EnemyRenderComponent::EnemyRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("../data/graphics/sprites/enemyBlack1.png");
+    texture->setTexture(Util::fix_path("../data/graphics/sprites/enemyBlack1.png"));
 
     gameEntity->position.x = windowElements->WINDOW_WIDTH/2;
     gameEntity->position.y = -0.2*windowElements->WINDOW_HEIGHT;

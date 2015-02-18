@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "UIPanelRenderComponent.h"
 
@@ -12,6 +12,7 @@
 #include "GameEntity.h"
 #include "SDL_util.h"
 #include "Texture.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 UIPanelRenderComponent::UIPanelRenderComponent(GameEntity* gameEntity,
@@ -23,7 +24,7 @@ UIPanelRenderComponent::UIPanelRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("../data/graphics/ui/glassPanel.png");
+    texture->setTexture(Util::fix_path("../data/graphics/ui/glassPanel.png"));
 }
 
 void UIPanelRenderComponent::update()

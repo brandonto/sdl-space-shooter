@@ -9,8 +9,10 @@
 #include "UILivesRenderComponent.h"
 
 #include <cstddef>
+
 #include "GameEntity.h"
 #include "Texture.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 UILivesRenderComponent::UILivesRenderComponent(GameEntity* gameEntity,
@@ -21,25 +23,25 @@ UILivesRenderComponent::UILivesRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    texture->setTexture("../data/graphics/ui/playerLife1_blue.png");
+    texture->setTexture(Util::fix_path("../data/graphics/ui/playerLife1_blue.png"));
 
     xTexture = new Texture(windowElements);
-    xTexture->setTexture("../data/graphics/ui/numeralX.png");
+    xTexture->setTexture(Util::fix_path("../data/graphics/ui/numeralX.png"));
 
     numLivesTextures[0] = new Texture(windowElements);
-    numLivesTextures[0]->setTexture("../data/graphics/ui/numeral0.png");
+    numLivesTextures[0]->setTexture(Util::fix_path("../data/graphics/ui/numeral0.png"));
 
     numLivesTextures[1] = new Texture(windowElements);
-    numLivesTextures[1]->setTexture("../data/graphics/ui/numeral1.png");
+    numLivesTextures[1]->setTexture(Util::fix_path("../data/graphics/ui/numeral1.png"));
 
     numLivesTextures[2] = new Texture(windowElements);
-    numLivesTextures[2]->setTexture("../data/graphics/ui/numeral2.png");
+    numLivesTextures[2]->setTexture(Util::fix_path("../data/graphics/ui/numeral2.png"));
 
     numLivesTextures[3] = new Texture(windowElements);
-    numLivesTextures[3]->setTexture("../data/graphics/ui/numeral3.png");
+    numLivesTextures[3]->setTexture(Util::fix_path("../data/graphics/ui/numeral3.png"));
 
     numLivesTextures[4] = new Texture(windowElements);
-    numLivesTextures[4]->setTexture("../data/graphics/ui/numeral4.png");
+    numLivesTextures[4]->setTexture(Util::fix_path("../data/graphics/ui/numeral4.png"));
 
     renderRect.x = 20;
     renderRect.y = 20;

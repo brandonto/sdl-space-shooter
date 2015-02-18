@@ -22,6 +22,7 @@
 #include "PauseState.h" //For the enumeration
 #include "PlayerPhysicsComponent.h"
 #include "UILivesRenderComponent.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 GameState::GameState(ApplicationStateManager* applicationStateManager,
@@ -35,7 +36,7 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
-    this->xmlPath = "../data/xml/states/GameState.xml";
+    this->xmlPath = Util::fix_path("../data/xml/states/GameState.xml");
 }
 
 GameState::~GameState()

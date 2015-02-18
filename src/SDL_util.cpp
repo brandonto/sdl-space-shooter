@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "SDL_util.h"
 
@@ -17,6 +17,7 @@
 	#include <SDL_ttf.h>
 	#include <SDL_mixer.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 	#include <SDL2/SDL_image.h>

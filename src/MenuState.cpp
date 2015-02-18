@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "MenuState.h"
 
@@ -20,6 +20,7 @@
 #include "AudioSystem.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 MenuState::MenuState(ApplicationStateManager* applicationStateManager,
@@ -35,7 +36,7 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_MENU;
-    this->xmlPath = "../data/xml/states/MenuState.xml"; //Default xml path
+    this->xmlPath = Util::fix_path("../data/xml/states/MenuState.xml"); //Default xml path
     srand(time(NULL));
 }
 

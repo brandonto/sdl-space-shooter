@@ -9,13 +9,14 @@
 #include "Level.h"
 
 #include "tinyxml.h"
+#include "Util.h"
 
 Level::Level()
 :   currentLevel(0),
     doneLevel(true),
     nextSpawnTime()
 {
-    levelXmlPaths[0] = "../data/xml/levels/level1.xml";
+    levelXmlPaths[0] = Util::fix_path("../data/xml/levels/level1.xml");
     levelXmlPathsSize = 1;
 }
 

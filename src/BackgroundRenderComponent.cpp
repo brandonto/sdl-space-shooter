@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "BackgroundRenderComponent.h"
 
@@ -19,6 +19,7 @@
 #include "GameEntity.h"
 #include "SDL_util.h"
 #include "Texture.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 BackgroundRenderComponent::BackgroundRenderComponent(GameEntity* gameEntity,
@@ -28,7 +29,7 @@ BackgroundRenderComponent::BackgroundRenderComponent(GameEntity* gameEntity,
     this->windowElements = windowElements;
 
     texture = new Texture(windowElements);
-    SDL_Texture* sprite = SDL_util::create_background_texture(windowElements, "../data/graphics/background/darkPurple.png");
+    SDL_Texture* sprite = SDL_util::create_background_texture(windowElements, Util::fix_path("../data/graphics/background/darkPurple.png"));
     texture->setTexture(sprite);
     sprite = NULL;
 

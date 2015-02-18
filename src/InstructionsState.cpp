@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -18,6 +18,7 @@
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 InstructionsState::InstructionsState(ApplicationStateManager* applicationStateManager,
@@ -32,7 +33,7 @@ InstructionsState::InstructionsState(ApplicationStateManager* applicationStateMa
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_INSTRUCTIONS;
-    this->xmlPath = "../data/xml/states/InstructionsState.xml"; //Default xml path
+    this->xmlPath = Util::fix_path("../data/xml/states/InstructionsState.xml"); //Default xml path
 }
 
 InstructionsState::~InstructionsState()

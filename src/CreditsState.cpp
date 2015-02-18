@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "CreditsState.h"
 
@@ -18,6 +18,7 @@
 #include "ApplicationStateManager.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 CreditsState::CreditsState(ApplicationStateManager* applicationStateManager,
@@ -32,7 +33,7 @@ CreditsState::CreditsState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_CREDITS;
-    this->xmlPath = "../data/xml/states/CreditsState.xml"; //Default xml path
+    this->xmlPath = Util::fix_path("../data/xml/states/CreditsState.xml"); //Default xml path
 }
 
 CreditsState::~CreditsState()

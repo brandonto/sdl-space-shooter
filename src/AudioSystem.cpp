@@ -9,6 +9,7 @@
 #include "AudioSystem.h"
 
 #include "tinyxml.h"
+#include "Util.h"
 
 AudioSystem* AudioSystem::instance = NULL;
 
@@ -27,7 +28,7 @@ void AudioSystem::initialize()
     TiXmlDocument xmlDoc;
 
     // Return false if the XML file is not found
-    if (!xmlDoc.LoadFile("../data/xml/audio/audio.xml"))
+    if (!xmlDoc.LoadFile(Util::fix_path("../data/xml/audio/audio.xml").c_str()))
     {
         printf("[ERROR] initialize(): Xml file not found.\n");
         return;
@@ -84,7 +85,7 @@ void AudioSystem::initialize()
         std::string key = e->Attribute("id");
 
         // Load music
-        Mix_Music* music = Mix_LoadMUS(e->Attribute("file"));
+        Mix_Music* music = Mix_LoadMUS(Util::fix_path(e->Attribute("file")).c_str());
         if (music == NULL)
         {
             printf( "Failed to load music! SDL_mixer Error: %s\n", Mix_GetError() );
@@ -103,7 +104,7 @@ void AudioSystem::initialize()
         std::string key = e->Attribute("id");
 
         // Load Sound
-        Mix_Chunk* sound = Mix_LoadWAV(e->Attribute("file"));
+        Mix_Chunk* sound = Mix_LoadWAV(Util::fix_path(e->Attribute("file")).c_str());
         if (sound == NULL)
         {
             printf( "Failed to load sound! SDL_mixer Error: %s\n", Mix_GetError() );

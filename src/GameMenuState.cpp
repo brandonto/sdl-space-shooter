@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "GameMenuState.h"
 
@@ -21,6 +21,7 @@
 #include "PauseState.h"
 #include "RenderComponent.h"
 #include "SDL_util.h"
+#include "Util.h"
 #include "WindowElements.h"
 
 GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
@@ -36,7 +37,7 @@ GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
     this->stateEnum = STATE_GAMEMENU;
-    this->xmlPath = "../data/xml/states/GameMenuState.xml";
+    this->xmlPath = Util::fix_path("../data/xml/states/GameMenuState.xml");
 }
 
 GameMenuState::~GameMenuState()
