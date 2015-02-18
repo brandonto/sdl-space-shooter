@@ -11,7 +11,13 @@
 
 #include "RenderComponent.h"
 #include <string>
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 
 class GameEntity;
 

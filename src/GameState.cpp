@@ -8,7 +8,13 @@
  *********************************************************************/
 #include "GameState.h"
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "ApplicationStateManager.h"
 #include "AudioSystem.h"
 #include "GameEntity.h"

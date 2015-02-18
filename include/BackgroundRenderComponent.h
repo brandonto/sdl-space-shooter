@@ -9,7 +9,13 @@
 #ifndef SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "RenderComponent.h"
 
 class GameEntity;

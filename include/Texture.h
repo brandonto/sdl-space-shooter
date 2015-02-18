@@ -9,7 +9,13 @@
 #ifndef SPACESHOOTER_TEXTURE_
     #define SPACESHOOTER_TEXTURE_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include <string>
 #include <vector>
 

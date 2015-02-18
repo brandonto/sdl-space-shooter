@@ -10,7 +10,13 @@
 #ifndef SPACESHOOTER_RENDERCOMPONENT_
     #define SPACESHOOTER_RENDERCOMPONENT_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "Texture.h"
 
 class GameEntity;

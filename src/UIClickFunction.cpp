@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-09
- * @modified    2015-02-09
+ * @modified    2015-02-18
  *********************************************************************/
 #include "UIClickFunction.h"
 
@@ -19,11 +19,14 @@ namespace ClickFunctions
 
     void onClickFork(ApplicationState* state)
     {
+#ifdef _WIN32
+        std::string url = "https://github.com/brandonto/sdl-space-shooter";
+        ShellExecute(NULL, "open", url.c_str(), NULL, NULL, SW_SHOWNORMAL);
+#endif
+#ifdef linux
         std::string url = "xdg-open https://github.com/brandonto/sdl-space-shooter";
         system(url.c_str());
-        //Windows Only
-        //ShellExecute(NULL, "open", "https://github.com/brandonto/sdl-space-shooter",
-        //            NULL, NULL, SW_SHOWNORMAL);
+#endif
     }
 
     void onClickInstructions(ApplicationState* state)

@@ -10,7 +10,13 @@
 #ifndef SPACESHOOTER_TIMER_H_
     #define SPACESHOOTER_TIMER_H_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 
 class Timer
 {

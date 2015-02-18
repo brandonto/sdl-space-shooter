@@ -10,7 +10,13 @@
     #define SPACESHOOTER_ENEMYRENDERCOMPONENT_
 
 #include "RenderComponent.h"
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 
 class GameEntity;
 

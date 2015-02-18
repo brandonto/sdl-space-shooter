@@ -10,7 +10,13 @@
 #ifndef SPACESHOOTER_BLACKSCREEN_H_
     #define SPACESHOOTER_BLACKSCREEN_H_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 
 #define SCREEN_OPAQUE 255
 #define SCREEN_DIM 192

@@ -10,7 +10,13 @@
 #ifndef SPACESHOOTER_AUDIOSYSTEM_H_
     #define SPACESHOOTER_AUDIOSYSTEM_H_
 
-#include <SDL2/SDL_mixer.h>
+#ifdef _WIN32
+	#include <SDL_mixer.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL_mixer.h>
+#endif
+
 #include <map>
 #include <string>
 

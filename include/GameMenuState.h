@@ -10,7 +10,13 @@
 #ifndef SPACESHOOTER_GAMEMENUSTATE_H_
     #define SPACESHOOTER_GAMEMENUSTATE_H_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "ApplicationState.h"
 #include "BlackScreen.h"
 #include "GameEntityManager.h"

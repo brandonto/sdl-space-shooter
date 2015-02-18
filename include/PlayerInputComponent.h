@@ -10,7 +10,13 @@
     #define SPACESHOOTER_PLAYERINPUTCOMPONENT_
 
 #include "InputComponent.h"
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "Timer.h"
 
 class GameEntity;

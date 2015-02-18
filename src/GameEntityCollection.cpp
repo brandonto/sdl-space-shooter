@@ -8,7 +8,13 @@
  *********************************************************************/
 #include "GameEntityCollection.h"
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include <GameEntity.h>
 #include <PhysicsComponent.h>
 

@@ -10,7 +10,13 @@
     #define SPACESHOOTER_PLAYERPHYSICSCOMPONENT_
 
 #include "PhysicsComponent.h"
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "IObserver.h"
 #include "Timer.h"
 #include "Vector2D.h"

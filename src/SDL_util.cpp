@@ -10,10 +10,20 @@
 
 #include <cstdio>
 #include <cstddef>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
+
+#ifdef _WIN32
+	#include <SDL.h>
+	#include <SDL_image.h>
+	#include <SDL_ttf.h>
+	#include <SDL_mixer.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+	#include <SDL2/SDL_image.h>
+	#include <SDL2/SDL_ttf.h>
+	#include <SDL2/SDL_mixer.h>
+#endif
+
 #include "WindowElements.h"
 
 namespace SDL_util

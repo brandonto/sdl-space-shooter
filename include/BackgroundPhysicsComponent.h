@@ -9,7 +9,13 @@
 #ifndef SPACESHOOTER_BACKGROUNDPHYSICSCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDPHYSICSCOMPONENT_
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "PhysicsComponent.h"
 
 class RenderComponent;

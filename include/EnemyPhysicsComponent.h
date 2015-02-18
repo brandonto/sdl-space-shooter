@@ -10,7 +10,13 @@
     #define SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
 
 #include "PhysicsComponent.h"
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 
 #include "MovementPattern.h"
 #include "Timer.h"

@@ -11,7 +11,13 @@
     #define SPACESHOOTER_GAMEENTITYMANAGER_H_
 
 #include <vector>
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 #include "CollisionManager.h"
 #include "GameEntityCollection.h"
 #include "GameEntityFactory.h"

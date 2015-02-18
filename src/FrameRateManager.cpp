@@ -8,7 +8,13 @@
  *********************************************************************/
 #include "FrameRateManager.h"
 
-#include <SDL2/SDL.h>
+#ifdef _WIN32
+	#include <SDL.h>
+#endif
+#ifdef linux
+	#include <SDL2/SDL.h>
+#endif
+
 
 FrameRateManager::FrameRateManager()
 :   fps(DEFAULT_FRAMES_PER_SECOND)
