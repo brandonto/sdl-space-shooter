@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "GameState.h"
 
@@ -15,6 +15,7 @@
 #include "Level.h"
 #include "PauseState.h" //For the enumeration
 #include "PlayerPhysicsComponent.h"
+#include "UILivesRenderComponent.h"
 #include "WindowElements.h"
 
 GameState::GameState(ApplicationStateManager* applicationStateManager,
@@ -41,6 +42,8 @@ void GameState::onEnter()
     AudioSystem::getInstance()->playMusic();
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
+    uiLives = gameEntityManager.getFactory()->createEntity("uiLives");
+    dynamic_cast<UILivesRenderComponent*>(uiLives->getRenderComponent())->setLivesPointer(&lives);
     //std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
     //enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
     //enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight3();

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -73,6 +73,7 @@ enum EntityEnum
     ENTITY_PLAYERPROJECTILEHIT,
     ENTITY_SPRITE,
     ENTITY_TEXT,
+    ENTITY_UILIVES,
     ENTITY_UIPANEL,
 };
 

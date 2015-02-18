@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -29,6 +29,7 @@ class GameState : public ApplicationState,
         GameEntity* background;
         GameEntity* player;
         std::vector<GameEntity*> enemies;
+        GameEntity* uiLives;
 
         int nextState;
         int pauseStatus;

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-12
- * @modified    2015-02-15
+ * @modified    2015-02-18
  *********************************************************************/
 #include "GameEntityData.h"
 
@@ -101,6 +101,15 @@ EntityXmlStruct GameEntityData::getDataByType(ApplicationState* state, std::stri
     }
     for (   collectionIterator=effectData.begin();
             collectionIterator!=effectData.end();
+            collectionIterator++)
+    {
+        if ((*collectionIterator).type == type)
+        {
+            return (*collectionIterator);
+        }
+    }
+    for (   collectionIterator=uiData.begin();
+            collectionIterator!=uiData.end();
             collectionIterator++)
     {
         if ((*collectionIterator).type == type)

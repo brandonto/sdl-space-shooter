@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -39,6 +39,7 @@
 #include "TextRenderComponent.h"
 #include "Texture.h"
 #include "UIClickFunction.h"
+#include "UILivesRenderComponent.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
 #include "WindowElements.h"
@@ -59,6 +60,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     stringToEntityEnum["playerProjectileHit"] = ENTITY_PLAYERPROJECTILEHIT;
     stringToEntityEnum["sprite"] = ENTITY_SPRITE;
     stringToEntityEnum["text"] = ENTITY_TEXT;
+    stringToEntityEnum["uiLives"] = ENTITY_UILIVES;
     stringToEntityEnum["uiPanel"] = ENTITY_UIPANEL;
 }
 
@@ -283,6 +285,19 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         {
             TextRenderComponent* entityRender = new TextRenderComponent(entity, windowElements);
             entityRender->setText(xmlStruct.data, 96);
+            entity->addRenderComponent(entityRender);
+            SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
+            rect.x = xmlStruct.x;
+            rect.y = xmlStruct.y;
+            entity->getRenderComponent()->setRenderRect(&rect);
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addUIEntity(entity);
+            break;
+        }
+
+        case ENTITY_UILIVES:
+        {
+            UILivesRenderComponent* entityRender = new UILivesRenderComponent(entity, windowElements);
             entity->addRenderComponent(entityRender);
             SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
             rect.x = xmlStruct.x;

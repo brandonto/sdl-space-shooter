@@ -61,6 +61,7 @@ _OBJS =	main.o \
 		tinyxmlerror.o \
 		tinyxmlparser.o \
 		UIClickFunction.o \
+		UILivesRenderComponent.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
 		Vector2D.o

@@ -24,6 +24,7 @@
     </Physical>
 
     <Ui>
+        <entity type="uiLives" name="uiLives" x="20" y="20" width="33" height="26" texture="../data/graphics/ui/playerLife1_blue.png" id="uiLives" />
     </Ui>
 </State>
 
