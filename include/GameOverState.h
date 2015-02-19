@@ -1,14 +1,14 @@
 /*******************************************************************//*
- * This is the ApplicationState class for the pause screen. This state
- * is entered after pressing p at the game state.
+ * This is the ApplicationState class for the game over screen. This
+ * state is entered after losing all of our lives in the game state.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-10
+ * @since       2015-02-19
  * @modified    2015-02-19
  *********************************************************************/
-#ifndef SPACESHOOTER_PAUSESTATE_H_
-    #define SPACESHOOTER_PAUSESTATE_H_
+#ifndef SPACESHOOTER_GAMEOVERSTATE_H_
+    #define SPACESHOOTER_GAMEOVERSTATE_H_
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -24,7 +24,7 @@
 
 class GameEntity;
 
-class PauseState : public ApplicationState
+class GameOverState : public ApplicationState
 {
     private:
         SDL_Event event;
@@ -42,11 +42,11 @@ class PauseState : public ApplicationState
 
     public:
         //Constructor
-        PauseState(ApplicationStateManager* applicationStateManager,
+        GameOverState(ApplicationStateManager* applicationStateManager,
                   WindowElements* windowElements);
 
         //Destructor
-        ~PauseState();
+        ~GameOverState();
 
         //GameState methods
         void onEnter();
@@ -57,11 +57,5 @@ class PauseState : public ApplicationState
         void stateTransition(int nextState);
 };
 
-enum PauseStatuses
-{
-    PAUSED_NONE,
-    PAUSED_THIS_FRAME,
-    UNPAUSED_THIS_FRAME,
-};
-
 #endif
+

@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-18
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -15,6 +15,7 @@
 #include "BlackScreen.h"
 #include "GameEntityManager.h"
 #include "IObserver.h"
+#include "Timer.h"
 
 class GameEntity;
 
@@ -42,6 +43,8 @@ class GameState : public ApplicationState,
 
         int score;
 
+        Timer gameOverTimer;
+
     public:
         //Constructor
         GameState(ApplicationStateManager* applicationStateManager,
@@ -67,6 +70,7 @@ enum observingEvents
 {
     PLAYER_DESTROYED,
     ENEMY_DESTROYED,
+    LEVEL_COMPLETE,
 };
 
 

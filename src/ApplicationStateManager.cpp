@@ -22,6 +22,7 @@
 #include "ApplicationState.h"
 #include "CreditsState.h"
 #include "InstructionsState.h"
+#include "GameOverState.h"
 #include "GameState.h"
 #include "GameMenuState.h"
 #include "MenuState.h"
@@ -203,6 +204,14 @@ void ApplicationStateManager::changeState()
 
             case STATE_GAMEMENU:
                 currentState = new GameMenuState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                currentStateEnum = pushedStateEnum;
+                stateStackEnum.push_back(pushedStateEnum);
+                break;
+
+            case STATE_GAMEOVER:
+                currentState = new GameOverState(this, windowElements);
                 currentState->onEnter();
                 stateStack.push_back(currentState);
                 currentStateEnum = pushedStateEnum;

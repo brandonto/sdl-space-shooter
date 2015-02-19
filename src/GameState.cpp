@@ -34,12 +34,13 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
     gameEntityManager(windowElements,this),
     nextState(0),
     pauseStatus(PAUSED_NONE),
-    lives(3),
+    lives(1),
     playerDestroyed(true),
     score(0)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
+    this->stateEnum = STATE_GAME;
     this->xmlPath = Util::fix_path("../data/xml/states/GameState.xml");
 }
 
@@ -117,9 +118,20 @@ void GameState::onUpdate()
         }
         else
         {
-            //state transition
+            gameOverTimer.start();
         }
         playerDestroyed = false;
+    }
+
+    if (gameOverTimer.isStarted())
+    {
+        if (gameOverTimer.getTimeOnTimer()>3000)
+        {
+            applicationStateManager->pushStateOnStack(STATE_GAMEOVER);
+            setPauseStatus(PAUSED_THIS_FRAME);
+            AudioSystem::getInstance()->stopMusic();
+            gameOverTimer.stop();
+        }
     }
 
     level.onUpdate();

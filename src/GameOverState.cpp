@@ -1,12 +1,12 @@
 /*******************************************************************//*
- * Implementation of the PauseState class.
+ * Implementation of the GameOverState class.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-10
+ * @since       2015-02-19
  * @modified    2015-02-19
  *********************************************************************/
-#include "PauseState.h"
+#include "GameOverState.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -17,14 +17,16 @@
 #endif
 
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 #include "GameEntity.h"
 #include "GameState.h"
+#include "PauseState.h"
 #include "RenderComponent.h"
 #include "SDL_util.h"
 #include "Util.h"
 #include "WindowElements.h"
 
-PauseState::PauseState(ApplicationStateManager* applicationStateManager,
+GameOverState::GameOverState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
 :   fadeIn(true),
     fadeOut(false),
@@ -36,22 +38,24 @@ PauseState::PauseState(ApplicationStateManager* applicationStateManager,
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
-    this->stateEnum = STATE_PAUSE;
-    this->xmlPath = Util::fix_path("../data/xml/states/PauseState.xml");
+    this->stateEnum = STATE_GAMEOVER;
+    this->xmlPath = Util::fix_path("../data/xml/states/GameOverState.xml");
 }
 
-PauseState::~PauseState()
+GameOverState::~GameOverState()
 {
 
 }
 
-void PauseState::onEnter()
+void GameOverState::onEnter()
 {
+    AudioSystem::getInstance()->loadMusic("gameOver");
+    AudioSystem::getInstance()->playMusic();
     blackScreen.setAlphaBlend(0);
     uiEntities = gameEntityManager.getFactory()->createUIEntities();
 }
 
-void PauseState::onEvent()
+void GameOverState::onEvent()
 {
     while (SDL_PollEvent(&event))
     {
@@ -64,24 +68,25 @@ void PauseState::onEvent()
             switch(event.key.keysym.scancode)
             {
                 case SDL_SCANCODE_ESCAPE:
-                    onExit();
+                    stateTransition(STATE_MENU);
                     break;
 
-                case SDL_SCANCODE_P:
-                    onExit();
+                case SDL_SCANCODE_RETURN:
+                    stateTransition(STATE_GAME);
                     break;
             }
         }
+        gameEntityManager.onEvent(&event);
     }
 }
 
-void PauseState::onUpdate()
+void GameOverState::onUpdate()
 {
     if (fadeIn)
     {
         if (menuAlpha<200)
         {
-            menuAlpha+=10;
+            menuAlpha+=5;
             if (menuAlpha==200) { fadeIn = false; }
         }
         for (int i=0; i<uiEntities.size(); i++)
@@ -125,20 +130,23 @@ void PauseState::onUpdate()
     gameEntityManager.onUpdate();
 }
 
-void PauseState::onRender()
+void GameOverState::onRender()
 {
     gameEntityManager.onRender();
     blackScreen.onRender();
 }
 
-void PauseState::onExit()
+void GameOverState::onExit()
 {
     fadeOut = true;
+    AudioSystem::getInstance()->stopMusic();
 }
 
-void PauseState::stateTransition(int nextState)
+void GameOverState::stateTransition(int nextState)
 {
     this->nextState = nextState;
     fadeOut = true;
     transitioningStates = true;
+    AudioSystem::getInstance()->stopMusic();
 }
+

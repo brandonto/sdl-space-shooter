@@ -30,6 +30,7 @@ _OBJS =	main.o \
 		GameEntityData.o \
 		GameEntityFactory.o \
 		GameEntityManager.o \
+		GameOverState.o \
 		GameState.o \
 		GameMenuState.o \
 		InstructionsState.o \

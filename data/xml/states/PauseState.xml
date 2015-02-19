@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<State>
+    <Background>
+    </Background>
+
+    <Effect>
+    </Effect>
+
+    <Physical>
+    </Physical>
+
+    <Ui>
+        <entity type="uiPanel" name="container" x="327" y="344" width="370" height="80" id="uiContainer" alphaEnabled="true"/>
+        <entity type="text" name="pauseText" data="Paused" x="346" y="354" width="340" height="60" id="text1" alphaEnabled="true"/>
+    </Ui>
+</State>
+
+
