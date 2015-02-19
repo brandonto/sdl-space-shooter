@@ -4,9 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-18
+ * @modified    2015-02-19
  *********************************************************************/
 #include "GameEntityFactory.h"
+
+#include <cstdio>
 
 #include "ApplicationState.h"
 #include "BackgroundPhysicsComponent.h"
@@ -42,6 +44,7 @@
 #include "UILivesRenderComponent.h"
 #include "UIPanelInputComponent.h"
 #include "UIPanelRenderComponent.h"
+#include "UIScoreRenderComponent.h"
 #include "Util.h"
 #include "WindowElements.h"
 
@@ -63,6 +66,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     stringToEntityEnum["text"] = ENTITY_TEXT;
     stringToEntityEnum["uiLives"] = ENTITY_UILIVES;
     stringToEntityEnum["uiPanel"] = ENTITY_UIPANEL;
+    stringToEntityEnum["uiScore"] = ENTITY_UISCORE;
 }
 
 GameEntityFactory::~GameEntityFactory()
@@ -165,6 +169,8 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
+            physics->setScore(100);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
@@ -180,6 +186,8 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHTSLOW);
             physics->setMaxHealth(xmlStruct.health);
+            physics->setScore(1500);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
@@ -194,6 +202,8 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_SWOOPLEFT);
+            physics->setScore(500);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
@@ -208,6 +218,8 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_SWOOPRIGHT);
+            physics->setScore(500);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
@@ -222,6 +234,8 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
             physics->getMovementPattern()->setMovementPattern(MOVEMENT_ZIGZAG);
+            physics->setScore(200);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
             entity->addPhysicsComponent(physics);
             entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
             entity->position.x = xmlStruct.x;
@@ -325,6 +339,19 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
                 entityInput->addClickFunction(clickFunction);
                 entity->addInputComponent(entityInput);
             }
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addUIEntity(entity);
+            break;
+        }
+
+        case ENTITY_UISCORE:
+        {
+            UIScoreRenderComponent* entityRender = new UIScoreRenderComponent(entity, windowElements);
+            entity->addRenderComponent(entityRender);
+            SDL_Rect rect = entity->getRenderComponent()->getRenderRect();
+            rect.x = xmlStruct.x;
+            rect.y = xmlStruct.y;
+            entity->getRenderComponent()->setRenderRect(&rect);
             configureEntity(entity, xmlStruct);
             gameEntityManager->addUIEntity(entity);
             break;

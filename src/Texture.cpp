@@ -9,6 +9,8 @@
 #include "Texture.h"
 
 #include <cstddef>
+#include <cstdio>
+
 #include "SDL_util.h"
 #include "tinyxml.h"
 #include "WindowElements.h"

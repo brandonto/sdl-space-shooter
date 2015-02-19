@@ -92,6 +92,14 @@ void UILivesRenderComponent::setLivesPointer(int* ptr)
 
 UILivesRenderComponent::~UILivesRenderComponent()
 {
-    delete texture;
+    if (texture!=NULL) { delete texture; }
+    delete xTexture;
+    std::map<int, Texture*>::iterator textureIterator;
+    for (   textureIterator=numLivesTextures.begin();
+            textureIterator!=numLivesTextures.end();
+            textureIterator++)
+    {
+        delete (*textureIterator).second;
+    }
 }
 

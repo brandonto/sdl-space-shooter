@@ -30,6 +30,7 @@ class GameState : public ApplicationState,
         GameEntity* player;
         std::vector<GameEntity*> enemies;
         GameEntity* uiLives;
+        GameEntity* uiScore;
 
         int nextState;
         int pauseStatus;
@@ -38,6 +39,8 @@ class GameState : public ApplicationState,
 
         int lives;
         bool playerDestroyed;
+
+        int score;
 
     public:
         //Constructor
@@ -59,5 +62,12 @@ class GameState : public ApplicationState,
         //IObserver virtual methods
         void onNotify(GameEntity* entity, int event);
 };
+
+enum observingEvents
+{
+    PLAYER_DESTROYED,
+    ENEMY_DESTROYED,
+};
+
 
 #endif

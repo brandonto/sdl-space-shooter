@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2014-09-25
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
     #define SPACESHOOTER_BACKGROUNDRENDERCOMPONENT_
@@ -12,6 +12,7 @@
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

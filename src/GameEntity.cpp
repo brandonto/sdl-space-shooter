@@ -4,18 +4,19 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-16
+ * @modified    2015-02-19
  *********************************************************************/
 #include "GameEntity.h"
 
 #include <cstddef>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
-
 
 #include "CollisionComponent.h"
 #include "InputComponent.h"

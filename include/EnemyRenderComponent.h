@@ -4,19 +4,20 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2014-09-19
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYRENDERCOMPONENT_
     #define SPACESHOOTER_ENEMYRENDERCOMPONENT_
 
 #include "RenderComponent.h"
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
-
 
 class GameEntity;
 

@@ -4,17 +4,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-12
- * @modified    2015-02-18
+ * @modified    2015-02-19
  *********************************************************************/
 #include "GameEntityData.h"
 
+#include <cstdio>
 #include <string>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
+
 #include "ApplicationState.h"
 #include "GameEntity.h"
 

@@ -8,6 +8,8 @@
  *********************************************************************/
 #include "Level.h"
 
+#include <cstdio>
+
 #include "tinyxml.h"
 #include "Util.h"
 

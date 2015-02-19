@@ -4,20 +4,22 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-06
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_TEXTRENDERCOMPONENT_
     #define SPACESHOOTER_TEXTRENDERCOMPONENT_
 
 #include "RenderComponent.h"
+
 #include <string>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
-
 
 class GameEntity;
 

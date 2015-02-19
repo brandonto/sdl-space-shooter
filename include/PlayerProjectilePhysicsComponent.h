@@ -4,15 +4,17 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2015-02-16
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
     #define SPACESHOOTER_PLAYERPROJECTILEPHYSICSCOMPONENT_
 
 #include "PhysicsComponent.h"
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

@@ -75,6 +75,7 @@ enum EntityEnum
     ENTITY_TEXT,
     ENTITY_UILIVES,
     ENTITY_UIPANEL,
+    ENTITY_UISCORE,
 };
 
 #endif

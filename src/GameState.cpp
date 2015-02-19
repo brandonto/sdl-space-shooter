@@ -4,13 +4,14 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-18
+ * @modified    2015-02-19
  *********************************************************************/
 #include "GameState.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
@@ -20,8 +21,10 @@
 #include "GameEntity.h"
 #include "Level.h"
 #include "PauseState.h" //For the enumeration
+#include "EnemyPhysicsComponent.h"
 #include "PlayerPhysicsComponent.h"
 #include "UILivesRenderComponent.h"
+#include "UIScoreRenderComponent.h"
 #include "Util.h"
 #include "WindowElements.h"
 
@@ -32,7 +35,8 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
     nextState(0),
     pauseStatus(PAUSED_NONE),
     lives(3),
-    playerDestroyed(true)
+    playerDestroyed(true),
+    score(0)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -51,6 +55,8 @@ void GameState::onEnter()
     background = gameEntityManager.getFactory()->createBackground();
     uiLives = gameEntityManager.getFactory()->createEntity("uiLives");
     dynamic_cast<UILivesRenderComponent*>(uiLives->getRenderComponent())->setLivesPointer(&lives);
+    uiScore = gameEntityManager.getFactory()->createEntity("uiScore");
+    dynamic_cast<UIScoreRenderComponent*>(uiScore->getRenderComponent())->setScorePointer(&score);
     //std::vector<GameEntity*> enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight2();
     //enemies.insert(enemies.end(), enemyWave.begin(), enemyWave.end());
     //enemyWave = gameEntityManager.getFactory()->createEnemyWaveStraight3();
@@ -168,6 +174,12 @@ void GameState::onNotify(GameEntity* entity, int event)
         case PLAYER_DESTROYED:
             lives--;
             playerDestroyed = true;
+            //printf("LIVES = %d\n", lives);
+            break;
+
+        case ENEMY_DESTROYED:
+            score+=dynamic_cast<EnemyPhysicsComponent*>(entity->getPhysicsComponent())->getScore();
+            //printf("SCORE = %d\n", score);
             break;
     }
 }

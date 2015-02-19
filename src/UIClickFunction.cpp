@@ -4,14 +4,15 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-09
- * @modified    2015-02-18
+ * @modified    2015-02-19
  *********************************************************************/
 #include "UIClickFunction.h"
 
-#include "ApplicationStateManager.h"
 #ifdef _WIN32
     #include <windows.h>
 #endif
+
+#include "ApplicationStateManager.h"
 
 namespace ClickFunctions
 {

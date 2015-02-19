@@ -4,14 +4,16 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-07
+ * @modified    2015-02-19
  *********************************************************************/
 #include "GameEntityManager.h"
 
 #include <string>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

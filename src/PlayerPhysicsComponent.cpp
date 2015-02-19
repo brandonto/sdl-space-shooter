@@ -4,12 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-06
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "PlayerPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
+#include "GameState.h" // Observing
 #include "RenderComponent.h"
 #include "Texture.h"
 #include "WindowElements.h"

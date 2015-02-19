@@ -4,20 +4,22 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
     #define SPACESHOOTER_ENEMYPHYSICSCOMPONENT_
 
 #include "PhysicsComponent.h"
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
 
-
+#include "IObserver.h"
 #include "MovementPattern.h"
 #include "Timer.h"
 #include "Vector2D.h"
@@ -28,7 +30,8 @@ class RenderComponent;
 
 struct WindowElements;
 
-class EnemyPhysicsComponent : public PhysicsComponent
+class EnemyPhysicsComponent : public PhysicsComponent,
+                                public IObservable
 {
     private:
         GameEntityFactory* gameEntityFactory;
@@ -44,6 +47,7 @@ class EnemyPhysicsComponent : public PhysicsComponent
         int velocityPerSecond;
         bool shooting;
         const int offScreenBuffer = 25;
+        int score;
 
         //Constructor
         EnemyPhysicsComponent(GameEntity* gameEntity,
@@ -59,7 +63,12 @@ class EnemyPhysicsComponent : public PhysicsComponent
         void resumeTimers();
         void onHit();
         void onDestroy();
+        int getScore();
+        void setScore(int score);
         MovementPattern* getMovementPattern();
+
+        //Virtual methods from IObservable
+        //void notify(GameEntity* entity, int event);
 };
 
 #endif

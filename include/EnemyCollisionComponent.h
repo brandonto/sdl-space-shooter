@@ -10,9 +10,11 @@
     #define SPACESHOOTER_ENEMYCOLLISIONCOMPONENT_
 
 #include "CollisionComponent.h"
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

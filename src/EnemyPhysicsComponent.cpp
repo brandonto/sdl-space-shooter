@@ -4,12 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-17
+ * @modified    2015-02-18
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
+#include "GameState.h" // Observing
 #include "RenderComponent.h"
 #include "WindowElements.h"
 
@@ -20,7 +21,8 @@ EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
     render(NULL),
     velocity(0,150),
     velocityPerSecond(500),
-    shooting(true)
+    shooting(true),
+    score(0)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -109,6 +111,17 @@ void EnemyPhysicsComponent::onDestroy()
 {
     gameEntityFactory->createExplosion(gameEntity);
     gameEntity->remove = true;
+    notify(gameEntity, ENEMY_DESTROYED);
+}
+
+int EnemyPhysicsComponent::getScore()
+{
+    return score;
+}
+
+void EnemyPhysicsComponent::setScore(int score)
+{
+    this->score = score;
 }
 
 MovementPattern* EnemyPhysicsComponent::getMovementPattern()

@@ -4,15 +4,17 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-22
- * @modified    2014-09-22
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_ENEMYPROJECTILECOLLISIONCOMPONENT_
     #define SPACESHOOTER_ENEMYPROJECTILECOLLISIONCOMPONENT_
 
 #include "CollisionComponent.h"
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

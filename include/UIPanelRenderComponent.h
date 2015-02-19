@@ -4,20 +4,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-28
- * @modified    2015-02-08
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_UIPANELRENDERCOMPONENT_
     #define SPACESHOOTER_UIPANELRENDERCOMPONENT_
 
 #include "RenderComponent.h"
+
 #include <string>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
-
 
 class GameEntity;
 

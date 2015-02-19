@@ -4,9 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-18
- * @modified    2015-02-16
+ * @modified    2015-02-18
  *********************************************************************/
 #include "CollisionManager.h"
+
+#include <cstdio>
 
 #include <algorithm>
 #include "CollisionBody.h"

@@ -8,6 +8,8 @@
  *********************************************************************/
 #include "StateEntityParser.h"
 
+#include <cstdio>
+
 #include "ApplicationState.h"
 #include "tinyxml.h"
 

@@ -4,19 +4,20 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-16
+ * @modified    2015-02-19
  *********************************************************************/
 #include "GameEntityCollection.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
 
-#include <GameEntity.h>
-#include <PhysicsComponent.h>
+#include "GameEntity.h"
+#include "PhysicsComponent.h"
 
 GameEntityCollection::GameEntityCollection()
 {

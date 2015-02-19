@@ -4,20 +4,21 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-05
- * @modified    2015-02-07
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_TEXTURE_
     #define SPACESHOOTER_TEXTURE_
 
+#include <string>
+#include <vector>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
-
-#include <string>
-#include <vector>
 
 #define OPAQUE 255
 

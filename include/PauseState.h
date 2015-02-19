@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-10
- * @modified    2014-09-15
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_PAUSESTATE_H_
     #define SPACESHOOTER_PAUSESTATE_H_
@@ -13,6 +13,7 @@
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

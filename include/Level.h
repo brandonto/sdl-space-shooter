@@ -5,20 +5,22 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-17
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_LEVEL_H_
     #define SPACESHOOTER_LEVEL_H_
 
+#include <queue>
+#include <string>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif
 
-#include <queue>
-#include <string>
 #include "Timer.h"
 
 class GameEntity;

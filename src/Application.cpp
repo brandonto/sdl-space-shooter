@@ -4,15 +4,17 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-17
+ * @modified    2015-02-19
  *********************************************************************/
 #include "Application.h"
 
 #include <cstdio>
 #include <cstddef>
+
 #ifdef _WIN32
 	#include <SDL.h>
 #endif
+
 #ifdef linux
 	#include <SDL2/SDL.h>
 #endif

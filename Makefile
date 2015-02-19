@@ -64,6 +64,7 @@ _OBJS =	main.o \
 		UILivesRenderComponent.o \
 		UIPanelInputComponent.o \
 		UIPanelRenderComponent.o \
+		UIScoreRenderComponent.o \
 		Util.o \
 		Vector2D.o
 
