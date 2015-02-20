@@ -17,10 +17,10 @@
     <Ui>
         <entity type="text" name="createdText" data="Created by Brandon To" x="344" y="240" width="336" height="80" id="text1" alphaEnabled="true"/>
         <entity type="text" name="movementText" data="Development of project can be found on Github" x="152" y="320" width="720" height="80" id="text2" alphaEnabled="true"/>
-        <entity type="uiPanel" name="fork" x="432" y="416" width="160" height="48" function="FORK" id="ui1" alphaEnabled="true"/>
+        <entity type="uiPanel" name="fork" texture="../data/graphics/ui/glassPanel_button.png" x="432" y="416" width="160" height="48" function="FORK" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="forkText" data="Fork Me!" x="440" y="416" width="148" height="48" id="text3" alphaEnabled="true"/>
         <entity type="text" name="githubText" data="https://github.com/brandonto" x="408" y="472" width="208" height="32" id="text4" alphaEnabled="true"/>
-        <entity type="uiPanel" name="back" x="16" y="704" width="160" height="48" function="BACK" id="ui2" alphaEnabled="true"/>
+        <entity type="uiPanel" name="back" texture="../data/graphics/ui/glassPanel_button.png" x="16" y="704" width="160" height="48" function="BACK" id="ui2" alphaEnabled="true"/>
         <entity type="text" name="backText" data="Back" x="25" y="704" width="148" height="48" id="text5" alphaEnabled="true"/>
     </Ui>
 </State>

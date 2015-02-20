@@ -19,15 +19,15 @@
         <entity type="uiPanel" name="title" x="200" y="96" width="624" height="192" function="NONE" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="spaceText" data="Space" x="270" y="98" width="510" height="104" function="NONE" id="text1" alphaEnabled="true"/>
         <entity type="text" name="shooterText" data="Shooter" x="235" y="182" width="564" height="104" function="NONE" id="text2" alphaEnabled="true"/>
-        <entity type="uiPanel" name="play" x="340" y="336" width="344" height="48" function="GAME" id="ui2" alphaEnabled="true"/>
+        <entity type="uiPanel" name="play" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="336" width="344" height="48" function="GAME" id="ui2" alphaEnabled="true"/>
         <entity type="text" name="playText" data="Play" x="385" y="336" width="265" height="48" function="NONE" id="text3" alphaEnabled="true"/>
-        <entity type="uiPanel" name="instructions" x="340" y="416" width="344" height="48" function="INSTRUCTIONS" id="ui3" alphaEnabled="true"/>
+        <entity type="uiPanel" name="instructions" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="416" width="344" height="48" function="INSTRUCTIONS" id="ui3" alphaEnabled="true"/>
         <entity type="text" name="instructionsText" data="Instructions" x="360" y="416" width="305" height="48" function="NONE" id="text4" alphaEnabled="true"/>
-        <entity type="uiPanel" name="options" x="340" y="496" width="344" height="48" function="NONE" id="ui4" alphaEnabled="true"/>
+        <entity type="uiPanel" name="options" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="496" width="344" height="48" function="NONE" id="ui4" alphaEnabled="true"/>
         <entity type="text" name="optionsText" data="Options" x="370" y="496" width="290" height="48" function="NONE" id="text5" alphaEnabled="true"/>
-        <entity type="uiPanel" name="credits" x="340" y="576" width="344" height="48" function="CREDITS" id="ui5" alphaEnabled="true"/>
+        <entity type="uiPanel" name="credits" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="576" width="344" height="48" function="CREDITS" id="ui5" alphaEnabled="true"/>
         <entity type="text" name="creditsText" data="Credits" x="370" y="576" width="290" height="48" function="NONE" id="text6" alphaEnabled="true"/>
-        <entity type="uiPanel" name="quit" x="340" y="656" width="344" height="48" function="QUIT" id="ui6" alphaEnabled="true"/>
+        <entity type="uiPanel" name="quit" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="656" width="344" height="48" function="QUIT" id="ui6" alphaEnabled="true"/>
         <entity type="text" name="quitText" data="Quit" x="385" y="654" width="265" height="48" function="NONE" id="text7" alphaEnabled="true"/>
     </Ui>
 </State>

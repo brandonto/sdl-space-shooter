@@ -12,9 +12,9 @@
 
     <Ui>
         <entity type="text" name="victoryText" data="Victory" x="212" y="80" width="600" height="350" id="text1" alphaEnabled="true"/>
-        <entity type="uiPanel" name="playAgain" x="340" y="460" width="344" height="48" function="GAME" id="ui1" alphaEnabled="true"/>
+        <entity type="uiPanel" name="playAgain" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="460" width="344" height="48" function="GAME" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="playAgainText" data="Play Again" x="362" y="460" width="305" height="48" id="text2" alphaEnabled="true"/>
-        <entity type="uiPanel" name="mainMenu" x="340" y="560" width="344" height="48" function="MENU" id="ui2" alphaEnabled="true"/>
+        <entity type="uiPanel" name="mainMenu" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="560" width="344" height="48" function="MENU" id="ui2" alphaEnabled="true"/>
         <entity type="text" name="mainMenuText" data="Main Menu" x="362" y="560" width="305" height="48" id="text3" alphaEnabled="true"/>
     </Ui>
 </State>

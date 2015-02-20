@@ -12,13 +12,13 @@
 
     <Ui>
         <entity type="uiPanel" name="container" x="272" y="144" width="480" height="480" id="uiContainer" alphaEnabled="true"/>
-        <entity type="uiPanel" name="resume" x="340" y="210" width="344" height="48" function="RESUME" id="ui1" alphaEnabled="true"/>
+        <entity type="uiPanel" name="resume" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="210" width="344" height="48" function="RESUME" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="resumeText" data="Resume" x="372" y="210" width="285" height="48" id="text1" alphaEnabled="true"/>
-        <entity type="uiPanel" name="options" x="340" y="310" width="344" height="48" id="ui2" alphaEnabled="true"/>
+        <entity type="uiPanel" name="options" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="310" width="344" height="48" id="ui2" alphaEnabled="true"/>
         <entity type="text" name="optionsText" data="Options" x="370" y="310" width="290" height="48" id="text2" alphaEnabled="true"/>
-        <entity type="uiPanel" name="mainMenu" x="340" y="410" width="344" height="48" function="MENU" id="ui3" alphaEnabled="true"/>
+        <entity type="uiPanel" name="mainMenu" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="410" width="344" height="48" function="MENU" id="ui3" alphaEnabled="true"/>
         <entity type="text" name="mainMenuText" data="Main Menu" x="362" y="410" width="305" height="48" id="text3" alphaEnabled="true"/>
-        <entity type="uiPanel" name="quit" x="340" y="510" width="344" height="48" function="QUIT" id="ui4" alphaEnabled="true"/>
+        <entity type="uiPanel" name="quit" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="510" width="344" height="48" function="QUIT" id="ui4" alphaEnabled="true"/>
         <entity type="text" name="quitText" data="Quit" x="385" y="508" width="265" height="48" id="text4" alphaEnabled="true"/>
     </Ui>
 </State>
