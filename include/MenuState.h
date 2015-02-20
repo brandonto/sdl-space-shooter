@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-08
+ * @modified    2015-02-20
  *********************************************************************/
 #ifndef SPACESHOOTER_MENUSTATE_H_
     #define SPACESHOOTER_MENUSTATE_H_
@@ -37,6 +37,7 @@ class MenuState : public ApplicationState
         int randomMeteorTime;
 
         int nextState;
+        int pushedState;
 
     public:
         //Constructor
@@ -53,6 +54,7 @@ class MenuState : public ApplicationState
         void onRender();
         void onExit();
         void stateTransition(int nextState);
+        void statePush(int pushedState);
 };
 
 #endif

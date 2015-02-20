@@ -32,7 +32,7 @@
         <entity type="sprite" name="keyP" texture="../data/graphics/ui/Keyboard_White_P.png" x="240" y="296" width="80" height="80" id="sprite10" alphaEnabled="true"/>
         <entity type="text" name="menuText" data="Menu:" x="32" y="392" width="144" height="80" id="text5" alphaEnabled="true"/>
         <entity type="sprite" name="keyEsc" texture="../data/graphics/ui/Keyboard_White_Esc.png" x="240" y="392" width="80" height="80" id="sprite11" alphaEnabled="true"/>
-        <entity type="uiPanel" name="back" x="16" y="704" width="160" height="48" function="MENU" id="ui1" alphaEnabled="true"/>
+        <entity type="uiPanel" name="back" x="16" y="704" width="160" height="48" function="BACK" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="backText" data="Back" x="25" y="704" width="148" height="48" id="text6" alphaEnabled="true"/>
         <entity type="uiPanel" name="demoWindow" x="374" y="180" width="612" height="572" id="ui2" alphaEnabled="true"/>
     </Ui>

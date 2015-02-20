@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-01-31
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #include "InstructionsState.h"
 
@@ -24,12 +24,11 @@
 
 InstructionsState::InstructionsState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
-:   fadeIn(false),
+:   fadeIn(true),
     fadeOut(false),
     uiAlpha(0),
-    nextState(0),
-    gameEntityManager(windowElements,this),
-    blackScreen(windowElements)
+    nextState(-1),
+    gameEntityManager(windowElements,this)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
@@ -43,8 +42,6 @@ InstructionsState::~InstructionsState()
 
 void InstructionsState::onEnter()
 {
-    blackScreen.startBlackIn();
-    backgroundEntities = gameEntityManager.getFactory()->createBackgroundEntities();
     uiEntities = gameEntityManager.getFactory()->createUIEntities();
     physicalEntities = gameEntityManager.getFactory()->createPlayerInstructions();
 
@@ -69,7 +66,7 @@ void InstructionsState::onEvent()
             switch(event.key.keysym.scancode)
             {
                 case SDL_SCANCODE_ESCAPE:
-                    stateTransition(STATE_MENU);
+                    statePop();
                     break;
             }
         }
@@ -97,29 +94,26 @@ void InstructionsState::onUpdate()
         if (uiAlpha>0)
         {
             uiAlpha-=10;
-            if (uiAlpha==0) { fadeOut = false; blackScreen.startBlackOut(); }
+            if (uiAlpha==0)
+            {
+                fadeOut = false;
+                // stateTransition() called
+                if (nextState != -1)
+                {
+                    applicationStateManager->setNextState(nextState);
+                }
+                // statePop() called
+                else
+                {
+                    applicationStateManager->popStateOnStack();
+                }
+            }
         }
         for (int i=0; i<uiEntities.size(); i++)
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
         physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
-    }
-    else if (blackScreen.isBlackingIn())
-    {
-        blackScreen.onUpdate();
-        if (!blackScreen.isBlackingIn())
-        {
-            fadeIn = true;
-        }
-    }
-    else if (blackScreen.isBlackingOut())
-    {
-        blackScreen.onUpdate();
-        if (!blackScreen.isBlackingOut())
-        {
-            applicationStateManager->setNextState(nextState);
-        }
     }
 
     gameEntityManager.onUpdate();
@@ -142,3 +136,9 @@ void InstructionsState::stateTransition(int nextState)
     this->nextState = nextState;
     fadeOut = true;
 }
+
+void InstructionsState::statePop()
+{
+    fadeOut = true;
+}
+

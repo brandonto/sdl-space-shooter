@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #include "MenuState.h"
 
@@ -31,7 +31,8 @@ MenuState::MenuState(ApplicationStateManager* applicationStateManager,
     fadeOut(false),
     menuAlpha(0),
     randomMeteorTime(0),
-    nextState(0),
+    nextState(-1),
+    pushedState(-1),
     blackScreen(windowElements),
     gameEntityManager(windowElements,this)
 {
@@ -109,7 +110,21 @@ void MenuState::onUpdate()
         if (menuAlpha>0)
         {
             menuAlpha-=10;
-            if (menuAlpha==0) { fadeOut = false; blackScreen.startBlackOut(); }
+            if (menuAlpha==0)
+            {
+                fadeOut = false;
+                // stateTransition() called
+                if (nextState != -1)
+                {
+                    blackScreen.startBlackOut();
+                }
+                // statePushed() called
+                else
+                {
+                    applicationStateManager->pushStateOnStack(pushedState);
+                    fadeIn = true;
+                }
+            }
         }
         for (int i=0; i<mainMenu.size(); i++)
         {
@@ -133,6 +148,10 @@ void MenuState::onUpdate()
         }
     }
 
+}
+
+void MenuState::onRender()
+{
     if (meteorTimer.getTimeOnTimer() > randomMeteorTime)
     {
         GameEntity *meteor = gameEntityManager.getFactory()->createMeteor();
@@ -145,10 +164,6 @@ void MenuState::onUpdate()
     }
 
     gameEntityManager.onUpdate();
-}
-
-void MenuState::onRender()
-{
     //SDL_RenderClear(windowElements->renderer);
     gameEntityManager.onRender();
     blackScreen.onRender();
@@ -163,5 +178,11 @@ void MenuState::onExit()
 void MenuState::stateTransition(int nextState)
 {
     this->nextState = nextState;
+    fadeOut = true;
+}
+
+void MenuState::statePush(int pushedState)
+{
+    this->pushedState = pushedState;
     fadeOut = true;
 }

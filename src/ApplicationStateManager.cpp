@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #include "ApplicationStateManager.h"
 
@@ -168,19 +168,6 @@ void ApplicationStateManager::changeState()
                 stateStackEnum.push_back(nextStateEnum);
                 break;
 
-            case STATE_INSTRUCTIONS:
-                currentState = new InstructionsState(this, windowElements);
-                currentState->onEnter();
-                stateStack.push_back(currentState);
-                stateStackEnum.push_back(nextStateEnum);
-                break;
-
-            case STATE_CREDITS:
-                currentState = new CreditsState(this, windowElements);
-                currentState->onEnter();
-                stateStack.push_back(currentState);
-                stateStackEnum.push_back(nextStateEnum);
-                break;
         }
 
         // Updates current state enumeration
@@ -195,12 +182,11 @@ void ApplicationStateManager::changeState()
         // effect
         switch (pushedStateEnum)
         {
-            case STATE_PAUSE:
-                currentState = new PauseState(this, windowElements);
+            case STATE_CREDITS:
+                currentState = new CreditsState(this, windowElements);
                 currentState->onEnter();
                 stateStack.push_back(currentState);
-                currentStateEnum = pushedStateEnum;
-                stateStackEnum.push_back(pushedStateEnum);
+                stateStackEnum.push_back(nextStateEnum);
                 break;
 
             case STATE_GAMEMENU:
@@ -213,6 +199,21 @@ void ApplicationStateManager::changeState()
 
             case STATE_GAMEOVER:
                 currentState = new GameOverState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                currentStateEnum = pushedStateEnum;
+                stateStackEnum.push_back(pushedStateEnum);
+                break;
+
+            case STATE_INSTRUCTIONS:
+                currentState = new InstructionsState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                stateStackEnum.push_back(nextStateEnum);
+                break;
+
+            case STATE_PAUSE:
+                currentState = new PauseState(this, windowElements);
                 currentState->onEnter();
                 stateStack.push_back(currentState);
                 currentStateEnum = pushedStateEnum;
