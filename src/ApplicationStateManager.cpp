@@ -27,6 +27,7 @@
 #include "GameMenuState.h"
 #include "MenuState.h"
 #include "PauseState.h"
+#include "VictoryState.h"
 #include "WindowElements.h"
 
 // Constructors
@@ -212,6 +213,14 @@ void ApplicationStateManager::changeState()
 
             case STATE_GAMEOVER:
                 currentState = new GameOverState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                currentStateEnum = pushedStateEnum;
+                stateStackEnum.push_back(pushedStateEnum);
+                break;
+
+            case STATE_VICTORY:
+                currentState = new VictoryState(this, windowElements);
                 currentState->onEnter();
                 stateStack.push_back(currentState);
                 currentStateEnum = pushedStateEnum;

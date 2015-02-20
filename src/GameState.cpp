@@ -34,7 +34,7 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
     gameEntityManager(windowElements,this),
     nextState(0),
     pauseStatus(PAUSED_NONE),
-    lives(1),
+    lives(3),
     playerDestroyed(true),
     score(0)
 {
@@ -52,6 +52,7 @@ void GameState::onEnter()
 {
     AudioSystem::getInstance()->loadMusic("level1");
     AudioSystem::getInstance()->playMusic();
+    level.addObserver(this);
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
     uiLives = gameEntityManager.getFactory()->createEntity("uiLives");
@@ -183,15 +184,22 @@ void GameState::onNotify(GameEntity* entity, int event)
 {
     switch (event)
     {
+        case ENEMY_DESTROYED:
+            score+=dynamic_cast<EnemyPhysicsComponent*>(entity->getPhysicsComponent())->getScore();
+            //printf("SCORE = %d\n", score);
+            break;
+
+        case LEVEL_COMPLETED:
+            applicationStateManager->pushStateOnStack(STATE_VICTORY);
+            setPauseStatus(PAUSED_THIS_FRAME);
+            AudioSystem::getInstance()->stopMusic();
+            break;
+
         case PLAYER_DESTROYED:
             lives--;
             playerDestroyed = true;
             //printf("LIVES = %d\n", lives);
             break;
 
-        case ENEMY_DESTROYED:
-            score+=dynamic_cast<EnemyPhysicsComponent*>(entity->getPhysicsComponent())->getScore();
-            //printf("SCORE = %d\n", score);
-            break;
     }
 }

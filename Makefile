@@ -67,7 +67,8 @@ _OBJS =	main.o \
 		UIPanelRenderComponent.o \
 		UIScoreRenderComponent.o \
 		Util.o \
-		Vector2D.o
+		Vector2D.o \
+		VictoryState.o
 
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 

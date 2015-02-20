@@ -4,6 +4,7 @@
     <Music>
         <music id="menu" file="../data/audio/music/menu.ogg" />
         <music id="level1" file="../data/audio/music/level1.ogg" />
+        <music id="victory" file="../data/audio/music/win.ogg" />
         <music id="gameOver" file="../data/audio/music/lose.ogg" />
     </Music>
 

@@ -15,7 +15,7 @@
     </Physical>
 
     <Ui>
-        <entity type="text" name="createdText" data="Create by Brandon To" x="344" y="240" width="336" height="80" id="text1" alphaEnabled="true"/>
+        <entity type="text" name="createdText" data="Created by Brandon To" x="344" y="240" width="336" height="80" id="text1" alphaEnabled="true"/>
         <entity type="text" name="movementText" data="Development of project can be found on Github" x="152" y="320" width="720" height="80" id="text2" alphaEnabled="true"/>
         <entity type="uiPanel" name="fork" x="432" y="416" width="160" height="48" function="FORK" id="ui1" alphaEnabled="true"/>
         <entity type="text" name="forkText" data="Fork Me!" x="440" y="416" width="148" height="48" id="text3" alphaEnabled="true"/>

@@ -4,12 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-18
+ * @modified    2015-02-19
  *********************************************************************/
 #include "Level.h"
 
 #include <cstdio>
 
+#include "GameState.h" // Observing
 #include "tinyxml.h"
 #include "Util.h"
 
@@ -99,7 +100,7 @@ void Level::onUpdate()
         }
         else
         {
-            //state transition
+            notify(NULL, LEVEL_COMPLETED);
             return;
         }
     }

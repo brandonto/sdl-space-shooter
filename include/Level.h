@@ -21,13 +21,14 @@
 	#include <SDL2/SDL.h>
 #endif
 
+#include "IObserver.h"
 #include "Timer.h"
 
 class GameEntity;
 
 struct SpawnData;
 
-class Level
+class Level : public IObservable
 {
     private:
         int currentLevel;
@@ -59,6 +60,9 @@ class Level
         SpawnData popSpawningQueue();
         void pauseTimers();
         void resumeTimers();
+
+        //Virtual methods from IObservable
+        //void notify(GameEntity* entity, int event);
 };
 
 struct SpawnData

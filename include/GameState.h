@@ -68,9 +68,9 @@ class GameState : public ApplicationState,
 
 enum observingEvents
 {
-    PLAYER_DESTROYED,
     ENEMY_DESTROYED,
-    LEVEL_COMPLETE,
+    LEVEL_COMPLETED,
+    PLAYER_DESTROYED,
 };
 
 

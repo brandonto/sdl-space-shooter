@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-07
+ * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_APPLICATIONSTATE_H_
     #define SPACESHOOTER_APPLICATIONSTATE_H_
@@ -56,6 +56,7 @@ enum ApplicationStates
     STATE_GAME,
     STATE_GAMEMENU,
     STATE_PAUSE,
+    STATE_VICTORY,
     STATE_GAMEOVER,
     STATE_OPTIONS,
     STATE_INSTRUCTIONS,
