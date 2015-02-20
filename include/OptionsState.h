@@ -24,6 +24,8 @@ class OptionsState : public ApplicationState
         GameEntityManager gameEntityManager;
         std::vector<GameEntity*> uiEntities;
         GameEntity* bgmCheck;
+        GameEntity* sfxCheck;
+        GameEntity* fullScreenCheck;
 
         bool fadeIn;
         bool fadeOut;

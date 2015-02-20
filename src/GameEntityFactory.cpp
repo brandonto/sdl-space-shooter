@@ -54,6 +54,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     windowElements(windowElements)
 {
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
+    stringToEntityEnum["enemyBoss"] = ENTITY_ENEMYBOSS;
     stringToEntityEnum["enemyProjectileHit"] = ENTITY_ENEMYPROJECTILEHIT;
     stringToEntityEnum["enemyStraight"] = ENTITY_ENEMYSTRAIGHT;
     stringToEntityEnum["enemyCarrier"] = ENTITY_ENEMYCARRIER;
@@ -153,6 +154,23 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->addPhysicsComponent(new BackgroundPhysicsComponent(entity, windowElements));
             configureEntity(entity, xmlStruct);
             gameEntityManager->addBackgroundEntity(entity);
+            break;
+        }
+
+        case ENTITY_ENEMYBOSS:
+        {
+            entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHTSLOW);
+            physics->setMaxHealth(xmlStruct.health);
+            physics->setScore(8000);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
+            entity->addPhysicsComponent(physics);
+            entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
             break;
         }
 
@@ -340,7 +358,7 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             if (xmlStruct.function != "NONE")
             {
                 UIPanelInputComponent* entityInput = new UIPanelInputComponent(entity);
-                UIClickFunction* clickFunction = new UIClickFunction(gameEntityManager->getState());
+                UIClickFunction* clickFunction = new UIClickFunction(gameEntityManager->getState(), windowElements);
                 clickFunction->setCallback(xmlStruct.function);
                 entityInput->addClickFunction(clickFunction);
                 entity->addInputComponent(entityInput);

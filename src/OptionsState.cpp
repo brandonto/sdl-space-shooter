@@ -46,6 +46,10 @@ void OptionsState::onEnter()
     uiEntities = gameEntityManager.getFactory()->createUIEntities();
     bgmCheck = gameEntityManager.getFactory()->createEntityByName("bgmCheck");
     bgmCheck->getRenderComponent()->setRenderStatus(AudioSystem::getInstance()->getMusicStatus());
+    sfxCheck = gameEntityManager.getFactory()->createEntityByName("sfxCheck");
+    sfxCheck->getRenderComponent()->setRenderStatus(AudioSystem::getInstance()->getSoundStatus());
+    fullScreenCheck = gameEntityManager.getFactory()->createEntityByName("fullScreenCheck");
+    fullScreenCheck->getRenderComponent()->setRenderStatus(windowElements->fullScreen);
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiEntities.size(); i++)
@@ -78,6 +82,8 @@ void OptionsState::onEvent()
 void OptionsState::onUpdate()
 {
     bgmCheck->getRenderComponent()->setRenderStatus(AudioSystem::getInstance()->getMusicStatus());
+    sfxCheck->getRenderComponent()->setRenderStatus(AudioSystem::getInstance()->getSoundStatus());
+    fullScreenCheck->getRenderComponent()->setRenderStatus(windowElements->fullScreen);
 
     if (fadeIn)
     {
@@ -90,6 +96,8 @@ void OptionsState::onUpdate()
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
             bgmCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            sfxCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            fullScreenCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
     else if (fadeOut)
@@ -116,6 +124,8 @@ void OptionsState::onUpdate()
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
             bgmCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            sfxCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            fullScreenCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
 

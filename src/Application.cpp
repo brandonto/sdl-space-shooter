@@ -76,7 +76,8 @@ bool Application::initialize()
         SDL_WINDOWPOS_CENTERED,
         windowElements.WINDOW_WIDTH,
         windowElements.WINDOW_HEIGHT,
-        SDL_WINDOW_FULLSCREEN_DESKTOP
+        SDL_WINDOW_FULLSCREEN
+        //SDL_WINDOW_FULLSCREEN_DESKTOP
         //SDL_WINDOW_SHOWN
     );
 
@@ -85,6 +86,8 @@ bool Application::initialize()
         printf("Could not create SDL_Window: %s\n", SDL_GetError());
         return false;
     }
+
+    windowElements.fullScreen = true;
 
     windowElements.renderer = SDL_CreateRenderer(windowElements.window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
     if (windowElements.renderer == NULL)

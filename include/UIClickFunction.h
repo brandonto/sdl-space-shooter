@@ -14,16 +14,20 @@
 #include <string>
 #include "ApplicationState.h"
 
+struct WindowElements;
+
 class UIClickFunction
 {
     private:
         ApplicationState* state;
-        std::map<std::string, void(*)(ApplicationState*)> functionTable;
-        void (*callback)(ApplicationState*);
+        WindowElements* windowElements;
+        std::map<std::string, void(*)(ApplicationState*, WindowElements*)> functionTable;
+        void (*callback)(ApplicationState*, WindowElements*);
 
     public:
         //Constructor
-        UIClickFunction(ApplicationState* state);
+        UIClickFunction(ApplicationState* state,
+                        WindowElements* windowElements);
 
         //Destructor
         ~UIClickFunction();

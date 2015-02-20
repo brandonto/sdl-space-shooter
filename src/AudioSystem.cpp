@@ -143,6 +143,18 @@ void AudioSystem::toggleMusic()
     }
 }
 
+void AudioSystem::toggleSound()
+{
+    if (soundEnabled)
+    {
+        soundEnabled = false;
+    }
+    else
+    {
+        soundEnabled = true;
+    }
+}
+
 bool AudioSystem::getMusicStatus()
 {
     return musicEnabled;
