@@ -17,6 +17,7 @@
 #endif
 
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 #include "GameEntity.h"
 #include "RenderComponent.h"
 #include "Util.h"
@@ -43,6 +44,8 @@ OptionsState::~OptionsState()
 void OptionsState::onEnter()
 {
     uiEntities = gameEntityManager.getFactory()->createUIEntities();
+    bgmCheck = gameEntityManager.getFactory()->createEntityByName("bgmCheck");
+    bgmCheck->getRenderComponent()->setRenderStatus(AudioSystem::getInstance()->getMusicStatus());
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiEntities.size(); i++)
@@ -74,6 +77,8 @@ void OptionsState::onEvent()
 
 void OptionsState::onUpdate()
 {
+    bgmCheck->getRenderComponent()->setRenderStatus(AudioSystem::getInstance()->getMusicStatus());
+
     if (fadeIn)
     {
         if (uiAlpha<200)
@@ -84,6 +89,7 @@ void OptionsState::onUpdate()
         for (int i=0; i<uiEntities.size(); i++)
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            bgmCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
     else if (fadeOut)
@@ -109,6 +115,7 @@ void OptionsState::onUpdate()
         for (int i=0; i<uiEntities.size(); i++)
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
+            bgmCheck->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
     }
 

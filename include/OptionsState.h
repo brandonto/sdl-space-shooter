@@ -23,6 +23,7 @@ class OptionsState : public ApplicationState
         SDL_Event event;
         GameEntityManager gameEntityManager;
         std::vector<GameEntity*> uiEntities;
+        GameEntity* bgmCheck;
 
         bool fadeIn;
         bool fadeOut;

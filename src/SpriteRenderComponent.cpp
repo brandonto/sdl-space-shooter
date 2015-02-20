@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-16
+ * @modified    2015-02-20
  *********************************************************************/
 #include "SpriteRenderComponent.h"
 
@@ -26,16 +26,19 @@ SpriteRenderComponent::SpriteRenderComponent(GameEntity* gameEntity,
 
 void SpriteRenderComponent::update()
 {
-    if (texture->getTexture() != NULL)
+    if (renderEnabled)
     {
-        SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
-    }
-
-    if (timedSprite)
-    {
-        if (timer.getTimeOnTimer()>activeTime)
+        if (texture->getTexture() != NULL)
         {
-            gameEntity->remove = true;
+            SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
+        }
+
+        if (timedSprite)
+        {
+            if (timer.getTimeOnTimer()>activeTime)
+            {
+                gameEntity->remove = true;
+            }
         }
     }
 }

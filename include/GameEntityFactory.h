@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-18
+ * @modified    2015-02-20
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -47,6 +47,7 @@ class GameEntityFactory
         std::vector<GameEntity*> createEffectEntities();
         std::vector<GameEntity*> createUIEntities();
         GameEntity* createEntity(std::string type);
+        GameEntity* createEntityByName(std::string name);
         GameEntity* createEntity(SpawnData data);
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);

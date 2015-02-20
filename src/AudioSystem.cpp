@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-17
- * @modified    2015-02-18
+ * @modified    2015-02-20
  *********************************************************************/
 #include "AudioSystem.h"
 
@@ -16,7 +16,8 @@
 AudioSystem* AudioSystem::instance = NULL;
 
 AudioSystem::AudioSystem()
-:   musicEnabled(true),
+:   musicPlayingState(true),
+    musicEnabled(true),
     soundEnabled(true),
     currentMusic(NULL)
 {
@@ -123,11 +124,34 @@ void AudioSystem::initialize()
     }
 }
 
-//void AudioSystem::toggleMusic()
-//{
-    //musicEnabled = !musicEnabled;
-    //pauseMusic();
-//}
+void AudioSystem::setMusicPlayingState(bool status)
+{
+    musicPlayingState = status;
+}
+
+void AudioSystem::toggleMusic()
+{
+    if (musicEnabled)
+    {
+        musicEnabled = false;
+        pauseMusic();
+    }
+    else
+    {
+        musicEnabled = true;
+        playMusic();
+    }
+}
+
+bool AudioSystem::getMusicStatus()
+{
+    return musicEnabled;
+}
+
+bool AudioSystem::getSoundStatus()
+{
+    return soundEnabled;
+}
 
 void AudioSystem::loadMusic(std::string id)
 {
@@ -137,7 +161,7 @@ void AudioSystem::loadMusic(std::string id)
 void AudioSystem::playMusic()
 {
     // If music is enabled
-    if (musicEnabled)
+    if (musicEnabled && musicPlayingState)
     {
         // If no music is playing
         if (Mix_PlayingMusic() == 0)

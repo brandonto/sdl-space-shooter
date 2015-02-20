@@ -17,6 +17,7 @@
 #endif
 
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 #include "GameEntity.h"
 #include "GameState.h"
 #include "PauseState.h"
@@ -50,6 +51,7 @@ void GameMenuState::onEnter()
 {
     blackScreen.setAlphaBlend(0);
     uiEntities = gameEntityManager.getFactory()->createUIEntities();
+    AudioSystem::getInstance()->setMusicPlayingState(false);
 }
 
 void GameMenuState::onEvent()
@@ -140,6 +142,7 @@ void GameMenuState::onRender()
 
 void GameMenuState::onExit()
 {
+    AudioSystem::getInstance()->setMusicPlayingState(true);
 }
 
 void GameMenuState::stateTransition(int nextState)

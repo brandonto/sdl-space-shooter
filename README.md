@@ -1,7 +1,7 @@
 sdl-space-shooter
 =================
 
-A 2D space shooter written in C++ with SDL, using the Object Oriented paradigm.
+A 2D space shooter written in C++ with SDL2 library, using the OOP paradigm.
 Done primarily as a learning exercise on software architecture. The code base
 tries to use many design patterns common in game development.
 
@@ -12,10 +12,11 @@ to use your own music, create the directory "data/audio/music" and put your
 music in there. The file extention must be ".ogg".
 
 The following audio file names will correspond to the state it will be played in:
-Menu State: menu.ogg
-Game State: level1.ogg
-Victory State: win.ogg
-Game Over State: lose.ogg
+
+- Menu State: menu.ogg
+- Game State: level1.ogg
+- Victory State: win.ogg
+- Game Over State: lose.ogg
 
 
 Screetshots
@@ -29,13 +30,13 @@ Screetshots
 Building
 =================
 
-Dependancies: lSDL2, lSDL2_image, lSDL2_ttf, and lSDL2_mixer installed
+Dependancies: lSDL2, lSDL2_image, lSDL2_ttf, and lSDL2_mixer.
 
 
 Linux (Debian)
 =================
 
-1. Run the following commands on bash:
+[1] Run the following commands on bash:
 
 - sudo apt-get update
 
@@ -49,7 +50,7 @@ Linux (Debian)
 
 - sudo apt-get install libsdl2-mixer-dev
 
-2. Navigate to the directory where you want the project to be cloned
+[2] Navigate to the directory where you want the project to be cloned
    and run the following commands:
 
 - git clone https://github.com/brandonto/sdl-space-shooter
@@ -64,28 +65,28 @@ Linux (Debian)
 Windows
 =================
 
-1. Download the latest Windows mingw development libraries for:
+[1] Download the following Windows mingw development libraries and extract
+them all to a common directory:
 
 - SDL2
 - SDL2_image
 - SDL2_ttf
 - SDL2_mixer
 
-Extract them all to a common directory.
 
-2. Set up a Code::Blocks project
+[2] Set up a Code::Blocks project
 
-3. In "Project Build Options>Search Directories>Compiler" add:
+[3] In "Project Build Options>Search Directories>Compiler" add:
 
 C:\PATH-TO-EXTRACTED-DIRECTORY\include\SDL2
 
-4. In "Project Build Options>Search Directories>Linker" add:
+[4] In "Project Build Options>Search Directories>Linker" add:
 
 C:\PATH-TO-EXTRACTED-DIRECTORY\lib
 
-5. In "Project Build Options>Linker Settings>Other Linker Options" add:
+[5] In "Project Build Options>Linker Settings>Other Linker Options" add:
 
 -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
-6. Build and run
+[6] Build and run
 

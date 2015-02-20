@@ -13,6 +13,7 @@
 #endif
 
 #include "ApplicationStateManager.h"
+#include "AudioSystem.h"
 
 namespace ClickFunctions
 {
@@ -54,6 +55,11 @@ namespace ClickFunctions
         state->stateTransition(STATE_MENU);
     }
 
+    void onClickMusic(ApplicationState* state)
+    {
+        AudioSystem::getInstance()->toggleMusic();
+    }
+
     void onClickNone(ApplicationState* state)
     {
     }
@@ -83,6 +89,7 @@ UIClickFunction::UIClickFunction(ApplicationState* state)
     functionTable["INSTRUCTIONS"] = &(ClickFunctions::onClickInstructions);
     functionTable["NONE"] = &(ClickFunctions::onClickNone);
     functionTable["MENU"] = &(ClickFunctions::onClickMenu);
+    functionTable["MUSIC"] = &(ClickFunctions::onClickMusic);
     functionTable["GAME"] = &(ClickFunctions::onClickGame);
     functionTable["OPTIONS"] = &(ClickFunctions::onClickOptions);
     functionTable["QUIT"] = &(ClickFunctions::onClickQuit);

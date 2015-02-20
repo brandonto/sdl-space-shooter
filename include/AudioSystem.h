@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-17
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #ifndef SPACESHOOTER_AUDIOSYSTEM_H_
     #define SPACESHOOTER_AUDIOSYSTEM_H_
@@ -29,6 +29,8 @@ class AudioSystem
         std::map<std::string, Mix_Chunk*> soundTable;
         Mix_Music* currentMusic;
 
+        bool musicPlayingState;
+
         bool musicEnabled;
         bool soundEnabled;
 
@@ -46,8 +48,13 @@ class AudioSystem
 
         void initialize();
 
+        void setMusicPlayingState(bool status);
+
         void toggleMusic();
         void toggleSound();
+
+        bool getMusicStatus();
+        bool getSoundStatus();
 
         void loadMusic(std::string id);
 

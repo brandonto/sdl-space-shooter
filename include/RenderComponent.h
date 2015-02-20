@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-17
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #ifndef SPACESHOOTER_RENDERCOMPONENT_
     #define SPACESHOOTER_RENDERCOMPONENT_
@@ -33,6 +33,7 @@ class RenderComponent
         //Methods
         virtual void update() = 0;
         virtual void setRenderRect(SDL_Rect* rect){ renderRect = *rect; };
+        virtual void setRenderStatus(bool status){ renderEnabled = status; };
         virtual Texture* getTexture(){ return texture; };
         virtual SDL_Rect getRenderRect(){ return renderRect; };
         virtual bool advanceAnimation(){};
@@ -44,6 +45,8 @@ class RenderComponent
 
         GameEntity* gameEntity;
         WindowElements* windowElements;
+
+        bool renderEnabled = true;
 };
 
 #endif

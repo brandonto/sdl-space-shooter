@@ -24,3 +24,6 @@ This does not occur when using the wasd movement keys.
 Segmentation fault when going into GameMenu or Pause screen at the exact
 moment when a game entity explodes.
 
+NOTE: This bug occurs when ExplosionPhysicsComponent->pauseTimers() is
+called during GameEntityCollection::onPauseTimers()
+

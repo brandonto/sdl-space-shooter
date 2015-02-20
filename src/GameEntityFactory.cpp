@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -123,6 +123,12 @@ std::vector<GameEntity*> GameEntityFactory::createUIEntities()
 GameEntity* GameEntityFactory::createEntity(std::string type)
 {
     EntityXmlStruct xmlStruct = gameEntityData.getDataByType(gameEntityManager->getState(), type);
+    return createEntity(xmlStruct);
+}
+
+GameEntity* GameEntityFactory::createEntityByName(std::string name)
+{
+    EntityXmlStruct xmlStruct = gameEntityData.getDataByName(gameEntityManager->getState(), name);
     return createEntity(xmlStruct);
 }
 

@@ -8,10 +8,14 @@
     </Effect>
 
     <Physical>
+        <entity type="sprite" name="bgmCheck" texture="../data/graphics/ui/blue_checkmark.png" x="254" y="106" width="40" height="36" id="sprite1" alphaEnabled="true"/>
     </Physical>
 
     <Ui>
         <entity type="uiPanel" name="" x="60" y="60" width="904" height="600" id="ui1" alphaEnabled="true"/>
+        <entity type="text" name="bgmText" data="BGM" x="120" y="100" width="120" height="48" id="text1" alphaEnabled="true"/>
+        <entity type="uiPanel" name="bgmToggle" texture="../data/graphics/ui/glassPanel_button.png" x="250" y="100" width="48" height="48" function="MUSIC" id="ui1" alphaEnabled="true"/>
+        <entity type="text" name="sfxText" data="SFX" x="120" y="170" width="120" height="48" id="text2" alphaEnabled="true"/>
         <entity type="uiPanel" name="back" texture="../data/graphics/ui/glassPanel_button.png" x="16" y="704" width="160" height="48" function="BACK" id="ui2" alphaEnabled="true"/>
         <entity type="text" name="backText" data="Back" x="25" y="704" width="148" height="48" id="text5" alphaEnabled="true"/>
     </Ui>
