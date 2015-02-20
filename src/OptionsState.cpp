@@ -1,12 +1,12 @@
 /*******************************************************************//*
- * Implementation of the InstructionsState class.
+ * Implementation of the OptionsState class.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2015-01-31
+ * @since       2015-02-20
  * @modified    2015-02-20
  *********************************************************************/
-#include "InstructionsState.h"
+#include "OptionsState.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -22,7 +22,7 @@
 #include "Util.h"
 #include "WindowElements.h"
 
-InstructionsState::InstructionsState(ApplicationStateManager* applicationStateManager,
+OptionsState::OptionsState(ApplicationStateManager* applicationStateManager,
                      WindowElements* windowElements)
 :   fadeIn(true),
     fadeOut(false),
@@ -32,28 +32,26 @@ InstructionsState::InstructionsState(ApplicationStateManager* applicationStateMa
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;
-    this->stateEnum = STATE_INSTRUCTIONS;
-    this->xmlPath = Util::fix_path("../data/xml/states/InstructionsState.xml"); //Default xml path
+    this->stateEnum = STATE_OPTIONS;
+    this->xmlPath = Util::fix_path("../data/xml/states/OptionsState.xml"); //Default xml path
 }
 
-InstructionsState::~InstructionsState()
+OptionsState::~OptionsState()
 {
 }
 
-void InstructionsState::onEnter()
+void OptionsState::onEnter()
 {
     uiEntities = gameEntityManager.getFactory()->createUIEntities();
-    physicalEntities = gameEntityManager.getFactory()->createPlayerInstructions();
 
     // Initializes alpha value of ui to 0
     for (int i=0; i<uiEntities.size(); i++)
     {
         uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
-    physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
 }
 
-void InstructionsState::onEvent()
+void OptionsState::onEvent()
 {
     while (SDL_PollEvent(&event))
     {
@@ -74,7 +72,7 @@ void InstructionsState::onEvent()
     }
 }
 
-void InstructionsState::onUpdate()
+void OptionsState::onUpdate()
 {
     if (fadeIn)
     {
@@ -87,7 +85,6 @@ void InstructionsState::onUpdate()
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
-        physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
     else if (fadeOut)
     {
@@ -113,31 +110,32 @@ void InstructionsState::onUpdate()
         {
             uiEntities[i]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
         }
-        physicalEntities[0]->getRenderComponent()->getTexture()->setAlphaBlend(uiAlpha);
     }
 
     gameEntityManager.onUpdate();
 }
 
-void InstructionsState::onRender()
+void OptionsState::onRender()
 {
     //SDL_RenderClear(windowElements->renderer);
     gameEntityManager.onRender();
     //SDL_RenderPresent(windowElements->renderer);
 }
 
-void InstructionsState::onExit()
+void OptionsState::onExit()
 {
+
 }
 
-void InstructionsState::stateTransition(int nextState)
+void OptionsState::stateTransition(int nextState)
 {
     this->nextState = nextState;
     fadeOut = true;
 }
 
-void InstructionsState::statePop()
+void OptionsState::statePop()
 {
     fadeOut = true;
 }
+
 

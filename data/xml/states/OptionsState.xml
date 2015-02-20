@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<State>
+    <Background>
+    </Background>
+
+    <Effect>
+    </Effect>
+
+    <Physical>
+    </Physical>
+
+    <Ui>
+        <entity type="uiPanel" name="" x="60" y="60" width="904" height="600" id="ui1" alphaEnabled="true"/>
+        <entity type="uiPanel" name="back" texture="../data/graphics/ui/glassPanel_button.png" x="16" y="704" width="160" height="48" function="BACK" id="ui2" alphaEnabled="true"/>
+        <entity type="text" name="backText" data="Back" x="25" y="704" width="148" height="48" id="text5" alphaEnabled="true"/>
+    </Ui>
+</State>
+

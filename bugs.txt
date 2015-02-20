@@ -20,3 +20,7 @@ while shooting will not cause player to move diagonally as expected.
 This does not occur when using the wasd movement keys.
 
 -------------------------------------------------------------------------
+
+Segmentation fault when going into GameMenu or Pause screen at the exact
+moment when a game entity explodes.
+

@@ -26,6 +26,7 @@
 #include "GameState.h"
 #include "GameMenuState.h"
 #include "MenuState.h"
+#include "OptionsState.h"
 #include "PauseState.h"
 #include "VictoryState.h"
 #include "WindowElements.h"
@@ -210,6 +211,14 @@ void ApplicationStateManager::changeState()
                 currentState->onEnter();
                 stateStack.push_back(currentState);
                 stateStackEnum.push_back(nextStateEnum);
+                break;
+
+            case STATE_OPTIONS:
+                currentState = new OptionsState(this, windowElements);
+                currentState->onEnter();
+                stateStack.push_back(currentState);
+                currentStateEnum = pushedStateEnum;
+                stateStackEnum.push_back(pushedStateEnum);
                 break;
 
             case STATE_PAUSE:

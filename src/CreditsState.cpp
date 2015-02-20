@@ -124,7 +124,6 @@ void CreditsState::onRender()
 
 void CreditsState::onExit()
 {
-
 }
 
 void CreditsState::stateTransition(int nextState)

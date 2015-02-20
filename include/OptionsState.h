@@ -1,52 +1,42 @@
 /*******************************************************************//*
- * This is the ApplicationState class for the game menu screen. This
- * state is entered after pressing ESC in the game state.
+ * This is the ApplicationState class for the options screen. This
+ * state is entered if the player clicks on the options button in
+ * the menu state
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2015-02-02
+ * @since       2015-02-20
  * @modified    2015-02-20
  *********************************************************************/
-#ifndef SPACESHOOTER_GAMEMENUSTATE_H_
-    #define SPACESHOOTER_GAMEMENUSTATE_H_
+#ifndef SPACESHOOTER_OPTIONSSTATE_H_
+    #define SPACESHOOTER_OPTIONSSTATE_H_
 
-#ifdef _WIN32
-	#include <SDL.h>
-#endif
-
-#ifdef linux
-	#include <SDL2/SDL.h>
-#endif
-
+#include <vector>
 #include "ApplicationState.h"
-#include "BlackScreen.h"
 #include "GameEntityManager.h"
 
 class GameEntity;
 
-class GameMenuState : public ApplicationState
+class OptionsState : public ApplicationState
 {
     private:
         SDL_Event event;
-
         GameEntityManager gameEntityManager;
         std::vector<GameEntity*> uiEntities;
-        BlackScreen blackScreen;
 
         bool fadeIn;
         bool fadeOut;
-        Uint8 menuAlpha;
+        Uint8 uiAlpha;
 
         int nextState;
-        int pushedState;
 
     public:
         //Constructor
-        GameMenuState(ApplicationStateManager* applicationStateManager,
+        OptionsState(ApplicationStateManager* applicationStateManager,
                   WindowElements* windowElements);
 
         //Destructor
-        ~GameMenuState();
+        ~OptionsState();
 
         //GameState methods
         void onEnter();
@@ -55,8 +45,8 @@ class GameMenuState : public ApplicationState
         void onRender();
         void onExit();
         void stateTransition(int nextState);
-        void statePush(int pushedState);
         void statePop();
 };
 
 #endif
+

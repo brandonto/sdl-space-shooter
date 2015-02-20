@@ -40,6 +40,7 @@ _OBJS =	main.o \
 		MeteorPhysicsComponent.o \
 		MeteorRenderComponent.o \
 		MovementPattern.o \
+		OptionsState.o \
 		PauseState.o \
 		PlayerCollisionComponent.o \
 		PlayerInputComponent.o \

@@ -118,11 +118,12 @@ void MenuState::onUpdate()
                 {
                     blackScreen.startBlackOut();
                 }
-                // statePushed() called
+                // statePush() called
                 else
                 {
                     applicationStateManager->pushStateOnStack(pushedState);
                     fadeIn = true;
+                    pushedState = -1;
                 }
             }
         }
@@ -186,3 +187,4 @@ void MenuState::statePush(int pushedState)
     this->pushedState = pushedState;
     fadeOut = true;
 }
+

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-02
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #include "GameMenuState.h"
 
@@ -30,8 +30,8 @@ GameMenuState::GameMenuState(ApplicationStateManager* applicationStateManager,
 :   fadeIn(true),
     fadeOut(false),
     menuAlpha(0),
-    nextState(0),
-    transitioningStates(false),
+    nextState(-1),
+    pushedState(-1),
     gameEntityManager(windowElements,this),
     blackScreen(windowElements)
 {
@@ -65,7 +65,7 @@ void GameMenuState::onEvent()
             switch(event.key.keysym.scancode)
             {
                 case SDL_SCANCODE_ESCAPE:
-                    onExit();
+                    statePop();
                     break;
             }
         }
@@ -95,10 +95,19 @@ void GameMenuState::onUpdate()
             if (menuAlpha==0)
             {
                 fadeOut = false;
-                if (transitioningStates)
+                // stateTransition() called
+                if (nextState != -1)
                 {
                     blackScreen.startBlackOut();
                 }
+                // statePush() called
+                else if (pushedState != -1)
+                {
+                    applicationStateManager->pushStateOnStack(pushedState);
+                    fadeIn = true;
+                    pushedState = -1;
+                }
+                // statePop() called
                 else
                 {
                     applicationStateManager->popStateOnStack();
@@ -131,12 +140,22 @@ void GameMenuState::onRender()
 
 void GameMenuState::onExit()
 {
-    fadeOut = true;
 }
 
 void GameMenuState::stateTransition(int nextState)
 {
     this->nextState = nextState;
     fadeOut = true;
-    transitioningStates = true;
 }
+
+void GameMenuState::statePush(int pushedState)
+{
+    this->pushedState = pushedState;
+    fadeOut = true;
+}
+
+void GameMenuState::statePop()
+{
+    fadeOut = true;
+}
+

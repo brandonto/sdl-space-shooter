@@ -39,6 +39,11 @@ namespace ClickFunctions
 #endif
     }
 
+    void onClickGame(ApplicationState* state)
+    {
+        state->stateTransition(STATE_GAME);
+    }
+
     void onClickInstructions(ApplicationState* state)
     {
         state->statePush(STATE_INSTRUCTIONS);
@@ -53,9 +58,9 @@ namespace ClickFunctions
     {
     }
 
-    void onClickGame(ApplicationState* state)
+    void onClickOptions(ApplicationState* state)
     {
-        state->stateTransition(STATE_GAME);
+        state->statePush(STATE_OPTIONS);
     }
 
     void onClickQuit(ApplicationState* state)
@@ -65,7 +70,7 @@ namespace ClickFunctions
 
     void onClickResume(ApplicationState* state)
     {
-        state->onExit();
+        state->statePop();
     }
 }
 
@@ -79,6 +84,7 @@ UIClickFunction::UIClickFunction(ApplicationState* state)
     functionTable["NONE"] = &(ClickFunctions::onClickNone);
     functionTable["MENU"] = &(ClickFunctions::onClickMenu);
     functionTable["GAME"] = &(ClickFunctions::onClickGame);
+    functionTable["OPTIONS"] = &(ClickFunctions::onClickOptions);
     functionTable["QUIT"] = &(ClickFunctions::onClickQuit);
     functionTable["RESUME"] = &(ClickFunctions::onClickResume);
     callback = functionTable["NONE"];

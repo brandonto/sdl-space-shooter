@@ -23,7 +23,7 @@
         <entity type="text" name="playText" data="Play" x="385" y="336" width="265" height="48" function="NONE" id="text3" alphaEnabled="true"/>
         <entity type="uiPanel" name="instructions" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="416" width="344" height="48" function="INSTRUCTIONS" id="ui3" alphaEnabled="true"/>
         <entity type="text" name="instructionsText" data="Instructions" x="360" y="416" width="305" height="48" function="NONE" id="text4" alphaEnabled="true"/>
-        <entity type="uiPanel" name="options" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="496" width="344" height="48" function="NONE" id="ui4" alphaEnabled="true"/>
+        <entity type="uiPanel" name="options" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="496" width="344" height="48" function="OPTIONS" id="ui4" alphaEnabled="true"/>
         <entity type="text" name="optionsText" data="Options" x="370" y="496" width="290" height="48" function="NONE" id="text5" alphaEnabled="true"/>
         <entity type="uiPanel" name="credits" texture="../data/graphics/ui/glassPanel_button.png" x="340" y="576" width="344" height="48" function="CREDITS" id="ui5" alphaEnabled="true"/>
         <entity type="text" name="creditsText" data="Credits" x="370" y="576" width="290" height="48" function="NONE" id="text6" alphaEnabled="true"/>
