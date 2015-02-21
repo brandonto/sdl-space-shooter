@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -69,6 +69,7 @@ class GameState : public ApplicationState,
 enum observingEvents
 {
     ENEMY_DESTROYED,
+    GAME_COMPLETED,
     LEVEL_COMPLETED,
     PLAYER_DESTROYED,
 };

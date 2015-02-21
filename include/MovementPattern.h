@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-16
- * @modified    2015-02-17
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_MOVEMENTPATTERN_H_
     #define SPACESHOOTER_MOVEMENTPATTERN_H_
@@ -45,6 +45,7 @@ enum MovementPatternEnum
     MOVEMENT_SWOOPLEFT,
     MOVEMENT_SWOOPRIGHT,
     MOVEMENT_STRAIGHTSLOW,
+    MOVEMENT_BOSS,
 };
 
 #endif

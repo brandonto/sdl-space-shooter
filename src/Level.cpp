@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #include "Level.h"
 
@@ -20,7 +20,7 @@ Level::Level()
     nextSpawnTime()
 {
     levelXmlPaths[0] = Util::fix_path("../data/xml/levels/level1.xml");
-    levelXmlPathsSize = 1;
+    levelXmlPaths[1] = Util::fix_path("../data/xml/levels/boss.xml");
 }
 
 Level::~Level()
@@ -51,6 +51,7 @@ void Level::parse(int level)
         return;
     }
     levelFinishTime = atoi(settings->Attribute("time"));
+    levelMusic = settings->Attribute("music");
 
     // The parsing EnemyType root element of this xml file
     TiXmlElement* rootEnemyType = settings->NextSiblingElement();
@@ -91,16 +92,17 @@ void Level::onUpdate()
 {
     if (doneLevel)
     {
-        if (currentLevel < levelXmlPathsSize)
+        if (currentLevel < LEVEL_XML_PATH_SIZE)
         {
             timer.stop();
             doneLevel = false;
             parse(currentLevel++);
+            notify(NULL, LEVEL_COMPLETED);
             timer.start();
         }
         else
         {
-            notify(NULL, LEVEL_COMPLETED);
+            notify(NULL, GAME_COMPLETED);
             return;
         }
     }
@@ -126,6 +128,11 @@ void Level::onUpdate()
     {
         doneLevel = true;
     }
+}
+
+std::string Level::getMusic()
+{
+    return levelMusic;
 }
 
 std::queue<SpawnData> Level::getSpawningQueue()

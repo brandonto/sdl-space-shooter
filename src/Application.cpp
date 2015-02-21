@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-05
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #include "Application.h"
 
@@ -76,8 +76,8 @@ bool Application::initialize()
         SDL_WINDOWPOS_CENTERED,
         windowElements.WINDOW_WIDTH,
         windowElements.WINDOW_HEIGHT,
-        SDL_WINDOW_FULLSCREEN
-        //SDL_WINDOW_FULLSCREEN_DESKTOP
+        //SDL_WINDOW_FULLSCREEN
+        SDL_WINDOW_FULLSCREEN_DESKTOP
         //SDL_WINDOW_SHOWN
     );
 

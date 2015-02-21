@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
 <Level>
-    <settings time="85000"/>
+    <settings time="75000" music="level1"/>
 
     <EnemyType>
         <entity type="enemyStraight" x="500" y="-50" spawn-time="9000"/>
@@ -79,8 +79,6 @@
         <entity type="enemyZigZag" x="356" y="-50" spawn-time="60000"/>
         <entity type="enemyZigZag" x="668" y="-50" spawn-time="60000"/>
         <entity type="enemyZigZag" x="924" y="-50" spawn-time="60000"/>
-
-        <entity type="enemyBoss" x="512" y="-50" spawn-time="70000" health="30"/>
     </EnemyType>
 </Level>
 

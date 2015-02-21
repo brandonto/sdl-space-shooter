@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-19
+ * @modified    2015-02-20
  *********************************************************************/
 #include "GameState.h"
 
@@ -50,8 +50,6 @@ GameState::~GameState()
 
 void GameState::onEnter()
 {
-    AudioSystem::getInstance()->loadMusic("level1");
-    AudioSystem::getInstance()->playMusic();
     level.addObserver(this);
     blackScreen.startBlackIn();
     background = gameEntityManager.getFactory()->createBackground();
@@ -189,10 +187,16 @@ void GameState::onNotify(GameEntity* entity, int event)
             //printf("SCORE = %d\n", score);
             break;
 
-        case LEVEL_COMPLETED:
+        case GAME_COMPLETED:
             applicationStateManager->pushStateOnStack(STATE_VICTORY);
             setPauseStatus(PAUSED_THIS_FRAME);
             AudioSystem::getInstance()->stopMusic();
+            break;
+
+        case LEVEL_COMPLETED:
+            AudioSystem::getInstance()->stopMusic();
+            AudioSystem::getInstance()->loadMusic(level.getMusic());
+            AudioSystem::getInstance()->playMusic();
             break;
 
         case PLAYER_DESTROYED:
@@ -200,6 +204,6 @@ void GameState::onNotify(GameEntity* entity, int event)
             playerDestroyed = true;
             //printf("LIVES = %d\n", lives);
             break;
-
     }
 }
+

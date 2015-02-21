@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_LEVEL_H_
     #define SPACESHOOTER_LEVEL_H_
@@ -24,6 +24,8 @@
 #include "IObserver.h"
 #include "Timer.h"
 
+#define LEVEL_XML_PATH_SIZE 2
+
 class GameEntity;
 
 struct SpawnData;
@@ -34,9 +36,9 @@ class Level : public IObservable
         int currentLevel;
         bool doneLevel;
         int levelFinishTime;
+        std::string levelMusic;
 
-        std::string levelXmlPaths[1];
-        int levelXmlPathsSize;
+        std::string levelXmlPaths[LEVEL_XML_PATH_SIZE];
 
         Timer timer;
         int nextSpawnTime;
@@ -56,6 +58,7 @@ class Level : public IObservable
         //Level methods
         void parse(int level);
         void onUpdate();
+        std::string getMusic();
         std::queue<SpawnData> getSpawningQueue();
         SpawnData popSpawningQueue();
         void pauseTimers();

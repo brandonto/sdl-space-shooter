@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-16
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #include "MovementPattern.h"
 
@@ -81,14 +81,83 @@ void MovementPattern::setMovementPattern(int patternId)
     {
         Vector2D vector1(0, 75);
         Vector2D vector2(0, 0);
-        int time1 = 6000;
+        int time1 = 4000;
         int time2 = 3000;
+        int time3 = 8000;
         velocityQueue.push(vector1);
         velocityQueue.push(vector2);
         velocityQueue.push(vector1);
         timeQueue.push(time1);
         timeQueue.push(time2);
+        timeQueue.push(time3);
+    }
+    else if (patternId == MOVEMENT_BOSS)
+    {
+        Vector2D vector1(0, 75);
+        Vector2D vector2(0, 0);
+        Vector2D vector3(-50, -50);
+        Vector2D vector4(50, 50);
+        Vector2D vector5(50, -50);
+        Vector2D vector6(-50, 50);
+        Vector2D vector7(0, 200);
+        int time1 = 3000;
+        int time2 = 5000;
+        velocityQueue.push(vector1);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        velocityQueue.push(vector4);
+        velocityQueue.push(vector5);
+        velocityQueue.push(vector6);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        velocityQueue.push(vector4);
+        velocityQueue.push(vector5);
+        velocityQueue.push(vector6);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        velocityQueue.push(vector4);
+        velocityQueue.push(vector5);
+        velocityQueue.push(vector6);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        velocityQueue.push(vector4);
+        velocityQueue.push(vector5);
+        velocityQueue.push(vector6);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector3);
+        velocityQueue.push(vector4);
+        velocityQueue.push(vector5);
+        velocityQueue.push(vector6);
+        velocityQueue.push(vector2);
+        velocityQueue.push(vector7);
         timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time1);
+        timeQueue.push(time2);
+        timeQueue.push(time2);
     }
 
     currentVelocity = velocityQueue.front();

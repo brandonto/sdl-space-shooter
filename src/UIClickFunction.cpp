@@ -99,7 +99,7 @@ namespace ClickFunctions
         }
         else
         {
-            SDL_SetWindowFullscreen(windowElements->window, SDL_WINDOW_FULLSCREEN);
+            SDL_SetWindowFullscreen(windowElements->window, SDL_WINDOW_FULLSCREEN_DESKTOP);
             windowElements->fullScreen = true;
         }
     }

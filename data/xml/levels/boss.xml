@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+
+<Level>
+    <settings time="85000" music="boss"/>
+
+    <EnemyType>
+        <entity type="enemyBoss" x="512" y="-50" spawn-time="1000" health="200"/>
+
+        <entity type="enemyStraight" x="100" y="-50" spawn-time="5000"/>
+        <entity type="enemyStraight" x="356" y="-50" spawn-time="5000"/>
+        <entity type="enemyStraight" x="668" y="-50" spawn-time="5000"/>
+        <entity type="enemyStraight" x="924" y="-50" spawn-time="5000"/>
+
+        <entity type="enemySwoopLeft" x="824" y="-50" spawn-time="15000"/>
+        <entity type="enemySwoopRight" x="224" y="-50" spawn-time="15000"/>
+        <entity type="enemySwoopLeft" x="924" y="-50" spawn-time="16000"/>
+        <entity type="enemySwoopRight" x="124" y="-50" spawn-time="16000"/>
+
+        <entity type="enemyZigZag" x="200" y="-50" spawn-time="25000"/>
+        <entity type="enemyZigZag" x="356" y="-50" spawn-time="25000"/>
+        <entity type="enemyZigZag" x="668" y="-50" spawn-time="25000"/>
+        <entity type="enemyZigZag" x="824" y="-50" spawn-time="25000"/>
+
+        <entity type="enemyStraight" x="100" y="-50" spawn-time="35000"/>
+        <entity type="enemyStraight" x="356" y="-50" spawn-time="34000"/>
+        <entity type="enemyStraight" x="668" y="-50" spawn-time="34000"/>
+        <entity type="enemyStraight" x="924" y="-50" spawn-time="35000"/>
+
+        <entity type="enemySwoopLeft" x="824" y="-50" spawn-time="45000"/>
+        <entity type="enemySwoopRight" x="224" y="-50" spawn-time="45000"/>
+        <entity type="enemySwoopLeft" x="924" y="-50" spawn-time="46000"/>
+        <entity type="enemySwoopRight" x="124" y="-50" spawn-time="46000"/>
+        <entity type="enemyZigZag" x="200" y="-50" spawn-time="45000"/>
+
+        <entity type="enemyZigZag" x="200" y="-50" spawn-time="55000"/>
+        <entity type="enemyZigZag" x="356" y="-50" spawn-time="55000"/>
+        <entity type="enemyZigZag" x="668" y="-50" spawn-time="55000"/>
+        <entity type="enemyZigZag" x="824" y="-50" spawn-time="55000"/>
+
+        <entity type="enemyCarrier" x="200" y="-50" spawn-time="65000" health="7"/>
+        <entity type="enemyCarrier" x="824" y="-50" spawn-time="65000" health="7"/>
+    </EnemyType>
+</Level>
+
+

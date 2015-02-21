@@ -161,7 +161,7 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         {
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
             EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
-            physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHTSLOW);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_BOSS);
             physics->setMaxHealth(xmlStruct.health);
             physics->setScore(8000);
             physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
