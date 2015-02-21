@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-20
+ * @modified    2015-02-21
  *********************************************************************/
 #include "GameState.h"
 
@@ -18,10 +18,11 @@
 
 #include "ApplicationStateManager.h"
 #include "AudioSystem.h"
+#include "BossPhysicsComponent.h"
+#include "EnemyPhysicsComponent.h"
 #include "GameEntity.h"
 #include "Level.h"
 #include "PauseState.h" //For the enumeration
-#include "EnemyPhysicsComponent.h"
 #include "PlayerPhysicsComponent.h"
 #include "UILivesRenderComponent.h"
 #include "UIScoreRenderComponent.h"
@@ -194,7 +195,7 @@ void GameState::onNotify(GameEntity* entity, int event)
     switch (event)
     {
         case ENEMY_DESTROYED:
-            score+=dynamic_cast<EnemyPhysicsComponent*>(entity->getPhysicsComponent())->getScore();
+            score+=entity->getScore();
             //printf("SCORE = %d\n", score);
             break;
 

@@ -6,7 +6,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-16
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITY_H_
     #define SPACESHOOTER_GAMEENTITY_H_
@@ -42,6 +42,7 @@ class GameEntity
         Vector2D position;
         bool remove;
         bool active;
+        int score = 0;
 
         //Constructor
         GameEntity();
@@ -71,6 +72,9 @@ class GameEntity
         std::string getName();
         void setType(std::string type);
         std::string getType();
+
+        int getScore(){ return score; };
+        void setScore(int score){ this->score = score; };
 };
 
 #endif

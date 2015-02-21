@@ -22,8 +22,7 @@ EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
     render(NULL),
     velocity(0,150),
     velocityPerSecond(500),
-    shooting(true),
-    score(0)
+    shooting(true)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -128,16 +127,6 @@ void EnemyPhysicsComponent::onDestroy()
     gameEntityFactory->createEntity(data);
     gameEntity->remove = true;
     notify(gameEntity, ENEMY_DESTROYED);
-}
-
-int EnemyPhysicsComponent::getScore()
-{
-    return score;
-}
-
-void EnemyPhysicsComponent::setScore(int score)
-{
-    this->score = score;
 }
 
 MovementPattern* EnemyPhysicsComponent::getMovementPattern()

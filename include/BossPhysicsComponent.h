@@ -49,7 +49,6 @@ class BossPhysicsComponent : public PhysicsComponent,
         int velocityPerSecond;
         bool shooting;
         const int offScreenBuffer = 25;
-        int score;
 
         //Constructor
         BossPhysicsComponent(GameEntity* gameEntity,
@@ -65,8 +64,6 @@ class BossPhysicsComponent : public PhysicsComponent,
         void resumeTimers();
         void onHit();
         void onDestroy();
-        int getScore();
-        void setScore(int score);
         MovementPattern* getMovementPattern();
 
         //Virtual methods from IObservable

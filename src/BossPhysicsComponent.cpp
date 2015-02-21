@@ -22,8 +22,7 @@ BossPhysicsComponent::BossPhysicsComponent(GameEntity* gameEntity,
     render(NULL),
     velocity(0,150),
     velocityPerSecond(500),
-    shooting(true),
-    score(0)
+    shooting(true)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -155,16 +154,6 @@ void BossPhysicsComponent::onDestroy()
     gameEntity->remove = true;
     notify(gameEntity, ENEMY_DESTROYED);
     notify(gameEntity, GAME_COMPLETED);
-}
-
-int BossPhysicsComponent::getScore()
-{
-    return score;
-}
-
-void BossPhysicsComponent::setScore(int score)
-{
-    this->score = score;
 }
 
 MovementPattern* BossPhysicsComponent::getMovementPattern()
