@@ -24,7 +24,7 @@
 #include "IObserver.h"
 #include "Timer.h"
 
-#define LEVEL_XML_PATH_SIZE 2
+#define LEVEL_XML_PATH_SIZE 1
 
 class GameEntity;
 
@@ -73,6 +73,8 @@ struct SpawnData
     std::string type;
     int x;
     int y;
+    int width = -1; //Default.. use EntityXmlStruct's width
+    int height = -1; //Default.. use EntityXmlStruct's height
     int health = 1;
 };
 

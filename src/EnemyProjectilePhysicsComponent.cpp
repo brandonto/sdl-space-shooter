@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-17
+ * @modified    2015-02-21
  *********************************************************************/
 #include "EnemyProjectilePhysicsComponent.h"
 

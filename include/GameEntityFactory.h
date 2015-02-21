@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-20
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -52,11 +52,8 @@ class GameEntityFactory
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
         GameEntity* createBackground();
-        GameEntity* createEnemyProjectile(GameEntity* enemyEntity);
-        GameEntity* createExplosion(GameEntity* destroyedEntity);
-        GameEntity* createPlayerProjectile(GameEntity* playerEntity);
+        //GameEntity* createEnemyProjectile(GameEntity* enemyEntity);
         std::vector<GameEntity*> createPlayerInstructions();
-        GameEntity* createPlayerInstructionsProjectile(GameEntity* playerEntity);
         GameEntity* createMeteor();
 };
 
@@ -65,13 +62,17 @@ enum EntityEnum
 {
     ENTITY_BACKGROUND,
     ENTITY_ENEMYBOSS,
+    ENTITY_ENEMYPROJECTILE,
     ENTITY_ENEMYPROJECTILEHIT,
     ENTITY_ENEMYSTRAIGHT,
     ENTITY_ENEMYCARRIER,
     ENTITY_ENEMYSWOOPLEFT,
     ENTITY_ENEMYSWOOPRIGHT,
     ENTITY_ENEMYZIGZAG,
+    ENTITY_EXPLOSION,
     ENTITY_PLAYER1,
+    ENTITY_PLAYERINSTRUCTIONSPROJECTILE,
+    ENTITY_PLAYERPROJECTILE,
     ENTITY_PLAYERPROJECTILEHIT,
     ENTITY_SPRITE,
     ENTITY_TEXT,

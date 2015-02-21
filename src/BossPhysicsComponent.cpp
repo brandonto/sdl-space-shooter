@@ -1,12 +1,12 @@
 /*******************************************************************//*
- * Implementation of the EnemyPhysicsComponent class.
+ * Implementation of the BossPhysicsComponent class.
  *
  * @author      Brandon To
  * @version     1.0
- * @since       2014-09-17
+ * @since       2015-02-21
  * @modified    2015-02-21
  *********************************************************************/
-#include "EnemyPhysicsComponent.h"
+#include "BossPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
@@ -15,7 +15,7 @@
 #include "RenderComponent.h"
 #include "WindowElements.h"
 
-EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
+BossPhysicsComponent::BossPhysicsComponent(GameEntity* gameEntity,
                                             WindowElements* windowElements,
                                             GameEntityFactory* gameEntityFactory)
 :   gameEntityFactory(gameEntityFactory),
@@ -30,11 +30,11 @@ EnemyPhysicsComponent::EnemyPhysicsComponent(GameEntity* gameEntity,
     render = gameEntity->getRenderComponent();
 }
 
-EnemyPhysicsComponent::~EnemyPhysicsComponent()
+BossPhysicsComponent::~BossPhysicsComponent()
 {
 }
 
-void EnemyPhysicsComponent::update()
+void BossPhysicsComponent::update()
 {
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
     //x = x + speedPerSeconds*secondsSinceLastFrame
@@ -74,8 +74,10 @@ void EnemyPhysicsComponent::update()
                 {
                     SpawnData data;
                     data.type = "enemyProjectile";
-                    data.x = gameEntity->position.x;
+                    data.x = gameEntity->position.x - render->getRenderRect().w/4;
                     data.y = gameEntity->position.y + render->getRenderRect().h/2;
+                    gameEntityFactory->createEntity(data);
+                    data.x = gameEntity->position.x + render->getRenderRect().w/4;
                     gameEntityFactory->createEntity(data);
                     projectileCapTimer.stop();
                 }
@@ -84,11 +86,35 @@ void EnemyPhysicsComponent::update()
             {
                 SpawnData data;
                 data.type = "enemyProjectile";
-                data.x = gameEntity->position.x;
+                data.x = gameEntity->position.x - render->getRenderRect().w/4;
                 data.y = gameEntity->position.y + render->getRenderRect().h/2;
+                gameEntityFactory->createEntity(data);
+                data.x = gameEntity->position.x + render->getRenderRect().w/4;
                 gameEntityFactory->createEntity(data);
             }
             projectileCapTimer.start();
+        }
+
+        if (!gameEntity->remove && shooting)
+        {
+            sprayTimer.start();
+            if (sprayTimer.getTimeOnTimer()>10000)
+            {
+                sprayCapTimer.start();
+                if (sprayCapTimer.getTimeOnTimer()>200)
+                {
+                    SpawnData data;
+                    data.type = "enemyProjectile";
+                    data.x = gameEntity->position.x;
+                    data.y = gameEntity->position.y + render->getRenderRect().h/2;
+                    gameEntityFactory->createEntity(data);
+                    sprayCapTimer.stop();
+                }
+                if (sprayTimer.getTimeOnTimer()>12000)
+                {
+                    sprayTimer.stop();
+                }
+            }
         }
     }
     timeBasedMovementTimer.stop();
@@ -96,19 +122,19 @@ void EnemyPhysicsComponent::update()
 
 }
 
-void EnemyPhysicsComponent::pauseTimers()
+void BossPhysicsComponent::pauseTimers()
 {
     timeBasedMovementTimer.pause();
     projectileCapTimer.pause();
 }
 
-void EnemyPhysicsComponent::resumeTimers()
+void BossPhysicsComponent::resumeTimers()
 {
     timeBasedMovementTimer.resume();
     projectileCapTimer.resume();
 }
 
-void EnemyPhysicsComponent::onHit()
+void BossPhysicsComponent::onHit()
 {
     if (!decrementHealth(1))
     {
@@ -116,7 +142,7 @@ void EnemyPhysicsComponent::onHit()
     }
 }
 
-void EnemyPhysicsComponent::onDestroy()
+void BossPhysicsComponent::onDestroy()
 {
     //gameEntityFactory->createExplosion(gameEntity);
     SpawnData data;
@@ -124,23 +150,25 @@ void EnemyPhysicsComponent::onDestroy()
     data.x = gameEntity->position.x;
     data.y = gameEntity->position.y;
     data.width = render->getRenderRect().w;
-    data.height = render->getRenderRect().h;
+    data.height = render->getRenderRect().w; //This is intended!!
     gameEntityFactory->createEntity(data);
     gameEntity->remove = true;
     notify(gameEntity, ENEMY_DESTROYED);
+    notify(gameEntity, GAME_COMPLETED);
 }
 
-int EnemyPhysicsComponent::getScore()
+int BossPhysicsComponent::getScore()
 {
     return score;
 }
 
-void EnemyPhysicsComponent::setScore(int score)
+void BossPhysicsComponent::setScore(int score)
 {
     this->score = score;
 }
 
-MovementPattern* EnemyPhysicsComponent::getMovementPattern()
+MovementPattern* BossPhysicsComponent::getMovementPattern()
 {
     return &movement;
 }
+

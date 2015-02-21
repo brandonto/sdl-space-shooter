@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-18
+ * @modified    2015-02-21
  *********************************************************************/
 #include "EnemyProjectileRenderComponent.h"
 
@@ -16,8 +16,7 @@
 #include "WindowElements.h"
 
 EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameEntity,
-                                               WindowElements* windowElements,
-                                               GameEntity* enemyEntity)
+                                               WindowElements* windowElements)
 {
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
@@ -25,12 +24,12 @@ EnemyProjectileRenderComponent::EnemyProjectileRenderComponent(GameEntity* gameE
     texture = new Texture(windowElements);
     texture->setTexture(Util::fix_path("../data/graphics/sprites/laserRed03.png"));
 
-    renderRect.w = texture->getSpriteWidth();
-    renderRect.h = texture->getSpriteHeight();
-    gameEntity->position.x = enemyEntity->position.x;
-    gameEntity->position.y = enemyEntity->position.y
-        + (enemyEntity->getRenderComponent()->getTexture()->getSpriteHeight())/2
-        - (texture->getSpriteHeight())/2;
+    //renderRect.w = texture->getSpriteWidth();
+    //renderRect.h = texture->getSpriteHeight();
+    //gameEntity->position.x = enemyEntity->position.x;
+    //gameEntity->position.y = enemyEntity->position.y
+    //    + (enemyEntity->getRenderComponent()->getTexture()->getSpriteHeight())/2
+    //    - (texture->getSpriteHeight())/2;
 }
 
 void EnemyProjectileRenderComponent::update()

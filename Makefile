@@ -13,6 +13,7 @@ _OBJS =	main.o \
 		BackgroundPhysicsComponent.o \
 		BackgroundRenderComponent.o \
 		BlackScreen.o \
+		BossPhysicsComponent.o \
 		CollisionBodyRectangle.o \
 		CollisionManager.o \
 		CreditsState.o \

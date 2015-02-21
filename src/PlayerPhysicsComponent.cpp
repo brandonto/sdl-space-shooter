@@ -11,6 +11,7 @@
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
 #include "GameState.h" // Observing
+#include "Level.h" // For SpawnData structure
 #include "RenderComponent.h"
 #include "Texture.h"
 #include "WindowElements.h"
@@ -69,13 +70,23 @@ void PlayerPhysicsComponent::update()
         {
             if (projectileCapTimer.getTimeOnTimer()>200)
             {
-                gameEntityFactory->createPlayerProjectile(gameEntity);
+                //gameEntityFactory->createPlayerProjectile(gameEntity);
+                SpawnData data;
+                data.type = "playerProjectile";
+                data.x = gameEntity->position.x;
+                data.y = gameEntity->position.y - render->getRenderRect().h/2;
+                gameEntityFactory->createEntity(data);
                 projectileCapTimer.stop();
             }
         }
         else
         {
-            gameEntityFactory->createPlayerProjectile(gameEntity);
+            //gameEntityFactory->createPlayerProjectile(gameEntity);
+            SpawnData data;
+            data.type = "playerProjectile";
+            data.x = gameEntity->position.x;
+            data.y = gameEntity->position.y - render->getRenderRect().h/2;
+            gameEntityFactory->createEntity(data);
         }
         projectileCapTimer.start();
     }
@@ -122,7 +133,14 @@ void PlayerPhysicsComponent::onHit()
 
 void PlayerPhysicsComponent::onDestroy()
 {
-    gameEntityFactory->createExplosion(gameEntity);
+    //gameEntityFactory->createExplosion(gameEntity);
+    SpawnData data;
+    data.type = "explosion";
+    data.x = gameEntity->position.x;
+    data.y = gameEntity->position.y;
+    data.width = render->getRenderRect().w;
+    data.height = render->getRenderRect().h;
+    gameEntityFactory->createEntity(data);
     gameEntity->remove = true;
     notify(gameEntity, PLAYER_DESTROYED);
 }

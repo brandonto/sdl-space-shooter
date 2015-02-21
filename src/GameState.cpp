@@ -133,6 +133,17 @@ void GameState::onUpdate()
         }
     }
 
+    if (victoryTimer.isStarted())
+    {
+        if (victoryTimer.getTimeOnTimer()>2000)
+        {
+            applicationStateManager->pushStateOnStack(STATE_VICTORY);
+            setPauseStatus(PAUSED_THIS_FRAME);
+            AudioSystem::getInstance()->stopMusic();
+            victoryTimer.stop();
+        }
+    }
+
     level.onUpdate();
     while (!level.getSpawningQueue().empty())
     {
@@ -188,9 +199,7 @@ void GameState::onNotify(GameEntity* entity, int event)
             break;
 
         case GAME_COMPLETED:
-            applicationStateManager->pushStateOnStack(STATE_VICTORY);
-            setPauseStatus(PAUSED_THIS_FRAME);
-            AudioSystem::getInstance()->stopMusic();
+            victoryTimer.start();
             break;
 
         case LEVEL_COMPLETED:

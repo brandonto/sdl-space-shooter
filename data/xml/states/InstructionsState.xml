@@ -9,6 +9,7 @@
 
     <Physical>
         <entity type="playerInstructions" name="player" texture="../data/graphics/sprites/playerShip1_blue.png" id="player"/>
+        <entity type="playerInstructionsProjectile" name="playerInstructionsProjectileHit" width="8" height="35" texture="../data/graphics/sprites/laserBlue03.png" id="playerInstructionsProjectile"/>
     </Physical>
 
     <Ui>

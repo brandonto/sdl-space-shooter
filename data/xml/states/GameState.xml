@@ -11,10 +11,12 @@
     <Effect>
         <entity type="playerProjectileHit" name="playerProjectileHit" width="35" height="35" texture="../data/graphics/sprites/laserHitBlue.png" id="playerProjectileHit"/>
         <entity type="enemyProjectileHit" name="enemyProjectileHit" width="35" height="35" texture="../data/graphics/sprites/laserHitRed.png" id="enemyProjectileHit"/>
+        <entity type="explosion" name="explosion" width="75" height="75" texture="../data/graphics/sprites/explosionSpritesheet.png" spritesheet="../data/xml/spritesheets/explosionSpritesheet.xml" id="explosion"/>
     </Effect>
 
     <Physical>
         <entity type="player" name="player" x="512" y="650" width="80" height="61" texture="../data/graphics/sprites/playerShip1_blue.png" id="player" alphaEnabled="true"/>
+
         <entity type="enemyStraight" name="enemyStraight" width="75" height="61" texture="../data/graphics/sprites/enemyBlack3.png" id="enemyStraight"/>
         <entity type="enemyZigZag" name="enemyZigZag" width="75" height="61" texture="../data/graphics/sprites/enemyBlack2.png" id="enemyZigZag"/>
         <entity type="enemySwoopLeft" name="enemySwoopLeft" width="75" height="68" texture="../data/graphics/sprites/enemyBlack1.png" id="enemySwoopLeft"/>
@@ -22,6 +24,9 @@
         <entity type="enemyCarrier" name="enemyCarrier" width="125" height="128" texture="../data/graphics/sprites/enemyBlack4.png" id="enemyCarrier"/>
         <entity type="enemyKamikaze" name="enemyKamikaze" width="65" height="56" texture="../data/graphics/sprites/enemyBlack5.png" id="enemyKamikaze"/>
         <entity type="enemyBoss" name="enemyBoss" width="300" height="180" texture="../data/graphics/sprites/enemyBoss1.png" id="enemyBoss"/>
+
+        <entity type="playerProjectile" name="playerProjectile" width="8" height="35" texture="../data/graphics/sprites/laserBlue03.png" id="playerProjectile"/>
+        <entity type="enemyProjectile" name="enemyProjectile" width="8" height="35" texture="../data/graphics/sprites/laserRed03.png" id="enemyProjectile"/>
     </Physical>
 
     <Ui>

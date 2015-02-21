@@ -1,0 +1,1 @@
+Not configuring EnemyProjectile will create a "red wave" effect that damages everything on the screen... maybe of use later.

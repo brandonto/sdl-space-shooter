@@ -4,12 +4,13 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-01
- * @modified    2015-02-07
+ * @modified    2015-02-21
  *********************************************************************/
 #include "PlayerInstructionsPhysicsComponent.h"
 
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
+#include "Level.h" // For SpawnData structure
 #include "RenderComponent.h"
 #include "WindowElements.h"
 
@@ -84,13 +85,23 @@ void PlayerInstructionsPhysicsComponent::update()
         {
             if (projectileCapTimer.getTimeOnTimer()>150)
             {
-                gameEntityFactory->createPlayerInstructionsProjectile(gameEntity);
+                //gameEntityFactory->createPlayerInstructionsProjectile(gameEntity);
+                SpawnData data;
+                data.type = "playerInstructionsProjectile";
+                data.x = gameEntity->position.x;
+                data.y = gameEntity->position.y - render->getRenderRect().h/2;
+                gameEntityFactory->createEntity(data);
                 projectileCapTimer.stop();
             }
         }
         else
         {
-            gameEntityFactory->createPlayerInstructionsProjectile(gameEntity);
+            //gameEntityFactory->createPlayerInstructionsProjectile(gameEntity);
+            SpawnData data;
+            data.type = "playerInstructionsProjectile";
+            data.x = gameEntity->position.x;
+            data.y = gameEntity->position.y - render->getRenderRect().h/2;
+            gameEntityFactory->createEntity(data);
         }
         projectileCapTimer.start();
     }
@@ -110,5 +121,12 @@ void PlayerInstructionsPhysicsComponent::resumeTimers()
 
 void PlayerInstructionsPhysicsComponent::onDestroy()
 {
-    gameEntityFactory->createExplosion(gameEntity);
+    //gameEntityFactory->createExplosion(gameEntity);
+    SpawnData data;
+    data.type = "explosion";
+    data.x = gameEntity->position.x;
+    data.y = gameEntity->position.y;
+    data.width = render->getRenderRect().w;
+    data.height = render->getRenderRect().h;
+    gameEntityFactory->createEntity(data);
 }

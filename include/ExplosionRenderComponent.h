@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-25
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_EXPLOSIONRENDERCOMPONENT_
     #define SPACESHOOTER_EXPLOSIONRENDERCOMPONENT_
@@ -30,8 +30,7 @@ class ExplosionRenderComponent : public RenderComponent
     public:
         //Constructor
         ExplosionRenderComponent(GameEntity* gameEntity,
-                                        WindowElements* windowElements,
-                                        GameEntity* destroyedEntity);
+                                WindowElements* windowElements);
 
         //Destructor
         ~ExplosionRenderComponent();

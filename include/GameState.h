@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-20
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -44,6 +44,7 @@ class GameState : public ApplicationState,
         int score;
 
         Timer gameOverTimer;
+        Timer victoryTimer;
 
     public:
         //Constructor

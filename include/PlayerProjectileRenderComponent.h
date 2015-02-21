@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-08
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERPROJECTILERENDERCOMPONENT_
     #define SPACESHOOTER_PLAYERPROJECTILERENDERCOMPONENT_
@@ -28,8 +28,7 @@ class PlayerProjectileRenderComponent : public RenderComponent
     public:
         //Constructor
         PlayerProjectileRenderComponent(GameEntity* gameEntity,
-                                        WindowElements* windowElements,
-                                        GameEntity* playerEntity);
+                                        WindowElements* windowElements);
 
         //Destructor
         ~PlayerProjectileRenderComponent();

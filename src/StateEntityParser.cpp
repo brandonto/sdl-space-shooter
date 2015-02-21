@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-18
+ * @modified    2015-02-21
  *********************************************************************/
 #include "StateEntityParser.h"
 
@@ -117,6 +117,14 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
             const char* cString = e->Attribute("texture");
             int cStringSize = strlen(cString);
             xmlStruct[index].texture.assign(cString, cStringSize);
+        }
+
+        if (e->Attribute("spritesheet") != NULL)
+        {
+            // Converting c_str to std::string
+            const char* cString = e->Attribute("spritesheet");
+            int cStringSize = strlen(cString);
+            xmlStruct[index].spritesheet.assign(cString, cStringSize);
         }
 
         if (e->Attribute("function") != NULL)

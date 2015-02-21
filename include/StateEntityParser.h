@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-17
+ * @modified    2015-02-21
  *********************************************************************/
 #ifndef SPACESHOOTER_STATEENTITYPARSER_H_
     #define SPACESHOOTER_STATEENTITYPARSER_H_
@@ -41,6 +41,7 @@ struct EntityXmlStruct
     std::string type = "";
     std::string data = "";
     std::string texture = "";
+    std::string spritesheet = "";
     std::string function = "NONE";
 
     int x = 0;
