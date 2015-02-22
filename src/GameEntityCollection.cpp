@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-08-10
- * @modified    2015-02-19
+ * @modified    2015-02-21
  *********************************************************************/
 #include "GameEntityCollection.h"
 
@@ -97,7 +97,11 @@ void GameEntityCollection::onPauseTimers()
             collectionIterator!=collection.end();
             collectionIterator++)
     {
-        (*collectionIterator)->getPhysicsComponent()->pauseTimers();
+        PhysicsComponent* physics = (*collectionIterator)->getPhysicsComponent();
+        if (physics != NULL)
+        {
+            physics->pauseTimers();
+        }
     }
 }
 
@@ -108,6 +112,10 @@ void GameEntityCollection::onResumeTimers()
             collectionIterator!=collection.end();
             collectionIterator++)
     {
-        (*collectionIterator)->getPhysicsComponent()->resumeTimers();
+        PhysicsComponent* physics = (*collectionIterator)->getPhysicsComponent();
+        if (physics != NULL)
+        {
+            physics->resumeTimers();
+        }
     }
 }

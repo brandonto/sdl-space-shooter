@@ -136,7 +136,7 @@ void GameState::onUpdate()
 
     if (victoryTimer.isStarted())
     {
-        if (victoryTimer.getTimeOnTimer()>2000)
+        if (victoryTimer.getTimeOnTimer()>3000)
         {
             applicationStateManager->pushStateOnStack(STATE_VICTORY);
             setPauseStatus(PAUSED_THIS_FRAME);

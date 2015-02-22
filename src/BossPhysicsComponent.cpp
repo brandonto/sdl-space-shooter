@@ -4,9 +4,11 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-21
- * @modified    2015-02-21
+ * @modified    2015-02-22
  *********************************************************************/
 #include "BossPhysicsComponent.h"
+
+#include <time.h>
 
 #include "GameEntity.h"
 #include "GameEntityFactory.h"
@@ -27,6 +29,7 @@ BossPhysicsComponent::BossPhysicsComponent(GameEntity* gameEntity,
     this->gameEntity = gameEntity;
     this->windowElements = windowElements;
     render = gameEntity->getRenderComponent();
+    srand(time(NULL));
 }
 
 BossPhysicsComponent::~BossPhysicsComponent()
@@ -100,11 +103,12 @@ void BossPhysicsComponent::update()
             if (sprayTimer.getTimeOnTimer()>10000)
             {
                 sprayCapTimer.start();
-                if (sprayCapTimer.getTimeOnTimer()>200)
+                if (sprayCapTimer.getTimeOnTimer()>150)
                 {
                     SpawnData data;
                     data.type = "enemyProjectile";
-                    data.x = gameEntity->position.x;
+                    data.x = gameEntity->position.x - render->getRenderRect().w/3
+                            + rand()%(int)(2*render->getRenderRect().w/3);
                     data.y = gameEntity->position.y + render->getRenderRect().h/2;
                     gameEntityFactory->createEntity(data);
                     sprayCapTimer.stop();
@@ -118,7 +122,6 @@ void BossPhysicsComponent::update()
     }
     timeBasedMovementTimer.stop();
     timeBasedMovementTimer.start();
-
 }
 
 void BossPhysicsComponent::pauseTimers()

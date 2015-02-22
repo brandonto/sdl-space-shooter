@@ -19,9 +19,9 @@ Level::Level()
     doneLevel(true),
     nextSpawnTime()
 {
-    //levelXmlPaths[0] = Util::fix_path("../data/xml/levels/level1.xml");
-    //levelXmlPaths[1] = Util::fix_path("../data/xml/levels/boss.xml");
-    levelXmlPaths[0] = Util::fix_path("../data/xml/levels/boss.xml");
+    levelXmlPaths[0] = Util::fix_path("../data/xml/levels/level1.xml");
+    levelXmlPaths[1] = Util::fix_path("../data/xml/levels/boss.xml");
+    //levelXmlPaths[0] = Util::fix_path("../data/xml/levels/boss.xml");
 }
 
 Level::~Level()
