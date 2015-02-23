@@ -41,6 +41,7 @@
 #include "SpriteRenderComponent.h"
 #include "TextRenderComponent.h"
 #include "Texture.h"
+#include "UFOPhysicsComponent.h"
 #include "UIClickFunction.h"
 #include "UILivesRenderComponent.h"
 #include "UIPanelInputComponent.h"
@@ -287,8 +288,9 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
         case ENTITY_ENEMYUFO:
         {
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
-            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
-            physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
+            //EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            UFOPhysicsComponent* physics = new UFOPhysicsComponent(entity, windowElements, this);
+            //physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
             entity->setScore(200);
             physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
             entity->addPhysicsComponent(physics);

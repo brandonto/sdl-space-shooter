@@ -1,22 +1,47 @@
 sdl-space-shooter
 =================
 
-A 2D space shooter written in C++ with SDL2 library, using the OOP paradigm.
-Done primarily as a learning exercise on software architecture. The code base
-tries to use many design patterns common in game development.
+A 2D space shooter 
 
-Currently supported on Linux and Windows.
+Currently supported on Linux and Windows. An OS X build is planned for the
+future.
 
 Due to copyright issues, the music I used will not be included. If you want
 to use your own music, create the directory "data/audio/music" and put your
 music in there. The file extention must be ".ogg".
 
-The following audio file names will correspond to the state it will be played in:
+The following audio file names will correspond to the state it will be played
+in:
 
 - Menu State: menu.ogg
 - Game State: level1.ogg
 - Victory State: win.ogg
 - Game Over State: lose.ogg
+
+Assets are courtesy of Kenney, who can be found here: http://kenney.nl/
+
+
+Language
+=================
+
+This application is written in C++ using the SDL2 library. C++ was the
+language of choice because it is the de facto standard in the gaming
+industry. The game engine is rolled by hand, because this project was
+originally done as a learning exercise on software architeture and to learn
+about game engines. This is also the reason why an off the shelf game
+engine like Unity was not used.
+
+
+Motivation
+=================
+
+As previously mentioned, this project was originally done as a learning
+exercise. However, these goals have evolved into creating a complete open
+source game that is polished enough to ship. This means, that the
+envisioned final product will be cross platform and will feature: smooth
+menu transitions, customizable levels/enemies (currently through XML, but
+will eventually want to have an embedded lua scripting environment for
+enemy behaviour), and co-operative mode.
 
 
 Screetshots
@@ -73,20 +98,23 @@ them all to a common directory:
 - SDL2_ttf
 - SDL2_mixer
 
+[2] Clone the repository: https://github.com/brandonto/sdl-space-shooter
 
-[2] Set up a Code::Blocks project
+[3] Set up a Code::Blocks project
 
-[3] In "Project Build Options>Search Directories>Compiler" add:
+[4] Move the contents of the cloned repository into the project folder
+
+[5] In "Project Build Options>Search Directories>Compiler" add:
 
 C:\PATH-TO-EXTRACTED-DIRECTORY\include\SDL2
 
-[4] In "Project Build Options>Search Directories>Linker" add:
+[6] In "Project Build Options>Search Directories>Linker" add:
 
 C:\PATH-TO-EXTRACTED-DIRECTORY\lib
 
-[5] In "Project Build Options>Linker Settings>Other Linker Options" add:
+[7] In "Project Build Options>Linker Settings>Other Linker Options" add:
 
 -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
-[6] Build and run
+[8] Build and run
 

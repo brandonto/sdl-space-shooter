@@ -63,6 +63,7 @@ _OBJS =	main.o \
 		tinyxml.o \
 		tinyxmlerror.o \
 		tinyxmlparser.o \
+		UFOPhysicsComponent.o \
 		UIClickFunction.o \
 		UILivesRenderComponent.o \
 		UIPanelInputComponent.o \

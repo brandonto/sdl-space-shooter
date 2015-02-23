@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-21
+ * @modified    2015-02-23
  *********************************************************************/
 #ifndef SPACESHOOTER_LEVEL_H_
     #define SPACESHOOTER_LEVEL_H_

@@ -143,9 +143,6 @@ void BossPhysicsComponent::update()
                 data.width = 2*windowElements->WINDOW_WIDTH;
                 data.height = 2*windowElements->WINDOW_HEIGHT;
                 gameEntityFactory->createEntity(data);
-                gameEntityFactory->createEntity(data);
-                gameEntityFactory->createEntity(data);
-                gameEntityFactory->createEntity(data);
                 nukeTimer.stop();
             }
         }
@@ -158,12 +155,20 @@ void BossPhysicsComponent::pauseTimers()
 {
     timeBasedMovementTimer.pause();
     projectileCapTimer.pause();
+    sprayTimer.pause();
+    sprayCapTimer.pause();
+    spawnUFOTimer.pause();
+    nukeTimer.pause();
 }
 
 void BossPhysicsComponent::resumeTimers()
 {
     timeBasedMovementTimer.resume();
     projectileCapTimer.resume();
+    sprayTimer.resume();
+    sprayCapTimer.resume();
+    spawnUFOTimer.resume();
+    nukeTimer.resume();
 }
 
 void BossPhysicsComponent::onHit()
