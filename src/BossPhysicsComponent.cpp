@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-21
- * @modified    2015-02-22
+ * @modified    2015-02-23
  *********************************************************************/
 #include "BossPhysicsComponent.h"
 
@@ -22,8 +22,6 @@ BossPhysicsComponent::BossPhysicsComponent(GameEntity* gameEntity,
                                             GameEntityFactory* gameEntityFactory)
 :   gameEntityFactory(gameEntityFactory),
     render(NULL),
-    velocity(0,150),
-    velocityPerSecond(500),
     shooting(true)
 {
     this->gameEntity = gameEntity;
@@ -39,9 +37,6 @@ BossPhysicsComponent::~BossPhysicsComponent()
 void BossPhysicsComponent::update()
 {
 	float timeSinceLastFrame = timeBasedMovementTimer.getTimeOnTimer() / 1000.f;
-    //x = x + speedPerSeconds*secondsSinceLastFrame
-    //gameEntity->xPos += (xVel * timeSinceLastFrame);
-    //gameEntity->position += velocity*timeSinceLastFrame;
 
     gameEntity->position += movement.getCurrentVelocity()*timeSinceLastFrame;
 
@@ -117,6 +112,41 @@ void BossPhysicsComponent::update()
                 {
                     sprayTimer.stop();
                 }
+            }
+        }
+
+        if (!gameEntity->remove && shooting)
+        {
+            spawnUFOTimer.start();
+            if (spawnUFOTimer.getTimeOnTimer()>20000)
+            {
+                SpawnData data;
+                data.type = "enemyUFO";
+                data.x = gameEntity->position.x - render->getRenderRect().w/2;
+                data.y = gameEntity->position.y;
+                gameEntityFactory->createEntity(data);
+                data.x = gameEntity->position.x + render->getRenderRect().w/2;
+                gameEntityFactory->createEntity(data);
+                spawnUFOTimer.stop();
+            }
+        }
+
+        if (!gameEntity->remove && shooting)
+        {
+            nukeTimer.start();
+            if (nukeTimer.getTimeOnTimer()>50000)
+            {
+                SpawnData data;
+                data.type = "enemyProjectile";
+                data.x = gameEntityFactory->getPlayerPosition().x;
+                data.y = gameEntityFactory->getPlayerPosition().y;
+                data.width = 2*windowElements->WINDOW_WIDTH;
+                data.height = 2*windowElements->WINDOW_HEIGHT;
+                gameEntityFactory->createEntity(data);
+                gameEntityFactory->createEntity(data);
+                gameEntityFactory->createEntity(data);
+                gameEntityFactory->createEntity(data);
+                nukeTimer.stop();
             }
         }
     }

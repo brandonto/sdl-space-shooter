@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-21
+ * @modified    2015-02-23
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMEENTITYFACTORY_H_
     #define SPACESHOOTER_GAMEENTITYFACTORY_H_
@@ -20,6 +20,7 @@
 class ApplicationState;
 class GameEntity;
 class GameEntityManager;
+class Vector2D;
 
 struct WindowElements;
 
@@ -32,6 +33,8 @@ class GameEntityFactory
 
         // Used alongside EntityEnum to map strings to integers
         std::map<std::string, int> stringToEntityEnum;
+
+        Vector2D* playerPosition;
 
     public:
         //Constructor
@@ -52,9 +55,10 @@ class GameEntityFactory
         GameEntity* createEntity(EntityXmlStruct xmlStruct);
         void configureEntity(GameEntity* entity, EntityXmlStruct xmlStruct);
         GameEntity* createBackground();
-        //GameEntity* createEnemyProjectile(GameEntity* enemyEntity);
         std::vector<GameEntity*> createPlayerInstructions();
         GameEntity* createMeteor();
+
+        Vector2D getPlayerPosition();
 };
 
 // Used alongside stringToEntityEnum to map strings to integers
@@ -68,6 +72,7 @@ enum EntityEnum
     ENTITY_ENEMYCARRIER,
     ENTITY_ENEMYSWOOPLEFT,
     ENTITY_ENEMYSWOOPRIGHT,
+    ENTITY_ENEMYUFO,
     ENTITY_ENEMYZIGZAG,
     ENTITY_EXPLOSION,
     ENTITY_PLAYER1,

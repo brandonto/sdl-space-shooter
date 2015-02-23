@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-21
- * @modified    2015-02-21
+ * @modified    2015-02-23
  *********************************************************************/
 #ifndef SPACESHOOTER_BOSSPHYSICSCOMPONENT_
     #define SPACESHOOTER_BOSSPHYSICSCOMPONENT_
@@ -41,12 +41,12 @@ class BossPhysicsComponent : public PhysicsComponent,
         Timer projectileCapTimer;
         Timer sprayTimer;
         Timer sprayCapTimer;
+        Timer spawnUFOTimer;
+        Timer nukeTimer;
 
         MovementPattern movement;
 
     public:
-        Vector2D velocity;
-        int velocityPerSecond;
         bool shooting;
         const int offScreenBuffer = 25;
 

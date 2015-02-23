@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-21
+ * @modified    2015-02-23
  *********************************************************************/
 #include "GameState.h"
 
@@ -36,8 +36,8 @@ GameState::GameState(ApplicationStateManager* applicationStateManager,
     nextState(0),
     pauseStatus(PAUSED_NONE),
     lives(3),
-    playerDestroyed(true),
-    score(0)
+    score(0),
+    playerDestroyed(true)
 {
     this->applicationStateManager = applicationStateManager;
     this->windowElements = windowElements;

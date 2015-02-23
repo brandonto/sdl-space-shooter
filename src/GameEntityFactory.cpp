@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-07
- * @modified    2015-02-21
+ * @modified    2015-02-23
  *********************************************************************/
 #include "GameEntityFactory.h"
 
@@ -47,12 +47,14 @@
 #include "UIPanelRenderComponent.h"
 #include "UIScoreRenderComponent.h"
 #include "Util.h"
+#include "Vector2D.h"
 #include "WindowElements.h"
 
 GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
                                     WindowElements* windowElements)
 :   gameEntityManager(gameEntityManager),
-    windowElements(windowElements)
+    windowElements(windowElements),
+    playerPosition(NULL)
 {
     stringToEntityEnum["background"] = ENTITY_BACKGROUND;
     stringToEntityEnum["enemyBoss"] = ENTITY_ENEMYBOSS;
@@ -62,6 +64,7 @@ GameEntityFactory::GameEntityFactory(GameEntityManager* gameEntityManager,
     stringToEntityEnum["enemyCarrier"] = ENTITY_ENEMYCARRIER;
     stringToEntityEnum["enemySwoopLeft"] = ENTITY_ENEMYSWOOPLEFT;
     stringToEntityEnum["enemySwoopRight"] = ENTITY_ENEMYSWOOPRIGHT;
+    stringToEntityEnum["enemyUFO"] = ENTITY_ENEMYUFO;
     stringToEntityEnum["enemyZigZag"] = ENTITY_ENEMYZIGZAG;
     stringToEntityEnum["explosion"] = ENTITY_EXPLOSION;
     stringToEntityEnum["player"] = ENTITY_PLAYER1;
@@ -281,6 +284,22 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             break;
         }
 
+        case ENTITY_ENEMYUFO:
+        {
+            entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
+            EnemyPhysicsComponent* physics = new EnemyPhysicsComponent(entity, windowElements, this);
+            physics->getMovementPattern()->setMovementPattern(MOVEMENT_STRAIGHT);
+            entity->setScore(200);
+            physics->addObserver(dynamic_cast<IObserver*>(gameEntityManager->getState()));
+            entity->addPhysicsComponent(physics);
+            entity->addCollisionComponent(new EnemyCollisionComponent(entity, windowElements, gameEntityManager->getCollisionManager()));
+            entity->position.x = xmlStruct.x;
+            entity->position.y = xmlStruct.y;
+            configureEntity(entity, xmlStruct);
+            gameEntityManager->addPhysicalEntity(entity);
+            break;
+        }
+
         case ENTITY_ENEMYZIGZAG:
         {
             entity->addRenderComponent(new EnemyRenderComponent(entity, windowElements));
@@ -333,6 +352,7 @@ GameEntity* GameEntityFactory::createEntity(EntityXmlStruct xmlStruct)
             entity->position.y = xmlStruct.y;
             configureEntity(entity, xmlStruct);
             gameEntityManager->addPhysicalEntity(entity);
+            playerPosition = &(entity->position);
             break;
         }
 
@@ -509,17 +529,6 @@ GameEntity* GameEntityFactory::createBackground()
     return background;
 }
 
-//GameEntity* GameEntityFactory::createEnemyProjectile(GameEntity* enemyEntity)
-//{
-//    GameEntity* projectile = new GameEntity();
-//    projectile->addRenderComponent(new EnemyProjectileRenderComponent(projectile, windowElements, enemyEntity));
-//    projectile->addPhysicsComponent(new EnemyProjectilePhysicsComponent(projectile, windowElements, this));
-//    projectile->addCollisionComponent(new EnemyProjectileCollisionComponent(projectile, windowElements, gameEntityManager->getCollisionManager()));
-//    gameEntityManager->addPhysicalEntity(projectile);
-//
-//    return projectile;
-//}
-
 std::vector<GameEntity*> GameEntityFactory::createPlayerInstructions()
 {
     GameEntity* player[1];
@@ -544,3 +553,9 @@ GameEntity* GameEntityFactory::createMeteor()
 
     return meteor;
 }
+
+Vector2D GameEntityFactory::getPlayerPosition()
+{
+    return *playerPosition;
+}
+
