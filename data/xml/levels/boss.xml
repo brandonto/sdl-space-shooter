@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
 <Level>
-    <settings time="85000" music="boss"/>
+    <settings time="85000" music="boss" boss-level="true"/>
 
     <EnemyType>
         <entity type="enemyBoss" x="512" y="-50" spawn-time="1000" health="200"/>

@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-23
+ * @modified    2015-02-25
  *********************************************************************/
 #include "Level.h"
 
@@ -19,9 +19,9 @@ Level::Level()
     doneLevel(true),
     nextSpawnTime()
 {
-    //levelXmlPaths[0] = Util::fix_path("../data/xml/levels/level1.xml");
-    //levelXmlPaths[1] = Util::fix_path("../data/xml/levels/boss.xml");
-    levelXmlPaths[0] = Util::fix_path("../data/xml/levels/boss.xml");
+    levelXmlPaths[0] = Util::fix_path("../data/xml/levels/level1.xml");
+    levelXmlPaths[1] = Util::fix_path("../data/xml/levels/boss.xml");
+    //levelXmlPaths[0] = Util::fix_path("../data/xml/levels/boss.xml");
 }
 
 Level::~Level()
@@ -53,6 +53,14 @@ void Level::parse(int level)
     }
     levelFinishTime = atoi(settings->Attribute("time"));
     levelMusic = settings->Attribute("music");
+    if (settings->Attribute("boss-level") != NULL)
+    {
+        bossLevel = true;
+    }
+    else
+    {
+        bossLevel = false;
+    }
 
     // The parsing EnemyType root element of this xml file
     TiXmlElement* rootEnemyType = settings->NextSiblingElement();
@@ -125,7 +133,7 @@ void Level::onUpdate()
         }
     }
 
-    if (timer.getTimeOnTimer() > levelFinishTime)
+    if (!bossLevel && timer.getTimeOnTimer() > levelFinishTime)
     {
         doneLevel = true;
     }

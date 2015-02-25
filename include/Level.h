@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-14
- * @modified    2015-02-23
+ * @modified    2015-02-25
  *********************************************************************/
 #ifndef SPACESHOOTER_LEVEL_H_
     #define SPACESHOOTER_LEVEL_H_
@@ -24,8 +24,8 @@
 #include "IObserver.h"
 #include "Timer.h"
 
-#define LEVEL_XML_PATH_SIZE 1
-//#define LEVEL_XML_PATH_SIZE 2
+//#define LEVEL_XML_PATH_SIZE 1
+#define LEVEL_XML_PATH_SIZE 2
 
 class GameEntity;
 
@@ -37,6 +37,7 @@ class Level : public IObservable
         int currentLevel;
         bool doneLevel;
         int levelFinishTime;
+        bool bossLevel;
         std::string levelMusic;
 
         std::string levelXmlPaths[LEVEL_XML_PATH_SIZE];
