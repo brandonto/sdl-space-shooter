@@ -1,7 +1,13 @@
+NOTE: This project is currently on hold because I want to explore other
+areas of programming. I may or may not come back to this specific project,
+but I will definitely be coming back to game development in the future. As
+of the time of writing, the game is playable wth one level and a boss fight.
+
 sdl-space-shooter
 =================
+(last updated README.md on February 27, 2015)
 
-A 2D space shooter 
+A 2D space shooter named... Space Shooter...
 
 Currently supported on Linux and Windows. An OS X build is planned for the
 future.
@@ -15,6 +21,7 @@ in:
 
 - Menu State: menu.ogg
 - Game State: level1.ogg
+- Boss Fight: boss.ogg
 - Victory State: win.ogg
 - Game Over State: lose.ogg
 
@@ -38,10 +45,13 @@ Motivation
 As previously mentioned, this project was originally done as a learning
 exercise. However, these goals have evolved into creating a complete open
 source game that is polished enough to ship. This means, that the
-envisioned final product will be cross platform and will feature: smooth
-menu transitions, customizable levels/enemies (currently through XML, but
-will eventually want to have an embedded lua scripting environment for
-enemy behaviour), and co-operative mode.
+envisioned final product will be cross platform and will feature:
+
+- smooth menu transitions
+- customizable levels/enemies (currently through XML, but will eventually
+want to have an embedded lua scripting environment for enemy behaviour)
+- co-operative mode
+- more as seen fit
 
 
 Screetshots
