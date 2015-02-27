@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-23
+ * @modified    2015-02-26
  *********************************************************************/
 #ifndef SPACESHOOTER_GAMESTATE_H_
     #define SPACESHOOTER_GAMESTATE_H_
@@ -70,6 +70,7 @@ enum observingEvents
 {
     ENEMY_DESTROYED,
     GAME_COMPLETED,
+    GAME_OVER,
     LEVEL_COMPLETED,
     PLAYER_DESTROYED,
 };

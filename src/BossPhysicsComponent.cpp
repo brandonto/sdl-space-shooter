@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-21
- * @modified    2015-02-23
+ * @modified    2015-02-26
  *********************************************************************/
 #include "BossPhysicsComponent.h"
 
@@ -61,6 +61,7 @@ void BossPhysicsComponent::update()
             gameEntity->position.y - spriteHeight/2 - offScreenBuffer > windowElements->WINDOW_HEIGHT)
         {
             gameEntity->remove = true;
+            notify(gameEntity, GAME_OVER);
         }
 
         if (!gameEntity->remove && shooting)
@@ -159,6 +160,7 @@ void BossPhysicsComponent::pauseTimers()
     sprayCapTimer.pause();
     spawnUFOTimer.pause();
     nukeTimer.pause();
+    movement.pauseTimers();
 }
 
 void BossPhysicsComponent::resumeTimers()
@@ -169,6 +171,7 @@ void BossPhysicsComponent::resumeTimers()
     sprayCapTimer.resume();
     spawnUFOTimer.resume();
     nukeTimer.resume();
+    movement.resumeTimers();
 }
 
 void BossPhysicsComponent::onHit()

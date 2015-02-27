@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-05
- * @modified    2015-02-23
+ * @modified    2015-02-26
  *********************************************************************/
 #include "GameState.h"
 
@@ -201,6 +201,10 @@ void GameState::onNotify(GameEntity* entity, int event)
 
         case GAME_COMPLETED:
             victoryTimer.start();
+            break;
+
+        case GAME_OVER:
+            gameOverTimer.start();
             break;
 
         case LEVEL_COMPLETED:

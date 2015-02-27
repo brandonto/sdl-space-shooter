@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2014-09-17
- * @modified    2015-02-21
+ * @modified    2015-02-26
  *********************************************************************/
 #include "EnemyPhysicsComponent.h"
 
@@ -99,12 +99,14 @@ void EnemyPhysicsComponent::pauseTimers()
 {
     timeBasedMovementTimer.pause();
     projectileCapTimer.pause();
+    movement.pauseTimers();
 }
 
 void EnemyPhysicsComponent::resumeTimers()
 {
     timeBasedMovementTimer.resume();
     projectileCapTimer.resume();
+    movement.resumeTimers();
 }
 
 void EnemyPhysicsComponent::onHit()

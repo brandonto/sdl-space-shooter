@@ -5,7 +5,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-16
- * @modified    2015-02-21
+ * @modified    2015-02-26
  *********************************************************************/
 #ifndef SPACESHOOTER_MOVEMENTPATTERN_H_
     #define SPACESHOOTER_MOVEMENTPATTERN_H_
@@ -36,6 +36,8 @@ class MovementPattern
         //Methods
         void setMovementPattern(int patternId);
         Vector2D getCurrentVelocity();
+        void pauseTimers();
+        void resumeTimers();
 };
 
 enum MovementPatternEnum

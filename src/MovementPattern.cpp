@@ -4,7 +4,7 @@
  * @author      Brandon To
  * @version     1.0
  * @since       2015-02-16
- * @modified    2015-02-21
+ * @modified    2015-02-26
  *********************************************************************/
 #include "MovementPattern.h"
 
@@ -185,3 +185,12 @@ Vector2D MovementPattern::getCurrentVelocity()
     return currentVelocity;
 }
 
+void MovementPattern::pauseTimers()
+{
+    timer.pause();
+}
+
+void MovementPattern::resumeTimers()
+{
+    timer.resume();
+}
