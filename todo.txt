@@ -1,0 +1,25 @@
+TODO:
+
+Rotated Rectangle Collision System
+==================================
+
+The game is current using an AABB (Axis-Aligned Bounding-Box) collision
+system. This means the bounding box for game entities is are fixed
+rectangles. While simple, this system is not ideal. A ideal collision
+system which detects rotated rectangles is needed for features like
+homing missiles and enemies that can fly and shoot at an angle.
+
+The way the collision is implemented right now is:
+Every collidable game entity has a bounding box (currently an SDL_Rect)
+that the system uses to detect collisions.
+
+This should not be an SDL_Rect, but instead a data structure of a
+rectangle along with an angle, used to model the shape of the object.
+The system should change the detection algorithm to accomodate this by
+implementing the "Seperating Axis Theorem" algorithm described in the
+links below.
+
+See:
+http://blog.wolfire.com/2010/07/Linear-algebra-for-game-developers-part-3
+http://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169
+
