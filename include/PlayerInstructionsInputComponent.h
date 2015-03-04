@@ -7,7 +7,7 @@
  * @modified    2015-02-19
  *********************************************************************/
 #ifndef SPACESHOOTER_PLAYERINSTRUCTIONSINPUTCOMPONENT_
-    #define SPACESHOOTER_PLAYERINSTRUCTIONSINPUtCOMPONENT_
+    #define SPACESHOOTER_PLAYERINSTRUCTIONSINPUTCOMPONENT_
 
 #include "InputComponent.h"
 
