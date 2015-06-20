@@ -118,10 +118,10 @@ void Level::onUpdate()
 
     while (timer.getTimeOnTimer() > nextSpawnTime)
     {
-        if (!timerQueue.empty())
+        if (!timerQueue.empty() && !dataQueue.empty())
         {
-            timerQueue.pop();
             nextSpawnTime = timerQueue.front();
+            timerQueue.pop();
             SpawnData toSpawn = dataQueue.front();
             dataQueue.pop();
             spawningQueue.push(toSpawn);

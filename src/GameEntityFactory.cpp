@@ -98,20 +98,21 @@ std::vector<GameEntity*> GameEntityFactory::createPhysicalEntities()
     std::vector<EntityXmlStruct> xmlStructs = gameEntityData.getPhysicalData(gameEntityManager->getState());
     int numEntities = xmlStructs.size();
 
-    GameEntity* physical[numEntities];
+    std::vector<GameEntity*> physical(numEntities);
 
     for (int i=0; i<numEntities; i++)
     {
         physical[i] = createEntity(xmlStructs[i]);
     }
 
-    std::vector<GameEntity*> physicalVector(physical, physical + sizeof(physical)/sizeof(GameEntity*));
+    std::vector<GameEntity*> physicalVector(physical);
     return physicalVector;
 }
 
 std::vector<GameEntity*> GameEntityFactory::createEffectEntities()
 {
     //gameEntityData.getEffectData(gameEntityManager->getState());
+    return std::vector<GameEntity*>();
 }
 
 std::vector<GameEntity*> GameEntityFactory::createUIEntities()
@@ -119,14 +120,14 @@ std::vector<GameEntity*> GameEntityFactory::createUIEntities()
     std::vector<EntityXmlStruct> xmlStructs = gameEntityData.getUIData(gameEntityManager->getState());
     int numEntities = xmlStructs.size();
 
-    GameEntity* ui[numEntities];
+    std::vector<GameEntity*> ui(numEntities);
 
     for (int i=0; i<numEntities; i++)
     {
         ui[i] = createEntity(xmlStructs[i]);
     }
 
-    std::vector<GameEntity*> uiVector(ui, ui + sizeof(ui)/sizeof(GameEntity*));
+    std::vector<GameEntity*> uiVector(ui);
     return uiVector;
 }
 

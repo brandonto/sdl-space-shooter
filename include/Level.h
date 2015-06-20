@@ -29,7 +29,15 @@
 
 class GameEntity;
 
-struct SpawnData;
+struct SpawnData
+{
+    std::string type;
+    int x;
+    int y;
+    int width = -1; //Default.. use EntityXmlStruct's width
+    int height = -1; //Default.. use EntityXmlStruct's height
+    int health = 1;
+};
 
 class Level : public IObservable
 {
@@ -70,14 +78,5 @@ class Level : public IObservable
         //void notify(GameEntity* entity, int event);
 };
 
-struct SpawnData
-{
-    std::string type;
-    int x;
-    int y;
-    int width = -1; //Default.. use EntityXmlStruct's width
-    int height = -1; //Default.. use EntityXmlStruct's height
-    int health = 1;
-};
 
 #endif
