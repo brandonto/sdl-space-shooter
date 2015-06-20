@@ -228,7 +228,7 @@ bool Texture::advanceAnimation()
     }
 
     // No more animations
-    if (++currentAnimationFrame > animationRect.size())
+    if (++currentAnimationFrame >= animationRect.size())
     {
         return false;
     }

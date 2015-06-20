@@ -14,6 +14,7 @@
 #include "Texture.h"
 #include "Util.h"
 #include "WindowElements.h"
+#include <algorithm>
 
 UILivesRenderComponent::UILivesRenderComponent(GameEntity* gameEntity,
                                                WindowElements* windowElements)
@@ -64,7 +65,7 @@ void UILivesRenderComponent::update()
 
     SDL_RenderCopy(windowElements->renderer, texture->getTexture(), NULL, &renderRect);
     SDL_RenderCopy(windowElements->renderer, xTexture->getTexture(), NULL, &xRect);
-    SDL_RenderCopy(windowElements->renderer, numLivesTextures[*livesPointer]->getTexture(), NULL, &numLivesRect);
+    SDL_RenderCopy(windowElements->renderer, numLivesTextures[std::max(0, *livesPointer)]->getTexture(), NULL, &numLivesRect);
 }
 
 // Enables alpha blending effect on texture
