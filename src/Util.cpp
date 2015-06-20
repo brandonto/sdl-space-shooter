@@ -9,7 +9,7 @@
 #include "Util.h"
 
 #include <cstdio>
-#include <libgen.h>
+
 
 #ifdef _WIN32
     #include <windows.h>
@@ -17,6 +17,17 @@
 
 #ifdef linux
     #include <unistd.h>
+    #include <libgen.h>
+#endif
+
+#ifdef _WIN32
+std::string dirname(const std::string& fname)
+{
+    size_t pos = fname.find_last_of("\\/");
+    return (std::string::npos == pos)
+        ? ""
+        : fname.substr(0, pos);
+}
 #endif
 
 namespace Util
