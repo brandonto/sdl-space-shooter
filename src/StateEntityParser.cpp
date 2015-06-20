@@ -70,7 +70,7 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
     {
         arraySize++;
     }
-    EntityXmlStruct xmlStruct[arraySize];
+    std::vector<EntityXmlStruct> xmlStruct(arraySize);
 
     // Parses through subelements of the parsing layer element and
     // fills values of the array of EntityXmlStruct as we go
@@ -163,7 +163,7 @@ std::vector<EntityXmlStruct> StateEntityParser::parse(ApplicationState* state,
         index++;
     }
 
-    std::vector<EntityXmlStruct> xmlStructVector(xmlStruct, xmlStruct + sizeof(xmlStruct)/sizeof(EntityXmlStruct));
+    std::vector<EntityXmlStruct> xmlStructVector(xmlStruct);
     return xmlStructVector;
 }
 
