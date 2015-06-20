@@ -36,7 +36,7 @@ class RenderComponent
         virtual void setRenderStatus(bool status){ renderEnabled = status; };
         virtual Texture* getTexture(){ return texture; };
         virtual SDL_Rect getRenderRect(){ return renderRect; };
-        virtual bool advanceAnimation(){};
+        virtual bool advanceAnimation(){ return false; };
 
     protected:
         //Fields
