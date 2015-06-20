@@ -77,7 +77,7 @@ OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 CC = g++
 
-CFLAGS = -w -g
+CFLAGS = -w -g -std=c++11
 
 LFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 

@@ -13,7 +13,7 @@
     #include <windows.h>
 #endif
 
-#ifdef linux
+#ifdef __linux
     #include <SDL2/SDL.h>
 #endif
 
@@ -40,7 +40,7 @@ namespace ClickFunctions
         ShellExecute(NULL, "open", url.c_str(), NULL, NULL, SW_SHOWNORMAL);
 #endif
 
-#ifdef linux
+#ifdef __linux
         std::string url = "xdg-open https://github.com/brandonto/sdl-space-shooter";
         system(url.c_str());
 #endif

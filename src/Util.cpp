@@ -15,7 +15,7 @@
     #include <windows.h>
 #endif
 
-#ifdef linux
+#ifdef __linux
     #include <unistd.h>
     #include <libgen.h>
 #endif
@@ -42,7 +42,7 @@ namespace Util
         return binaryLocation + "/../" + path;
 #endif
 
-#ifdef linux
+#ifdef __linux
         // Creates a path to the binary location
         char buf[256];
         readlink("/proc/self/exe", buf, sizeof(buf)-1);

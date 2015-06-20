@@ -12,7 +12,7 @@
 	#include <SDL.h>
 #endif
 
-#ifdef linux
+#ifdef __linux
 	#include <SDL2/SDL.h>
 #endif
 
