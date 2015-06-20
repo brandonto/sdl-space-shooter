@@ -12,6 +12,7 @@
     #define SPACESHOOTER_GAMEENTITYCOLLECTION_H_
 
 #include <list>
+#include <memory>
 
 class GameEntity;
 
@@ -20,7 +21,7 @@ union SDL_Event;
 class GameEntityCollection
 {
     private:
-        std::list<GameEntity*> collection;
+        std::list<std::shared_ptr<GameEntity> > collection;
 
     public:
         //Constructor

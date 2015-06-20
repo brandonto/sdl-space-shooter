@@ -18,6 +18,7 @@
 
 #include "GameEntity.h"
 #include "PhysicsComponent.h"
+#include <algorithm>
 
 GameEntityCollection::GameEntityCollection()
 {
@@ -26,18 +27,12 @@ GameEntityCollection::GameEntityCollection()
 
 GameEntityCollection::~GameEntityCollection()
 {
-    std::list<GameEntity*>::iterator collectionIterator;
-    for (   collectionIterator=collection.begin();
-            collectionIterator!=collection.end();
-            collectionIterator++)
-    {
-        delete (*collectionIterator);
-    }
+    
 }
 
 void GameEntityCollection::add(GameEntity* gameEntity)
 {
-    collection.push_front(gameEntity);
+    collection.push_front(std::shared_ptr<GameEntity>(gameEntity));
 }
 
 void GameEntityCollection::remove(GameEntity* gameEntity)
@@ -47,8 +42,7 @@ void GameEntityCollection::remove(GameEntity* gameEntity)
 
 void GameEntityCollection::onEvent(SDL_Event* event)
 {
-    std::list<GameEntity*>::iterator collectionIterator;
-    for (   collectionIterator=collection.begin();
+    for (auto collectionIterator=collection.begin();
             collectionIterator!=collection.end();
             collectionIterator++)
     {
@@ -58,31 +52,23 @@ void GameEntityCollection::onEvent(SDL_Event* event)
 
 void GameEntityCollection::onUpdate()
 {
-    std::list<GameEntity*>::iterator collectionIterator;
-    for (   collectionIterator=collection.begin();
+    
+    for (auto collectionIterator=collection.begin();
             collectionIterator!=collection.end();
             collectionIterator++)
     {
         (*collectionIterator)->onUpdate();
     }
 
-    for (   collectionIterator=collection.begin();
-            collectionIterator!=collection.end();
-            collectionIterator++)
-    {
-        if ((*collectionIterator)->remove)
-        {
-            delete *collectionIterator;
-            collectionIterator = collection.erase(collectionIterator);
-            collectionIterator--;
-        }
-    }
+    auto it_new_end = std::remove_if(collection.begin(), collection.end(), 
+        [](std::shared_ptr<GameEntity> pEntity){return pEntity->remove; });
+
+    collection.erase(it_new_end, collection.end());
 }
 
 void GameEntityCollection::onRender()
 {
-    std::list<GameEntity*>::iterator collectionIterator;
-    for (   collectionIterator=collection.begin();
+    for (auto collectionIterator=collection.begin();
             collectionIterator!=collection.end();
             collectionIterator++)
     {
@@ -92,8 +78,7 @@ void GameEntityCollection::onRender()
 
 void GameEntityCollection::onPauseTimers()
 {
-    std::list<GameEntity*>::iterator collectionIterator;
-    for (   collectionIterator=collection.begin();
+    for (auto collectionIterator=collection.begin();
             collectionIterator!=collection.end();
             collectionIterator++)
     {
@@ -107,8 +92,7 @@ void GameEntityCollection::onPauseTimers()
 
 void GameEntityCollection::onResumeTimers()
 {
-    std::list<GameEntity*>::iterator collectionIterator;
-    for (   collectionIterator=collection.begin();
+    for (auto collectionIterator=collection.begin();
             collectionIterator!=collection.end();
             collectionIterator++)
     {
