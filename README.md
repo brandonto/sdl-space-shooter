@@ -128,3 +128,11 @@ C:\PATH-TO-EXTRACTED-DIRECTORY\lib
 
 [8] Build and run
 
+
+Contributors
+=================
+
+Thanks to the following people for contributing to this project:
+
+Sergey Matyunin (https://github.com/serge-m)
+Yuriy Rivniy (https://github.com/YR17)
