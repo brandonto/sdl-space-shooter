@@ -5,7 +5,7 @@ of the time of writing, the game is playable wth one level and a boss fight.
 
 sdl-space-shooter
 =================
-(last updated README.md on February 27, 2015)
+(last updated README.md on June 22, 2015)
 
 A 2D space shooter named... Space Shooter...
 
@@ -135,4 +135,5 @@ Contributors
 Thanks to the following people for contributing to this project:
 
 Sergey Matyunin (https://github.com/serge-m)
+
 Yuriy Rivniy (https://github.com/YR17)
